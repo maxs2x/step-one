@@ -1,0 +1,15 @@
+extends ../../index.pug
+
+block variables 
+  -
+    const keywords_and_description = {
+        keywords: 'Toxin, UI-kit',
+        description: 'Toxin - Лучшие номера для вашей работы, отдыха и просто вдохновения. UI-kit - набор компонентов.'
+    }
+
+block title
+  title Colors & type 
+block content   
+  include ../../components/header/header.pug
+  p viva la revolutoin 
+  +header-top()
