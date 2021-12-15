@@ -1,0 +1,145 @@
+.head-ui-kit__logo {
+  margin: 1.4rem;
+}
+
+.content-ui-kit {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 2.5rem 8.9rem 0rem;
+}
+
+.content-ui-kit__left-block {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.left-block-item {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 1.24rem;
+}
+
+.left-block-item__filled-square {
+  display: block;
+  width: 4.35rem;
+  height: 4.4rem;
+  border-radius: 0.4rem;
+}
+
+.content-ui-kit__left-block > :first-child .left-block-item__filled-square {
+  background-color: $dark-shade-100;
+}
+
+.content-ui-kit__left-block > :nth-child(2) .left-block-item__filled-square {
+  background-color: $dark-shade-75;
+}
+
+.content-ui-kit__left-block > :nth-child(3) .left-block-item__filled-square {
+  background-color: $dark-shade-50;
+}
+
+.content-ui-kit__left-block > :nth-child(4) .left-block-item__filled-square {
+  background-color: $dark-shade-25;
+}
+
+.content-ui-kit__left-block > :nth-child(5) .left-block-item__filled-square {
+  background-color: $dark-shade-5;
+}
+
+.content-ui-kit__left-block > :nth-child(6) .left-block-item__filled-square {
+  background-color: $purple;
+}
+
+.content-ui-kit__left-block > :nth-child(7) .left-block-item__filled-square {
+  background-color: $green;
+}
+
+.left-block-item__text-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left:  2.46rem;
+  
+}
+
+.left-block-item__color-name 
+p {
+  font-family: $mainFont;
+  font-size: 19px;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.01rem;
+  margin: 0.55rem 0rem 0rem 0rem;
+}
+
+.left-block-item__color-code 
+p {
+  font-family: $mainFont;
+  font-size: 19px;
+  margin: 0.3rem 0rem 0rem 0rem;
+}
+
+.content-ui-kit__right-block {
+  width: 36.6rem;
+}
+
+.right-block-item {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 30rem;
+  margin-right: 4.2rem;
+  margin-bottom: 3.25rem;
+}
+
+.content-ui-kit__right-block > :first-child .right-block-item__space{
+    width: 2.3rem;
+}
+
+.content-ui-kit__right-block > :nth-child(2) {
+    width: 25rem;
+    .right-block-item__tag {
+        margin-left: 0.1rem;
+    }
+}
+
+.right-block-item__tag h1, 
+.right-block-item__tag h2, 
+.right-block-item__tag h3 {
+  margin-left: 0.5rem;
+}
+
+.right-block-item__tag h1, 
+.right-block-item__tag h2, 
+.right-block-item__tag h3,
+.right-block-item__tag p {
+  color: $dark-shade-25;
+  font-weight: 400;
+}
+
+.right-block-item__space {
+  width: 2.2rem;
+  height: 1rem;
+}
+
+.content-ui-kit__right-block > :nth-child(3) {
+  margin-bottom: 2.25rem;
+  margin-left: 0rem;
+}
+
+.content-ui-kit__right-block > :nth-child(3) .right-block-item__tag {
+  margin-left: 0.7rem;
+}
+
+.content-ui-kit__right-block > :nth-child(3) .right-block-item__text {
+  width: 100%;
+}
+.content-ui-kit__right-block > :last-child {
+  width: 23rem;
+  .right-block-item__space {
+    width: 3.5rem;
+  }
+  p {
+    margin-top: 0.7rem;
+  }
+}

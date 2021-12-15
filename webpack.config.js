@@ -29,7 +29,7 @@ module.exports = {
             filename: '[name].[contenthash].css'
         }),
         new HtmlWebpackPlugin({
-            template: "./src/pages/ui-kit/colors-type.pug"
+            template: "./src/pages/ui-kit/colors-type/colors-type.pug"
         })
     ],
     module: {
