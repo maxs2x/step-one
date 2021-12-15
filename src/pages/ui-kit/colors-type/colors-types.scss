@@ -1,6 +1,4 @@
-.head-ui-kit__logo {
-  margin: 1.4rem;
-}
+@import '../../../components/header-for-ui-kit/header-for-ui-kit.scss';
 
 .content-ui-kit {
   display: flex;
@@ -60,7 +58,6 @@
   flex-direction: column;
   justify-content: center;
   margin-left:  2.46rem;
-  
 }
 
 .left-block-item__color-name 
@@ -93,14 +90,14 @@ p {
 }
 
 .content-ui-kit__right-block > :first-child .right-block-item__space{
-    width: 2.3rem;
+  width: 2.3rem;
 }
 
 .content-ui-kit__right-block > :nth-child(2) {
-    width: 25rem;
-    .right-block-item__tag {
-        margin-left: 0.1rem;
-    }
+  width: 25rem;
+  .right-block-item__tag {
+    margin-left: 0.1rem;
+  }
 }
 
 .right-block-item__tag h1, 
@@ -134,6 +131,7 @@ p {
 .content-ui-kit__right-block > :nth-child(3) .right-block-item__text {
   width: 100%;
 }
+
 .content-ui-kit__right-block > :last-child {
   width: 23rem;
   .right-block-item__space {

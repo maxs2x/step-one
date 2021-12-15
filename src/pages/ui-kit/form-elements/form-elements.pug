@@ -1,0 +1,19 @@
+extends ../../../index.pug
+
+include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
+
+block variables 
+  -
+    const keywords_and_description = {
+        keywords: 'Toxin, UI-kit',
+        description: 'Toxin - Лучшие номера для вашей работы, отдыха и просто вдохновения. UI-kit - набор компонентов.'
+    }
+
+block title
+  title Form elements 
+block content  
+  +header-for-ui-kit()
+  .content-form-elements 
+    .content-form-elements__column
+    .content-form-elements__column
+    .content-form-elements__column

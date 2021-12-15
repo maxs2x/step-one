@@ -1,5 +1,7 @@
 extends ../../../index.pug
 
+include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
+
 block variables 
   -
     const keywords_and_description = {
@@ -10,8 +12,7 @@ block variables
 block title
   title Colors & type 
 block content  
-  .head-ui-kit 
-    img.head-ui-kit__logo(src=require("./images/logo-ui-kit.svg")) 
+  +header-for-ui-kit()
   .content-ui-kit
     .content-ui-kit__left-block 
       .left-block-item 
