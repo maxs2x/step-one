@@ -1,6 +1,7 @@
 extends ../../../index.pug
 
 include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
+include ../../../components/text-field/text-field.pug
 
 block variables 
   -
@@ -15,5 +16,10 @@ block content
   +header-for-ui-kit()
   .content-form-elements 
     .content-form-elements__column
+      .form-element
+        .element-text-field__text
+          h3 text field
+          h3 default
+        +text-field({class: 'text-field_default', placeholder:'Email'})
     .content-form-elements__column
     .content-form-elements__column

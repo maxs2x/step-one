@@ -1,7 +1,27 @@
 @import '../../../components/header-for-ui-kit/header-for-ui-kit.scss';
+@import '../../../components/text-field/text-field.scss';
 
 .content-form-elements {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 2.2rem 0px 0px 8.3rem;
+}
+
+.content-form-elements__column {
   width: 320px;
+}
+
+.element-text-field__text {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  :first-child {
+    margin-top: 0.2rem;
+  }
+  :last-child {
+    color: $dark-shade-50;
+  }
 }
