@@ -17,29 +17,46 @@ function dropdownFunction() {
 
 dropdown.addEventListener("click", dropdownFunction);
 
-function changeQuantity(quantity, action) {
-    let count = quantity.getAttribute('value');
+function getDropdownButtons(element) {
+    const dropDownButtonsList = [];
+    const dropDownButtons = element.querySelectorAll('.quantity__button');
+    dropDownButtonsList.push(...dropDownButtons);
+    return dropDownButtonsList;
+};
+
+function handleDropDownButtonsClick() {
+    let action = '';
+    if (this.classList.contains('quantity__button-minus')) {
+        action = 'subtraction';
+    } else {
+        action = 'addition';
+    }
     if (action === 'addition') {
+        let count = this.previousElementSibling.getAttribute('value');
         if (count === '0') {
-            quantity.previousElementSibling.classList.toggle('dropdown-js__inviseble');
+            this.parentElement.firstElementChild.classList.toggle('dropdown-js__inviseble');
         };
         let newCount = ++count;
-        quantity.setAttribute('value', newCount);
+        this.previousElementSibling.setAttribute('value', newCount);
     } else {
+        let count = this.nextElementSibling.getAttribute('value');
         let newCount = --count;
         if (newCount === 0) {
-            quantity.previousElementSibling.classList.toggle('dropdown-js__inviseble');
+            this.classList.toggle('dropdown-js__inviseble');
         };
-        quantity.setAttribute('value', newCount);
+        this.nextElementSibling.setAttribute('value', newCount);
     };
 };
-function additionHandler(){
-    let quantity = this.previousElementSibling
-    changeQuantity(quantity, 'addition')
+
+function setupEventListners(elements) {
+    for (el of elements) {
+        el.addEventListener('click', handleDropDownButtonsClick);
+    }
 };
-function subtractionHandler() {
-    let quantity = this.nextElementSibling
-    changeQuantity(quantity, 'subtraction')
+
+function dropdownButtonsHendler() {
+    let dropdownButtonsList = getDropdownButtons(this);
+    setupEventListners(dropdownButtonsList);
 };
-button_minus.addEventListener("click", subtractionHandler);
-button_plus.addEventListener("click", additionHandler);
+
+dropdownJs__listOfOptions.addEventListener("mouseenter", dropdownButtonsHendler);
