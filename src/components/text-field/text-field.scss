@@ -4,11 +4,32 @@
   border-radius: 0.3rem;;
   width: calc(100% - 1.15rem);
   height: 2.5rem;
-  color: $dark-shade-25;
+  color: $dark-shade-75;
+  font-size: 0.85rem;
+  font-family: 'Montserrat';
+}
+
+.text-field:hover {
+  border-color: $dark-shade-50;
+}
+
+.text-field:focus {
+  outline: none;
+  color: $dark-shade-75;
+
 }
 
 .text-field::placeholder {
   color: $dark-shade-25;
+  text-overflow: ellipsis;
   font-size: 1rem;
   font-family: 'Montserrat';
+}
+
+.text-field:focus::placeholder {
+  font-size: 0.85rem;
+  font-family: 'Montserrat';
+  opacity: 0; 
+  transition: 
+  opacity 0.8s ease;
 }

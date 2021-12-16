@@ -13,6 +13,10 @@
   width: 320px;
 }
 
+.form-element{
+  margin-bottom: 1.2rem;
+}
+
 .element-text-field__text {
   display: flex;
   flex-flow: row nowrap;
@@ -23,5 +27,22 @@
   }
   :last-child {
     color: $dark-shade-50;
+    font-weight: 400;
   }
+}
+
+.content-form-elements__column > :nth-child(2) h3{
+  margin-top: 0.13rem;
+}
+
+// только для этой страницы чтобы
+// у инпута всегда был стиль как у :focus
+.text-field_focus {
+  border-color: $dark-shade-50;
+}
+
+.text-field_focus::placeholder {
+  color: $dark-shade-75;
+  font-size: 0.85rem;
+  font-family: 'Montserrat';
 }
