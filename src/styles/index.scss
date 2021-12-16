@@ -4,9 +4,11 @@
 @import './src/pages/ui-kit/form-elements/form-elements.scss';
 
 body {
+  box-sizing: border-box;
   font-family: $mainFont;
   font-weight: $font-weight-normal;
   font-size: $font-size;
+  
 }
 
 h1,
@@ -37,4 +39,10 @@ h3 {
 p {
   color: $dark-shade-75;
   line-height: 1.48rem;
+}
+
+p .uppercase {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.005rem;
 }

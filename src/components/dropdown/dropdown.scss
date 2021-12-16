@@ -1,0 +1,93 @@
+.dropdown-js {
+    display: inline-block;
+    width: 100%;
+    min-height: 2.5rem;
+    @include border-input-default
+}
+
+.dropdown-js__inviseble {
+    display: none;
+}
+
+.dropdown-js__button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+.dropdown-js__arrow {
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    float: right;
+    padding: 2px;
+    margin: 15px;
+}
+
+i.dropdown-js__inviseble {
+    display: none;
+}
+
+.dropdown-js__item-dropdown {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.dropdown-js__arrow_down {
+    transform: rotate(45deg);   
+}
+
+.dropdown-js__arrow_up {
+    transform: rotate(225deg);
+}
+
+.dropdown-js__list-of-options {
+    list-style: none;
+}
+   
+.dropdown-js__quantity {
+    display: flex;
+    justify-content: center;
+}  
+
+.dropdown-js__quantity .quantity__button-minus,
+.dropdown-js__quantity .quantity__button-plus,
+.dropdown-js__quantity .quantity {
+    color: $dark-shade-50;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    margin: 10px 2px;
+    border-radius: 50%;
+    border: 1px solid $dark-shade-25;
+    cursor: pointer;
+    outline: 0;
+}
+.dropdown-js__quantity .quantity {
+    width: 50px;
+    text-align: center;
+    font-size: 22px;
+    color: $dark-shade-100;
+    border: none;
+}
+.dropdown-js__quantity .quantity__button-minus svg,
+.dropdown-js__quantity .quantity__button-plus svg {
+    stroke: $dark-shade-50;
+    stroke-width: 1.5px;
+    transition: 0.5s;
+    margin: 4px;
+}
+
+.dropdown-js__apply-button {
+    float: right;
+    border-style: none;
+    cursor: pointer;
+}
+
+.dropdown-js__apply-button > :first-child{
+    color: $purple;
+}

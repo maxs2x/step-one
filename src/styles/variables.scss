@@ -11,3 +11,13 @@ $mainFont: 'Montserrat', 'Quicksand', Arial, sans-serif;
 $font-size: 14px;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
+
+@mixin border-input-default {
+  border: 1px solid $dark-shade-25;
+  border-radius: 0.3rem;
+}
+
+@mixin border-input-focus {
+  outline: none;
+  color: $dark-shade-75;
+}

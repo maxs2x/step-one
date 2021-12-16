@@ -2,6 +2,7 @@ extends ../../../index.pug
 
 include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
 include ../../../components/text-field/text-field.pug
+include ../../../components/dropdown/dropdown.pug
 
 block variables 
   -
@@ -26,5 +27,9 @@ block content
           h3 text field
           h3 hover /focus
         +text-field({class: 'text-field_focus', placeholder:'This is pretty awesome'})
+      .form-element 
+        .name-element
+          h3 dropdown 
+        +dropdown-js()
     .content-form-elements__column
     .content-form-elements__column
