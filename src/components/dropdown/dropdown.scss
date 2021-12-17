@@ -1,7 +1,7 @@
 .dropdown-js {
     display: inline-block;
     width: 100%;
-    min-height: 2.5rem;
+    min-height: 2.6rem;
     @include border-input-default
 }
 
@@ -16,15 +16,20 @@
     font-size: 15px;
     font-weight: 400;
     letter-spacing: 0.04em;
+    p {
+        padding-left: 0.9rem;
+        margin: 0px;
+        line-height: 2.6rem;
+    }
 }
 
 .dropdown-js__arrow {
-    border: solid black;
+    border: solid $dark-shade-50;
     border-width: 0 2px 2px 0;
     display: inline-block;
     float: right;
-    padding: 2px;
-    margin: 15px;
+    padding: 0.2rem;
+    margin: 0.96rem 1.18rem 0rem 0rem;
 }
 
 i.dropdown-js__inviseble {
