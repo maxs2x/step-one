@@ -1,0 +1,53 @@
+@import '../calendar/calendar.scss';
+
+.dropdown-js {
+    display: inline-block;
+    width: 100%;
+    min-height: 2.6rem;
+    @include border-input-default
+}
+
+.dropdown-js__inviseble {
+    display: none;
+}
+
+.dropdown-js__button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    p {
+        padding-left: 0.9rem;
+        margin: 0px;
+        line-height: 2.6rem;
+    }
+}
+
+.dropdown-js__arrow {
+    border: solid $dark-shade-50;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    float: right;
+    padding: 0.2rem;
+    margin: 0.96rem 1.18rem 0rem 0rem;
+}
+
+i.dropdown-js__inviseble {
+    display: none;
+}
+
+.dropdown-js__item-dropdown {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.dropdown-js__arrow_down {
+    transform: rotate(45deg);   
+}
+
+.dropdown-js__arrow_up {
+    transform: rotate(225deg);
+}
