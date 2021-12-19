@@ -1,11 +1,3 @@
-let quantity = document.querySelectorAll('.quantity');
-
-for (elem of quantity) {
-    if (elem.value === '0') {
-        elem.previousElementSibling.classList.toggle('dropdown-js__inviseble');
-    };
-}
-
 class DropdownOpenPart {
     constructor(openPart) {
         this.openPart = openPart;
@@ -47,6 +39,14 @@ class DropdownOpenPart {
         }
     }
 }
+
+let quantity = document.querySelectorAll('.quantity');
+
+for (elem of quantity) {
+    if (elem.value === '0') {
+        elem.previousElementSibling.classList.toggle('dropdown-js__inviseble');
+    };
+}
 class Dropdown {
     constructor(elem) {
         this._elem = elem;
@@ -64,7 +64,11 @@ class Dropdown {
     }
 
     openPart () {
-        new DropdownOpenPart(elem.querySelector('.dropdown-js__list-of-options'));
+        if (this._elem.querySelector('.dropdown-js__list-of-options')) {
+            new DropdownOpenPart(elem.querySelector('.dropdown-js__list-of-options'));
+        } else {
+            alert(this._elem);
+        };
     }
 }
 

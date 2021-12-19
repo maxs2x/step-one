@@ -1,43 +1,13 @@
-mixin dropdown-js()
+include ./list-of-options/list-of-options.pug
+include ./_calendar/calendar.pug
+
+mixin dropdown-js(content)
   .dropdown-js
     #dropdown.dropdown-button
       i.dropdown-js__arrow.dropdown-js__arrow_down
       i.dropdown-js__arrow.dropdown-js__arrow_up.dropdown-js__inviseble
       p Сколько гостей
-    ul.dropdown-js__list-of-options.dropdown-js__inviseble#dropdownJs__listOfOptions
-      li.dropdown-js__item-dropdown
-        p.uppercase Взрослые
-        .dropdown-js__quantity
-          button.quantity__button.quantity__button-minus
-            svg(viewBox='0 0 20 20')
-              line(x1='3' y1='10' x2='15' y2='10')
-          input.quantity(type='text' value='1' size='2' data-max-count='20')
-          button.quantity__button.quantity__button-plus
-            svg(viewBox='0 0 20 20')
-              line(x1='10' y1='3' x2='10' y2='15')
-              line(x1='3' y1='9' x2='16' y2='9')
-      li.dropdown-js__item-dropdown
-        p.uppercase Дети
-        .dropdown-js__quantity
-          button.quantity__button.quantity__button-minus
-            svg(viewBox='0 0 20 20')
-              line(x1='3' y1='10' x2='15' y2='10')
-          input.quantity(type='text' value='1' size='2' data-max-count='20')
-          button.quantity__button.quantity__button-plus
-            svg(viewBox='0 0 20 20')
-              line(x1='10' y1='3' x2='10' y2='15')
-              line(x1='3' y1='9' x2='16' y2='9')
-      li.dropdown-js__item-dropdown
-        p.uppercase Младенцы
-        .dropdown-js__quantity
-          button.quantity__button.quantity__button-minus
-            svg(viewBox='0 0 20 20')
-              line(x1='3' y1='10' x2='15' y2='10')
-          input.quantity(type='text' value='1' size='2' data-max-count='20')
-          button.quantity__button.quantity__button-plus
-            svg(viewBox='0 0 20 20')
-              line(x1='10' y1='3' x2='10' y2='15')
-              line(x1='3' y1='9' x2='16' y2='9')
-      li 
-        button.dropdown-js__apply-button
-          p.uppercase применить
+    if content === 'list-of-options'
+      +list-of-options()
+    else if content === 'calendar'
+      +calendar()

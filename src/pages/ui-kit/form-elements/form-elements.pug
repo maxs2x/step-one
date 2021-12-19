@@ -3,7 +3,6 @@ extends ../../../index.pug
 include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
 include ../../../components/text-field/text-field.pug
 include ../../../components/dropdown/dropdown.pug
-include ../../../components/dropdown-date/dropdown-date.pug
 
 block variables 
   -
@@ -31,10 +30,10 @@ block content
       .form-element 
         .name-element
           h3 dropdown 
-        +dropdown-js()
+        +dropdown-js('list-of-options')
       .form-element
         .name-element
           h3 date dropdown
-        +dropdown-js()
+        +dropdown-js('calendar')
     .content-form-elements__column
     .content-form-elements__column

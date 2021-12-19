@@ -1,17 +1,16 @@
-.dropdown-js {
-    display: inline-block;
-    width: 100%;
-    min-height: 2.6rem;
-    @include border-input-default
-}
+@import './_calendar/calendar.scss'; 
+@import './list-of-options/list-of-options.scss';
 
 .dropdown-js__inviseble {
     display: none;
 }
 
 .dropdown-js {
+    display: inline-block;
+    width: 100%;
+    min-height: 2.6rem;
     background-color: white;
-    border: none;
+    @include border-input-default;
     cursor: pointer;
     font-size: 15px;
     font-weight: 400;
@@ -29,17 +28,11 @@
     display: inline-block;
     float: right;
     padding: 0.2rem;
-    margin: 0.2rem 1.18rem 0rem 0rem;
+    margin: 0.9rem 1.18rem 0rem 0rem;
 }
 
 i.dropdown-js__inviseble {
     display: none;
-}
-
-.dropdown-js__item-dropdown {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
 }
 
 .dropdown-js__arrow_down {
@@ -48,51 +41,4 @@ i.dropdown-js__inviseble {
 
 .dropdown-js__arrow_up {
     transform: rotate(225deg);
-}
-
-.dropdown-js__list-of-options {
-    list-style: none;
-}
-   
-.dropdown-js__quantity {
-    display: flex;
-    justify-content: center;
-}  
-
-.dropdown-js__quantity .quantity__button-minus,
-.dropdown-js__quantity .quantity__button-plus,
-.dropdown-js__quantity .quantity {
-    color: $dark-shade-50;
-    height: 30px;
-    width: 30px;
-    padding: 0;
-    margin: 10px 2px;
-    border-radius: 50%;
-    border: 1px solid $dark-shade-25;
-    cursor: pointer;
-    outline: 0;
-}
-.dropdown-js__quantity .quantity {
-    width: 50px;
-    text-align: center;
-    font-size: 22px;
-    color: $dark-shade-100;
-    border: none;
-}
-.dropdown-js__quantity .quantity__button-minus svg,
-.dropdown-js__quantity .quantity__button-plus svg {
-    stroke: $dark-shade-50;
-    stroke-width: 1.5px;
-    transition: 0.5s;
-    margin: 4px;
-}
-
-.dropdown-js__apply-button {
-    float: right;
-    border-style: none;
-    cursor: pointer;
-}
-
-.dropdown-js__apply-button > :first-child{
-    color: $purple;
 }
