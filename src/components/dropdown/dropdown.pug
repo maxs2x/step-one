@@ -1,12 +1,12 @@
 include ./list-of-options/list-of-options.pug
 include ./_calendar/calendar.pug
 
-mixin dropdown-js(content)
+mixin dropdown-js([content, text_placeholder])
   .dropdown-js
     #dropdown.dropdown-button
       i.dropdown-js__arrow.dropdown-js__arrow_down
       i.dropdown-js__arrow.dropdown-js__arrow_up.dropdown-js__inviseble
-      p Сколько гостей
+      p #{text_placeholder}
     if content === 'list-of-options'
       +list-of-options()
     else if content === 'calendar'

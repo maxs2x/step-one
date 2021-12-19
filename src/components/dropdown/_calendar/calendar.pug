@@ -1,18 +1,20 @@
 mixin calendar()
-  .month-calendar
-  ul.month
-    li.prev
-      i.fas.fa-angle-double-left
-    li.next
-      i.fas.fa-angle-double-right
-    li.month-name
-    li.year-name
-  ul.weekdays
-    li Пн
-    li Вт
-    li Ср
-    li Чт
-    li Пт
-    li Сб
-    li Вс
-  ul.days
+  .dropdown-js__month-calendar.dropdown-js__inviseble
+    ul.month
+      li.prev
+        i.fas.fa-angle-double-left
+      li.next
+        i.fas.fa-angle-double-right
+      li
+        p
+          span.month-name 
+          span.year-name
+    ul.weekdays
+      li Пн
+      li Вт
+      li Ср
+      li Чт
+      li Пт
+      li Сб
+      li Вс
+    ul.days

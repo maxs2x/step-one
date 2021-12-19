@@ -18,6 +18,20 @@
   margin-bottom: 1.2rem;
 }
 
+.content-form-elements .content-form-elements__column > :nth-child(3) {
+  margin-bottom: 1.5rem;
+}
+
+.content-form-elements .content-form-elements__column > :nth-child(4) {
+  margin-bottom: 2.5rem;
+}
+
+.form-element_two-dropdown {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
 .element-text-field__text {
   display: flex;
   flex-flow: row nowrap;

@@ -6,9 +6,11 @@
 }
 
 .dropdown-js {
+    position: relative;
     display: inline-block;
     width: 100%;
     min-height: 2.6rem;
+    min-width: 9.17rem;
     background-color: white;
     @include border-input-default;
     cursor: pointer;
@@ -18,6 +20,8 @@
     p {
         padding-left: 0.9rem;
         margin: 0px;
+        font-size: 14px;
+        letter-spacing: 0.00rem;
         line-height: 2.6rem;
     }
 }
@@ -27,8 +31,8 @@
     border-width: 0 2px 2px 0;
     display: inline-block;
     float: right;
-    padding: 0.2rem;
-    margin: 0.9rem 1.18rem 0rem 0rem;
+    padding: 0.21rem;
+    margin: 0.9rem 1.12rem 0rem 0rem;
 }
 
 i.dropdown-js__inviseble {
