@@ -26,6 +26,10 @@
   margin-bottom: 2.5rem;
 }
 
+.content-form-elements .content-form-elements__column > :nth-child(5) {
+  margin-bottom: 2.6rem;
+}
+
 .form-element_two-dropdown {
   display: flex;
   flex-flow: row nowrap;
@@ -64,4 +68,8 @@
 
 .name-element {
   margin-bottom: 0.3rem;
+}
+
+.small-form-element {
+  width: 16.5rem;
 }

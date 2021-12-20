@@ -68,9 +68,13 @@ class OneDay {
                 if (Number(this.selectedDay) >= nowDate.getDate()) {
                     console.log(Number(this.selectedDay), nowDate.getDate());
                     return true;
+                } else if (Number(this.selectedMonth) > (nowDate.getMonth() + 1)) {
+                    return true;
                 } else {
                     return false;
                 };
+            } else if (Number(this.selectedYear) > nowDate.getFullYear()) {
+                return true;
             } else {
                 return false;
             };
@@ -79,12 +83,74 @@ class OneDay {
         };
     }
 
+    validationReSelection() {
+        if (this._day.closest('.days').querySelector('.insert-day')) {
+            this._day.closest('.days').querySelector('.insert-day').classList.toggle('insert-day');
+        }
+    }
+
     insertDay() {
         if (this.validationDate()) {
+            this.validationReSelection();
             this._day.classList.toggle('insert-day');
             this._day.closest('.dropdown-js').querySelector('.dropdown-button p').innerHTML = this.fullDate;
-            console.log(this.fullDate);
         };        
+    }
+}
+
+class RangeDays extends OneDay{
+    constructor(day) {
+        super(day);
+    }
+
+    checkNumberInsertDays() {
+        parentAllDays = this._day.closest('.days');
+        console.log(parentAllDays.querySelectorAll('.insert-day'));
+        return parentAllDays.querySelectorAll('.insert-day');
+    }
+
+    paintUpInterval(day) {
+        day.nextSibling.classList.toggle('selected-interval');
+    }
+
+    validationInterval(dayStart, dayStop) {
+        innerDayStop = Number(dayStop.innerHTML);
+        innerDayStart = Number(dayStart.innerHTML);
+        if ((innerDayStart + 1) < innerDayStop) {
+            this.paintUpInterval(dayStart);
+            this.validationInterval(dayStart.nextSibling, dayStop);
+        };
+    }
+
+    intervalРighlighting (numberInsertDays) {
+        if (numberInsertDays === 1) {
+            intervalBetweenDays = this.checkNumberInsertDays();
+            this.validationInterval(intervalBetweenDays[0], intervalBetweenDays[1]);
+        }
+    }
+
+    removeIntervalРighlighting (numberInsertDays) {
+        if ((numberInsertDays === 1) || (numberInsertDays === 2)) {
+            parentAllDays = this._day.closest('.days');
+            allРighlightingDays = parentAllDays.querySelectorAll('.selected-interval');
+            for (let day of allРighlightingDays) {
+                day.classList.toggle('selected-interval');
+            }
+        };
+    }
+
+    insertDay () {
+        if (this.validationDate()) {
+            numberInsertDays = this.checkNumberInsertDays().length;
+            console.log(numberInsertDays);
+            if (numberInsertDays < 2) {
+                this._day.classList.toggle('insert-day');
+                this.intervalРighlighting(numberInsertDays);
+            } else if (this._day.classList.contains('insert-day')) {
+                this._day.classList.toggle('insert-day');
+                this.removeIntervalРighlighting(numberInsertDays);
+            };
+        }; 
     }
 }
 
@@ -105,9 +171,18 @@ class Calendar {
         this.monthName = ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
         this.curDate = this.nowDate.setMonth(this.nowDate.getMonth() - 1);
         this.setMonthCalendar(this.nowYear, this.nowMonth);
-        this.setHandlerOnDay();
+        this.filterType = this.filterTypeSelection();
+        this.setHandlerEveryDay();
         this._elem.querySelector('.prev').onclick = this.prevMonth.bind(this);
         this._elem.querySelector('.next').onclick = this.nextMonth.bind(this);
+    }
+
+    filterTypeSelection() {
+        if (this._elem.closest('.dropdown-js__calendar_filtre')) {
+            return 'range';
+        } else {
+            return 'oneDay';
+        };
     }
 
     setMonthCalendar(year, month) {
@@ -146,7 +221,7 @@ class Calendar {
             curMonth = curDate.getMonth();
 
         this.setMonthCalendar(curYear,curMonth);
-        this.setHandlerOnDay();
+        this.setHandlerEveryDay();
         console.log('querySelector nov');
     }
 
@@ -159,17 +234,22 @@ class Calendar {
             curMonth = curDate.getMonth();
 
         this.setMonthCalendar(curYear,curMonth);
-        this.setHandlerOnDay();
+        this.setHandlerEveryDay();
         console.log('querySelector prev');
     }
 
     
 
-    setHandlerOnDay() {
+    setHandlerEveryDay() {
         let allDaysInMonth = this.container.querySelectorAll('.days li');
-        console.log('setHandlerOnDay ' + allDaysInMonth);
+        console.log('setHandlerOnD ' + allDaysInMonth);
+        console.log('setHandlerEveryD ' + this.filterType)
         for (let day of allDaysInMonth) {
-            new OneDay(day);
+            if (this.filterType === 'oneDay') {
+                new OneDay(day);
+            } else {
+                new RangeDays(day);
+            };
         }
     }
 }

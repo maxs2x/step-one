@@ -11,3 +11,6 @@ mixin dropdown-js([content, text_placeholder])
       +list-of-options()
     else if content === 'calendar'
       +calendar()
+    else if content === 'filter-date'
+      .dropdown-js__calendar_filtre
+        +calendar()

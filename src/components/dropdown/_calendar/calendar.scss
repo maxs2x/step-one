@@ -3,6 +3,8 @@
     width: 300px;
     display: inline-block;
     position: absolute;
+    background: white;
+    z-index: 1;
 }
 
 .dropdown-js__month-calendar.dropdown-js__inviseble {
@@ -108,4 +110,9 @@
 
 .insert-day {
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.selected-interval {
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    opacity: 0.25;
 }
