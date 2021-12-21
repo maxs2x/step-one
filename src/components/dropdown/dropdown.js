@@ -197,14 +197,12 @@ class RangeDays extends OneDay{
         this.validationInterval(dayStart, dayStop);
     }
 
-    removeIntervalРighlighting (numberInsertDays) {
-        if ((numberInsertDays === 1) || (numberInsertDays === 2)) {
-            parentAllDays = this._day.closest('.days');
-            allРighlightingDays = parentAllDays.querySelectorAll('.selected-interval');
-            for (let day of allРighlightingDays) {
-                day.classList.toggle('selected-interval');
-            }
-        };
+    removeIntervalРighlighting() {
+        parentAllDays = this._day.closest('.days');
+        allРighlightingDays = parentAllDays.querySelectorAll('.selected-interval');
+        for (let day of allРighlightingDays) {
+            day.classList.toggle('selected-interval');
+        }
     }
 
     dateEntryInSessionStorage() {
@@ -220,11 +218,18 @@ class RangeDays extends OneDay{
 
     insertDay () {
         if (this.validationDate()) {
-            numberInsertDays = sessionStorage.length - 1;
-            if (numberInsertDays < 2) {
+            if (Number(sessionStorage.length) === 2) {
                 if (this._day.classList.contains('insert-day')) {
                     this._day.classList.toggle('insert-day');
                     this.dateRemoveInSessionStorage();
+                    this.removeIntervalРighlighting();
+                    console.log('delet');
+                };
+            } else if (Number(sessionStorage.length) < 2) {
+                if (this._day.classList.contains('insert-day')) {
+                    this._day.classList.toggle('insert-day');
+                    this.dateRemoveInSessionStorage();
+                    this.removeIntervalРighlighting();
                     console.log('delet');
                 } else {
                     this._day.classList.toggle('insert-day');
@@ -234,12 +239,8 @@ class RangeDays extends OneDay{
                     };
                     console.log('add');
                 }
-            } else if (this._day.classList.contains('insert-day')) {
-                console.log('delet');
-                this._day.classList.toggle('insert-day');
-                // this.removeIntervalРighlighting(numberInsertDays);
-                this.dateRemoveInSessionStorage();
             };
+                
         }; 
         console.log(sessionStorage.key(0), sessionStorage.key(1));
     }
