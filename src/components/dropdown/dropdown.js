@@ -57,23 +57,20 @@ class OneDay {
         return selectedMonth;
     }
 
-    validationDate() {
-        nowDate = new Date();
-        nowDateNumber = String(nowDate.getDate()) + String(nowDate.getMonth()) + String(nowDate.getFullYear());
-        console.log(nowDateNumber);
-        if (Number(this.selectedYear) >= nowDate.getFullYear()) { 
-            console.log(Number(this.selectedYear), nowDate.getFullYear());
-            if (Number(this.selectedMonth) >= (nowDate.getMonth() + 1)) {
-                console.log(Number(this.selectedMonth), nowDate.getMonth());
-                if (Number(this.selectedDay) >= nowDate.getDate()) {
-                    console.log(Number(this.selectedDay), nowDate.getDate());
+    matchingWithInsertDate(dateForMatching) {
+        if (Number(this.selectedYear) >= dateForMatching.getFullYear()) { 
+            console.log(Number(this.selectedYear), dateForMatching.getFullYear());
+            if (Number(this.selectedMonth) >= (dateForMatching.getMonth() + 1)) {
+                console.log(Number(this.selectedMonth), dateForMatching.getMonth());
+                if (Number(this.selectedDay) >= dateForMatching.getDate()) {
+                    console.log(Number(this.selectedDay), dateForMatching.getDate());
                     return true;
-                } else if (Number(this.selectedMonth) > (nowDate.getMonth() + 1)) {
+                } else if (Number(this.selectedMonth) > (dateForMatching.getMonth() + 1)) {
                     return true;
                 } else {
                     return false;
                 };
-            } else if (Number(this.selectedYear) > nowDate.getFullYear()) {
+            } else if (Number(this.selectedYear) > dateForMatching.getFullYear()) {
                 return true;
             } else {
                 return false;
@@ -81,6 +78,14 @@ class OneDay {
         } else {
             return false;
         };
+    }
+
+    validationDate() {
+        nowDate = new Date();
+        nowDateNumber = String(nowDate.getDate()) + String(nowDate.getMonth()) + String(nowDate.getFullYear());
+        console.log(nowDateNumber);
+        result = this.matchingWithInsertDate(nowDate);
+        return result;
     }
 
     validationReSelection() {
@@ -125,8 +130,10 @@ class RangeDays extends OneDay{
     intervalРighlighting (numberInsertDays) {
         if (numberInsertDays === 1) {
             intervalBetweenDays = this.checkNumberInsertDays();
-            this.validationInterval(intervalBetweenDays[0], intervalBetweenDays[1]);
-        }
+            if (intervalBetweenDays.length === 2) {
+                this.validationInterval(intervalBetweenDays[0], intervalBetweenDays[1]);
+            };
+        };
     }
 
     removeIntervalРighlighting (numberInsertDays) {
@@ -139,18 +146,41 @@ class RangeDays extends OneDay{
         };
     }
 
+    dateEntryInSessionStorage() {
+        console.log('lenght sesStor = ' + sessionStorage.length);
+        selectedData = new Date(this.fullDate);
+        if ((sessionStorage.length === 0) || (sessionStorage.length === 1)) {
+            sessionStorage.setItem(this.fullDate, this.fullDate);
+        };        
+    }
+
+    dateRemoveInSessionStorage() {
+        sessionStorage.removeItem(this.fullDate);
+    };
+
     insertDay () {
         if (this.validationDate()) {
             numberInsertDays = this.checkNumberInsertDays().length;
-            console.log(numberInsertDays);
+            this.dateEntryInSessionStorage();
             if (numberInsertDays < 2) {
-                this._day.classList.toggle('insert-day');
-                this.intervalРighlighting(numberInsertDays);
+                if (this._day.classList.contains('insert-day')) {
+                    this._day.classList.toggle('insert-day');
+                    this.dateRemoveInSessionStorage();
+                    console.log('delet');
+                } else {
+                    this._day.classList.toggle('insert-day');
+                    this.dateEntryInSessionStorage();
+                    this.intervalРighlighting(numberInsertDays);
+                    console.log('add');
+                }
             } else if (this._day.classList.contains('insert-day')) {
+                console.log('delet');
                 this._day.classList.toggle('insert-day');
                 this.removeIntervalРighlighting(numberInsertDays);
+                this.dateRemoveInSessionStorage();
             };
         }; 
+        console.log(sessionStorage.key(0), sessionStorage.key(1));
     }
 }
 
