@@ -106,6 +106,9 @@ class OneDay {
 class RangeDays extends OneDay{
     constructor(day) {
         super(day);
+        this.onDay = Object;
+        this.toDay = Object;
+        this.revercefullDate = this.selectedYear + '-' + this.selectedMonth + '-' + this.selectedDay;
     }
 
     checkNumberInsertDays() {
@@ -115,25 +118,83 @@ class RangeDays extends OneDay{
     }
 
     paintUpInterval(day) {
-        day.nextSibling.classList.toggle('selected-interval');
+        if (!day.classList.contains('insert-day')) {
+            day.classList.toggle('selected-interval');;
+        }
     }
 
     validationInterval(dayStart, dayStop) {
         innerDayStop = Number(dayStop.innerHTML);
         innerDayStart = Number(dayStart.innerHTML);
-        if ((innerDayStart + 1) < innerDayStop) {
+        if ((innerDayStart - 1) < innerDayStop) {
             this.paintUpInterval(dayStart);
-            this.validationInterval(dayStart.nextSibling, dayStop);
+            if (dayStart.nextSibling !== null) {
+                this.validationInterval(dayStart.nextSibling, dayStop);
+            };
         };
     }
 
-    intervalРighlighting (numberInsertDays) {
-        if (numberInsertDays === 1) {
-            intervalBetweenDays = this.checkNumberInsertDays();
-            if (intervalBetweenDays.length === 2) {
-                this.validationInterval(intervalBetweenDays[0], intervalBetweenDays[1]);
-            };
+    searchForfirstDay() {
+        dayOne = new Date(sessionStorage.key(0));
+        dayTwo = new Date(sessionStorage.key(1));
+        if (dayOne < dayTwo) {
+            this.onDay = dayOne;
+            this.toDay = dayTwo;
+        } else {
+            this.onDay = dayTwo;
+            this.toDay = dayOne;
         };
+        console.log('searchForfastDay dayOne dayTwo ' + String(dayOne) + String(dayTwo));
+    }
+
+    intervalРighlighting () {
+        this.searchForfirstDay();
+        nowDate = new Date(this.revercefullDate);
+        console.log('this.revercefullDate ' + String(this.revercefullDate));
+        let dayStart = '';
+        let dayStop = '';
+        console.log('intervalРighlighting ' + this.toDay + '   ' + nowDate);
+        // this.fullDate = this.selectedDay + '.' + this.selectedMonth + '.' + this.selectedYear;
+        // если кликнутый день совпадает с наибольшим выбранным
+        if ( String(nowDate) === String(this.toDay)) {
+            dayStop = this._day;
+        // Установка даты СТАРТА
+            // если кликнутый месяц и год совпадает с наибольшим выбранным
+            // то ставим дату СТАРТА в этом месяце
+            if ((String(this.onDay.getMonth()) === String(nowDate.getMonth())) && (String(this.onDay.getFullYear()) === String(nowDate.getFullYear()))) {
+                for (day of this._day.closest('.days').querySelectorAll('li')) {
+                    if (Number(day.innerHTML) === Number(this.onDay.getDate())) {
+                        dayStart = day;
+                    };
+                }
+            // если совпадает только год то
+            // закрашиваем все даты левее даты стопа
+            } else {
+                dayStart =  this._day.closest('.days').querySelector('li');
+            };
+
+        } else {
+            // иначе кликнутый день меньше второго выбранного дня
+            // устанавливаем кликнутый день как СТАРТ
+            dayStart = this._day;
+        // Установка даты СОТП
+            // если кликнутый месяц и год совпадает с наибольшим выбранным
+            // то ставим дату СТОПА в этом месяце
+            if ((String(this.toDay.getMonth()) === String(nowDate.getMonth())) && (String(this.toDay.getFullYear()) === String(nowDate.getFullYear()))) {
+                for (day of this._day.closest('.days').querySelectorAll('li')) {
+                    if (Number(day.innerHTML) === Number(this.toDay.getDate())) {
+                        dayStop = day;
+                    };
+                }
+            } else {
+            // если совпадает только год то
+            // закрашиваем все даты правее даты стопа
+                dayStop =  this._day.closest('.days').lastChild;
+                console.log('day stop ' + String(dayStop));
+            };
+
+        }
+        this.validationInterval(dayStart, dayStop);
     }
 
     removeIntervalРighlighting (numberInsertDays) {
@@ -148,20 +209,18 @@ class RangeDays extends OneDay{
 
     dateEntryInSessionStorage() {
         console.log('lenght sesStor = ' + sessionStorage.length);
-        selectedData = new Date(this.fullDate);
         if ((sessionStorage.length === 0) || (sessionStorage.length === 1)) {
-            sessionStorage.setItem(this.fullDate, this.fullDate);
+            sessionStorage.setItem(this.revercefullDate, this.revercefullDate);
         };        
     }
 
     dateRemoveInSessionStorage() {
-        sessionStorage.removeItem(this.fullDate);
+        sessionStorage.removeItem(this.revercefullDate);
     };
 
     insertDay () {
         if (this.validationDate()) {
-            numberInsertDays = this.checkNumberInsertDays().length;
-            this.dateEntryInSessionStorage();
+            numberInsertDays = sessionStorage.length - 1;
             if (numberInsertDays < 2) {
                 if (this._day.classList.contains('insert-day')) {
                     this._day.classList.toggle('insert-day');
@@ -170,13 +229,15 @@ class RangeDays extends OneDay{
                 } else {
                     this._day.classList.toggle('insert-day');
                     this.dateEntryInSessionStorage();
-                    this.intervalРighlighting(numberInsertDays);
+                    if (sessionStorage.length === 2) {
+                        this.intervalРighlighting();
+                    };
                     console.log('add');
                 }
             } else if (this._day.classList.contains('insert-day')) {
                 console.log('delet');
                 this._day.classList.toggle('insert-day');
-                this.removeIntervalРighlighting(numberInsertDays);
+                // this.removeIntervalРighlighting(numberInsertDays);
                 this.dateRemoveInSessionStorage();
             };
         }; 
