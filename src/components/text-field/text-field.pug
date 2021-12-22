@@ -1,2 +1,7 @@
+include ./_subscription/subscription.pug
+
 mixin text-field(id_class_placeholder)
-  input(id=id_class_placeholder.id class='text-field ' + id_class_placeholder.class placeholder=id_class_placeholder.placeholder)
+  if id_class_placeholder.class === 'text-field_subscription'
+    +subscription(id_class_placeholder)
+  else
+    input(id=id_class_placeholder.id class='text-field ' + id_class_placeholder.class placeholder=id_class_placeholder.placeholder)

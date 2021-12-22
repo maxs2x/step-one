@@ -45,8 +45,13 @@ block content
             h3 date dropdown
           +dropdown-js(['calendar', '19.08.2019'])
       .small-form-element 
-        .name-element
+        .form-element 
+          .name-element
             h3 filter date dropdown
-        +dropdown-js(['filter-date', '19 авг - 23 авг'])
+          +dropdown-js(['filter-date', '19 авг - 23 авг'])
+        .form-element 
+          .name-element 
+            h3 subscription text field
+          +text-field({class: 'text-field_subscription', placeholder:'Email'})
     .content-form-elements__column
     .content-form-elements__column
