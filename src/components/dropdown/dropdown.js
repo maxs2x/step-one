@@ -267,6 +267,10 @@ class Calendar {
         this.setHandlerEveryDay();
         this._elem.querySelector('.prev').onclick = this.prevMonth.bind(this);
         this._elem.querySelector('.next').onclick = this.nextMonth.bind(this);
+        this._elem.querySelector('.month-calendar_button_cancel').onclick = this.cancelFilter.bind(this);
+        this._elem.querySelector('.month-calendar_button_apply').onclick = this.applyFilter.bind(this);
+        this.onDay = Object;
+        this.toDay = Object;
     }
 
     filterTypeSelection() {
@@ -277,23 +281,117 @@ class Calendar {
         };
     }
 
+    searchForfirstDay() {
+        dayOne = new Date(sessionStorage.key(0));
+        dayTwo = new Date(sessionStorage.key(1));
+        if (dayOne < dayTwo) {
+            this.onDay = dayOne;
+            this.toDay = dayTwo;
+        } else {
+            this.onDay = dayTwo;
+            this.toDay = dayOne;
+        };
+    }
+
     setMonthCalendar(year, month) {
         let monthDays = new Date(year, month + 1, 0).getDate(),
             monthPrefix = new Date(year, month, 0).getDay(),
             monthDaysText = '';
-    
+            countInsertDay = sessionStorage.length;
+            firstInsertDay = 0;
+            nextInsertDay = 0;
+            lastInsertDay = 0;
+        
         this.monthContainer.textContent = this.monthName[month];
         this.yearContainer.textContent = year;
         this.daysContainer.innerHTML = '';
-    
-        if (monthPrefix > 0){
-            for (let i = 1  ; i <= monthPrefix; i++){
-                monthDaysText += '<li></li>';
+
+        if (countInsertDay === 1) {
+            let insertDay = new Date(sessionStorage.key(0));
+            if (Number(insertDay.getFullYear()) === Number(year)) {
+                if (Number(insertDay.getMonth()) === Number(month)) {
+                    lastInsertDay = insertDay.getDate();
+                }
             }
         }
+
+        // если диапазон задан, определяем его начало и конец
+        if (countInsertDay === 2) {
+            this.searchForfirstDay();
+            //входит ли начало диапазона в отрисовываемый месяц
+            if (Number(this.onDay.getFullYear()) === Number(year)) {
+                // если входит - находим первый и второй выбранные дени
+                if (Number(this.onDay.getMonth()) === Number(month)) {
+                    firstInsertDay = Number(this.onDay.getDate());
+                    nextInsertDay = firstInsertDay + 1;
+                };
+                // если первый выбранный день был раньше задаём начало отрисовки выделения
+                if (Number(this.onDay.getMonth()) < Number(month)) {
+                    nextInsertDay = 1;
+                };
+            // если первый выбранный день был раньше задаём начало отрисовки выделения
+            } else if (Number(this.onDay.getFullYear()) < Number(year)) {
+                nextInsertDay = 1;
+            }
+            console.log('lastDay = ' + this.toDay.getDate());
+            //входит ли конец диапазона в отрисовываемый год
+            if (Number(this.toDay.getFullYear()) === Number(year)) {
+                // если входит - находим последний выбранный день
+                if (Number(this.toDay.getMonth()) === Number(month)) {
+                    lastInsertDay = Number(this.toDay.getDate());
+                };
+                // если последний выбранный день был позже задаём конец отрисовки выделения
+                if ((Number(this.toDay.getMonth()) > Number(month) && (this.onDay.getMonth()) === Number(month))) {
+                    nextInsertDay = 33;
+                };
+            // если последний выбранный день был позже задаём конец отрисовки выделения
+            // и первый выбранный день в этом месяце
+            } else if ((Number(this.toDay.getFullYear()) > Number(year)) && (this.onDay.getMonth()) === Number(month)) {
+                nextInsertDay = 33;
+            }
+        }
+
+        // установка пустых клеток месяца в начале
+        if (monthPrefix > 0){
+            for (let i = 1  ; i <= monthPrefix; i++){
+                // если выбран день раньше этого месяца, 
+                // присваиваем лишкам класс выделения
+                if ((i > firstInsertDay) && (lastInsertDay === 0) && (nextInsertDay === 33)) {
+                    monthDaysText += '<li class="selected-interval"></li>';
+                } else if ((firstInsertDay === 0) && (i < lastInsertDay) && (nextInsertDay !== 0)) {
+                    // отрисовываем выделенный промежуток
+                    monthDaysText += '<li class="selected-interval">' + i + '</li>';
+                } else if ((firstInsertDay < i) && (i < lastInsertDay) && (firstInsertDay !== 0)) {
+                    // отрисовываем выделенный промежуток
+                    monthDaysText += '<li class="selected-interval">' + i + '</li>';
+                } else {
+                    monthDaysText += '<li></li>';
+                };
+            }
+        }
+        
     
         for (let i = 1; i <= monthDays; i++){
-            monthDaysText += '<li>' + i + '</li>';
+            console.log('visoul ' + String(lastInsertDay) + ' ' + String(firstInsertDay) + ' ' + String(nextInsertDay));
+            if (!(firstInsertDay === 0) && (i === firstInsertDay)) {
+                // отрисовываем первый выбраннный день если он в этом месяце
+                monthDaysText += '<li class="insert-day">' + i + '</li>';
+            } else if ((firstInsertDay < i) && (i < lastInsertDay) && (firstInsertDay !== 0)) {
+                // отрисовываем выделенный промежуток
+                monthDaysText += '<li class="selected-interval">' + i + '</li>';
+            } else if ((firstInsertDay === 0) && (i < lastInsertDay) && (nextInsertDay !== 0)) {
+                // отрисовываем выделенный промежуток
+                monthDaysText += '<li class="selected-interval">' + i + '</li>';
+            } else if ((i > firstInsertDay) && (lastInsertDay === 0) && (nextInsertDay === 33)) {
+                // отрисовываем выделенный промежуток
+                monthDaysText += '<li class="selected-interval">' + i + '</li>';
+            } else if (i === lastInsertDay) {
+                // отрисовываем последний выбраннный день если он в этом месяце
+                monthDaysText += '<li class="insert-day">' + i + '</li>';
+            } else {
+                // отрисовываем невыделенные дни
+                monthDaysText += '<li>' + i + '</li>';
+            }
         }
     
         this.daysContainer.innerHTML = monthDaysText;
@@ -330,8 +428,6 @@ class Calendar {
         console.log('querySelector prev');
     }
 
-    
-
     setHandlerEveryDay() {
         let allDaysInMonth = this.container.querySelectorAll('.days li');
         console.log('setHandlerOnD ' + allDaysInMonth);
@@ -343,6 +439,52 @@ class Calendar {
                 new RangeDays(day);
             };
         }
+    }
+
+    hideCalendar() {
+        let dropdown = this._elem.closest('.dropdown-js');
+        let arrowRight = dropdown.querySelector('.dropdown-js__arrow_up');
+        let arrowDown = dropdown.querySelector('.dropdown-js__arrow_down');
+        let listOfOptions = dropdown.querySelector('.dropdown-js__month-calendar');
+    
+        arrowRight.classList.toggle('dropdown-js__inviseble');
+        arrowDown.classList.toggle('dropdown-js__inviseble');
+        listOfOptions.classList.toggle('dropdown-js__inviseble');   
+
+        if (sessionStorage.length !== 2) {
+            for (let elem of dropdown.querySelectorAll('.days li')) {
+                if (elem.matches('.insert-day')) {
+                    elem.classList.toggle('insert-day');
+                };
+                if (elem.matches('.selected-interval')) {
+                    elem.classList.toggle('selected-interval');
+                };
+            }
+        };
+    }
+
+    cancelFilter() {
+        console.log('CLEAR!!! sessionStorage!!!');
+        sessionStorage.clear();
+        this.hideCalendar();
+    }
+
+    applyFilter() {
+        let dropdown = this._elem.closest('.dropdown-js');
+        let placeholder = dropdown.querySelector('.dropdown-button p');
+        let shortMonthName = ['янв','фвр','мрт','апр','май','инь','иль','авг','сен','окт','ноя','дек'];
+
+        if (sessionStorage.length < 2) {
+            alert('Пожалуйста, выберите дату "от" и дату "до"');
+        };
+        if (sessionStorage.length === 2 ) {
+            this.searchForfirstDay();
+            let fromDate = String(this.onDay.getDate()) + ' ' + shortMonthName[this.onDay.getMonth()];
+            let toDate = String(this.toDay.getDate()) + ' ' + shortMonthName[this.toDay.getMonth()];
+            placeholder.innerHTML = fromDate + ' - ' + toDate;
+            this.hideCalendar();
+        };
+        
     }
 }
 
