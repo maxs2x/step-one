@@ -72,9 +72,26 @@
 
 .small-form-element {
   width: 16.7rem;
+  .name-element {
+    display: flex;
+    justify-content: space-between;
+    :last-child {
+      color: $dark-shade-50;
+    }
+  }
 }
 
 .small-form-element .form-element{
   margin-bottom: 2.6rem;
+  margin-right: 0.05rem;
+}
+
+.empty-space {
+  content: " ";
+  margin: 6.3rem 0rem;
+}
+
+.small-form-element :nth-child(4){
+  margin-bottom: 1.2rem;
   margin-right: 0.05rem;
 }

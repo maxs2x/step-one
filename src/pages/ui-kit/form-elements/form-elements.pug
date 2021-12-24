@@ -53,5 +53,16 @@ block content
           .name-element 
             h3 subscription text field
           +text-field({class: 'text-field_subscription', placeholder:'Email'})
+        .empty-space
+        .form-element 
+          .name-element
+            h3 dropdown 
+            h3 default
+          +dropdown-js(['list-of-options_default', '2 спальни, 2 кровати...'])
+        .form-element 
+          .name-element
+            h3 dropdown 
+            h3 expanded
+          +dropdown-js(['list-of-options_default', '2 спальни, 2 кровати'])
     .content-form-elements__column
     .content-form-elements__column

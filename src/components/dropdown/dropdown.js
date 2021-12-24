@@ -1,13 +1,19 @@
 class DropdownOpenPart {
     constructor(openPart) {
         this.openPart = openPart;
-        this.allStringsOpenPart = document.querySelectorAll('.dropdown-js__item-dropdown');
+        this.allStringsOpenPart = this.openPart.querySelectorAll('.dropdown-js__item-dropdown');
         this.assignHandler();
+    }
+
+    updatePlaceholder(parent) {
+        let placeholder = parent.currentTarget.closest('.dropdown-js').querySelector('.dropdown-button p');
+        return placeholder
     }
 
     handleDropDownButtonsClick(oneString) {
         let submitButton = oneString.currentTarget;
         let action = '';
+        let newCount = 0
         if (submitButton.classList.contains('quantity__button-minus')) {
             action = 'subtraction';
         } else {
@@ -18,11 +24,15 @@ class DropdownOpenPart {
             if (count === '0') {
                 submitButton.parentElement.firstElementChild.classList.toggle('dropdown-js__inviseble');
             };
-            let newCount = ++count;
-            submitButton.previousElementSibling.setAttribute('value', newCount);
+            if (count < 11) {
+                newCount = ++count;
+            } else {
+                newCount = count;
+            };
+            submitButton.previousElementSibling.setAttribute('value', newCount);        
         } else {
             let count = submitButton.nextElementSibling.getAttribute('value');
-            let newCount = --count;
+            newCount = --count;
             if (newCount === 0) {
                 submitButton.classList.toggle('dropdown-js__inviseble');
             };
@@ -35,9 +45,121 @@ class DropdownOpenPart {
             let buttonsInThisString = oneString.querySelectorAll('.quantity__button');
             for (buttonInString of buttonsInThisString) {
                 buttonInString.addEventListener('click', this.handleDropDownButtonsClick);
+                buttonInString.addEventListener('click', this.updatePlaceholder);
             }  
         }
     }
+}
+
+class DropdownDefault extends DropdownOpenPart {
+    constructor(openPart) {
+        super(openPart);
+    }
+
+    updatePlaceholder(parent) {
+        let placeholder = super.updatePlaceholder(parent);
+        let allStringsOpenPart = placeholder.closest('.dropdown-js').querySelectorAll('.dropdown-js__item-dropdown')
+        
+        let countBedroom = 0;
+        let countBed = 0;
+        let countBathroom = 0;
+
+        let spellingOptionsBedroom = [' спальня', ' спальни', ' спален'];
+        let spellingOptionsBed = [' кровать', ' кровати', ' кроватей'];
+        let spellingOptionsBathroom = [' ванная комната', ' ванные комнаты', ' ванных комнат'];
+
+        for (let elem of allStringsOpenPart) {
+            if (elem.querySelector('p').innerHTML === 'спальни') {
+                countBedroom = elem.querySelector('.quantity').getAttribute('value');
+            };
+            if (elem.querySelector('p').innerHTML === 'кровати') {
+                countBed = elem.querySelector('.quantity').getAttribute('value');
+            };
+            if (elem.querySelector('p').innerHTML === 'ванные комнаты') {
+                countBathroom = elem.querySelector('.quantity').getAttribute('value');
+            };
+        }
+        
+        let textBedroom = ((countBedroom > 0) && (countBedroom < 2)) ? spellingOptionsBedroom[0]:
+            ((countBedroom > 1) && (countBedroom < 5)) ? spellingOptionsBedroom[1]:
+            spellingOptionsBedroom[2];
+        let textBed = ((countBed > 0) && (countBed < 2)) ? spellingOptionsBed[0]:
+            ((countBed > 1) && (countBed < 5)) ? spellingOptionsBed[1]:
+            spellingOptionsBed[2];
+        let textBathroom = ((countBathroom > 0) && (countBathroom < 2)) ? spellingOptionsBathroom[0]:
+            ((countBathroom > 1) && (countBathroom < 5)) ? spellingOptionsBathroom[1]:
+            spellingOptionsBathroom[2];
+
+        let newPlaceholder = String(countBedroom) + textBedroom + ', ' + String(countBed) + textBed + ', ' + String(countBathroom) + textBathroom;
+        
+        let widthPlaceholder = placeholder.offsetWidth;
+        if ((widthPlaceholder < 360) && (widthPlaceholder > 225)) {
+            newPlaceholder = newPlaceholder.substr(0, (newPlaceholder.length - 17)) + ' ...';
+        } else if (widthPlaceholder < 226) {
+            newPlaceholder = newPlaceholder.substr(0, (newPlaceholder.length - 28)) + ' ...';
+        }
+        
+        placeholder.innerHTML = newPlaceholder;
+    }
+}
+
+class DropdownWithButton extends DropdownDefault {
+    constructor(openPart) {
+        super(openPart);
+        
+    }
+
+    updatePlaceholder() {
+        let errorNone = 'PUSTO';
+    }
+
+    buttonHendlingClear(parent) {
+        let placeholder = parent.currentTarget.closest('.dropdown-js').querySelector('.dropdown-button p');
+        let inputQuantity = parent.currentTarget.closest('.dropdown-js').querySelectorAll('input.quantity');
+
+        standartPlaceholder = 'Сколько гостей';
+        placeholder.innerHTML = standartPlaceholder;
+
+        for (let elem of inputQuantity) {
+            elem.setAttribute('value', 0);
+            console.log(elem.previousSibling.classList.contains('dropdown-js__inviseble'));
+            if (!(elem.previousSibling.classList.contains('dropdown-js__inviseble'))) {
+                elem.previousSibling.classList.toggle('dropdown-js__inviseble');
+            }
+        }
+    }
+
+    buttonHendlingApply(parent) {
+        let placeholder = parent.currentTarget.closest('.dropdown-js').querySelector('.dropdown-button p');
+        let inputQuantity= parent.currentTarget.closest('.dropdown-js').querySelectorAll('input.quantity');
+    
+        let numberOfVisitors = 0
+        let spellingOptionsVisitors = [' гость', ' гостя', ' гостей']
+        for (let elem of inputQuantity) {
+            numberOfVisitors = numberOfVisitors + Number(elem.getAttribute('value'));
+        }
+
+        let newPlaceholder = ((numberOfVisitors > 0) && (numberOfVisitors < 2)) ? spellingOptionsVisitors[0]:
+        ((numberOfVisitors > 1) && (numberOfVisitors < 5)) ? spellingOptionsVisitors[1]:
+        spellingOptionsVisitors[2];
+
+        if (numberOfVisitors !== 0) {
+            placeholder.innerHTML = numberOfVisitors + newPlaceholder;
+        }
+        
+    }
+
+    assignHandler() {
+        super.assignHandler();
+        buttonClear = this.openPart.querySelectorAll('.dropdown-js__bottom-button button')[0];
+        buttonApply = this.openPart.querySelectorAll('.dropdown-js__bottom-button button')[1];
+        console.log('Buttons ');
+        console.log(this.openPart.querySelectorAll('.dropdown-js__bottom-button button'));
+
+        buttonClear.addEventListener('click', this.buttonHendlingClear);
+        buttonApply.addEventListener('click', this.buttonHendlingApply);
+    }
+
 }
 
 class OneDay {
@@ -498,6 +620,7 @@ for (elem of quantity) {
 class Dropdown {
     constructor(elem) {
         this._elem = elem;
+        this.dropdownDefault = this._elem.classList.contains('dropdown-js_default');
         elem.querySelector('.dropdown-button').onclick = this.openOrClose.bind(this);
         this.invisibleBlock = this.findInvisibleBlock();
         this.openPart();
@@ -517,16 +640,21 @@ class Dropdown {
         let arrowRight = this._elem.querySelector('.dropdown-js__arrow_up');
         let arrowDown = this._elem.querySelector('.dropdown-js__arrow_down');
         let listOfOptions = this._elem.querySelector(this.invisibleBlock);
-    
+        let borderDropdown = this._elem.querySelector('.dropdown-button');
+        let borderDropdownMod = 'border-for-dropdown_active';
+
         arrowRight.classList.toggle('dropdown-js__inviseble');
         arrowDown.classList.toggle('dropdown-js__inviseble');
         listOfOptions.classList.toggle('dropdown-js__inviseble');     
-      
+        borderDropdown.classList.toggle(borderDropdownMod);
     }
 
     openPart () {
         if (this._elem.querySelector('.dropdown-js__list-of-options')) {
-            new DropdownOpenPart(elem.querySelector(this.invisibleBlock));
+            if (this.dropdownDefault) {
+                new DropdownDefault(this._elem.querySelector(this.invisibleBlock));
+            } else
+                new DropdownWithButton(this._elem.querySelector(this.invisibleBlock));
         } else {
             console.log('cikle openPare ' + this._elem.querySelector(this.invisibleBlock));
             new Calendar(this._elem.querySelector(this.invisibleBlock));

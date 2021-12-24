@@ -1,6 +1,26 @@
-
 .dropdown-js__list-of-options {
     list-style: none;
+    margin-top: 0;
+    padding: 0.09rem 0.44rem 0.42rem 0rem;
+    border: 1px solid $dark-shade-50;
+    border-top: none;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+.dropdown-js__item-dropdown {
+    p {
+        font-family: $mainFont;
+        font-weight: 700;
+        line-height: 2.3rem;
+        padding-left: 0.9rem;
+        margin: 0px;
+        font-size: 13px;
+        letter-spacing: -0.05rem;
+    }
+    .uppercase {
+        text-transform: uppercase;
+    }
 }
 
 .dropdown-js__item-dropdown {
@@ -18,19 +38,22 @@
 .dropdown-js__quantity .quantity__button-plus,
 .dropdown-js__quantity .quantity {
     color: $dark-shade-50;
-    height: 30px;
-    width: 30px;
+    height: 1.85rem;
+    width: 1.85rem;
     padding: 0;
-    margin: 10px 2px;
+    margin: 0.4rem 0rem 0rem 0rem;
     border-radius: 50%;
     border: 1px solid $dark-shade-25;
     cursor: pointer;
     outline: 0;
 }
+
 .dropdown-js__quantity .quantity {
-    width: 50px;
+    width: 1.25rem;
+    margin: 0.3rem 0.4rem 0rem;
     text-align: center;
-    font-size: 22px;
+    font-size: 0.8rem;
+    font-family: $mainFont;
     color: $dark-shade-100;
     border: none;
 }
@@ -42,10 +65,28 @@
     margin: 4px;
 }
 
-.dropdown-js__apply-button {
-    float: right;
-    border-style: none;
+.dropdown-js__two-button {
+    display: flex;
+    justify-content: space-between;
     cursor: pointer;
+    margin-top: 0.9rem;
+    padding-left: 0.8rem;
+}
+
+.dropdown-js__bottom-button {
+    button {
+        border: none;
+        background-color: #fff;
+        padding: 0;
+        font-family: $mainFont;
+        font-size: 12px;
+        text-transform: uppercase;
+        
+        p {
+            line-height: 0rem;
+            color: $purple;
+        }
+    }
 }
 
 .dropdown-js__apply-button > :first-child{
