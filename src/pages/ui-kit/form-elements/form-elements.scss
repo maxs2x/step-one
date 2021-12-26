@@ -2,6 +2,7 @@
 @import '../../../components/text-field/text-field.scss';
 @import '../../../components/dropdown/dropdown.scss';
 @import '../../../components/checkbox-list/checkbox-list.scss';
+@import '../../../components/benefits/benefits.scss';
 
 .content-form-elements {
   display: flex;
@@ -107,4 +108,12 @@
 
 .checkbox-elements > :first-child{
   margin-bottom: 0.85rem;
+}
+
+.small-form-element > :nth-child(7){
+  margin-bottom: 1.6rem;
+}
+
+.small-form-element > :nth-child(8){
+  margin-bottom: 2.5rem;
 }

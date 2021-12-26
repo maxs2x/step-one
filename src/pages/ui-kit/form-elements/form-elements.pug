@@ -4,6 +4,7 @@ include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
 include ../../../components/text-field/text-field.pug
 include ../../../components/dropdown/dropdown.pug
 include ../../../components/checkbox-list/checkbox-list.pug
+include ../../../components/benefits/benefits.pug
 
 block variables 
   -
@@ -69,5 +70,9 @@ block content
           +checkbox-list(['expandable checkbox list'])
         .form-element
           +checkbox-list(['expandable checkbox list'])
+        .form-element 
+          +benefit-comfort()
+        .form-element 
+          +benefit-conveniences()
     .content-form-elements__column
     .content-form-elements__column
