@@ -1,0 +1,28 @@
+mixin checkbox([text, checked, name])
+  label.checkbox-container
+    | #{text}
+    if checked == 'checked' 
+      input(type='checkbox' checked='checked' name=name)
+      .checkbox-container__checkmark
+      span.checkbox-container__checkmark-inner
+    if checked == 'unchecked' 
+      input(type='checkbox' name=name)
+      span.checkbox-container__checkmark
+      
+
+
+mixin checkbox-list(text_placeholder)
+  .checkbox-list 
+    .checkbox-list__dropdown-button
+      i.checkbox-list__arrow.checkbox-list__arrow_down
+      i.checkbox-list__arrow.checkbox-list__arrow_up.checkbox-elements__inviseble
+      p #{text_placeholder}
+    .checkbox-elements.checkbox-elements__inviseble
+      +checkbox(['Завтрак', 'unchecked', 'radio'])
+      +checkbox(['Письменный стол', 'checked', 'radio'])
+      +checkbox(['Стул для кормления', 'checked', 'radio'])
+      +checkbox(['Кроватка', 'checked', 'radio'])
+      +checkbox(['Телевизор', 'unchecked', 'radio'])
+      +checkbox(['Шампунь', 'unchecked', 'radio'])
+      +checkbox(['Телевизор', 'unchecked', 'radio'])
+      +checkbox(['Шампунь', 'unchecked', 'radio'])

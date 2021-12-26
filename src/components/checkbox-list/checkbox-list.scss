@@ -1,0 +1,127 @@
+.checkbox-list {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 2.6rem;
+  min-width: 9.17rem;
+  background-color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  .checkbox-list__dropdown-button {
+    p {
+      margin: 0rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.005rem;
+    }
+  }
+}
+
+.checkbox-elements__inviseble {
+  display: none;
+}
+
+i.checkbox-elements__inviseble {
+  display: none;
+}
+
+.checkbox-elements {
+  margin-top: 0.75rem;
+}
+
+.checkbox-list__arrow {
+  border: solid $dark-shade-50;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  float: right;
+  padding: 0.21rem;
+  margin: 0.35rem 1.12rem 0rem 0rem;
+}
+
+i.checkbox-list__arrow_down {
+  transform: rotate(45deg);   
+}
+
+.checkbox-list__arrow_up {
+  margin: 0.6rem 1.15rem;
+  transform: rotate(225deg);
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 0.84rem;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  letter-spacing: 0.005rem;
+}
+  
+  /* Hide the browser's default radio button */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+ 
+  /* Create a custom radio button */
+.checkbox-container__checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.15rem;
+  width: 1.15rem;
+  background-color: #eee;
+  border-radius: 0.17rem;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: $dark-shade-25;
+}
+  
+  /* When the radio button is checked, add a blue background */
+.checkbox-container input:checked ~ .checkbox-container__checkmark {
+  background-color: white;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: $purple;
+}
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+.checkbox-container__checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+  
+  /* Show the indicator (dot/circle) when checked */
+.checkbox-container input:checked ~ .checkbox-container__checkmark:after {
+  display: block;
+}
+  
+  /* Style the indicator (dot/circle) */
+.checkbox-container .checkbox-container__checkmark:after {
+  top: 0.25rem;
+  left: 0.38rem;
+  width: 6px;
+  height: 8px;
+  transform: rotate(45deg);
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.checkbox-container .checkbox-container__checkmark-inner {
+  position: absolute;
+  content: " ";
+  top: 0.1rem;
+  left: 0.38rem;
+  width: 6px;
+  height: 8px;
+  transform: rotate(45deg);
+  background: white;
+}

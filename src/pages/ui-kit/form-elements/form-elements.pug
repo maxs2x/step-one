@@ -3,6 +3,7 @@ extends ../../../index.pug
 include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
 include ../../../components/text-field/text-field.pug
 include ../../../components/dropdown/dropdown.pug
+include ../../../components/checkbox-list/checkbox-list.pug
 
 block variables 
   -
@@ -64,5 +65,9 @@ block content
             h3 dropdown 
             h3 expanded
           +dropdown-js(['list-of-options_default', '2 спальни, 2 кровати'])
+        .form-element
+          +checkbox-list(['expandable checkbox list'])
+        .form-element
+          +checkbox-list(['expandable checkbox list'])
     .content-form-elements__column
     .content-form-elements__column
