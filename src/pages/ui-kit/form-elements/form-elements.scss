@@ -3,6 +3,7 @@
 @import '../../../components/dropdown/dropdown.scss';
 @import '../../../components/checkbox-list/checkbox-list.scss';
 @import '../../../components/benefits/benefits.scss';
+@import '../../../components/radio-button/radio-button.scss';
 
 .content-form-elements {
   max-width: 1212px;
@@ -129,4 +130,21 @@
 
 .checkbox-buttons > :nth-child(3){
   max-width: 13rem;
+}
+
+.content-form-elements > :nth-child(2) > :first-child {
+  margin-bottom: 2.506rem;
+}
+
+.content-form-elements > :nth-child(2) > :nth-child(2) .name-element{
+  padding-top: 0.01rem;
+  margin-bottom: 1rem;
+}
+
+.content-form-elements > :nth-child(2) > :nth-child(2) .radio-buttons{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 14rem;
+  padding-left: 0.058rem;
 }

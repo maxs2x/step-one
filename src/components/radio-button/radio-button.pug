@@ -1,0 +1,8 @@
+mixin radio-button([text, name, checked])
+  label.radio-button-container=text
+    if checked == 'checked'
+      input(type='radio' checked='checked' name='radio')
+      span.radio-button-container__checkmark 
+    else 
+      input(type='radio' name='radio')
+      span.radio-button-container__checkmark 

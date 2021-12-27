@@ -5,6 +5,7 @@ include ../../../components/text-field/text-field.pug
 include ../../../components/dropdown/dropdown.pug
 include ../../../components/checkbox-list/checkbox-list.pug
 include ../../../components/benefits/benefits.pug
+include ../../../components/radio-button/radio-button.pug
 
 block variables 
   -
@@ -82,4 +83,10 @@ block content
           +checkbox(['Можно курить', 'unchecked', 'smoking'])
           +checkbox(['Можно с питомцами', 'checked', 'pet'])
           +checkbox(['Можно пригласить гостей (до 10 человек)', 'checked', 'guests'])
+      .form-element
+        .name-element
+          h3 radio Buttons
+        .radio-buttons
+          +radio-button(['Мужчина', 'gender', 'checked']) 
+          +radio-button(['Женщина', 'gender'])  
     .content-form-elements__column
