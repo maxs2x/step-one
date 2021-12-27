@@ -6,6 +6,7 @@ include ../../../components/dropdown/dropdown.pug
 include ../../../components/checkbox-list/checkbox-list.pug
 include ../../../components/benefits/benefits.pug
 include ../../../components/radio-button/radio-button.pug
+include ../../../components/toggle/toggle.pug
 
 block variables 
   -
@@ -89,4 +90,10 @@ block content
         .radio-buttons
           +radio-button(['Мужчина', 'gender', 'checked']) 
           +radio-button(['Женщина', 'gender'])  
+      .form-element
+        .name-element
+          h3 Toggle
+        .toggles
+          +toggle(['Получать спецпредложения', 'subscription', 'checked'])
+          +toggle(['Получать спецпредложения', 'subscription'])
     .content-form-elements__column

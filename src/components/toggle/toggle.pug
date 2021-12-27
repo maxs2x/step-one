@@ -1,0 +1,10 @@
+mixin toggle([text, name, checked])
+  .container-switcher
+    label.switch
+      if checked == 'checked' 
+        input(type='checkbox' checked='checked' name=name)
+        .slider 
+      else 
+        input(type='checkbox' name=name)
+        .slider 
+    .switcher-text=text

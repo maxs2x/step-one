@@ -4,6 +4,7 @@
 @import '../../../components/checkbox-list/checkbox-list.scss';
 @import '../../../components/benefits/benefits.scss';
 @import '../../../components/radio-button/radio-button.scss';
+@import '../../../components/toggle/toggle.scss';
 
 .content-form-elements {
   max-width: 1212px;
@@ -147,4 +148,22 @@
   justify-content: space-between;
   width: 14rem;
   padding-left: 0.058rem;
+}
+
+.content-form-elements > :nth-child(2) > :nth-child(2) {
+  margin-bottom: 1.9rem;
+}
+
+.content-form-elements > :nth-child(2) > :nth-child(3) .name-element{
+  margin-bottom: 1rem;
+}
+
+.toggles {
+  display: flex;
+  flex-flow: column nowrap;
+  padding-left: 0.05rem;
+
+  .container-switcher {
+    margin-bottom: 0.85rem;
+  }
 }
