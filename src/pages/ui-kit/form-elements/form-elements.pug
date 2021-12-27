@@ -75,4 +75,11 @@ block content
         .form-element 
           +benefit-conveniences()
     .content-form-elements__column
+      .form-element
+        .name-element
+            h3 Checkbox Buttons
+        .checkbox-buttons
+          +checkbox(['Можно курить', 'unchecked', 'smoking'])
+          +checkbox(['Можно с питомцами', 'checked', 'pet'])
+          +checkbox(['Можно пригласить гостей (до 10 человек)', 'checked', 'guests'])
     .content-form-elements__column
