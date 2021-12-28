@@ -1,0 +1,12 @@
+.container-rate .material-icons {
+    position: relative;
+}
+
+.material-icons.star-unchecked {
+    position: absolute;
+    top: 0.33rem;
+    left: 0.33rem;
+    font-size: 14px;
+    background: -webkit-linear-gradient(#FFF, #FFF);
+    -webkit-background-clip: text;
+}

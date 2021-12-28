@@ -8,6 +8,7 @@ include ../../../components/benefits/benefits.pug
 include ../../../components/radio-button/radio-button.pug
 include ../../../components/toggle/toggle.pug
 include ../../../components/like/like.pug
+include ../../../components/rate-button/rate-button.pug
 
 block variables 
   -
@@ -103,4 +104,10 @@ block content
         .like-buttons 
           +like-button([2])
           +like-button([12, 'active'])
+      .form-element
+        .name-element
+          h3 rate button
+        .rate-button
+          +rate-button(4)
+          +rate-button(5)
     .content-form-elements__column

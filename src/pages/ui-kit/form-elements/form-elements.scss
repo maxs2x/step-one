@@ -6,6 +6,7 @@
 @import '../../../components/radio-button/radio-button.scss';
 @import '../../../components/toggle/toggle.scss';
 @import '../../../components/like/like.scss';
+@import '../../../components/rate-button/rate-button.scss';
 
 .content-form-elements {
   max-width: 1212px;
@@ -175,5 +176,13 @@
   padding-top: 0.6rem;
   .container-like-button {
     margin-right: 0.57rem;
+  }
+}
+.form-element .rate-button {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 1.05rem;
+  .container-rate {
+    margin-right: 1.25rem;
   }
 }
