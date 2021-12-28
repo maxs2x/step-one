@@ -7,6 +7,7 @@ include ../../../components/checkbox-list/checkbox-list.pug
 include ../../../components/benefits/benefits.pug
 include ../../../components/radio-button/radio-button.pug
 include ../../../components/toggle/toggle.pug
+include ../../../components/like/like.pug
 
 block variables 
   -
@@ -96,4 +97,10 @@ block content
         .toggles
           +toggle(['Получать спецпредложения', 'subscription', 'checked'])
           +toggle(['Получать спецпредложения', 'subscription'])
+      .form-element
+        .name-element
+          h3 like button
+        .like-buttons 
+          +like-button([2])
+          +like-button([12, 'active'])
     .content-form-elements__column
