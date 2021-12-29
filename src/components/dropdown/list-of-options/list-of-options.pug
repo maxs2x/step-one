@@ -21,20 +21,22 @@ mixin list-of-options_default()
       p.uppercase ванные комнаты
       +dropdown-js__quantity('0')
 
-mixin list-of-options(count_button)
+mixin list-of-options([quantity_adults, quantity_child, quantity_baby])
   ul.dropdown-js__list-of-options.dropdown-js__inviseble
     li.dropdown-js__item-dropdown
       p.uppercase Взрослые
-      +dropdown-js__quantity('1')
+      +dropdown-js__quantity(quantity_adults)
     li.dropdown-js__item-dropdown
       p.uppercase Дети
-      +dropdown-js__quantity('1')
+      +dropdown-js__quantity(quantity_child)
     li.dropdown-js__item-dropdown
       p.uppercase Младенцы
-      +dropdown-js__quantity('1')
+      +dropdown-js__quantity(quantity_baby)
     li.dropdown-js__bottom-button.dropdown-js__two-button
-      button
+      button.dropdown-js__button_clear
         p.uppercase очистить
       button
         p.uppercase применить
+      
+      
     

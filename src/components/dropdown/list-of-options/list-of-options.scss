@@ -67,7 +67,7 @@
 
 .dropdown-js__two-button {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     cursor: pointer;
     margin-top: 0.9rem;
     padding-left: 0.8rem;
@@ -87,6 +87,10 @@
             color: $purple;
         }
     }
+}
+
+.dropdown-js__button_clear {
+    margin-right: 48%;
 }
 
 .dropdown-js__apply-button > :first-child{

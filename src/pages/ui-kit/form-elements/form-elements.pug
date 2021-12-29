@@ -36,7 +36,7 @@ block content
       .form-element 
         .name-element
           h3 dropdown 
-        +dropdown-js(['list-of-options', 'Сколько гостей'])
+        +dropdown-js(['list-of-options', 0, 0, 0, 'Сколько гостей'])
       .form-element 
         .name-element
           h3 masked text field
@@ -45,16 +45,16 @@ block content
         .mini-dropdown
           .name-element
             h3 date dropdown
-          +dropdown-js(['calendar', 'ДД.ММ.ГГГГ'])
+          +dropdown-js(['calendar', 0, 0, 0, 'ДД.ММ.ГГГГ'])
         .mini-dropdown
           .name-element
             h3 date dropdown
-          +dropdown-js(['calendar', '19.08.2019'])
+          +dropdown-js(['calendar', 0, 0, 0, '19.08.2019'])
       .small-form-element 
         .form-element 
           .name-element
             h3 filter date dropdown
-          +dropdown-js(['filter-date', '19 авг - 23 авг'])
+          +dropdown-js(['filter-date', 0, 0, 0, '19 авг - 23 авг'])
         .form-element 
           .name-element 
             h3 subscription text field
@@ -64,12 +64,12 @@ block content
           .name-element
             h3 dropdown 
             h3 default
-          +dropdown-js(['list-of-options_default', '2 спальни, 2 кровати...'])
+          +dropdown-js(['list-of-options_default', 2, 2, 0, '2 спальни, 2 кровати...'])
         .form-element 
           .name-element
             h3 dropdown 
             h3 expanded
-          +dropdown-js(['list-of-options_default', '2 спальни, 2 кровати'])
+          +dropdown-js(['list-of-options_default', 2, 2, 0, '2 спальни, 2 кровати'])
         .form-element
           +checkbox-list(['expandable checkbox list'])
         .form-element
@@ -110,4 +110,8 @@ block content
         .rate-button
           +rate-button(4)
           +rate-button(5)
+      .form-element 
+          .name-element
+            h3 dropdown 
+          +dropdown-js(['list-of-options', 0, 0, 0, 'Сколько гостей'])
     .content-form-elements__column

@@ -13,10 +13,10 @@ mixin dropdown-button([content, text_placeholder])
       i.dropdown-js__arrow.dropdown-js__arrow_up.dropdown-js__inviseble
       p #{text_placeholder}
 
-mixin dropdown-content([content, text_placeholder])
+mixin dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
   +dropdown-button([content, text_placeholder])
   if content === 'list-of-options'
-    +list-of-options()
+    +list-of-options([quantity_adults, quantity_child, quantity_baby])
   else if content === 'list-of-options_default'
     +list-of-options_default()
   else if content === 'calendar'
@@ -26,12 +26,12 @@ mixin dropdown-content([content, text_placeholder])
       +calendar()
 
 
-mixin dropdown-js([content, text_placeholder])
+mixin dropdown-js([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
   if content === 'list-of-options_default'
     .dropdown-js.dropdown-js_default
-      +dropdown-content([content, text_placeholder])
+      +dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
   else
     .dropdown-js
-      +dropdown-content([content, text_placeholder])
+      +dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
 
       

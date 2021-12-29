@@ -105,28 +105,59 @@ class DropdownDefault extends DropdownOpenPart {
 
 class DropdownWithButton extends DropdownDefault {
     constructor(openPart) {
-        super(openPart);
-        
+        super(openPart);  
+        this.inviseCancel();      
+    }
+
+    inviseCancel() {
+        let buttonClear = this.openPart.querySelector('.dropdown-js__bottom-button .dropdown-js__button_clear');
+        let allStringsQuantity = this.openPart.querySelectorAll('input.quantity');
+        let summQuantity = 0;
+        for (let string of allStringsQuantity) {
+            summQuantity = summQuantity + Number(string.getAttribute('value'));
+        }
+        if ((summQuantity === 0) && (!(buttonClear === null))) {
+            buttonClear.classList.add('dropdown-js__inviseble');
+        }
     }
 
     updatePlaceholder() {
         let errorNone = 'PUSTO';
     }
 
+    handleDropDownButtonsClick(oneString) {
+        super.handleDropDownButtonsClick(oneString);
+        let buttonClear = oneString.currentTarget.closest('.dropdown-js').querySelector('.dropdown-js__bottom-button .dropdown-js__button_clear');
+        
+        if (!(buttonClear === null)) {
+            buttonClear.classList.remove('dropdown-js__inviseble');
+        }
+        
+        let allStringsQuantity = oneString.currentTarget.closest('.dropdown-js').querySelectorAll('.dropdown-js__list-of-options input.quantity');
+        let summQuantity = 0;
+        for (let string of allStringsQuantity) {
+            summQuantity = summQuantity + Number(string.getAttribute('value'));
+        }
+        if ((summQuantity === 0) && (!(buttonClear === null))) {
+            buttonClear.classList.add('dropdown-js__inviseble');
+        }
+    }
+
     buttonHendlingClear(parent) {
         let placeholder = parent.currentTarget.closest('.dropdown-js').querySelector('.dropdown-button p');
         let inputQuantity = parent.currentTarget.closest('.dropdown-js').querySelectorAll('input.quantity');
+        let buttonClear = parent.currentTarget.closest('button');
 
         standartPlaceholder = 'Сколько гостей';
         placeholder.innerHTML = standartPlaceholder;
 
         for (let elem of inputQuantity) {
             elem.setAttribute('value', 0);
-            console.log(elem.previousSibling.classList.contains('dropdown-js__inviseble'));
             if (!(elem.previousSibling.classList.contains('dropdown-js__inviseble'))) {
                 elem.previousSibling.classList.toggle('dropdown-js__inviseble');
             }
         }
+        buttonClear.classList.add('dropdown-js__inviseble');
     }
 
     buttonHendlingApply(parent) {
@@ -153,9 +184,6 @@ class DropdownWithButton extends DropdownDefault {
         super.assignHandler();
         buttonClear = this.openPart.querySelectorAll('.dropdown-js__bottom-button button')[0];
         buttonApply = this.openPart.querySelectorAll('.dropdown-js__bottom-button button')[1];
-        console.log('Buttons ');
-        console.log(this.openPart.querySelectorAll('.dropdown-js__bottom-button button'));
-
         buttonClear.addEventListener('click', this.buttonHendlingClear);
         buttonApply.addEventListener('click', this.buttonHendlingApply);
     }
@@ -205,7 +233,6 @@ class OneDay {
     validationDate() {
         nowDate = new Date();
         nowDateNumber = String(nowDate.getDate()) + String(nowDate.getMonth()) + String(nowDate.getFullYear());
-        console.log(nowDateNumber);
         result = this.matchingWithInsertDate(nowDate);
         return result;
     }
@@ -235,7 +262,6 @@ class RangeDays extends OneDay{
 
     checkNumberInsertDays() {
         parentAllDays = this._day.closest('.days');
-        console.log(parentAllDays.querySelectorAll('.insert-day'));
         return parentAllDays.querySelectorAll('.insert-day');
     }
 
@@ -272,10 +298,8 @@ class RangeDays extends OneDay{
     intervalРighlighting () {
         this.searchForfirstDay();
         nowDate = new Date(this.revercefullDate);
-        console.log('this.revercefullDate ' + String(this.revercefullDate));
         let dayStart = '';
         let dayStop = '';
-        console.log('intervalРighlighting ' + this.toDay + '   ' + nowDate);
         // this.fullDate = this.selectedDay + '.' + this.selectedMonth + '.' + this.selectedYear;
         // если кликнутый день совпадает с наибольшим выбранным
         if ( String(nowDate) === String(this.toDay)) {
@@ -312,7 +336,6 @@ class RangeDays extends OneDay{
             // если совпадает только год то
             // закрашиваем все даты правее даты стопа
                 dayStop =  this._day.closest('.days').lastChild;
-                console.log('day stop ' + String(dayStop));
             };
 
         }
@@ -328,7 +351,6 @@ class RangeDays extends OneDay{
     }
 
     dateEntryInSessionStorage() {
-        console.log('lenght sesStor = ' + sessionStorage.length);
         if ((sessionStorage.length === 0) || (sessionStorage.length === 1)) {
             sessionStorage.setItem(this.revercefullDate, this.revercefullDate);
         };        
@@ -345,26 +367,21 @@ class RangeDays extends OneDay{
                     this._day.classList.toggle('insert-day');
                     this.dateRemoveInSessionStorage();
                     this.removeIntervalРighlighting();
-                    console.log('delet');
                 };
             } else if (Number(sessionStorage.length) < 2) {
                 if (this._day.classList.contains('insert-day')) {
                     this._day.classList.toggle('insert-day');
                     this.dateRemoveInSessionStorage();
                     this.removeIntervalРighlighting();
-                    console.log('delet');
                 } else {
                     this._day.classList.toggle('insert-day');
                     this.dateEntryInSessionStorage();
                     if (sessionStorage.length === 2) {
                         this.intervalРighlighting();
                     };
-                    console.log('add');
                 }
-            };
-                
+            }; 
         }; 
-        console.log(sessionStorage.key(0), sessionStorage.key(1));
     }
 }
 
@@ -455,7 +472,6 @@ class Calendar {
             } else if (Number(this.onDay.getFullYear()) < Number(year)) {
                 nextInsertDay = 1;
             }
-            console.log('lastDay = ' + this.toDay.getDate());
             //входит ли конец диапазона в отрисовываемый год
             if (Number(this.toDay.getFullYear()) === Number(year)) {
                 // если входит - находим последний выбранный день
@@ -494,7 +510,6 @@ class Calendar {
         
     
         for (let i = 1; i <= monthDays; i++){
-            console.log('visoul ' + String(lastInsertDay) + ' ' + String(firstInsertDay) + ' ' + String(nextInsertDay));
             if (!(firstInsertDay === 0) && (i === firstInsertDay)) {
                 // отрисовываем первый выбраннный день если он в этом месяце
                 monthDaysText += '<li class="insert-day">' + i + '</li>';
@@ -534,7 +549,6 @@ class Calendar {
 
         this.setMonthCalendar(curYear,curMonth);
         this.setHandlerEveryDay();
-        console.log('querySelector nov');
     }
 
     prevMonth() {
@@ -547,13 +561,10 @@ class Calendar {
 
         this.setMonthCalendar(curYear,curMonth);
         this.setHandlerEveryDay();
-        console.log('querySelector prev');
     }
 
     setHandlerEveryDay() {
         let allDaysInMonth = this.container.querySelectorAll('.days li');
-        console.log('setHandlerOnD ' + allDaysInMonth);
-        console.log('setHandlerEveryD ' + this.filterType)
         for (let day of allDaysInMonth) {
             if (this.filterType === 'oneDay') {
                 new OneDay(day);
@@ -586,7 +597,6 @@ class Calendar {
     }
 
     cancelFilter() {
-        console.log('CLEAR!!! sessionStorage!!!');
         sessionStorage.clear();
         this.hideCalendar();
     }
@@ -656,7 +666,6 @@ class Dropdown {
             } else
                 new DropdownWithButton(this._elem.querySelector(this.invisibleBlock));
         } else {
-            console.log('cikle openPare ' + this._elem.querySelector(this.invisibleBlock));
             new Calendar(this._elem.querySelector(this.invisibleBlock));
         };
     }
