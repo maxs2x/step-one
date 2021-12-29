@@ -1,3 +1,5 @@
+@import './rich-checkbox/rich-checkbox.scss';
+
 .checkbox-list {
   position: relative;
   display: inline-block;
@@ -106,7 +108,7 @@ i.checkbox-list__arrow_down {
 }
   
   /* Style the indicator (dot/circle) */
-.checkbox-container .checkbox-container__checkmark:after {
+.checkbox-container input:checked ~ .checkbox-container__checkmark:after {
   top: 0.25rem;
   left: 0.38rem;
   width: 6px;

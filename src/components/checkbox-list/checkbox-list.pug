@@ -1,3 +1,5 @@
+include ./rich-checkbox/rich-checkbox
+
 mixin checkbox([text, checked, name])
   label.checkbox-container
     | #{text}
@@ -7,7 +9,8 @@ mixin checkbox([text, checked, name])
       span.checkbox-container__checkmark-inner
     if checked == 'unchecked' 
       input(type='checkbox' name=name)
-      span.checkbox-container__checkmark
+      .checkbox-container__checkmark
+      span.checkbox-container__checkmark-inner
       
 
 

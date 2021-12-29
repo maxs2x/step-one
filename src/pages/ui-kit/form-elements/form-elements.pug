@@ -111,7 +111,13 @@ block content
           +rate-button(4)
           +rate-button(5)
       .form-element 
-          .name-element
-            h3 dropdown 
-          +dropdown-js(['list-of-options', 0, 0, 0, 'Сколько гостей'])
+        .name-element
+          h3 dropdown 
+        +dropdown-js(['list-of-options', 0, 0, 0, 'Сколько гостей'])
+      .form-element 
+        .name-element 
+          h3 rich Checkbox Buttons
+        .rich-checkboxes
+          +rich-checkbox(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'max-width'])
+          +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'support for invalids'])
     .content-form-elements__column

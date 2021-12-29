@@ -1,0 +1,13 @@
+mixin rich-checkbox([checkbox_header, checkbox_description, checked, name])
+  label.checkbox-container.checkbox-container_rich-checkbox
+    .rich-checkbox__text
+        span.checkbox_header=checkbox_header
+        span.checkbox_description=checkbox_description
+    if checked == 'checked' 
+      input(type='checkbox' checked='checked' name=name)
+      .checkbox-container__checkmark
+      span.checkbox-container__checkmark-inner
+    if checked == 'unchecked' 
+      input(type='checkbox' name=name)
+      .checkbox-container__checkmark
+      span.checkbox-container__checkmark-inner
