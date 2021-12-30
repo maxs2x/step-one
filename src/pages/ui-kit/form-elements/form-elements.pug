@@ -9,6 +9,8 @@ include ../../../components/radio-button/radio-button.pug
 include ../../../components/toggle/toggle.pug
 include ../../../components/like/like.pug
 include ../../../components/rate-button/rate-button.pug
+include ../../../components/range-slider/range-slider.pug
+
 
 block variables 
   -
@@ -121,3 +123,4 @@ block content
           +rich-checkbox(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'max-width'])
           +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'support for invalids'])
     .content-form-elements__column
+       +range-slider()
