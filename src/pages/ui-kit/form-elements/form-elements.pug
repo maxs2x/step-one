@@ -11,6 +11,7 @@ include ../../../components/like/like.pug
 include ../../../components/rate-button/rate-button.pug
 include ../../../components/range-slider/range-slider.pug
 include ../../../components/button/button.pug
+include ../../../components/pagination/pagination.pug
 
 block variables 
   -
@@ -123,8 +124,8 @@ block content
           +rich-checkbox(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'max-width'])
           +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'support for invalids'])
     .content-form-elements__column
-       +range-slider()
-       .form-element 
+      +range-slider()
+      .form-element 
         .name-element 
           h3 Buttons
         .four-small-buttons 
@@ -136,4 +137,8 @@ block content
           +button(['without-border', 'CLICK ME'])
           +button(['without-border', 'CLICK ME'])
         +button(['big', 'перейти к оплате'])
+      .form-element 
+        .name-element 
+          h3 pagination
+        +pagination()
         

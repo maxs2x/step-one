@@ -1,0 +1,52 @@
+@mixin circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  line-height: 2.52rem;
+  border-radius: 50%;
+  font-family: $mainFont;
+}
+
+.pagination {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.pagination__number-pages {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.pagination__page {
+  @include circle;
+  font-size: 12px;
+}
+
+.pagination__hover-page {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.pagination__three-point,
+.pagintation__last-page {
+  @include circle;
+}
+
+.pagination__button-next {
+  @include circle;
+  text-align: center;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+}
+
+.pagination__arrow-next {
+  font-family: "Material Icons";
+  font-size: 24px;
+  color: white;
+}
+
+.pagination__bottom-text {
+  margin-top: 0.7rem;
+  margin-left: 0.3rem;
+}

@@ -9,6 +9,7 @@
 @import '../../../components/rate-button/rate-button.scss';
 @import '../../../components/range-slider/range-slider.scss';
 @import '../../../components/button/button.scss';
+@import '../../../components/pagination/pagination.scss';
 
 .content-form-elements {
   max-width: 1212px;
@@ -229,6 +230,7 @@
 
 .content-form-elements > :nth-child(3) > :nth-child(2) {
   margin-left: 0.1rem;
+  margin-bottom: 2.5rem;
 }
 
 .four-small-buttons {
@@ -246,4 +248,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.85rem;
+}
+
+.pagination {
+  margin-top: 1.03rem;
+  margin-left: 0.1rem;
+  width: 15rem;
 }
