@@ -1,2 +1,13 @@
-mixin button-top()
-  button.button-top Submit
+include ./white/white
+include ./big/big
+include ./without-border/without-border
+
+mixin button([variant_button, text_button])
+  if variant_button == 'standart'
+    button.button=text_button
+  else if variant_button == 'white'
+    +button-white(text_button)
+  else if variant_button == 'without-border'
+    +button-without-border(text_button)
+  else if variant_button == 'big'
+    +button-big(text_button)

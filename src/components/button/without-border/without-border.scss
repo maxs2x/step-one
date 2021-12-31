@@ -1,0 +1,11 @@
+.button_without-border {
+  padding: 0rem;
+  width: auto;
+  height: auto;
+  color: $purple;
+  background: none;
+}
+
+.button_without-border:hover {
+  color: $dark-shade-50;
+}

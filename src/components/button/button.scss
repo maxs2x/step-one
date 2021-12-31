@@ -1,0 +1,22 @@
+
+.button {
+    width: 6.2rem;
+    height: 2.7rem;
+    border: none;
+    border-radius: 1.4rem;
+    font-family: $mainFont;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.5;
+}
+
+@import './big/big.scss';
+@import './white/while.scss';
+@import './without-border/without-border.scss';

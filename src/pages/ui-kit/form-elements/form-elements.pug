@@ -10,7 +10,7 @@ include ../../../components/toggle/toggle.pug
 include ../../../components/like/like.pug
 include ../../../components/rate-button/rate-button.pug
 include ../../../components/range-slider/range-slider.pug
-
+include ../../../components/button/button.pug
 
 block variables 
   -
@@ -124,3 +124,16 @@ block content
           +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'support for invalids'])
     .content-form-elements__column
        +range-slider()
+       .form-element 
+        .name-element 
+          h3 Buttons
+        .four-small-buttons 
+          +button(['standart', 'CLICK ME'])
+          +button(['standart', 'CLICK ME'])
+          +button(['white', 'CLICK ME'])
+          +button(['white', 'CLICK ME'])
+        .two-buttons-without-border
+          +button(['without-border', 'CLICK ME'])
+          +button(['without-border', 'CLICK ME'])
+        +button(['big', 'перейти к оплате'])
+        

@@ -1,0 +1,34 @@
+.container-button {
+  position: relative;
+}
+
+.container-button:hover .button{
+  opacity: 0.5;  
+}
+
+.button_white {
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  padding: 0rem;
+}
+
+.button__content {
+  width: 5.9rem;
+  height: 2.5rem;
+  border-radius: 1.5rem;
+  background: white;
+  line-height: 2.4rem;
+}
+
+.button__text {
+  position: absolute;
+  top: 0.9rem;
+  left: 1.15rem;
+  font-family: $mainFont;
+  font-size: 12px;
+  font-weight: 700;
+  color: $purple;
+  cursor: pointer;
+}
+

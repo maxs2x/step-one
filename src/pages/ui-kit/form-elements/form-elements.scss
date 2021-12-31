@@ -8,6 +8,7 @@
 @import '../../../components/like/like.scss';
 @import '../../../components/rate-button/rate-button.scss';
 @import '../../../components/range-slider/range-slider.scss';
+@import '../../../components/button/button.scss';
 
 .content-form-elements {
   max-width: 1212px;
@@ -218,5 +219,31 @@
 
   .container-range-slider {
     width: 83%;
+    margin-bottom: 3.14rem;
   }
+}
+
+.content-form-elements > :nth-child(3) > :nth-child(2) .name-element {
+  margin-bottom: 1rem;
+}
+
+.content-form-elements > :nth-child(3) > :nth-child(2) {
+  margin-left: 0.1rem;
+}
+
+.four-small-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 13.55rem;
+  height: 7.32rem;
+  margin-bottom: 2rem;
+}
+
+.two-buttons-without-border {
+  width: 8.8rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.85rem;
 }
