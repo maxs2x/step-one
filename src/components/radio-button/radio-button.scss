@@ -5,6 +5,7 @@
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 15px;
+  letter-spacing: -0.05rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -62,7 +63,7 @@ input:checked + .radio-button-container__checkmark {
   
   /* Style the indicator (dot/circle) */
 .radio-button-container .radio-button-container__checkmark:after {
-  top: 0.15rem;
+  top: 0.13rem;
   left: 0.15rem;
   width: 0.77rem;
   height: 0.77rem;

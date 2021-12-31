@@ -126,6 +126,7 @@
 
 .content-form-elements > :nth-child(2) {
   padding-top: 0.22rem;
+  width: 264px;
 }
 
 .checkbox-buttons {
@@ -137,19 +138,19 @@
 }
 
 .content-form-elements > :nth-child(2) > :first-child {
-  margin-bottom: 2.506rem;
+  margin-bottom: 2.60rem;
 }
 
 .content-form-elements > :nth-child(2) > :nth-child(2) .name-element {
   padding-top: 0.01rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.97rem;
 }
 
 .content-form-elements > :nth-child(2) > :nth-child(2) .radio-buttons {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  width: 14rem;
+  width: 13.55rem;
   padding-left: 0.058rem;
 }
 
@@ -183,9 +184,10 @@
   display: flex;
   flex-flow: row nowrap;
   margin-top: 1.05rem;
-  .container-rate {
-    margin-right: 1.25rem;
-  }
+}
+
+.form-element .rate-button :first-child(){
+  margin-right: 1.26rem;
 }
 
 .content-form-elements > :nth-child(2) > :nth-child(5) {
@@ -208,4 +210,13 @@
 
 .rich-checkboxes > :last-child {
   width: 14.8rem;
+}
+
+.content-form-elements > :nth-child(3) {
+  margin-right: 3.4rem;
+  padding-top: 0.23rem;
+
+  .container-range-slider {
+    width: 83%;
+  }
 }

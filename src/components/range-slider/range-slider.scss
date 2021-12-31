@@ -5,10 +5,15 @@
 }
 
 .range-slideer__header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-bottom: 1.41rem;
+  max-width: 16.6rem;
+}
+
+.range-slideer__interval {
+  font-size: 12px;
 }
 
 .range-slider__slider {
@@ -39,8 +44,8 @@
 .range-slider__left-point ,
 .range-slider__right-point  {
   content: " ";
-  width: 0.65rem;
-  height: 0.65rem;
+  width: 0.68rem;
+  height: 0.68rem;
   margin-top: -0.3rem;
   border-radius: 50%;
   border: 0.2rem solid;
