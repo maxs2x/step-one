@@ -13,6 +13,7 @@ include ../../../components/range-slider/range-slider.pug
 include ../../../components/button/button.pug
 include ../../../components/pagination/pagination.pug
 include ../../../components/bullet-list/bullet-list.pug
+include ../../../components/revew/revew.pug
 
 block variables 
   -
@@ -158,3 +159,4 @@ block content
             h3 bullet list
           +bullet-list('Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00')
     .content-form-element__revew
+      +revew()

@@ -11,6 +11,7 @@
 @import '../../../components/button/button.scss';
 @import '../../../components/pagination/pagination.scss';
 @import '../../../components/bullet-list/bullet-list.scss';
+@import '../../../components/revew/revew.scss';
 
 .content-form-elements {
   max-width: 1212px;
@@ -276,4 +277,8 @@
 .bullet-list {
   margin-top: 0.8rem;
   width: 16rem;
+}
+
+.content-form-element__revew {
+  width: 710px;
 }

@@ -30,10 +30,12 @@
 }
 
 .pagination__three-point,
-.pagintation__last-page {
+.pagintation__last-page,
+.pagintation__first-page {
   @include circle;
 }
 
+.pagination__button-prev,
 .pagination__button-next {
   @include circle;
   text-align: center;
@@ -49,6 +51,10 @@
 .pagination__bottom-text {
   margin-top: 0.7rem;
   margin-left: 0.3rem;
+}
+
+.pagination__invis-element {
+  display: none;
 }
 
 

@@ -1,0 +1,11 @@
+include ../like/like.pug
+
+mixin revew()
+  .container-revew 
+    .container-revew__left-part 
+      .avatar-reviewer
+      +like-button([12, 'active'])
+    .container-revew__right-part 
+      .container-revew__name-reviewer Мурад Сарафанов
+      .container-revew__last-update 5 дней назад
+      .container-revew__revew-body Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.
