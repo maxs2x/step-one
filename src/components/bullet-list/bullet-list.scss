@@ -1,0 +1,23 @@
+.bullet-list {
+  
+  list-style: none;
+  padding: 0rem 0rem 0rem 0.0rem;
+}
+
+.bullet-element {
+  position: relative;
+  margin-bottom: 0.6rem;
+  padding-left: 1.3rem;
+  line-height: 1.5rem;
+}
+
+.bullet-element:before {
+  position: absolute;
+  top: 0.4rem;
+  left: 0rem;
+  content: " ";
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background-color: $dark-shade-25;
+}

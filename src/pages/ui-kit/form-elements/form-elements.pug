@@ -12,6 +12,7 @@ include ../../../components/rate-button/rate-button.pug
 include ../../../components/range-slider/range-slider.pug
 include ../../../components/button/button.pug
 include ../../../components/pagination/pagination.pug
+include ../../../components/bullet-list/bullet-list.pug
 
 block variables 
   -
@@ -63,24 +64,7 @@ block content
             h3 subscription text field
           +text-field({class: 'text-field_subscription', placeholder:'Email'})
         .empty-space
-        .form-element 
-          .name-element
-            h3 dropdown 
-            h3 default
-          +dropdown-js(['list-of-options_default', 2, 2, 0, '2 спальни, 2 кровати...'])
-        .form-element 
-          .name-element
-            h3 dropdown 
-            h3 expanded
-          +dropdown-js(['list-of-options_default', 2, 2, 0, '2 спальни, 2 кровати'])
-        .form-element
-          +checkbox-list(['expandable checkbox list'])
-        .form-element
-          +checkbox-list(['expandable checkbox list'])
-        .form-element 
-          +benefit-comfort()
-        .form-element 
-          +benefit-conveniences()
+        
     .content-form-elements__column
       .form-element
         .name-element
@@ -113,16 +97,6 @@ block content
         .rate-button
           +rate-button(4)
           +rate-button(5)
-      .form-element 
-        .name-element
-          h3 dropdown 
-        +dropdown-js(['list-of-options', 0, 0, 0, 'Сколько гостей'])
-      .form-element 
-        .name-element 
-          h3 rich Checkbox Buttons
-        .rich-checkboxes
-          +rich-checkbox(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'max-width'])
-          +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'support for invalids'])
     .content-form-elements__column
       +range-slider()
       .form-element 
@@ -141,4 +115,46 @@ block content
         .name-element 
           h3 pagination
         +pagination()
-        
+    .content-form-elements__column      
+      .small-form-element 
+        .form-element_dropdown-default 
+          .name-element
+            h3 dropdown 
+            h3 default
+          +dropdown-js(['list-of-options_default', 2, 2, 0, '2 спальни, 2 кровати...'])
+        .form-element_dropdown-default-open 
+          .name-element
+            h3 dropdown 
+            h3 expanded
+          +dropdown-js(['list-of-options_default', 2, 2, 0, '2 спальни, 2 кровати'])
+        .form-element_checkbox-list
+          +checkbox-list(['expandable checkbox list'])
+        .form-element_checkbox-list-open
+          +checkbox-list(['expandable checkbox list'])
+        .form-element_benefit-comfort
+          +benefit-comfort()
+        .form-element 
+          +benefit-conveniences()  
+    .content-form-elements__two-columns
+      .content-form-elements__column 
+        .form-element 
+          .name-element
+            h3 dropdown 
+          +dropdown-js(['list-of-options', 0, 0, 0, 'Сколько гостей'])
+        .form-element_rich-checkboxes 
+          .name-element 
+            h3 rich Checkbox Buttons
+          .rich-checkboxes
+            +rich-checkbox(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'max-width'])
+            +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'support for invalids'])
+
+      .content-form-elements__column 
+        .form-element 
+          .name-element
+            h3 dropdown 
+          +dropdown-js(['list-of-options', 0, 0, 0, '3 гостя'])
+        .form-element_bullet-list
+          .name-element 
+            h3 bullet list
+          +bullet-list('Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00')
+    .content-form-element__revew

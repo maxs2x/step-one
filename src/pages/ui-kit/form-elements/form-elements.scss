@@ -10,11 +10,12 @@
 @import '../../../components/range-slider/range-slider.scss';
 @import '../../../components/button/button.scss';
 @import '../../../components/pagination/pagination.scss';
+@import '../../../components/bullet-list/bullet-list.scss';
 
 .content-form-elements {
   max-width: 1212px;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   width: 100%;
   margin: 2.2rem 0px 0px 8.3rem;
@@ -101,30 +102,11 @@
   margin: 6.3rem 0rem;
 }
 
-.small-form-element > :nth-child(4) {
-  margin-bottom: 1.3rem;
-  margin-right: 0.05rem;
-}
 
-.small-form-element > :nth-child(5) {
-  margin-bottom: 2.1rem;
-}
 
-.small-form-element > :nth-child(6) {
-  margin-bottom: 1.45rem;
-}
 
-.checkbox-elements > :first-child {
-  margin-bottom: 0.85rem;
-}
 
-.small-form-element > :nth-child(7) {
-  margin-bottom: 1.75rem;
-}
 
-.small-form-element > :nth-child(8) {
-  margin-bottom: 2.5rem;
-}
 
 .content-form-elements > :nth-child(2) {
   padding-top: 0.22rem;
@@ -254,4 +236,44 @@
   margin-top: 1.03rem;
   margin-left: 0.1rem;
   width: 15rem;
+}
+
+.form-element_dropdown-default  {
+  margin-bottom: 1.2rem;
+  margin-right: 0.05rem;
+}
+
+.form-element_dropdown-default-open {
+  margin-bottom: 2.1rem;
+}
+
+.form-element_checkbox-list {
+  margin-bottom: 1.6rem;
+}
+
+.form-element_checkbox-list-open {
+  margin-bottom: 1.85rem;
+}
+
+.form-element_benefit-comfort {
+  margin-bottom: 2.45rem;
+}
+
+.content-form-elements__two-columns {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 44.5rem;
+  width: 100%;
+  margin-left: 4.5rem;
+}
+
+.form-element_rich-checkboxes,
+.form-element_bullet-list {
+  margin-top: 5.2rem;
+}
+
+.bullet-list {
+  margin-top: 0.8rem;
+  width: 16rem;
 }
