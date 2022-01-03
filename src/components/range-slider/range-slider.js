@@ -49,9 +49,9 @@ class RangeSlider {
 
         let rangeNull = new Range(0, 20);
         let rangeOne = new Range(20, 40);
-        let rangeTwo = new Range(40, 60);
-        let rangeThree = new Range(60, 80);
-        let rangeFour = new Range(80, 100);
+        let rangeTwo = new Range(45, 70);
+        let rangeThree = new Range(70, 90);
+        let rangeFour = new Range(90, 100);
 
         let pointPositionPercent = 0
 

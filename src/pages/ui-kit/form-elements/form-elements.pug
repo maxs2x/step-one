@@ -86,13 +86,13 @@ block content
         .toggles
           +toggle(['Получать спецпредложения', 'subscription', 'checked'])
           +toggle(['Получать спецпредложения', 'subscription'])
-      .form-element
+      .form-element.form-element__like-buttons 
         .name-element
           h3 like button
         .like-buttons 
           +like-button([2])
           +like-button([12, 'active'])
-      .form-element
+      .form-element.form-element__rate-button
         .name-element
           h3 rate button
         .rate-button
@@ -138,7 +138,7 @@ block content
           +benefit-conveniences()  
     .content-form-elements__two-columns
       .content-form-elements__column 
-        .form-element 
+        .two-columns__dropdown-first
           .name-element
             h3 dropdown 
           +dropdown-js(['list-of-options', 0, 0, 0, 'Сколько гостей'])
@@ -150,7 +150,7 @@ block content
             +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'support for invalids'])
 
       .content-form-elements__column 
-        .form-element 
+        .two-columns__dropdown-last
           .name-element
             h3 dropdown 
           +dropdown-js(['list-of-options', 0, 0, 0, '3 гостя'])
@@ -158,5 +158,5 @@ block content
           .name-element 
             h3 bullet list
           +bullet-list('Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00')
-    .content-form-element__revew
-      +revew()
+      .content-form-element__revew
+        +revew()
