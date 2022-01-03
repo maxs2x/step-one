@@ -1,0 +1,23 @@
+@import '../../../components/header-for-ui-kit/header-for-ui-kit.scss';
+@import '../../../components/rooms-search/rooms-search.scss';
+
+.content-cards {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 2.5rem 1rem 0rem 8.25rem;
+}
+
+.content-cards__first-column {
+  flex-basis: 26.65%;
+  margin-top: 0.4rem;
+  margin-left: 0.05rem
+}
+
+.content-cards__second-column {
+  flex-basis: 27%;
+}
+
+.content-cards__third-column {
+  flex-basis: 33%;
+}

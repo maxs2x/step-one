@@ -29,7 +29,7 @@ module.exports = {
             filename: '[name].[contenthash].css'
         }),
         new HtmlWebpackPlugin({
-            template: "./src/pages/ui-kit/form-elements/form-elements.pug"
+            template: "./src/pages/ui-kit/cards/cards.pug"
         })
     ],
     module: {
