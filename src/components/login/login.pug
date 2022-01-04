@@ -1,0 +1,15 @@
+include ../button/button.pug
+include ../text-field/text-field.pug
+
+mixin login()
+  form.container-login 
+    h1 Войти 
+    .login__email 
+      +text-field({id: 'email', type: 'email', placeholder:'Email'})
+    .login__password 
+      +text-field({id: 'password', type: 'password', placeholder:'Пароль'})
+    .login__button-login 
+      +button(['big', 'войти'])
+    .login__button-for-registration 
+      p Нет аккаунта на Toxin?
+      +button(['white', 'создать'])

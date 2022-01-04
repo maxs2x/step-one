@@ -2,7 +2,9 @@ extends ../../../index.pug
 
 include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
 include ../../../components/rooms-search/rooms-search.pug
-
+include ../../../components/registration/registration.pug
+include ../../../components/reservation/reservation.pug
+include ../../../components/login/login.pug
 
 block variables 
   -
@@ -18,5 +20,9 @@ block content
   .content-cards
     .content-cards__first-column 
       +rooms-search()
+      +registration()
     .content-cards__second-column 
+      +reservation()
+      +login()
     .content-cards__third-column
+    

@@ -15,10 +15,11 @@
 
 .button__content {
   width: 5.9rem;
-  height: 2.5rem;
+  height: 2.45rem;
   border-radius: 1.5rem;
   background: white;
   line-height: 2.4rem;
+  color: $purple;
 }
 
 .button__text {
@@ -29,6 +30,7 @@
   font-size: 12px;
   font-weight: 700;
   color: $purple;
+  text-transform: uppercase;
   cursor: pointer;
 }
 

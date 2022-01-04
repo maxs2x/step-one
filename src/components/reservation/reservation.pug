@@ -1,0 +1,55 @@
+include ../dropdown/dropdown.pug
+include ../button/button.pug
+
+mixin reservation()
+  form.container-reservation 
+    .reservation__header
+      .reservation__room-number
+        h3 № 
+        h1 888
+        p.reseruation__luxury люкс 
+      .reservation__room-price
+        p
+          |
+          span.price-per-day 9 990₽
+          |
+          | в сутки
+    .reservation__date-in-out 
+      .reservation__date-in 
+        h3 прибытие
+        +dropdown-js(['calendar', quantity_adults, quantity_child, quantity_baby, '19.08.2019'])
+      .reservation__date-out 
+        h3 выезд
+        +dropdown-js(['calendar', quantity_adults, quantity_child, quantity_baby, '23.08.2019'])
+    .reservation__guests 
+      h3 гости
+      +dropdown-js(['list-of-options', '2', '1', '0', '3 гостя'])
+    .reservation__price-calculation       
+      .row-with-price
+          .row-with-price__description
+            p
+              span.price-calculation__price-per-day 9 990₽ 
+              | х 
+              span.price-calculation__quantity-days 4
+              | суток
+          .row-with-price__numbers    
+            p
+              span.price-calculation__result 39 960₽
+      .row-with-price
+        .row-with-price__description
+          p Сбор за услуги: скидка 2 179₽
+          .reservation__info_about_service i
+        .row-with-price__numbers 
+          p 0₽
+      .row-with-price
+        .row-with-price__description
+          p Сбор за дополнительные услуги
+          .reservation__info_about_service i
+        .row-with-price__numbers 
+          p 300₽
+    .reservation__total 
+      h2 Итого
+      h2 38 081₽
+    .reservation__button-reservation
+      +button(['big', 'забронировать'])
+      

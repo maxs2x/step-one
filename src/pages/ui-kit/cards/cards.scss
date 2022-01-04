@@ -1,23 +1,35 @@
 @import '../../../components/header-for-ui-kit/header-for-ui-kit.scss';
 @import '../../../components/rooms-search/rooms-search.scss';
+@import '../../../components/registration/registration.scss';
+@import '../../../components/reservation/reservation.scss';
+@import '../../../components/login/login.scss';
+
 
 .content-cards {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  margin: 2.5rem 1rem 0rem 8.25rem;
+  margin: 2.5rem 17rem 0rem 8.25rem;
 }
 
 .content-cards__first-column {
-  flex-basis: 26.65%;
+  flex-basis: 32.5%;
   margin-top: 0.4rem;
   margin-left: 0.05rem
 }
 
 .content-cards__second-column {
-  flex-basis: 27%;
+  flex-basis: 32.8%;
 }
 
 .content-cards__third-column {
-  flex-basis: 33%;
+  flex-basis: 28%;
+}
+
+.container-rooms-search {
+    margin-bottom: 2.6rem;
+}
+
+.container-login {
+  margin-top: 2.6rem;
 }
