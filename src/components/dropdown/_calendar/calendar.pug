@@ -1,15 +1,15 @@
 mixin calendar()
   .dropdown-js__month-calendar.dropdown-js__inviseble
-    ul.month
-      li.prev
-        i.fas.fa-angle-double-left
-      li.next
-        i.fas.fa-angle-double-right
-      li
+    ul.calendar__month
+      li.calendar__prev
+        span.calendar__arrow-prev arrow_back
+      li.calendar__next
+        span.calendar__arrow-next arrow_forward
+      li.calendar__text
         p
-          span.month-name 
-          span.year-name
-    ul.weekdays
+          span.calendar__month-name 
+          span.calendar__year-name
+    ul.calendar__weekdays
       li Пн
       li Вт
       li Ср
@@ -17,8 +17,7 @@ mixin calendar()
       li Пт
       li Сб
       li Вс
-    ul.days
-    ul.buttons-block 
-      li
-        button.month-calendar_button_cancel  Отмена
-      li.month-calendar_button_apply Применить
+    ul.calendar__days
+    ul.calendar__buttons-block 
+      li.calendar__button_cancel Очистить
+      li.calendar__button_apply Применить

@@ -3,9 +3,9 @@ class OneDay {
         this._day = day;
         this._day.onclick = this.insertDay.bind(this);
         this.selectedDay = this._day.innerHTML;
-        this.Month = this._day.closest('.dropdown-js__month-calendar').querySelector('.month-name').innerHTML;
+        this.Month = this._day.closest('.dropdown-js__month-calendar').querySelector('.calendar__month-name').innerHTML;
         this.selectedMonth = this.convertingMonthToDate();
-        this.selectedYear = this._day.closest('.dropdown-js__month-calendar').querySelector('.year-name').innerHTML;
+        this.selectedYear = this._day.closest('.dropdown-js__month-calendar').querySelector('.calendar__year-name').innerHTML;
         this.fullDate = this.selectedDay + '.' + this.selectedMonth + '.' + this.selectedYear;
     }
 
@@ -46,15 +46,15 @@ class OneDay {
     }
 
     validationReSelection() {
-        if (this._day.closest('.days').querySelector('.insert-day')) {
-            this._day.closest('.days').querySelector('.insert-day').classList.toggle('insert-day');
+        if (this._day.closest('.calendar__days').querySelector('.calendar__insert-day')) {
+            this._day.closest('.calendar__days').querySelector('.calendar__insert-day').classList.toggle('calendar__insert-day');
         }
     }
 
     insertDay() {
         if (this.validationDate()) {
             this.validationReSelection();
-            this._day.classList.toggle('insert-day');
+            this._day.classList.toggle('calendar__insert-day');
             this._day.closest('.dropdown-js').querySelector('.dropdown-button p').innerHTML = this.fullDate;
         };        
     }
@@ -68,20 +68,15 @@ class RangeDays extends OneDay{
         this.revercefullDate = this.selectedYear + '-' + this.selectedMonth + '-' + this.selectedDay;
     }
 
-    checkNumberInsertDays() {
-        parentAllDays = this._day.closest('.days');
-        return parentAllDays.querySelectorAll('.insert-day');
-    }
-
     paintUpInterval(day) {
-        if (!day.classList.contains('insert-day')) {
-            day.classList.toggle('selected-interval');;
+        if (!day.classList.contains('calendar__insert-day')) {
+            day.classList.toggle('calendar__selected-interval');;
         }
     }
 
     validationInterval(dayStart, dayStop) {
-        innerDayStop = Number(dayStop.innerHTML);
-        innerDayStart = Number(dayStart.innerHTML);
+        let innerDayStop = Number(dayStop.innerHTML),
+            innerDayStart = Number(dayStart.innerHTML);
         if ((innerDayStart - 1) < innerDayStop) {
             this.paintUpInterval(dayStart);
             if (dayStart.nextSibling !== null) {
@@ -91,8 +86,8 @@ class RangeDays extends OneDay{
     }
 
     searchForfirstDay() {
-        dayOne = new Date(sessionStorage.key(0));
-        dayTwo = new Date(sessionStorage.key(1));
+        let dayOne = new Date(sessionStorage.key(0)),
+            dayTwo = new Date(sessionStorage.key(1));
         if (dayOne < dayTwo) {
             this.onDay = dayOne;
             this.toDay = dayTwo;
@@ -100,61 +95,86 @@ class RangeDays extends OneDay{
             this.onDay = dayTwo;
             this.toDay = dayOne;
         };
-        console.log('searchForfastDay dayOne dayTwo ' + String(dayOne) + String(dayTwo));
+    }
+
+    toggleInlineStyleFirstAndSecondDays(firstInsertDay, secondInsertDay) {
+        console.log(firstInsertDay, secondInsertDay);
+        if (firstInsertDay !== 0) {
+            firstInsertDay.classList.toggle('calendar__insert-day_first-insert');
+        };
+        if (secondInsertDay !== 0) {
+            secondInsertDay.classList.toggle('calendar__insert-day_last-insert');
+        }
     }
 
     intervalРighlighting () {
         this.searchForfirstDay();
-        nowDate = new Date(this.revercefullDate);
-        let dayStart = '';
-        let dayStop = '';
+        let nowDate = new Date(this.revercefullDate),
+            dayStart = '',
+            dayStop = '',
+            dayStartForInlineStyle = 0,
+            dayStopForInlineSyle = 0
         // this.fullDate = this.selectedDay + '.' + this.selectedMonth + '.' + this.selectedYear;
         // если кликнутый день совпадает с наибольшим выбранным
         if ( String(nowDate) === String(this.toDay)) {
             dayStop = this._day;
+            dayStopForInlineSyle = this._day;
         // Установка даты СТАРТА
             // если кликнутый месяц и год совпадает с наибольшим выбранным
             // то ставим дату СТАРТА в этом месяце
             if ((String(this.onDay.getMonth()) === String(nowDate.getMonth())) && (String(this.onDay.getFullYear()) === String(nowDate.getFullYear()))) {
-                for (day of this._day.closest('.days').querySelectorAll('li')) {
+                for (let day of this._day.closest('.calendar__days').querySelectorAll('li')) {
                     if (Number(day.innerHTML) === Number(this.onDay.getDate())) {
                         dayStart = day;
+                        dayStartForInlineStyle = day;
                     };
                 }
             // если совпадает только год то
             // закрашиваем все даты левее даты стопа
             } else {
-                dayStart =  this._day.closest('.days').querySelector('li');
+                dayStart =  this._day.closest('.calendar__days').querySelector('li');
             };
 
         } else {
             // иначе кликнутый день меньше второго выбранного дня
             // устанавливаем кликнутый день как СТАРТ
             dayStart = this._day;
+            dayStartForInlineStyle = this._day;
         // Установка даты СОТП
             // если кликнутый месяц и год совпадает с наибольшим выбранным
             // то ставим дату СТОПА в этом месяце
             if ((String(this.toDay.getMonth()) === String(nowDate.getMonth())) && (String(this.toDay.getFullYear()) === String(nowDate.getFullYear()))) {
-                for (day of this._day.closest('.days').querySelectorAll('li')) {
+                for (let day of this._day.closest('.calendar__days').querySelectorAll('li')) {
                     if (Number(day.innerHTML) === Number(this.toDay.getDate())) {
                         dayStop = day;
+                        dayStopForInlineSyle = day;
                     };
                 }
             } else {
             // если совпадает только год то
             // закрашиваем все даты правее даты стопа
-                dayStop =  this._day.closest('.days').lastChild;
+                dayStop =  this._day.closest('.calendar__days').lastChild;
             };
 
         }
         this.validationInterval(dayStart, dayStop);
+        this.toggleInlineStyleFirstAndSecondDays(dayStartForInlineStyle, dayStopForInlineSyle);
     }
 
     removeIntervalРighlighting() {
-        parentAllDays = this._day.closest('.days');
-        allРighlightingDays = parentAllDays.querySelectorAll('.selected-interval');
-        for (let day of allРighlightingDays) {
-            day.classList.toggle('selected-interval');
+        let parentAllDays = this._day.closest('.calendar__days'),
+            allDays = parentAllDays.querySelectorAll('.calendar__day');
+        for (let day of allDays) {
+            if (day.matches('.calendar__selected-interval')) {
+                day.classList.remove('calendar__selected-interval');
+            };
+            if (day.matches('.calendar__insert-day_last-insert')){
+                day.classList.remove('calendar__insert-day_last-insert');
+            };
+            if (day.matches('.calendar__insert-day_first-insert')) {
+                console.log(day.matches('.calendar__insert-day_first-insert'));
+                day.classList.remove('calendar__insert-day_first-insert');
+            };
         }
     }
 
@@ -171,18 +191,18 @@ class RangeDays extends OneDay{
     insertDay () {
         if (this.validationDate()) {
             if (Number(sessionStorage.length) === 2) {
-                if (this._day.classList.contains('insert-day')) {
-                    this._day.classList.toggle('insert-day');
+                if (this._day.classList.contains('calendar__insert-day')) {
+                    this._day.classList.toggle('calendar__insert-day');
                     this.dateRemoveInSessionStorage();
                     this.removeIntervalРighlighting();
                 };
             } else if (Number(sessionStorage.length) < 2) {
-                if (this._day.classList.contains('insert-day')) {
-                    this._day.classList.toggle('insert-day');
+                if (this._day.classList.contains('calendar__insert-day')) {
+                    this._day.classList.toggle('calendar__insert-day');
                     this.dateRemoveInSessionStorage();
                     this.removeIntervalРighlighting();
                 } else {
-                    this._day.classList.toggle('insert-day');
+                    this._day.classList.toggle('calendar__insert-day');
                     this.dateEntryInSessionStorage();
                     if (sessionStorage.length === 2) {
                         this.intervalРighlighting();
@@ -196,26 +216,26 @@ class RangeDays extends OneDay{
 class Calendar {
     constructor(elem) {
         this._elem = elem;
-        this.container = this._elem;
+        this.container = elem;
         this.nowDate = new Date();
         this.nowDateNumber = this.nowDate.getDate();
         this.nowMonth = this.nowDate.getMonth();
         this.nowYear = this.nowDate.getFullYear();
         this.container = this._elem;
-        this.monthContainer = this.container.querySelector('.month-name');
-        this.yearContainer = this.container.querySelector('.year-name');
-        this.daysContainer = this.container.querySelector('.days');
-        this.prev = this.container.querySelector('.prev');
-        this.next = this.container.querySelector('.next');
+        this.monthContainer = this.container.querySelector('.calendar__month-name');
+        this.yearContainer = this.container.querySelector('.calendar__year-name');
+        this.daysContainer = this.container.querySelector('.calendar__days');
+        this.prev = this.container.querySelector('.calendar__prev');
+        this.next = this.container.querySelector('.calendar__next');
         this.monthName = ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
         this.curDate = this.nowDate.setMonth(this.nowDate.getMonth() - 1);
         this.setMonthCalendar(this.nowYear, this.nowMonth);
         this.filterType = this.filterTypeSelection();
         this.setHandlerEveryDay();
-        this._elem.querySelector('.prev').onclick = this.prevMonth.bind(this);
-        this._elem.querySelector('.next').onclick = this.nextMonth.bind(this);
-        this._elem.querySelector('.month-calendar_button_cancel').onclick = this.cancelFilter.bind(this);
-        this._elem.querySelector('.month-calendar_button_apply').onclick = this.applyFilter.bind(this);
+        this.prev.onclick = this.prevMonth.bind(this);
+        this.next.onclick = this.nextMonth.bind(this);
+        this._elem.querySelector('.calendar__button_cancel').onclick = this.cancelFilter.bind(this);
+        this._elem.querySelector('.calendar__button_apply').onclick = this.applyFilter.bind(this);
         this.onDay = Object;
         this.toDay = Object;
     }
@@ -229,8 +249,8 @@ class Calendar {
     }
 
     searchForfirstDay() {
-        dayOne = new Date(sessionStorage.key(0));
-        dayTwo = new Date(sessionStorage.key(1));
+        let dayOne = new Date(sessionStorage.key(0)),
+            dayTwo = new Date(sessionStorage.key(1));
         if (dayOne < dayTwo) {
             this.onDay = dayOne;
             this.toDay = dayTwo;
@@ -304,15 +324,15 @@ class Calendar {
                 // если выбран день раньше этого месяца, 
                 // присваиваем лишкам класс выделения
                 if ((i > firstInsertDay) && (lastInsertDay === 0) && (nextInsertDay === 33)) {
-                    monthDaysText += '<li class="selected-interval"></li>';
+                    monthDaysText += '<li class="calendar__day calendar__selected-interval"></li>';
                 } else if ((firstInsertDay === 0) && (i < lastInsertDay) && (nextInsertDay !== 0)) {
                     // отрисовываем выделенный промежуток
-                    monthDaysText += '<li class="selected-interval">' + i + '</li>';
+                    monthDaysText += '<li class="calendar__day calendar__selected-interval">' + i + '</li>';
                 } else if ((firstInsertDay < i) && (i < lastInsertDay) && (firstInsertDay !== 0)) {
                     // отрисовываем выделенный промежуток
-                    monthDaysText += '<li class="selected-interval">' + i + '</li>';
+                    monthDaysText += '<li class="calendar__day calendar__selected-interval">' + i + '</li>';
                 } else {
-                    monthDaysText += '<li></li>';
+                    monthDaysText += '<li class="calendar__day"></li>';
                 };
             }
         }
@@ -321,30 +341,30 @@ class Calendar {
         for (let i = 1; i <= monthDays; i++){
             if (!(firstInsertDay === 0) && (i === firstInsertDay)) {
                 // отрисовываем первый выбраннный день если он в этом месяце
-                monthDaysText += '<li class="insert-day">' + i + '</li>';
+                monthDaysText += '<li class="calendar__day calendar__insert-day calendar__insert-day_first-insert">' + i + '</li>';
             } else if ((firstInsertDay < i) && (i < lastInsertDay) && (firstInsertDay !== 0)) {
                 // отрисовываем выделенный промежуток
-                monthDaysText += '<li class="selected-interval">' + i + '</li>';
+                monthDaysText += '<li class="calendar__day calendar__selected-interval">' + i + '</li>';
             } else if ((firstInsertDay === 0) && (i < lastInsertDay) && (nextInsertDay !== 0)) {
                 // отрисовываем выделенный промежуток
-                monthDaysText += '<li class="selected-interval">' + i + '</li>';
+                monthDaysText += '<li class="calendar__day calendar__selected-interval">' + i + '</li>';
             } else if ((i > firstInsertDay) && (lastInsertDay === 0) && (nextInsertDay === 33)) {
                 // отрисовываем выделенный промежуток
-                monthDaysText += '<li class="selected-interval">' + i + '</li>';
+                monthDaysText += '<li class="calendar__day calendar__selected-interval">' + i + '</li>';
             } else if (i === lastInsertDay) {
                 // отрисовываем последний выбраннный день если он в этом месяце
-                monthDaysText += '<li class="insert-day">' + i + '</li>';
+                monthDaysText += '<li class="calendar__day calendar__insert-day calendar__insert-day_last-insert">' + i + '</li>';
             } else {
                 // отрисовываем невыделенные дни
-                monthDaysText += '<li>' + i + '</li>';
+                monthDaysText += '<li class="calendar__day">' + i + '</li>';
             }
         }
     
         this.daysContainer.innerHTML = monthDaysText;
     
         if (month == this.nowMonth && year == this.nowYear){
-            days = this.daysContainer.getElementsByTagName('li');
-            days[monthPrefix + this.nowDateNumber - 1].classList.add('date-now');
+            days = this.daysContainer.querySelectorAll('.calendar__day');
+            days[monthPrefix + this.nowDateNumber - 1].classList.add('calendar__date-now');
         }
     }
 
@@ -373,7 +393,7 @@ class Calendar {
     }
 
     setHandlerEveryDay() {
-        let allDaysInMonth = this.container.querySelectorAll('.days li');
+        let allDaysInMonth = this.container.querySelectorAll('.calendar__day');
         for (let day of allDaysInMonth) {
             if (this.filterType === 'oneDay') {
                 new OneDay(day);
@@ -394,12 +414,12 @@ class Calendar {
         listOfOptions.classList.toggle('dropdown-js__inviseble');   
 
         if (sessionStorage.length !== 2) {
-            for (let elem of dropdown.querySelectorAll('.days li')) {
-                if (elem.matches('.insert-day')) {
-                    elem.classList.toggle('insert-day');
+            for (let elem of dropdown.querySelectorAll('.calendar__days li')) {
+                if (elem.matches('.calendar__insert-day')) {
+                    elem.classList.toggle('calendar__insert-day');
                 };
-                if (elem.matches('.selected-interval')) {
-                    elem.classList.toggle('selected-interval');
+                if (elem.matches('.calendar__selected-interval')) {
+                    elem.classList.toggle('calendar__selected-interval');
                 };
             }
         };
