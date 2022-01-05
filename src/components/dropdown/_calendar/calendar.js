@@ -427,7 +427,7 @@ class Calendar {
 
     cancelFilter() {
         sessionStorage.clear();
-        this.hideCalendar();
+        this.setMonthCalendar(this.nowYear, this.nowMonth);
     }
 
     applyFilter() {
@@ -435,6 +435,10 @@ class Calendar {
         let placeholder = dropdown.querySelector('.dropdown-button p');
         let shortMonthName = ['янв','фвр','мрт','апр','май','инь','иль','авг','сен','окт','ноя','дек'];
 
+        if (dropdown.querySelectorAll('.dropdown-js__calendar_filtre').length === 0) {
+            this.hideCalendar();
+            return;
+        }
         if (sessionStorage.length < 2) {
             alert('Пожалуйста, выберите дату "от" и дату "до"');
         };
