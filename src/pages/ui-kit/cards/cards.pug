@@ -5,6 +5,7 @@ include ../../../components/rooms-search/rooms-search.pug
 include ../../../components/registration/registration.pug
 include ../../../components/reservation/reservation.pug
 include ../../../components/login/login.pug
+include ../../../components/dropdown/_calendar/calendar.pug
 
 block variables 
   -
@@ -25,4 +26,4 @@ block content
       +reservation()
       +login()
     .content-cards__third-column
-    
+      +calendar()
