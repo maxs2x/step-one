@@ -3,6 +3,7 @@
 @import '../../../components/registration/registration.scss';
 @import '../../../components/reservation/reservation.scss';
 @import '../../../components/login/login.scss';
+@import '../../../components/room-card/room-card.scss';
 
 
 .content-cards {
@@ -37,4 +38,18 @@
 .dropdown-js__calendar_filtre {
   margin-top: 0.3rem;
   margin-left: 0.15rem;
+}
+
+.dropdown-js__month-calendar {
+  position: relative;
+}
+
+.room-cards {
+  padding-left: 0.15rem;
+  width: 82.9%;
+  margin-top: 2.5rem;
+}
+
+.container-room-card  {
+  margin-bottom: 3.4rem;
 }

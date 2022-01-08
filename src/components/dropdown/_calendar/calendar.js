@@ -79,7 +79,7 @@ class RangeDays extends OneDay{
             innerDayStart = Number(dayStart.innerHTML);
         if ((innerDayStart - 1) < innerDayStop) {
             this.paintUpInterval(dayStart);
-            if (dayStart.nextSibling !== null) {
+            if ((dayStart.nextSibling !== null) && (dayStart.nextSibling.matches('.calendar__day'))) {
                 this.validationInterval(dayStart.nextSibling, dayStop);
             };
         };
@@ -113,8 +113,7 @@ class RangeDays extends OneDay{
             dayStart = '',
             dayStop = '',
             dayStartForInlineStyle = 0,
-            dayStopForInlineSyle = 0
-        // this.fullDate = this.selectedDay + '.' + this.selectedMonth + '.' + this.selectedYear;
+            dayStopForInlineSyle = 0;
         // если кликнутый день совпадает с наибольшим выбранным
         if ( String(nowDate) === String(this.toDay)) {
             dayStop = this._day;
@@ -123,7 +122,7 @@ class RangeDays extends OneDay{
             // если кликнутый месяц и год совпадает с наибольшим выбранным
             // то ставим дату СТАРТА в этом месяце
             if ((String(this.onDay.getMonth()) === String(nowDate.getMonth())) && (String(this.onDay.getFullYear()) === String(nowDate.getFullYear()))) {
-                for (let day of this._day.closest('.calendar__days').querySelectorAll('li')) {
+                for (let day of this._day.closest('.calendar__days').querySelectorAll('.calendar__day')) {
                     if (Number(day.innerHTML) === Number(this.onDay.getDate())) {
                         dayStart = day;
                         dayStartForInlineStyle = day;
@@ -132,7 +131,7 @@ class RangeDays extends OneDay{
             // если совпадает только год то
             // закрашиваем все даты левее даты стопа
             } else {
-                dayStart =  this._day.closest('.calendar__days').querySelector('li');
+                dayStart =  this._day.closest('.calendar__days').querySelector('.calendar__day');
             };
 
         } else {
@@ -144,7 +143,7 @@ class RangeDays extends OneDay{
             // если кликнутый месяц и год совпадает с наибольшим выбранным
             // то ставим дату СТОПА в этом месяце
             if ((String(this.toDay.getMonth()) === String(nowDate.getMonth())) && (String(this.toDay.getFullYear()) === String(nowDate.getFullYear()))) {
-                for (let day of this._day.closest('.calendar__days').querySelectorAll('li')) {
+                for (let day of this._day.closest('.calendar__days').querySelectorAll('.calendar__day')) {
                     if (Number(day.innerHTML) === Number(this.toDay.getDate())) {
                         dayStop = day;
                         dayStopForInlineSyle = day;
@@ -153,7 +152,8 @@ class RangeDays extends OneDay{
             } else {
             // если совпадает только год то
             // закрашиваем все даты правее даты стопа
-                dayStop =  this._day.closest('.calendar__days').lastChild;
+                let daysInMonth =  this._day.closest('.calendar__days').querySelectorAll('.calendar__day').length;
+                dayStop =  this._day.closest('.calendar__days').querySelectorAll('.calendar__day')[daysInMonth - 1];
             };
 
         }
@@ -195,17 +195,20 @@ class RangeDays extends OneDay{
                     this._day.classList.toggle('calendar__insert-day');
                     this.dateRemoveInSessionStorage();
                     this.removeIntervalРighlighting();
+                    console.log('insertDay 1');
                 };
             } else if (Number(sessionStorage.length) < 2) {
                 if (this._day.classList.contains('calendar__insert-day')) {
                     this._day.classList.toggle('calendar__insert-day');
                     this.dateRemoveInSessionStorage();
                     this.removeIntervalРighlighting();
+                    console.log('insertDay 2');
                 } else {
                     this._day.classList.toggle('calendar__insert-day');
                     this.dateEntryInSessionStorage();
                     if (sessionStorage.length === 2) {
                         this.intervalРighlighting();
+                        console.log('insertDay 3');
                     };
                 }
             }; 
@@ -320,20 +323,11 @@ class Calendar {
 
         // установка пустых клеток месяца в начале
         if (monthPrefix > 0){
+            let lastDay = new Date(year, month, 0);
             for (let i = 1  ; i <= monthPrefix; i++){
-                // если выбран день раньше этого месяца, 
-                // присваиваем лишкам класс выделения
-                if ((i > firstInsertDay) && (lastInsertDay === 0) && (nextInsertDay === 33)) {
-                    monthDaysText += '<li class="calendar__day calendar__selected-interval"></li>';
-                } else if ((firstInsertDay === 0) && (i < lastInsertDay) && (nextInsertDay !== 0)) {
-                    // отрисовываем выделенный промежуток
-                    monthDaysText += '<li class="calendar__day calendar__selected-interval">' + i + '</li>';
-                } else if ((firstInsertDay < i) && (i < lastInsertDay) && (firstInsertDay !== 0)) {
-                    // отрисовываем выделенный промежуток
-                    monthDaysText += '<li class="calendar__day calendar__selected-interval">' + i + '</li>';
-                } else {
-                    monthDaysText += '<li class="calendar__day"></li>';
-                };
+                lastDay.setDate(lastDay.getDate() - ( monthPrefix - i));
+                monthDaysText += '<li class="calendar__day-prev-month">' + lastDay.getDate() + '</li>';
+                lastDay = new Date(year, month, 0);
             }
         }
         
@@ -358,6 +352,18 @@ class Calendar {
                 // отрисовываем невыделенные дни
                 monthDaysText += '<li class="calendar__day">' + i + '</li>';
             }
+        }
+
+        this.daysContainer.innerHTML = monthDaysText;
+
+        let countElementsForDays = this.daysContainer.querySelectorAll('li').length,
+            countDaysBeforeInsertMonth = 7 - (countElementsForDays % 7),
+            lastDay = new Date(year, month + 1, 0);
+            console.log(countDaysBeforeInsertMonth);
+        for (let i = 1; i <= countDaysBeforeInsertMonth; i++) {
+            lastDay.setDate(lastDay.getDate() + i);
+            monthDaysText += '<li class="calendar__day-next-month">' + lastDay.getDate() + '</li>';
+            lastDay = new Date(year, month + 1, 0);
         }
     
         this.daysContainer.innerHTML = monthDaysText;
@@ -428,6 +434,7 @@ class Calendar {
     cancelFilter() {
         sessionStorage.clear();
         this.setMonthCalendar(this.nowYear, this.nowMonth);
+        this.setHandlerEveryDay();
     }
 
     applyFilter() {

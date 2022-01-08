@@ -6,6 +6,7 @@ include ../../../components/registration/registration.pug
 include ../../../components/reservation/reservation.pug
 include ../../../components/login/login.pug
 include ../../../components/dropdown/_calendar/calendar.pug
+include ../../../components/room-card/room-card.pug
 
 block variables 
   -
@@ -28,3 +29,6 @@ block content
     .content-cards__third-column
       .dropdown-js__calendar_filtre
         +calendar()
+      .room-cards 
+        +room-card(['888', '9 990₽', 'люкс', 5, '145 ', 'im1.jpg', 'im2.jpg', 'im3.jpg', 'im4.jpg'])
+        +room-card(['840', '9 990₽', 'люкс', 4, '65 ', 'im2.jpg', 'im6.jpg', 'im7.jpg', 'im8.jpg'])

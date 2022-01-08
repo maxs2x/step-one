@@ -112,6 +112,20 @@
   color: $dark-shade-50;
   font-size: 12px;
   line-height: 15px;
+  cursor: pointer;
+}
+
+.calendar__day-prev-month,
+.calendar__day-next-month {
+  box-sizing: border-box;
+  padding: 0.785rem 0rem;
+  list-style: none;
+  display: inline-block;
+  flex: 0 0 calc(100% / 7);
+  text-align: center;
+  color: $dark-shade-25;
+  font-size: 12px;
+  line-height: 15px;
 }
 
 .calendar__date-now {
