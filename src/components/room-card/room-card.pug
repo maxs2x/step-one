@@ -1,0 +1,77 @@
+include ../rate-button/rate-button.pug
+
+mixin image-slider(...images)
+  .container__img-slider
+    .image-slider      
+      .slider-wrapper
+        .inner
+          each image in images
+            article
+              img(src=require('../../../images/slider/' + image))
+      .slider-dot-control
+        label.image-slider__slide1
+          input(checked='' type='radio' name='slider')
+        label.image-slider__slide2
+          input(type='radio' name='slider')
+        label.image-slider__slide3
+          input(type='radio' name='slider') 
+        label.image-slider__slide4
+          input(type='radio' name='slider')
+
+  section.carousel(aria-label='Gallery')
+      ol.carousel__viewport
+        li#carousel__slide1.carousel__slide(tabindex='0')
+          .carousel__snapper
+            img(src='http://dummyimage.com/270')
+            a.carousel__prev(href='#carousel__slide4') Go to last slide
+            a.carousel__next(href='#carousel__slide2') Go to next slide
+        li#carousel__slide2.carousel__slide(tabindex='0')
+          .carousel__snapper
+            img(src='http://dummyimage.com/220')
+          a.carousel__prev(href='#carousel__slide1') Go to previous slide
+          a.carousel__next(href='#carousel__slide3') Go to next slide
+        li#carousel__slide3.carousel__slide(tabindex='0')
+          .carousel__snapper
+            img(src='http://dummyimage.com/270')
+          a.carousel__prev(href='#carousel__slide2') Go to previous slide
+          a.carousel__next(href='#carousel__slide4') Go to next slide
+        li#carousel__slide4.carousel__slide(tabindex='0')
+          .carousel__snapper
+            img(src='http://dummyimage.com/220')
+          a.carousel__prev(href='#carousel__slide3') Go to previous slide
+          a.carousel__next(href='#carousel__slide1') Go to first slide
+      aside.carousel__navigation
+        ol.carousel__navigation-list
+          li.carousel__navigation-item
+            a.carousel__navigation-button(href='#carousel__slide1') Go to slide 1
+          li.carousel__navigation-item
+            a.carousel__navigation-button(href='#carousel__slide2') Go to slide 2
+          li.carousel__navigation-item
+            a.carousel__navigation-button(href='#carousel__slide3') Go to slide 3
+          li.carousel__navigation-item
+            a.carousel__navigation-button(href='#carousel__slide4') Go to slide 4
+
+
+mixin room-card([number, price, luxury, rate, revew, image0, image1, image2, image3])
+  .container-room-card 
+    .room-card__slider 
+      +image-slider(image0, image1, image2, image3)
+    .room-card__description 
+      .room-card__room-number
+        h3 № 
+        h3= number
+        p.room-card__luxury=luxury
+      .room-card__price
+        p
+          |
+          span.room-card__price-per-day=price 
+          |
+          | в сутки
+      .room-card__rate 
+        +rate-button(rate)
+      .room-card__revew
+        p
+          |
+          span.room-card__count-revewers=revew 
+          |
+          | Отзывов
