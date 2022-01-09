@@ -1,7 +1,6 @@
-
-.button {
-    width: 6.2rem;
-    height: 2.7rem;
+.button_header-standart {
+    width: 12.23rem;
+    height: 2.122rem;
     border: none;
     border-radius: 1.4rem;
     font-family: $mainFont;
@@ -16,10 +15,3 @@
 .button:hover {
     opacity: 0.5;
 }
-
-@import './big/big.scss';
-@import './white/while.scss';
-@import './without-border/without-border.scss';
-@import './header-white/header-white.scss';
-@import './header-standart/header-standart.scss';
-

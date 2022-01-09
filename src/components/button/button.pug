@@ -1,12 +1,18 @@
 include ./white/white
 include ./big/big
 include ./without-border/without-border
+include ./header-white/header-white
+include ./header-standart/header-standart
 
 mixin button([variant_button, text_button])
   if variant_button == 'standart'
     button.button=text_button
+  else if variant_button == 'header-standart'
+    +button-header-standart(text_button)
   else if variant_button == 'white'
     +button-white(text_button)
+  else if variant_button == 'header-white'
+    +button-header-white(text_button)
   else if variant_button == 'without-border'
     +button-without-border(text_button)
   else if variant_button == 'big'

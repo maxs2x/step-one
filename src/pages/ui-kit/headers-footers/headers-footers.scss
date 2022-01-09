@@ -1,0 +1,13 @@
+@import '../../../components/header-for-ui-kit/header-for-ui-kit.scss';
+@import '../../../components/header/header.scss';
+
+.content-heeaders-footers {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding: 3.15rem 17.2rem 0rem 8.25rem;
+}
+
+.container-header {
+  margin-bottom: 3.75rem;
+}

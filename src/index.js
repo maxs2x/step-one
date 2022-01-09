@@ -1,3 +1,3 @@
 import './styles/index.scss';
 
-import './pages/ui-kit/cards/cards.js';
+import './pages/ui-kit/headers-footers/headers-footers.js';

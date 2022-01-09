@@ -1,6 +1,37 @@
 include ../button/button.pug
 
-mixin header-top()
-  .header-block 
-    h1 Text header 
-    +button-top()
+mixin header(header)
+  .container-header
+    .header__logo 
+      .header__image-logo 
+        img(src=require("../../../components/header/image/header-logo.jpg"))
+      .header__text-logo 
+        img(src=require("../../../components/header/image/TOXIN.jpg"))
+    .header__navigation
+      .header__navlinks 
+        a(class="header__navlink header__navlink_active" href="about") О нас
+        .header__dropdown  
+          p Услуги
+          i.header__dropdown-arrow_down
+          i.header__dropdown-arrow_up
+          .header__dropdown-content
+            a(class="header__navlink" href='#home') Home
+            a(class="header__navlink" href='#about') About
+            a(class="header__navlink" href='#contact') Contact
+        a(class="header__navlink" href="about") Вакансии
+        a(class="header__navlink" href="about") Новости
+        .header__dropdown  
+          p Соглашения
+          i.header__dropdown-arrow_down
+          i.header__dropdown-arrow_up
+          .header__dropdown-content
+            a(class="header__navlink" href='#home') Home
+            a(class="header__navlink" href='#about') About
+            a(class="header__navlink" href='#contact') Contact
+      .header__login-block
+        if header.type == 'no-login'
+          +button(['header-white', 'войти'])
+          +button(['header-standart', 'зарегистрироваться'])
+        else 
+          .header__nick-name
+            p Юлий Цезарь

@@ -1,0 +1,18 @@
+extends ../../../index.pug
+
+include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
+include ../../../components/header/header.pug
+block variables 
+  -
+    const keywords_and_description = {
+        keywords: 'Toxin, UI-kit',
+        description: 'Toxin - Лучшие номера для вашей работы, отдыха и просто вдохновения. UI-kit - набор компонентов.'
+    }
+
+block title
+  title Heeaders & Footers
+block content  
+  +header-for-ui-kit()
+  .content-heeaders-footers
+    +header({type: 'no-login'})
+    +header({type: 'login'})

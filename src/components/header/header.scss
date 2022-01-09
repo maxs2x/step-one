@@ -1,0 +1,133 @@
+@import '../button/button.scss';
+
+.container-header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header__logo {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.header__text-logo {
+  padding-top: 0.82rem;
+  padding-left: 0.75rem;
+}
+
+.header__navigation,
+.header__navlinks,
+.header__login-block {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header__navlinks > .header__navlink,
+.header__navlinks > .header__dropdown {
+  margin: 0rem 0.71rem;
+}
+
+.header__navlinks {
+  align-self: center;
+}
+
+.header__navlink {
+  text-decoration: none;
+  color: $dark-shade-50;
+  font-size: 14px;
+}
+
+.header__navlink_active {
+  color: $dark-shade-75;
+  font-weight: 700;
+}
+
+.header__dropdown {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  position:relative;
+  color: $dark-shade-50;
+}
+
+.header__dropdown p {
+  margin: 0rem;
+  color: $dark-shade-50;
+  font-size: 14px;
+}
+
+.header__dropdown-arrow_down,
+.header__dropdown-arrow_up {
+  width: 0.21rem;
+  height: 0.21rem;
+  border: solid $dark-shade-50;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 0.12rem;
+  margin: -0.4rem 0rem 0rem 0.5rem;
+}
+
+.header__dropdown-arrow_down {
+  transform: rotate(45deg); 
+}
+
+.header__dropdown-arrow_up {
+  transform: rotate(225deg);
+}
+
+.header__dropdown-content {
+  position: absolute;
+  top: 1.5rem;
+  left: 0rem;
+}
+
+.header__dropdown-arrow_up,
+.header__dropdown-content .header__navlink{
+  display: none;
+}
+
+.header__dropdown:hover .header__dropdown-arrow_up,
+.header__dropdown:hover .header__dropdown-content .header__navlink {
+  display: block;
+}
+
+.header__dropdown:hover .header__dropdown-arrow_down {
+  display: none;
+}
+
+.header__dropdown-content .header__navlink {
+  margin-top: 0.8rem;
+}
+
+.header__login-block {
+  margin-top: 0.21rem;
+}
+
+.button_header-white  {
+  margin: 0rem 1.25rem 0rem 1rem;
+}
+
+.header__nick-name {
+  display: flex;
+}
+
+.header__nick-name::before {
+  content: "";
+  height: 1.7rem;
+  margin-top: 0.55rem;
+  margin-left: 1rem;
+  margin-right: 1.25rem;
+  border-left: 0.1rem solid;
+  border-color: $dark-shade-25;
+}
+
+.header__nick-name p {
+  color: $dark-shade-50;
+  font-size: 14px;
+}
