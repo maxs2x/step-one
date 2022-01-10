@@ -2,6 +2,8 @@ extends ../../../index.pug
 
 include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
 include ../../../components/header/header.pug
+include ../../../components/footer/footer.pug
+
 block variables 
   -
     const keywords_and_description = {
@@ -16,3 +18,4 @@ block content
   .content-heeaders-footers
     +header({type: 'no-login'})
     +header({type: 'login'})
+    +footer()

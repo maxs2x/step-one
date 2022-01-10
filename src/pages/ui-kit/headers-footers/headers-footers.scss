@@ -1,5 +1,6 @@
 @import '../../../components/header-for-ui-kit/header-for-ui-kit.scss';
 @import '../../../components/header/header.scss';
+@import '../../../components/footer/footer.scss';
 
 .content-heeaders-footers {
   display: flex;
@@ -10,4 +11,8 @@
 
 .container-header {
   margin-bottom: 3.75rem;
+}
+
+footer {
+  margin-top: 5.35rem;
 }
