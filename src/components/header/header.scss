@@ -92,6 +92,13 @@
   display: none;
 }
 
+.header__dropdown:hover .header__dropdown-content {
+  background-color: white;
+  border-radius: 0.2rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .header__dropdown:hover .header__dropdown-arrow_up,
 .header__dropdown:hover .header__dropdown-content .header__navlink {
   display: block;

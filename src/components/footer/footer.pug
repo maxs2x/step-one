@@ -36,8 +36,11 @@ mixin footer()
       .footer-bottom__copyryght 
         p Copyright © 2018 Toxin отель. Все права защищены.
       .footer-bottom__socials
-        img(class="footer-bottom__image" src=require("../../../components/footer/image/twitter.jpg"))
-        img(class="footer-bottom__image" src=require("../../../components/footer/image/facebook.jpg"))
-        img(class="footer-bottom__image" src=require("../../../components/footer/image/instagramm.jpg"))
+        a(href="twitter")
+          img(class="footer-bottom__image" src=require("../../../components/footer/image/twitter.jpg"))
+        a(href="facebook")
+          img(class="footer-bottom__image" src=require("../../../components/footer/image/facebook.jpg"))
+        a(href="instagramm")
+          img(class="footer-bottom__image" src=require("../../../components/footer/image/instagramm.jpg"))
 
         
