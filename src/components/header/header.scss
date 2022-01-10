@@ -28,6 +28,12 @@
   align-items: flex-start;
 }
 
+@media (max-width: 1000px) {
+  .header__navigation {
+    display: none;
+  }
+}
+
 .header__navlinks > .header__navlink,
 .header__navlinks > .header__dropdown {
   margin: 0rem 0.71rem;
@@ -67,7 +73,7 @@
   width: 0.21rem;
   height: 0.21rem;
   border: solid $dark-shade-50;
-  border-width: 0 2px 2px 0;
+  border-width: 0 0.14rem 0.14rem 0;
   display: inline-block;
   padding: 0.12rem;
   margin: -0.4rem 0rem 0rem 0.5rem;
@@ -138,3 +144,99 @@
   color: $dark-shade-50;
   font-size: 14px;
 }
+
+.header__burger-menu {
+  display: none;
+  position: relative;
+}
+
+.wrapper__checkbox {
+  display: none;
+}
+.wrapper__checkbox:checked ~ .wrapper__menu {
+  right: 0; }
+
+.wrapper__checkbox:checked ~ .wrapper__button .wrapper__button-line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 0.45rem;
+}
+.wrapper__checkbox:checked ~ .wrapper__button .wrapper__button-line:nth-child(2) {
+  opacity: 0;
+}
+.wrapper__checkbox:checked ~ .wrapper__button .wrapper__button-line:nth-child(3) {
+  transform: rotate(-45deg);
+  top: -0.55rem;
+}
+
+.wrapper__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  cursor: pointer;
+  z-index: 1;
+}
+
+@media (max-width: 1000px) {
+  .wrapper__menu button {
+    margin-bottom: 1rem;
+  }
+}
+
+.wrapper__button-line {
+  display: block;
+  width: 1.5rem;
+  height: 0.2rem;
+  border-radius: 0.5rem;
+  background: white;
+  margin: 0.15rem 0;
+  position: relative;
+  transition: all .2s ;
+}
+
+.wrapper__menu {
+  position: absolute;
+  top: 0;
+  right: -200rem;
+  width: 30rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 3rem 3rem 3rem;
+  transition: right .4s;
+  border-bottom-left-radius: 5rem;
+}
+
+.wrapper__menu-link {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.2rem;
+  color: $dark-shade-50;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.5rem;
+  transition: all .2s linear;
+}
+
+.wrapper__menu-link:hover {
+  padding-right: 0.5rem;
+  color: $dark-shade-75;
+}
+
+@media (max-width: 1000px) {
+  .header__burger-menu {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+}
+

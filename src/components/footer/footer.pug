@@ -33,6 +33,11 @@ mixin footer()
         p Получайте специальные предложения и новости сервиса
         +text-field({id:"footer-subscription", class:"text-field_subscription", placeholder:"Email"})
     .footer-bottom 
+      .footer-bottom__logo
+        .footer-bottom__image-logo 
+          img(src=require("../../../components/header/image/header-logo.jpg"))
+        .footer-bottom__text-logo 
+          img(src=require("../../../components/header/image/TOXIN.jpg")) 
       .footer-bottom__copyryght 
         p Copyright © 2018 Toxin отель. Все права защищены.
       .footer-bottom__socials

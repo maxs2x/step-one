@@ -5,8 +5,11 @@
 .content-heeaders-footers {
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  padding: 3.15rem 17.2rem 0rem 8.25rem;
+  justify-content: flex-start;
+  max-width: 72.5rem;
+  margin-top: 3.15rem;
+  margin-left: 8.25rem;
+  
 }
 
 .container-header {
@@ -15,4 +18,49 @@
 
 footer {
   margin-top: 5.35rem;
+}
+
+.footer_small {
+  width: 750px;
+  margin: 5.15rem auto
+}
+
+.footer_small {
+  .footer-top {
+    display: none;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .footer-bottom__logo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+    max-width: 6.6rem;
+  }
+    
+  .footer-bottom__text-logo {
+    padding-top: 0.82rem;
+    margin-left: 0.7rem;
+  }
+      
+  .footer-bottom__socials {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-right: 0.0rem;
+    padding-right: 1.35rem;
+  }
+
+  .footer-bottom__image {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-top: 0.5rem;
+    margin-left: 1.35rem;
+  }
 }

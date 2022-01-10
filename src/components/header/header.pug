@@ -35,3 +35,21 @@ mixin header(header)
         else 
           .header__nick-name
             p Юлий Цезарь
+    .header__burger-menu
+      input#burger-menu.wrapper__checkbox(type='checkbox')
+      label.wrapper__button(for='burger-menu')
+        span.wrapper__button-line
+        span.wrapper__button-line
+        span.wrapper__button-line
+      .wrapper__menu
+        a.wrapper__menu-link(href='/profile') О нас
+        a.wrapper__menu-link(href='/') Услуги
+        a.wrapper__menu-link(href='/about') Вакансии
+        a.wrapper__menu-link(href='/contacts') Новости
+        a.wrapper__menu-link(href='#') Соглашения
+        if header.type == 'no-login'
+          +button(['header-white', 'войти'])
+          +button(['header-standart', 'зарегистрироваться'])
+        else 
+          .header__nick-name
+            p Юлий Цезарь
