@@ -1,6 +1,13 @@
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'),
+    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+    path = require("path");
+
+const pages = ["pages/ui-kit/cards/cards",
+    "pages/ui-kit/colors-type/colors-type",
+    "pages/ui-kit/form-elements/form-elements",
+    "pages/ui-kit/headers-footers/headers-footers",
+];
 
 let mode = 'development';
 if (process.env.NODE_ENV === 'production') {
@@ -10,12 +17,14 @@ console.log(mode + ' mode')
 
 module.exports = {
     mode: mode,
-    entry: {
-        scripts: './src/index.js',
-    },
+    entry: pages.reduce((config, page) => {
+        config[page] = `./src/${page}.js`;
+        return config;
+    }, {}),
     output: {
         filename: '[name].[contenthash].js',
         assetModuleFilename: "assets/[hash][ext][query]",
+        path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
     optimization: {
@@ -24,14 +33,20 @@ module.exports = {
         },
     },
     devtool: 'source-map',
-    plugins: [
+    plugins: [].concat(
+        pages.map(
+            (page) =>
+                new HtmlWebpackPlugin({
+                    inject: true,
+                    template: `./src/${page}.pug`,
+                    filename: `${page}.html`,
+                    chunks: [page],
+                })
+        ),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
-        }),
-        new HtmlWebpackPlugin({
-            template: "./src/pages/ui-kit/headers-footers/headers-footers.pug"
         })
-    ],
+    ),
     module: {
         rules: [
             {

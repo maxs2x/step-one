@@ -1,3 +1,5 @@
+import '../../../styles/index.scss';
+
 import '../../../components/rooms-search/rooms-search.js';
 import '../../../components/reservation/reservation.js';
 import '../../../components/dropdown/dropdown.js';
