@@ -1,4 +1,8 @@
 .dropdown-js__list-of-options {
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    width: 97.2%;
     list-style: none;
     margin-top: 0;
     padding: 0.09rem 0.44rem 0.42rem 0rem;
@@ -74,7 +78,7 @@
 }
 
 .dropdown-js__bottom-button {
-    button {
+    .button-dropdown {
         border: none;
         background-color: #fff;
         padding: 0;
