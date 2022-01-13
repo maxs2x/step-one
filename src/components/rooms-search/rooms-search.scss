@@ -1,7 +1,10 @@
+@import '../dropdown/dropdown.scss';
+
 .container-rooms-search {
   padding: 2.4rem 1.8rem 1.8rem 1.82rem;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.29);
   border-radius: 4px;
+  background-color: white;
 }
 
 .rooms-search__in-out {

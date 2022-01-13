@@ -1,0 +1,27 @@
+extends ../../../index.pug
+
+include ../../../components/header/header.pug
+include ../../../components/rooms-search/rooms-search.pug
+include ../../../components/footer/footer.pug
+
+block variables 
+  -
+    const keywords_and_description = {
+        keywords: 'Toxin, Landing Page',
+        description: 'Toxin - Лучшие номера для вашей работы, отдыха и просто вдохновения. UI-kit - набор компонентов.'
+    }
+
+block title
+  title Landing Page
+block content  
+  main
+    .container
+      +header({type: 'no-login'})
+    section.landing-page 
+      .container
+        +rooms-search()
+        .promo-text
+          p Лучшие номера для вашей работы, отдыха и просто вдохновения
+    .container
+      +footer()
+    

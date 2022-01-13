@@ -1,0 +1,59 @@
+
+@import '../../../components/header/header.scss';
+@import '../../../components/rooms-search/rooms-search.scss';
+@import '../../../components/footer/footer.scss';
+
+html, body, main, .landing-page  {
+    min-height: 100% !important;
+    height: 100%;
+}
+
+main { 
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding-top: 0.45rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1160px;
+  width: 100%;
+  padding-left: 0;
+}
+
+.landing-page {
+  flex: 1 0 auto;
+  margin-top: 0.7rem;
+  background-image: url(../pages/website/landing-page/images/image3.jpg);
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.landing-page .container{
+  position: relative;
+  height: 100%;
+}
+
+.container-rooms-search {
+    margin-top: 4.5rem;
+    width: 20rem;
+}
+
+.promo-text {
+    width: 17rem;
+    bottom: 5rem;
+    position: absolute;
+    right: 0rem;
+    text-align: right;
+}
+
+footer {
+    flex: 0 0 auto;
+    margin-top: 6.25rem;
+}
+
