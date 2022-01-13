@@ -146,11 +146,11 @@ class DropdownWithButton extends DropdownDefault {
     }
 
     buttonHendlingClear(parent) {
-        let placeholder = parent.currentTarget.closest('.dropdown-js').querySelector('.dropdown-button p');
-        let inputQuantity = parent.currentTarget.closest('.dropdown-js').querySelectorAll('input.quantity');
-        let buttonClear = parent.currentTarget.closest('button');
-
-        standartPlaceholder = 'Сколько гостей';
+        let placeholder = parent.currentTarget.closest('.dropdown-js').querySelector('.dropdown-button p'),
+            inputQuantity = parent.currentTarget.closest('.dropdown-js').querySelectorAll('input.quantity'),
+            buttonClear = parent.currentTarget.closest('.button-dropdown'),
+            standartPlaceholder = 'Сколько гостей';
+            
         placeholder.innerHTML = standartPlaceholder;
 
         for (let elem of inputQuantity) {
@@ -184,8 +184,8 @@ class DropdownWithButton extends DropdownDefault {
 
     assignHandler() {
         super.assignHandler();
-        let buttonClear = this.openPart.querySelectorAll('.dropdown-js__bottom-button button')[0],
-            buttonApply = this.openPart.querySelectorAll('.dropdown-js__bottom-button button')[1];
+        let buttonClear = this.openPart.querySelectorAll('.dropdown-js__bottom-button .button-dropdown')[0],
+            buttonApply = this.openPart.querySelectorAll('.dropdown-js__bottom-button .button-dropdown')[1];
         buttonClear.addEventListener('click', this.buttonHendlingClear);
         buttonApply.addEventListener('click', this.buttonHendlingApply);
     }

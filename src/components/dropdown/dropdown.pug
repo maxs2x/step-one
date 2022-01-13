@@ -30,6 +30,9 @@ mixin dropdown-js([content, quantity_adults, quantity_child, quantity_baby, text
   if content === 'list-of-options_default'
     .dropdown-js.dropdown-js_default
       +dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
+  else if content === 'list-of-options'
+    .dropdown-js.dropdown-js_list-of-options
+      +dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
   else
     .dropdown-js
       +dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])

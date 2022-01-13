@@ -1,3 +1,7 @@
+.dropdown-js_list-of-options {
+  position: relative;   
+}
+
 .dropdown-js__list-of-options {
     position: absolute;
     z-index: 3;
@@ -74,14 +78,14 @@
     justify-content: flex-end;
     cursor: pointer;
     margin-top: 0.9rem;
-    padding-left: 0.8rem;
+    padding-right: 0.5rem;
 }
 
 .dropdown-js__bottom-button {
     .button-dropdown {
         border: none;
         background-color: #fff;
-        padding: 0;
+        padding: 0.0rem;
         font-family: $mainFont;
         font-size: 12px;
         text-transform: uppercase;
@@ -94,9 +98,5 @@
 }
 
 .dropdown-js__button_clear {
-    margin-right: 48%;
-}
-
-.dropdown-js__apply-button > :first-child{
-    color: $purple;
+    margin-right: 42%;
 }
