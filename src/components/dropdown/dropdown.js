@@ -163,21 +163,33 @@ class DropdownWithButton extends DropdownDefault {
     }
 
     buttonHendlingApply(parent) {
-        let placeholder = parent.currentTarget.closest('.dropdown-js').querySelector('.dropdown-button p');
-        let inputQuantity= parent.currentTarget.closest('.dropdown-js').querySelectorAll('input.quantity');
-    
-        let numberOfVisitors = 0
-        let spellingOptionsVisitors = [' гость', ' гостя', ' гостей']
-        for (let elem of inputQuantity) {
-            numberOfVisitors = numberOfVisitors + Number(elem.getAttribute('value'));
-        }
+        let placeholder = parent.currentTarget.closest('.dropdown-js').querySelector('.dropdown-button p'),
+            inputQuantity= parent.currentTarget.closest('.dropdown-js').querySelectorAll('input.quantity'),
+            numberOfVisitors = 0,
+            numberOfAdults = 0,
+            numberOfBaby = 0,
+            addBaby = '',
+            spellingOptionsVisitors = [' гость', ' гостя', ' гостей'],
+            spellingOptionsBaby = [' молоденец', ' молоденца', ' молоденцев'];
+
+        numberOfVisitors = Number(inputQuantity[0].getAttribute('value')) + Number(inputQuantity[1].getAttribute('value'));
+        numberOfBaby = Number(inputQuantity[2].getAttribute('value'));
+        numberOfAdults = Number(inputQuantity[0].getAttribute('value'));
 
         let newPlaceholder = ((numberOfVisitors > 0) && (numberOfVisitors < 2)) ? spellingOptionsVisitors[0]:
         ((numberOfVisitors > 1) && (numberOfVisitors < 5)) ? spellingOptionsVisitors[1]:
         spellingOptionsVisitors[2];
 
-        if (numberOfVisitors !== 0) {
+        if (numberOfBaby > 0 ) {
+            addBaby = ((numberOfBaby > 0) && (numberOfBaby < 2)) ? spellingOptionsBaby[0]:
+            ((numberOfBaby > 1) && (numberOfBaby < 5)) ? spellingOptionsBaby[1]:
+            spellingOptionsBaby[2];
+        }
+
+        if ((numberOfAdults !== 0) && (numberOfBaby === 0)) {
             placeholder.innerHTML = numberOfVisitors + newPlaceholder;
+        } else if ((numberOfAdults !== 0) && (numberOfBaby !== 0)){
+            placeholder.innerHTML = numberOfVisitors + newPlaceholder + ', ' + numberOfBaby + addBaby;
         }
         
     }
