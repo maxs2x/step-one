@@ -3,6 +3,7 @@
   width: 19.8rem;
   display: inline-block;
   position: absolute;
+  margin-top: 0.2rem;
   background: white;
   z-index: 1;
   border: 0.1rem solid;
@@ -197,5 +198,6 @@
   color: $purple;
   li {
     list-style: none;
+    letter-spacing: 0rem;
   }
 }

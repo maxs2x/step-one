@@ -1,7 +1,10 @@
-mixin range-slider()
+mixin range-slider(placeholder)
   .container-range-slider 
     .range-slideer__header
-      h3 Range Slider 
+      if placeholder
+        h3=placeholder 
+      else 
+        h3 Range Slider
       .range-slideer__interval 5 000₽ - 10 000₽
     .range-slider__slider
       .range-slider__background-line 

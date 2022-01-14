@@ -170,7 +170,7 @@ class DropdownWithButton extends DropdownDefault {
             numberOfBaby = 0,
             addBaby = '',
             spellingOptionsVisitors = [' гость', ' гостя', ' гостей'],
-            spellingOptionsBaby = [' молоденец', ' молоденца', ' молоденцев'];
+            spellingOptionsBaby = [' младенец', ' младенца', ' младенцев'];
 
         numberOfVisitors = Number(inputQuantity[0].getAttribute('value')) + Number(inputQuantity[1].getAttribute('value'));
         numberOfBaby = Number(inputQuantity[2].getAttribute('value'));
