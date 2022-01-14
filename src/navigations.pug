@@ -1,0 +1,22 @@
+extends ./index.pug
+
+block variables 
+  -
+    const keywords_and_description = {
+        keywords: 'Toxin, Navigations',
+        description: 'Toxin - Лучшие номера для вашей работы, отдыха и просто вдохновения. UI-kit - набор компонентов.'
+    }
+
+block title
+  title Navigations
+block content  
+  .wrapper
+    .ui-kit 
+      h2 UI-kit
+      a(href="/pages/ui-kit/colors-type/colors-type.html") Colors-type
+      a(href="/pages/ui-kit/cards/cards.html") Cards 
+      a(href="/pages/ui-kit/form-elements/form-elements.html") Form-elements
+      a(href="/pages/ui-kit/headers-footers/headers-footers.html") Headers-footers 
+    .pages
+      h2 Pages
+      a(href="/pages/website/landing-page/landing-page.html") Landing-page

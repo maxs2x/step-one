@@ -8,6 +8,7 @@ const pages = ["pages/ui-kit/cards/cards",
     "pages/ui-kit/form-elements/form-elements",
     "pages/ui-kit/headers-footers/headers-footers",
     "pages/website/landing-page/landing-page",
+    "navigations"
 ];
 
 let mode = 'development';

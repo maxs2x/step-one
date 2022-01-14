@@ -7,6 +7,7 @@ class OneDay {
         this.selectedMonth = this.convertingMonthToDate();
         this.selectedYear = this._day.closest('.dropdown-js__month-calendar').querySelector('.calendar__year-name').innerHTML;
         this.fullDate = this.selectedDay + '.' + this.selectedMonth + '.' + this.selectedYear;
+        this.revercefullDate = this.selectedYear + '-' + this.selectedMonth + '-' + this.selectedDay;
     }
 
     convertingMonthToDate() {
@@ -14,6 +15,16 @@ class OneDay {
         let selectedMonth = months[this.Month];
         return selectedMonth;
     }
+
+    dateEntryInSessionStorage() {
+        if ((sessionStorage.length === 0) || (sessionStorage.length === 1)) {
+            sessionStorage.setItem(this.revercefullDate, this.revercefullDate);
+        };        
+    }
+
+    dateRemoveInSessionStorage() {
+        sessionStorage.removeItem(this.revercefullDate);
+    };
 
     matchingWithInsertDate(dateForMatching) {
         if (Number(this.selectedYear) >= dateForMatching.getFullYear()) { 
@@ -56,6 +67,7 @@ class OneDay {
             this.validationReSelection();
             this._day.classList.toggle('calendar__insert-day');
             this._day.closest('.dropdown-js').querySelector('.dropdown-button p').innerHTML = this.fullDate;
+            this.dateEntryInSessionStorage()
         };        
     }
 }
@@ -178,16 +190,6 @@ class RangeDays extends OneDay{
         }
     }
 
-    dateEntryInSessionStorage() {
-        if ((sessionStorage.length === 0) || (sessionStorage.length === 1)) {
-            sessionStorage.setItem(this.revercefullDate, this.revercefullDate);
-        };        
-    }
-
-    dateRemoveInSessionStorage() {
-        sessionStorage.removeItem(this.revercefullDate);
-    };
-
     insertDay () {
         if (this.validationDate()) {
             if (Number(sessionStorage.length) === 2) {
@@ -216,6 +218,12 @@ class RangeDays extends OneDay{
     }
 }
 
+class TwoDate extends RangeDays {
+    constructor(day) {
+        super(day);
+    }
+}
+
 class Calendar {
     constructor(elem) {
         this._elem = elem;
@@ -231,6 +239,7 @@ class Calendar {
         this.prev = this.container.querySelector('.calendar__prev');
         this.next = this.container.querySelector('.calendar__next');
         this.monthName = ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
+        this.monthNumber = {0:'01', 1:'02', 2:'03', 3:'04', 4:'05', 5:'06', 6:'07', 7:'08', 8:'09', 9:'10', 10:'11', 11:'12'}
         this.curDate = this.nowDate.setMonth(this.nowDate.getMonth() - 1);
         this.setMonthCalendar(this.nowYear, this.nowMonth);
         this.filterType = this.filterTypeSelection();
@@ -335,6 +344,7 @@ class Calendar {
         for (let i = 1; i <= monthDays; i++){
             if (!(firstInsertDay === 0) && (i === firstInsertDay)) {
                 // отрисовываем первый выбраннный день если он в этом месяце
+                console.log('отрисовываем первый выбраннный день в этом месяце');
                 monthDaysText += '<li class="calendar__day calendar__insert-day calendar__insert-day_first-insert">' + i + '</li>';
             } else if ((firstInsertDay < i) && (i < lastInsertDay) && (firstInsertDay !== 0)) {
                 // отрисовываем выделенный промежуток
@@ -402,7 +412,7 @@ class Calendar {
         let allDaysInMonth = this.container.querySelectorAll('.calendar__day');
         for (let day of allDaysInMonth) {
             if (this.filterType === 'oneDay') {
-                new OneDay(day);
+                new TwoDate(day);
             } else {
                 new RangeDays(day);
             };
@@ -410,6 +420,7 @@ class Calendar {
     }
 
     hideCalendar() {
+        console.log('hideCalendar');
         let dropdown = this._elem.closest('.dropdown-js');
         let arrowRight = dropdown.querySelector('.dropdown-js__arrow_up');
         let arrowDown = dropdown.querySelector('.dropdown-js__arrow_down');
@@ -441,22 +452,32 @@ class Calendar {
         let dropdown = this._elem.closest('.dropdown-js');
         let placeholder = dropdown.querySelector('.dropdown-button p');
         let shortMonthName = ['янв','фвр','мрт','апр','май','инь','иль','авг','сен','окт','ноя','дек'];
-
-        if (dropdown.querySelectorAll('.dropdown-js__calendar_filtre').length === 0) {
+        
+        if ((dropdown.querySelectorAll('.dropdown-js__calendar_filtre').length === 0) && (this.filterType !== 'oneDay')) {
+            console.log('hideCalendar1');
             this.hideCalendar();
             return;
+            
         }
         if (sessionStorage.length < 2) {
-            alert('Пожалуйста, выберите дату "от" и дату "до"');
+            let setDate = new Date(sessionStorage.key(0));
+            let fromDate = setDate.getDate() + '.' + this.monthNumber[Number(setDate.getMonth())] + '.' + setDate.getFullYear();
+            placeholder.innerHTML = fromDate;
+            this.hideCalendar();
         };
-        if (sessionStorage.length === 2 ) {
+        if (sessionStorage.length === 2 && (this.filterType !== 'oneDay')) {
             this.searchForfirstDay();
             let fromDate = String(this.onDay.getDate()) + ' ' + shortMonthName[this.onDay.getMonth()];
             let toDate = String(this.toDay.getDate()) + ' ' + shortMonthName[this.toDay.getMonth()];
             placeholder.innerHTML = fromDate + ' - ' + toDate;
             this.hideCalendar();
-        };
-        
+            console.log('hideCalendar3');
+        } else if (sessionStorage.length === 2 && (this.filterType === 'oneDay')) {
+            let setDate = new Date(sessionStorage.key(1));
+            let fromDate = setDate.getDate() + '.' + this.monthNumber[Number(setDate.getMonth())] + '.' + setDate.getFullYear();
+            placeholder.innerHTML = fromDate;
+            this.hideCalendar();
+        }
     }
 }
 

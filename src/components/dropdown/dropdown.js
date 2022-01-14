@@ -229,6 +229,7 @@ class Dropdown {
         arrowDown.classList.toggle('dropdown-js__inviseble');
         listOfOptions.classList.toggle('dropdown-js__inviseble');     
         borderDropdown.classList.toggle(borderDropdownMod);
+        this.openPart();
     }
 
     openPart () {

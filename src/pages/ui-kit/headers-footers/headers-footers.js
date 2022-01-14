@@ -1,3 +1,3 @@
-import '../../../styles/index.scss';
+import './headers-footers.scss';
 
 import '../../../components/header/header.js';

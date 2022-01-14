@@ -1,4 +1,4 @@
-import '../../../styles/index.scss';
+import './form-elements.scss';
 
 import '../../../components/dropdown/dropdown.js';
 import '../../../components/checkbox-list/checkbox-list.js';

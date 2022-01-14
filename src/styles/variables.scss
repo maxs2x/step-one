@@ -21,3 +21,48 @@ $font-weight-bold: 700;
   outline: none;
   color: $dark-shade-75;
 }
+
+
+body {
+  box-sizing: border-box;
+  font-family: $mainFont;
+  font-weight: $font-weight-normal;
+  font-size: $font-size;
+  
+}
+
+h1,
+h2,
+h3 {
+  color: $dark-shade-100;
+  margin: 0;
+    
+}
+
+h1 {
+  font-size: 24px;
+  letter-spacing: 0.014rem;
+}
+
+h2 {
+  font-size: 19px;
+  letter-spacing: 0.012rem;
+}
+
+h3 {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.005rem;
+}
+
+p {
+  color: $dark-shade-75;
+  line-height: 1.48rem;
+}
+
+p .uppercase {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.005rem;
+}
