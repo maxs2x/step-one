@@ -1,0 +1,23 @@
+extends ../../../index.pug
+
+include ../../../components/header/header.pug
+include ../../../components/login/login.pug
+include ../../../components/footer/footer.pug
+
+block variables 
+  -
+    const keywords_and_description = {
+        keywords: 'Toxin, Registration',
+        description: 'Toxin - Лучшие номера для вашей работы, отдыха и просто вдохновения. UI-kit - набор компонентов.'
+    }
+
+block title
+  title Registration
+block content  
+  header.container
+    +header({type: 'no-login'})
+  main
+    .container
+      +login()
+  footer.container
+    +footer()
