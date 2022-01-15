@@ -1,22 +1,20 @@
-.dropdown-js_list-of-options {
-  position: relative;   
-}
-
 .dropdown-js__list-of-options {
     position: absolute;
     z-index: 3;
     background-color: white;
-    width: 97.2%;
+    width: 100%;
     list-style: none;
     margin-top: 0;
-    padding: 0.05rem 0.49rem 0.42rem 0rem;
-    border: 1px solid $dark-shade-50;
+    padding: 0.15rem 0.0rem 0.42rem 0rem;
+    outline: 1px solid $dark-shade-50;
+    outline-offset: -1px;
     border-top: none;
     border-bottom-left-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
 }
 
 .dropdown-js__item-dropdown {
+    padding-right: 0.5rem;
     p {
         font-family: $mainFont;
         font-weight: 700;
@@ -47,7 +45,7 @@
 .dropdown-js__quantity .quantity {
     color: $dark-shade-50;
     height: 1.85rem;
-    width: 1.85rem;
+    width: 1.95rem;
     padding: 0;
     margin: 0.2rem 0rem 0rem 0rem;
     border-radius: 50%;
@@ -75,9 +73,11 @@
 
 .dropdown-js__two-button {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     cursor: pointer;
     margin-top: 0.85rem;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
     padding-right: 0rem;
 }
 
@@ -96,8 +96,4 @@
             letter-spacing: 0rem;
         }
     }
-}
-
-.dropdown-js__button_clear {
-    margin-right: 46%;
 }

@@ -1,51 +1,50 @@
 include ../text-field/text-field.pug
 
 mixin footer()
-  footer 
-    .footer-top 
-      .footer-top__brend
-        .footer-top__logo
-          .footer-top__image-logo 
-            img(src=require("../../../components/header/image/header-logo.jpg"))
-          .footer-top__text-logo 
-            img(src=require("../../../components/header/image/TOXIN.jpg")) 
-        .footer-top__title 
-          p Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-      .footer-top__section-navigation
-        h3 навигация
-        a(class="footer-top__link" href="about") О нас
-        a(class="footer-top__link" href="news") Новости
-        a(class="footer-top__link" href="support") Служба поддержки
-        a(class="footer-top__link" href="service") Услуги
-      .footer-top__section-about
-        h3 о нас
-        a(class="footer-top__link" href="about") О сервисе
-        a(class="footer-top__link" href="news") Наша команда
-        a(class="footer-top__link" href="support") Вакансии
-        a(class="footer-top__link" href="service") Инвесторы
-      .footer-top__section-support
-        h3 Служба поддержки
-        a(class="footer-top__link" href="about") Соглашения
-        a(class="footer-top__link" href="news") Сообщества
-        a(class="footer-top__link" href="support") Связь с нами
-      .footer-top__subscription
-        h3 Подписка
-        p Получайте специальные предложения и новости сервиса
-        +text-field({id:"footer-subscription", class:"text-field_subscription", placeholder:"Email"})
-    .footer-bottom 
-      .footer-bottom__logo
-        .footer-bottom__image-logo 
+  .footer-top 
+    .footer-top__brend
+      .footer-top__logo
+        .footer-top__image-logo 
           img(src=require("../../../components/header/image/header-logo.jpg"))
-        .footer-bottom__text-logo 
+        .footer-top__text-logo             
           img(src=require("../../../components/header/image/TOXIN.jpg")) 
-      .footer-bottom__copyryght 
-        p Copyright © 2018 Toxin отель. Все права защищены.
-      .footer-bottom__socials
-        a(href="twitter")
-          img(class="footer-bottom__image" src=require("../../../components/footer/image/twitter.jpg"))
-        a(href="facebook")
-          img(class="footer-bottom__image" src=require("../../../components/footer/image/facebook.jpg"))
-        a(href="instagramm")
-          img(class="footer-bottom__image" src=require("../../../components/footer/image/instagramm.jpg"))
+      .footer-top__title 
+        p Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+    .footer-top__section-navigation
+      h3 навигация
+      a(class="footer-top__link" href="about") О нас
+      a(class="footer-top__link" href="news") Новости
+      a(class="footer-top__link" href="support") Служба поддержки
+      a(class="footer-top__link" href="service") Услуги
+    .footer-top__section-about
+      h3 о нас
+      a(class="footer-top__link" href="about") О сервисе
+      a(class="footer-top__link" href="news") Наша команда
+      a(class="footer-top__link" href="support") Вакансии
+      a(class="footer-top__link" href="service") Инвесторы
+    .footer-top__section-support
+      h3 Служба поддержки
+      a(class="footer-top__link" href="about") Соглашения
+      a(class="footer-top__link" href="news") Сообщества
+      a(class="footer-top__link" href="support") Связь с нами
+    .footer-top__subscription
+      h3 Подписка
+      p Получайте специальные предложения и новости сервиса
+      +text-field({id:"footer-subscription", class:"text-field_subscription", placeholder:"Email"})
+  .footer-bottom 
+    .footer-bottom__logo
+      .footer-bottom__image-logo 
+        img(src=require("../../../components/header/image/header-logo.jpg"))
+      .footer-bottom__text-logo 
+        img(src=require("../../../components/header/image/TOXIN.jpg")) 
+    .footer-bottom__copyryght 
+      p Copyright © 2018 Toxin отель. Все права защищены.
+    .footer-bottom__socials
+      a(href="twitter")
+        img(class="footer-bottom__image" src=require("../../../components/footer/image/twitter.jpg"))
+      a(href="facebook")
+        img(class="footer-bottom__image" src=require("../../../components/footer/image/facebook.jpg"))
+      a(href="instagramm")
+        img(class="footer-bottom__image" src=require("../../../components/footer/image/instagramm.jpg"))
 
         

@@ -18,50 +18,56 @@ block variables
 block title
   title Landing Page
 block content  
-  main
-    .container
-      +header({type: 'no-login'})
-    .container
-      section.search-filter
-        .date-visit 
-          h3 даты пребывания в отеле
-          +dropdown-js(['filter-date', quantity_adults, quantity_child, quantity_baby, '19 авг - 23 авг'])
-        .guests 
-          h3 гости
-          +dropdown-js(['list-of-options', '2', '1', '1', '3 гостя, 1 младенец'])
-        .price-range 
-          +range-slider('диапазон цены')
-          p Стоимость за сутки пребывания в номере
-        .house-rules
-          h3 правила дома
-          +checkbox(['Можно курить', 'unchecked', 'smocking'])
-          +checkbox(['Можно с питомцами', 'checked', 'pet'])
-          +checkbox(['Можно пригласить гостей (до 10 человек)', 'checked', 'guests'])
-        .acessibility
-          h3 доступность
-          +rich-checkbox(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'wild-hollway'])
-          +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'assistance-disabled'])
-        .room-amenities 
-          h3 удобства номера
-          +dropdown-js(['list-of-options_default', '2', '1', '1', '2 спальни, 2 кровати...'])
-        .additional-amenities 
-          +checkbox-list('дополнительные удобства')
-      section.rooms-list
-        h1 Номера, которые мы для вас подобрали
-        .room-cards 
-          +room-card(['888', '9 990₽', ' люкс', 5, '145 ', 'im1.jpg', 'im2.jpg', 'im3.jpg', 'im4.jpg'])
-          +room-card(['840', '9 990₽', '', 4, '65 ', 'im2.jpg', 'im6.jpg', 'im7.jpg', 'im8.jpg'])
-          +room-card(['980', '8 500₽', ' люкс', 3, '35 ', 'im3.jpg', 'im4.jpg', 'im5.jpg', 'im6.jpg'])
-          +room-card(['856', '7 300₽', '', 5, '19 ', 'im4.jpg', 'im5.jpg', 'im6.jpg', 'im7.jpg'])
-          +room-card(['740', '6 000₽', '', 4, '44 ', 'im5.jpg', 'im6.jpg', 'im7.jpg', 'im8.jpg'])
-          +room-card(['982', '5 800₽', '', 3, '56 ', 'im6.jpg', 'im7.jpg', 'im8.jpg', 'im9.jpg'])
-          +room-card(['678', '5 500₽', '', 5, '45 ', 'im7.jpg', 'im8.jpg', 'im9.jpg', 'im10.jpg'])
-          +room-card(['450', '5 300₽', '', 4, '39 ', 'im8.jpg', 'im9.jpg', 'im10.jpg', 'im11.jpg'])
-          +room-card(['350', '5 000₽', '', 3, '77 ', 'im9.jpg', 'im10.jpg', 'im11.jpg', 'im12.jpg'])
-          +room-card(['666', '5 000₽', '', 5, '25 ', 'im10.jpg', 'im11.jpg', 'im12.jpg', 'im1.jpg'])
-          +room-card(['444', '5 000₽', '', 3, '15 ', 'im11.jpg', 'im12.jpg', 'im1.jpg', 'im2.jpg'])
-          +room-card(['352', '5 000₽', '', 3, '55 ', 'im12.jpg', 'im1.jpg', 'im2.jpg', 'im3.jpg'])
-        .pagination
-          +pagination()
-    .container
-      +footer()
+  header.container
+    +header({type: 'no-login'})
+  main.container
+    input#filter-menu.container__checkbox(type='checkbox')
+    label.filter-button(for='filter-menu')
+      .container__button
+        span.container__button-line
+        span.container__button-line
+        span.container__button-line
+      p фильтр
+    section.search-filter
+      .date-visit 
+        h3 даты пребывания в отеле
+        +dropdown-js(['filter-date', quantity_adults, quantity_child, quantity_baby, '19 авг - 23 авг'])
+      .guests 
+        h3 гости
+        +dropdown-js(['list-of-options', '2', '1', '1', '3 гостя, 1 младенец'])
+      .price-range 
+        +range-slider('диапазон цены')
+        p Стоимость за сутки пребывания в номере
+      .house-rules
+        h3 правила дома
+        +checkbox(['Можно курить', 'unchecked', 'smocking'])
+        +checkbox(['Можно с питомцами', 'checked', 'pet'])
+        +checkbox(['Можно пригласить гостей (до 10 человек)', 'checked', 'guests'])
+      .acessibility
+        h3 доступность
+        +rich-checkbox(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'wild-hollway'])
+        +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'assistance-disabled'])
+      .room-amenities 
+        h3 удобства номера
+        +dropdown-js(['list-of-options_default', '2', '1', '1', '2 спальни, 2 кровати...'])
+      .additional-amenities 
+        +checkbox-list('дополнительные удобства')
+    section.rooms-list
+      h1 Номера, которые мы для вас подобрали
+      .room-cards 
+        +room-card(['888', '9 990₽', ' люкс', 5, '145 ', 'im1.jpg', 'im2.jpg', 'im3.jpg', 'im4.jpg'])
+        +room-card(['840', '9 990₽', '', 4, '65 ', 'im2.jpg', 'im6.jpg', 'im7.jpg', 'im8.jpg'])
+        +room-card(['980', '8 500₽', ' люкс', 3, '35 ', 'im3.jpg', 'im4.jpg', 'im5.jpg', 'im6.jpg'])
+        +room-card(['856', '7 300₽', '', 5, '19 ', 'im4.jpg', 'im5.jpg', 'im6.jpg', 'im7.jpg'])
+        +room-card(['740', '6 000₽', '', 4, '44 ', 'im5.jpg', 'im6.jpg', 'im7.jpg', 'im8.jpg'])
+        +room-card(['982', '5 800₽', '', 3, '56 ', 'im6.jpg', 'im7.jpg', 'im8.jpg', 'im9.jpg'])
+        +room-card(['678', '5 500₽', '', 5, '45 ', 'im7.jpg', 'im8.jpg', 'im9.jpg', 'im10.jpg'])
+        +room-card(['450', '5 300₽', '', 4, '39 ', 'im8.jpg', 'im9.jpg', 'im10.jpg', 'im11.jpg'])
+        +room-card(['350', '5 000₽', '', 3, '77 ', 'im9.jpg', 'im10.jpg', 'im11.jpg', 'im12.jpg'])
+        +room-card(['666', '5 000₽', '', 5, '25 ', 'im10.jpg', 'im11.jpg', 'im12.jpg', 'im1.jpg'])
+        +room-card(['444', '5 000₽', '', 3, '15 ', 'im11.jpg', 'im12.jpg', 'im1.jpg', 'im2.jpg'])
+        +room-card(['352', '5 000₽', '', 3, '55 ', 'im12.jpg', 'im1.jpg', 'im2.jpg', 'im3.jpg'])
+      .pagination
+        +pagination()
+  footer.container
+    +footer()
