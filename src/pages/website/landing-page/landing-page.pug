@@ -13,15 +13,14 @@ block variables
 
 block title
   title Landing Page
-block content  
+block content 
+  header.container
+    +header({type: 'no-login'}) 
   main
-    header.container
-      +header({type: 'no-login'})
-    section.landing-page 
-      .container
-        +rooms-search()
-        .promo-text
-          p Лучшие номера для вашей работы, отдыха и просто вдохновения
-    footer.container
-      +footer()
+    section.landing-page.container
+      +rooms-search()
+      .promo-text
+        p Лучшие номера для вашей работы, отдыха и просто вдохновения
+  footer.container
+    +footer()
     

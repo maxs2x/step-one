@@ -38,7 +38,6 @@ main {
   flex: 1 0 auto;
   margin-top: 0.7rem;
   background-image: url(./images/registration-background.jpg);
-  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -54,15 +53,19 @@ main {
 main .container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100%;
 }
 
 .container-login {
   margin-top: 1.25rem;
+  margin-bottom: 1.15rem;
   max-width: 20.2rem;
   width: 100%;
 }
 
 footer {
   flex: 0 0 auto;
-  padding-top: 6.3rem;
+  padding-top: 6.5rem;
 }
