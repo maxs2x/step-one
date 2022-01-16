@@ -11,6 +11,7 @@ const pages = ["pages/ui-kit/cards/cards",
     "pages/website/search-room/search-room",
     "pages/website/registration/registration",
     "pages/website/login/login",
+    "pages/website/room-details/room-details",
     "navigations"
 ];
 

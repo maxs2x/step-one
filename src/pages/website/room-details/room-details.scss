@@ -1,0 +1,185 @@
+@import '../../../styles/font.scss';
+@import '../../../styles/variables.scss';
+@import '../../../components/header/header.scss';
+@import '../../../components/benefits/benefits.scss';
+@import '../../../components/revew/revew.scss';
+@import '../../../components/bullet-list/bullet-list.scss';
+@import '../../../components/reservation/reservation.scss';
+@import '../../../components/footer/footer.scss';
+
+html, body {
+  min-height: 100%;
+  height: 100%;
+  margin: 0rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1160px;
+  width: 100%;
+  padding-left: 0;
+}
+
+header.container {
+  margin-top: 0.95rem;
+}
+
+@media (max-width: 1300px) {
+    .container {
+      padding: 0rem 2rem;
+    }
+  }
+  
+@media (max-width: 760px) {
+    .container {
+      padding: 0rem ;
+    }
+}
+
+main { 
+  flex: 1 0 auto;
+  margin-top: 0.7rem;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.room-photo {
+  display: flex;
+  width: 100%;
+}
+
+.room-photo__main-photo {
+  width: 68.1%;
+  height: auto;
+}
+
+.room-photo__additional-photo {
+  display: flex;
+  flex-flow: column;
+  width: 31.9%;
+  height: auto;
+  img {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+section.container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 3.9rem;
+}
+
+.room-details {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 0.3rem;
+  max-width: 44.5rem;
+}
+
+.information-about-room {
+  flex-basis: 35%;
+  display: flex;
+  flex-flow: column nowrap;
+  h2 {
+    margin-bottom: 1.4rem;
+  }
+}
+
+.benefit {
+  margin-left: 0.05rem;
+  margin-bottom: 1.2rem;
+}
+
+.benefit.benefit_conveniences {
+  margin-top: 1.15rem;
+}
+
+.benefit_whatshot {
+  margin-top: 1.1rem;
+}
+
+.delimiter {
+  display: block;
+  content: " ";
+  width: 100%;
+  height: 0.15rem;
+  background-color: $dark-shade-10;
+}
+
+article.room-impressions {
+  flex-basis: 50%;
+}
+
+.room-impressions__gradation {
+  list-style: none;
+}
+
+.room-impressions__rating {
+  display: flex;
+  color: $dark-shade-75;
+}
+
+.room-impressions__rating::before{
+  display: block;
+  content: " ";
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+}
+
+.room-impressions__gradation :nth-child(1)::before {
+  background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
+}
+
+.room-impressions__gradation :nth-child(2)::before {
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+}
+
+.room-impressions__gradation :nth-child(3)::before {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.room-impressions__gradation :nth-child(4)::before {
+  background: linear-gradient(180deg, #919191 0%, #3D4975 100%);
+}
+
+.room-revew {
+  margin-top: 1rem;
+}
+
+.container-revew {
+  margin-top: 1.25rem;
+}
+
+.room-rules {
+  flex-basis: 37%; 
+  margin-top: 1.9rem;
+  h2 {
+    margin-left: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.cancel-room {
+  flex-basis: 48%; 
+  margin-right: 0.55rem;
+  margin-top: 1.9rem;
+  h2 {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.container-reservation {
+  min-width: 20.15rem;
+  height: fit-content;
+}
+
+footer {
+    flex: 0 0 auto;
+    padding-top: 9.9rem;
+}

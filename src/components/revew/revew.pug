@@ -9,3 +9,16 @@ mixin revew()
       .container-revew__name-reviewer Мурад Сарафанов
       .container-revew__last-update 5 дней назад
       .container-revew__revew-body Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.
+
+
+mixin room-revew([avatar, count_like, active_like, name_revewer, last_date, text_revew])
+  - let path= require('./images/' + avatar);
+  
+  .container-revew
+    .container-revew__left-part
+      img(src=path alt="avatar")
+      +like-button([count_like, active_like])
+    .container-revew__right-part
+      .container-revew__name-reviewer=name_revewer
+      .container-revew__last-update=last_date
+      .container-revew__revew-body=text_revew

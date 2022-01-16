@@ -6,20 +6,29 @@
 }
 
 .benefit_conveniences {
-    max-width: 14.9rem;
-    padding-left: 0.34rem;
+  max-width: 14.9rem;
+  padding-left: 0.34rem;
+}
+
+.benefit_whatshot {
+  padding-left: 0.36rem;
+  max-width: 14.95rem;
 }
 
 .benefit__image {
-    object-fit: contain;
+  object-fit: contain;
 }
 
 .benefit__text {
-    margin: 0;
+  margin: 0;
 }
 
 .benefit__text_conveniences {
-    margin: 0.1rem 0 0 0;
+  margin: 0.1rem 0 0 0;
+}
+
+.benefit__text_whatshot {
+  padding-top: 0.2rem;
 }
 
 .benefit__heading {
