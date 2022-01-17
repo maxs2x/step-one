@@ -36,17 +36,62 @@ block content
           +benefit-whatshot()
         article.room-impressions
           h2 Впечатления от номера
-          .room-impressions__pie-chart
-            .room-impressions__number-of-votes 
-            .room-impressions__rating-magnificent
-            .room-impressions__rating-good
-            .room-impressions__rating-satisfactorily
-            .room-impressions__rating-disappointed
-          ul.room-impressions__gradation
-            li.room-impressions__rating Великолепно
-            li.room-impressions__rating Хорошо
-            li.room-impressions__rating Удовлетворительно
-            li.room-impressions__rating Разочарован
+          figure
+            .figure-content
+              svg.donut(width='100%' height='100%' viewBox='0 0 42 42' aria-labelledby='beers-title beers-description' role='img')
+                title#beers-title Впечатления от номера
+                desc#beers-description
+                  | Диаграмма показывающая какие отзывы оставляли пользователи
+                circle.donut-hole(cx='21' cy='21' r='15.91549430918954' fill='#fff' role='presentation') 
+                circle.donut-ring(cx='21' cy='21' r='15.91549430918954' fill='transparent' stroke='#fff' stroke-width='1' role='presentation')
+                
+                lineargradient#linearColors1(x1='0' y1='0' x2='0' y2='0.75')
+                  stop(offset='0%' stop-color='#BC9CFF')
+                  stop(offset='100%' stop-color='#8BA4F9')
+                circle.donut-segment(cx='21' cy='21' r='15.91549430918954' fill='transparent' stroke="url(#linearColors1)" stroke-width='1' stroke-dasharray='24 75' stroke-dashoffset='25' aria-labelledby='donut-segment-1-title donut-segment-1-desc')
+                  title#donut-segment-1-title Удовлетворительно
+                  desc#donut-segment-1-desc
+                   | Pink chart segment spanning 40% of the whole, which is 4 Belgian Quadrupels out of 10 total.
+                
+                lineargradient#linearColors2(x1='0' y1='0.75' x2='0' y2='1')
+                  stop(offset='0%' stop-color='#6FCF97')
+                  stop(offset='100%' stop-color='#66D2EA')
+                circle.donut-segment(cx='21' cy='21' r='15.91549430918954' fill='transparent' stroke="url(#linearColors2)" stroke-width='1' stroke-dasharray='24 75' stroke-dashoffset='99')
+                  title#donut-segment-2-title Хорошо
+                  desc#donut-segment-2-desc
+                    | Green chart segment spanning 20% of the whole, which is 2 Imperial India Pale Ales out of 10 total.
+                
+                lineargradient#linearColors3(x1='0' y1='0' x2='0' y2='1')
+                  stop(offset='0%' stop-color='#FFE39C')
+                  stop(offset='100%' stop-color='#FFBA9C')
+                circle.donut-segment(cx='21' cy='21' r='15.91549430918954' fill='transparent' stroke="url(#linearColors3)" stroke-width='1' stroke-dasharray='48 50' stroke-dashoffset='73')
+                  title#donut-segment-3-title Великолепно
+                  desc#donut-segment-3-desc
+                    | Blue chart segment spanning 3% of the whole, which is 3 Russian Imperial Stouts out of 10 total.
+                
+
+                
+                g.chart-text
+                  text.chart-text__number(x='50%' y='50%')
+                    | 260
+                  text.chart-text__label(x='50%' y='50%')
+                    | Голосов
+            figcaption.figure-key
+              p.screenreader-only
+                | Donut chart showing 10 total beers. Two beers are Imperial India Pale Ales, four beers are Belgian Quadrupels, and three are Russian Imperial Stouts. The last remaining beer is unlabeled.
+              ul.figure-key__list(aria-hidden='true' role='presentation')
+                li
+                  span.figure-key__shape-circle.shape-fuschia
+                  |  Великолепно
+                li
+                  span.figure-key__shape-circle.shape-lemon-lime
+                  |  Хорошо
+                li
+                  span.figure-key__shape-circle.shape-blue
+                  |  Удовлетворительно
+                li
+                  span.figure-key__shape-circle.shape-dark
+                  |  Разочарован
         article.room-revew 
           h2 Отзывы посетителей номера
           +room-revew(['avatar1.jpg', 12, 'active', 'Мурад Сарафанов', '5 дней назад', 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.']) 
