@@ -82,7 +82,7 @@ section.container {
 }
 
 .information-about-room {
-  flex-basis: 35%;
+  flex-basis: 39%;
   display: flex;
   flex-flow: column nowrap;
   h2 {
@@ -118,84 +118,37 @@ article.room-impressions {
   }
 }
 
-
-
-
-
-
-
-  .chart-text {
-    /*font: 16px/1.4em "Montserrat", Arial, sans-serif;*/
-    fill: $purple;
-    -moz-transform: translateY(0.25em);
-    -ms-transform: translateY(0.25em);
-    -webkit-transform: translateY(0.25em);
-    transform: translateY(0.15em);
-  }
-  .chart-text__number {
-    margin-bottom: 0.2rem;
-    font-size: 0.45rem;
-    font-weight: 700;
-    text-anchor: middle;
-    -moz-transform: translateY(-0.25em);
-    -ms-transform: translateY(-0.25em);
-    -webkit-transform: translateY(-0.25em);
-    transform: translateY(-0.35em);
-  }
-  .chart-text__label {
-    font-size: 0.2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-anchor: middle;
-    -moz-transform: translateY(0.7em);
-    -ms-transform: translateY(0.7em);
-    -webkit-transform: translateY(0.7em);
-    transform: translateY(0.8em);
-  }
-
-
-
-
-
-.doughnut-diagramm__inner-text {
-  width: 100%;
+.doughnut-diagramm-wrapper {
+  margin-left: 1rem;
 }
-  
-
-
-
-  .shape-fuschia {
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-  }
-  .shape-lemon-lime {
-    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-  }
-  .shape-blue {
-    background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
-  }
-  .shape-dark {
-    background: linear-gradient(180deg, #919191 0%, #3D4975 100%);
-  }
-  
-
-
-
-
-
-
-
 
 .room-revew {
-  margin-top: 1rem;
+  margin-top: 0.85rem;
+}
+
+.room-revew__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  p {
+    margin: 0rem;
+    color: $dark-shade-50;
+  }
+}
+
+.room-revew > :nth-child(2) {
+  margin-top: 1.3rem;
 }
 
 .container-revew {
-  margin-top: 1.25rem;
+  margin-top: 1.6rem;
+  margin-left: 0.1rem;
+  max-width: 44.3rem;
 }
 
 .room-rules {
   flex-basis: 37%; 
-  margin-top: 1.9rem;
+  margin-top: 2.0rem;
   h2 {
     margin-left: 1.2rem;
     margin-bottom: 1.2rem;
@@ -205,7 +158,7 @@ article.room-impressions {
 .cancel-room {
   flex-basis: 48%; 
   margin-right: 0.55rem;
-  margin-top: 1.9rem;
+  margin-top: 2.0rem;
   h2 {
     margin-bottom: 1.2rem;
   }
