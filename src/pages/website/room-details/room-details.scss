@@ -123,14 +123,7 @@ article.room-impressions {
 
 
 
-figure {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    width: min-content;
-    height: min-content;
-    margin: 0.45rem 0rem;
-  }
+
   .chart-text {
     /*font: 16px/1.4em "Montserrat", Arial, sans-serif;*/
     fill: $purple;
@@ -160,50 +153,17 @@ figure {
     transform: translateY(0.8em);
   }
 
-  
-  .figure-content {
-    width: 9.5rem;
-    height: 9.5rem;
-    padding: 0rem; 
-  }
-  
-.figure-key {
-  align-self: flex-end;
-  margin-left: 0.8rem;
-  padding-bottom: 1.0rem;
+
+
+
+
+.doughnut-diagramm__inner-text {
+  width: 100%;
 }
   
-  .figure-content svg {
-    height: auto;
-  }
-  .figure-key {
-    min-width: calc(8 / 12);
-  }
-  .figure-key [class*="shape-"] {
-    margin-right: 0.4rem;
-    margin-bottom: 0.05rem;
-  }
-  .figure-key__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-.figure-key__list li {
-    display: flex;
-    align-items: center;
-  
-    margin: 0.4rem 0rem 0rem;
-    padding: 0;
-}
-.figure-key__shape-circle {
-    display: inline-block;
-    vertical-align: middle;
-    width: 0.65rem;
-    height: 0.65rem;
-    -webkit-border-radius: 50%;
-       -moz-border-radius: 50%;
-            border-radius: 50%;
-}
+
+
+
   .shape-fuschia {
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   }
@@ -217,17 +177,7 @@ figure {
     background: linear-gradient(180deg, #919191 0%, #3D4975 100%);
   }
   
-  
-  .screenreader-only {
-    position: absolute;
-    width: 0.5rem;
-    height: 0.5rem;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-  }
+
 
 
 
