@@ -4,109 +4,160 @@ import '../../../components/header/header.js';
 import '../../../components/reservation/reservation.js';
 import '../../../components/footer/footer.js';
 
-
-class CircleSegment {
-    constructor(numberSegmen, color, strokeDasharray, strokeDashoffset, title, description) {
-        this.numberSegmen = numberSegmen;
-        this.startColor = color.start;
-        this.stopColor = color.stop;
-        this.startStrokeDasharray = strokeDasharray.start;
-        this.stopStrokeDasharray = strokeDasharray.stop;
-        this.strokeDashoffset = strokeDashoffset;
-        this.title = title;
-        this.description = description;
-        this.svgPart = this.buildingSegment();
-    }
-
-    initialisationColor() {
-        let gradient = '<linearGradient id="linearColors' + String(this.numberSegmen) + '" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="' + this.startColor + '"></stop> <stop offset="100%" stop-color="' + this.stopColor + '"></stop></linearGradient>';
-        return gradient;
-    }
-
-    initializationCircleSegment() {
-        let circleSegment = '<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="url(#linearColors' + String(this.numberSegmen) + ')" stroke-width="1" stroke-dasharray="' + this.startStrokeDasharray + ' ' + this.stopStrokeDasharray + '" stroke-dashoffset="' + this.strokeDashoffset + '" aria-labelledby="donut-segment-' + this.numberSegmen + '-title donut-segment-' + this.numberSegmen + '-desc"></circle>';
-        return circleSegment;
-    }
-
-    initializationDescription() {
-        let description = '<title id="donut-segment-' + String(this.numberSegmen) + '-title">' + this.title + '</title><desc id="donut-segment-' + String(this.numberSegmen) + '-desc">' + this.description + '</desc>'
-        return description;
-    }
-
-    buildingSegment() {
-        let linearGradient = this.initialisationColor(),
-            circleSegment = this.initializationCircleSegment(),
-            description = this.initializationDescription(),
-            AcircleSegment = linearGradient + circleSegment + description;
-        return AcircleSegment;
-    }
-
-}
-
 class CircleChart {
     constructor(figure, dataAboutVoices) {
         this.parent = figure;
         this.dataAboutVoices = dataAboutVoices;
-        this.countSegments = this.dataAboutVoices.length;
-        this.filledPart = 0;
+        this.colors = new Array();
+        this.filledPartChart = 0;
         this.allVoices = this.coutingAllVoices();
-        this.insertAllPartsInSVG();
+        this.insertHTMLFigure();
+        this.insertCSSFigure();
         
     }
 
     coutingAllVoices() {
         let voices = 0;
-        console.log(this.dataAboutVoices.segmentOne.countVoices);
         for (let segment of Object.values(this.dataAboutVoices)) {
             voices += segment.countVoices;
         }
         return voices;
     }
 
-    calculationStrokeDasharray(voices, segmentNumber) {
-        let segmentShare = 100 * (voices / this.allVoices);
-        let strokeDasharray = '';
-        if (segmentNumber === 1) {
-            strokeDasharray = {start:String(segmentShare - 2), stop: String(100 - segmentShare + 1)};
-        } else {
-            strokeDasharray = {start:String(segmentShare - 1), stop: String(100 - segmentShare)};
-        }
-        this.filledPart += segmentShare - 1;
-        return strokeDasharray;
+    calculationSegmentAngle(voices) {
+        let segmentAngle = (voices / this.allVoices);
+        return segmentAngle;
     }
 
-    calculationStrokeDashoffset(segmentNumber) {
-        let strokeDashoffset = 0;
-        if (segmentNumber === 1) {
-            strokeDashoffset = 24;
-        } else {
-            strokeDashoffset = 100 + 25 - this.filledPart - segmentNumber;
-        } 
-        return strokeDashoffset;
+    calculationStopSegment(startSegment, segmentAngle) {
+        let endSegment = startSegment + segmentAngle;
+        this.filledPartChart = endSegment;
+        return endSegment;
     }
 
-    creatingAllCircleParts() {
-        let oneSegment = '',
-            allSegments = [];
+    creatingBackgroundForAllParts() {
+        let background = '';      
         for (let segment of Object.values(this.dataAboutVoices)) {
-            let colors = {start: segment.startColor, stop: segment.stopColor},
-                strokeDashoffset = this.calculationStrokeDashoffset(segment.segmentNumber),
-                strokeDasharray = this.calculationStrokeDasharray(segment.countVoices, segment.segmentNumber);
-            console.log(strokeDasharray, strokeDashoffset); 
-            oneSegment = new CircleSegment(segment.segmentNumber, colors, strokeDasharray, strokeDashoffset, segment.title, segment.description);
-            allSegments.push(oneSegment);
+            let startColor = segment.startColor,
+                stopColor = segment.stopColor,
+                startSegment = this.filledPartChart,
+                segmentAngle = this.calculationSegmentAngle(segment.countVoices),
+                stopSegment = this.calculationStopSegment(startSegment, segmentAngle),
+                spaceBetweenSegments = '#fff ' + (stopSegment) + 'turn ' +  stopSegment + 'turn, ';
+            background += startColor + ' ' + startSegment + 'rad ' + stopSegment + 'rad, ' + stopColor + ' ' + (stopSegment - 0.01) + 'turn, ' + spaceBetweenSegments;
+            this.colors.push(startColor);
         }
-        return allSegments;
+        background = 'conic-gradient(' + background.slice(0, -2) + ')';
+        console.log('creatingAllCircleParts()');
+        console.log(background);
+        return background;
     }
 
-    insertAllPartsInSVG() {
-        let svgFigure = this.parent.querySelector('svg.donut'),
-            allSegments = this.creatingAllCircleParts(),
-            codeAllSegments = '';
-        for (let codeOneSegment of allSegments) {
-            codeAllSegments += codeOneSegment.svgPart;
+    creatingLegends() {
+        let allTitles = '';  
+        for (let segment of Object.values(this.dataAboutVoices)) {
+            let title = '<span class="figure-key__shape-circle shape-' + segment.segmentNumber + '">' + segment.title + '</span>';
+            allTitles += '<li>' + title + '</li>';
         }
-        svgFigure.insertAdjacentHTML("beforeend", codeAllSegments);
+        return allTitles;
+    }
+
+    creatingStyleForLegends() {
+        let backgroundElement = 'linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);';
+        
+        for (let item of this.colors) {
+            let nameElementLegend = '.shape-' + 1,
+                elementLegend = this.parent.querySelector(nameElementLegend);
+            console.log('creatingStyleForLegends()');
+            console.log(item);
+        }
+        this.colors.forEach(alert);
+        console.log(this.colors);
+    }
+
+    insertHTMLFigure() {
+        let doughnutDiagramm = '  <div class="doughnut-diagramm"><div class="doughnut-diagramm__inner-space"><div class="doughnut-diagramm__inner-text"><p> всего человек</p></div></div></div>',
+            legendTitles = this.creatingLegends(),
+            legend = '<ul class="figure-key__list" aria-hidden="true" role="presentation">' + legendTitles + '</ul>',
+            figcaption = '<figcaption class="figure-key"><p class="screenreader-only"> Круговой график с отзывами. Великолепно 65 отзывов. Хорошо 65 отзывов.</p>' + legend + '</figcaption> ',
+            figure = '<figure>' + doughnutDiagramm + figcaption + '</figure>';    
+            console.log('insertHTMLFigure');
+        this.parent.insertAdjacentHTML("afterbegin", figure);
+    }
+
+    insertCSSFigure() {
+        let elementForChart = this.parent.querySelector('.doughnut-diagramm'),
+            styleContainer = `display: flex;
+                justify-content: center;
+                flex-direction: row;
+                width: min-content;
+                height: min-content;
+                margin: 0.45rem 0rem;
+            `,
+            
+            styleDoughnutDiagramm = `position: relative;
+                width: 9.5rem;
+                height: 9.5rem;
+                padding: 0rem;
+                border-radius: 50%;
+            `,
+            
+            styleDoughnutDiagrammInnerSpace = `position: absolute;
+                margin: 0px;
+                padding: 0px;
+                top: 5%;
+                left: 5%;
+                width: 90%;
+                height: 90%;
+                border-radius: 50%;
+                background: #fff;
+            `,
+            styleFigureKey = `align-self: flex-end;
+                margin-left: 0.8rem;
+                padding-bottom: 1.0rem;
+            `,
+            styleFigureKeyList = `margin: 0;
+                padding: 0;
+                list-style: none;
+              `,
+              styleFigureKeyListLi = `
+                display: flex;
+                align-items: center;
+                margin: 0.4rem 0rem 0rem;
+                padding: 0;
+            `,
+            styleFigureKeyShapeCircle = `display: inline-block;
+                vertical-align: middle;
+                width: 0.65rem;
+                height: 0.65rem;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            `,
+
+            styleScreenreaderOnly = `position: absolute;
+                width: 0.5rem;
+                height: 0.5rem;
+                margin: -1px;
+                padding: 0;
+                overflow: hidden;
+                clip: rect(0,0,0,0);
+                border: 0;
+            `;
+
+            this.parent.querySelector('figure').style.cssText = styleContainer;
+            this.parent.querySelector('.doughnut-diagramm').style.cssText = styleDoughnutDiagramm;
+            this.parent.querySelector('.doughnut-diagramm__inner-space').style.cssText = styleDoughnutDiagrammInnerSpace;
+            this.parent.querySelector('.figure-key').style.cssText = styleFigureKey;
+            this.parent.querySelector('.figure-key__list').style.cssText = styleFigureKeyList;
+            this.parent.querySelector('.figure-key__list li').style.cssText = styleFigureKeyListLi;
+            this.parent.querySelector('.figure-key__shape-circle').style.cssText = styleFigureKeyShapeCircle;
+            this.parent.querySelector('.screenreader-only').style.cssText = styleScreenreaderOnly;
+        
+        this.creatingStyleForLegends();
+        console.log('insertCSSFigure');
+        elementForChart.style.background = this.creatingBackgroundForAllParts();
+
     }
 }
 
@@ -129,15 +180,23 @@ let dataForCircleChart = {segmentOne: {
     },
     segmentThree: {
         segmentNumber: 3,
-        startColor: '#FFE39C',
-        stopColor: '#FFBA9C',
+        startColor: '#FFBA9C',
+        stopColor: '#FFE39C',
         countVoices: 130,
         title: 'Великолепно',
         description: 'Посетители оставившие отзыв "Великолепно"'
+    },
+    segmentFour: {
+        segmentNumber: 4,
+        startColor: '#919191',
+        stopColor: '#3D4975',
+        countVoices: 0,
+        title: 'Разочарован',
+        description: 'Посетители оставившие отзыв "Разочарован"'
     }
 }
 
-let elementCircleChart = document.querySelectorAll('.figure-content');
+let elementCircleChart = document.querySelectorAll('.js-doughnut-diagramm-wrapper');
 
 for (let elem of elementCircleChart) {
     new CircleChart(elem, dataForCircleChart)

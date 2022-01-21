@@ -36,31 +36,8 @@ block content
           +benefit-whatshot()
         article.room-impressions
           h2 Впечатления от номера
-          figure
-            .figure-content.js-figure-content
-              svg.donut.js-donut(width='100%' height='100%' viewBox='0 0 42 42' aria-labelledby='beers-title beers-description' role='img')
-                title#beers-title Впечатления от номера
-                desc#beers-description
-                  | Диаграмма показывающая какие отзывы оставляли пользователи
-                circle.donut-hole(cx='21' cy='21' r='15.91549430918954' fill='#fff' role='presentation') 
-                circle.donut-ring(cx='21' cy='21' r='15.91549430918954' fill='transparent' stroke='#fff' stroke-width='1' role='presentation')                
+          .doughnut-diagramm-wrapper.js-doughnut-diagramm-wrapper
 
-            figcaption.figure-key
-              p.screenreader-only
-                | Donut chart showing 10 total beers. Two beers are Imperial India Pale Ales, four beers are Belgian Quadrupels, and three are Russian Imperial Stouts. The last remaining beer is unlabeled.
-              ul.figure-key__list(aria-hidden='true' role='presentation')
-                li
-                  span.figure-key__shape-circle.shape-fuschia
-                  |  Великолепно
-                li
-                  span.figure-key__shape-circle.shape-lemon-lime
-                  |  Хорошо
-                li
-                  span.figure-key__shape-circle.shape-blue
-                  |  Удовлетворительно
-                li
-                  span.figure-key__shape-circle.shape-dark
-                  |  Разочарован
         article.room-revew 
           h2 Отзывы посетителей номера
           +room-revew(['avatar1.jpg', 12, 'active', 'Мурад Сарафанов', '5 дней назад', 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.']) 
