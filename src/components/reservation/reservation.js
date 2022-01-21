@@ -1,3 +1,5 @@
+import '../dropdown/dropdown.js';
+
 class Reservations {
     constructor(block) {
         this.container = block;
