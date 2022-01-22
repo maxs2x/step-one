@@ -83,9 +83,7 @@ main {
 
 @media (max-width: 1000px) {
   .room-photo__additional-photo {
-    flex-flow: row;
-    width: 50%;
-    height: 100%;
+    display: none;
   }
 }
 
@@ -101,6 +99,7 @@ section.container {
     display: flex;
     flex-flow: column;
     align-items: center;
+    margin-top: 2.5rem;
   }
 }
 
@@ -110,6 +109,12 @@ section.container {
   justify-content: space-between;
   margin-top: 0.3rem;
   max-width: 44.5rem;
+}
+
+@media (max-width: 1200px) {
+  .room-details {
+    margin-right: 0.5rem;
+  }
 }
 
 @media (max-width: 750px) {
@@ -157,8 +162,24 @@ article.room-impressions {
   }
 }
 
+@media (max-width: 750px) {
+  article.room-impressions {
+    margin-top: 2.5rem;
+  }
+}
+
 .doughnut-diagramm-wrapper {
   margin-left: 1rem;
+}
+
+.doughnut-diagramm-wrapper {
+  margin-left: 1rem;
+}
+
+@media (max-width: 750px) {
+  .doughnut-diagramm-wrapper {
+    margin-left: 0rem;
+  }
 }
 
 .room-revew {
@@ -174,6 +195,7 @@ article.room-impressions {
 @media (max-width: 1000px) {
   .room-revew {
     margin-top: 2.5rem;
+    margin-right: 0rem;
   }
 }
 
@@ -215,14 +237,13 @@ article.room-impressions {
   }
 }
 
-@media (max-width: 1000px) {
-  .room-rules {
-    flex-basis: 100%;
-  }
-}
 
 @media (max-width: 750px) {
+  .room-rules {
+    margin-top: 2.5rem;
+  }
   .room-rules h2{
+    flex-basis: 100%;
     text-align: center;
   }
 }
@@ -236,21 +257,22 @@ article.room-impressions {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 750px) {
   .cancel-room {
-    flex-basis: 100%;
+    margin-top: 2.5rem;
   }
 }
 
 @media (max-width: 750px) {
-  .cancel-room h2{
+  .cancel-room h2 {
+    flex-basis: 100%;
     text-align: center;
   }
 }
 
 .container-reservation {
   height: fit-content;
-  
+  width: 20.15rem;
 }
 
 @media (max-width: 1000px) {
@@ -264,6 +286,12 @@ article.room-impressions {
 footer {
     flex: 0 0 auto;
     padding-top: 9.9rem;
+}
+
+@media (max-width: 1000px) {
+  footer.container {
+    padding-top: 5rem;
+  }
 }
 
 .footer-bottom {

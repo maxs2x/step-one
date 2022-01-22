@@ -30,7 +30,7 @@ class Reservations {
     }
 
     convertateDate(date) {
-        let splitPlaceholder = date.split('.');
+        let splitPlaceholder = date.split('.'),
             validDate = new Date(Number(splitPlaceholder[2]), (Number(splitPlaceholder[1]) - 1), Number(splitPlaceholder[0]));
         return validDate
     }

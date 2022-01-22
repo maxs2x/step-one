@@ -6,6 +6,12 @@
   font-family: $mainFont;
 }
 
+@media (max-width: 750px) {
+  .container-revew {
+    padding: 0rem 0.0rem 0rem 0.5rem;
+  }
+}
+
 .container-revew__left-part {
   display: flex;
   flex-flow: column nowrap;

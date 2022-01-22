@@ -21,10 +21,10 @@ block content
     +header({type: 'no-login'}) 
   main
     section.room-photo
-      img(class="room-photo__main-photo" src=require("./images/photo01.jpg") alt="большая спальня")
+      img(class="room-photo__main-photo" src=require("./images/photo01.jpg") alt="большая спальня" data-fancybox='gallery')
       .room-photo__additional-photo
-        img(src=require("./images/photo02.jpg") alt="малая спальня")
-        img(src=require("./images/photo03.jpg") alt="гостинная")
+        img(src=require("./images/photo02.jpg") alt="малая спальня" data-fancybox='gallery')
+        img(src=require("./images/photo03.jpg") alt="гостинная" data-fancybox='gallery')
     section.container 
       .room-details 
         article.information-about-room 

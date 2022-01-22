@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
   "scripts": {
     "start": "set NODE_ENV=development&&webpack serve --open",
     "dev": "set NODE_ENV=development&&webpack",
@@ -18,9 +17,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "type": "module",
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
+    "@fancyapps/ui": "^4.0.19",
     "babel-loader": "^8.2.3",
     "bable-loader": "^0.0.1-security",
     "css-loader": "^6.5.1",

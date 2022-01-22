@@ -1,8 +1,13 @@
 import './room-details.scss';
 
 import '../../../components/header/header.js';
+import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox.css";
 import '../../../components/reservation/reservation.js';
 import '../../../components/footer/footer.js';
+
+
+
 
 class ChartSegment {
     constructor(startColor, stopColor, title, description) {

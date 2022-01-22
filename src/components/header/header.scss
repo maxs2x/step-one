@@ -167,7 +167,7 @@
 }
 .wrapper__checkbox:checked ~ .wrapper__menu {
   display: flex;
-  right: 0;
+  right: -1rem;
 }
 
 .wrapper__checkbox:checked ~ .wrapper__button .wrapper__button-line:nth-child(1) {
@@ -217,7 +217,7 @@
   position: absolute;
   top: 0;
   right: -200rem;
-  width: 30rem;
+  width: 11rem;
   background: white;
   display: none;
   flex-direction: column;

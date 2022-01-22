@@ -9,7 +9,7 @@
 @media (max-width: 1000px) {
   .footer-top {
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 
@@ -143,6 +143,12 @@
     justify-content: space-between;
     align-content: center;
     max-width: 6.6rem;
+  }
+}
+
+@media (max-width: 410px) {
+  .footer-bottom__copyryght p{
+    text-align: center;
   }
 }
 
