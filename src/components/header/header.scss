@@ -166,6 +166,7 @@
   display: none;
 }
 .wrapper__checkbox:checked ~ .wrapper__menu {
+  display: flex;
   right: 0;
 }
 
@@ -218,7 +219,7 @@
   right: -200rem;
   width: 30rem;
   background: white;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
