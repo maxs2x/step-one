@@ -1,3 +1,78 @@
+@import '../dropdown/dropdown.scss';
+
+
+.date-range {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.last-date,
+.first-date {
+  width: 100%;
+  max-width: 9.35rem;
+}
+
+.date-filter,
+#datein,
+#dateout {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 2.7rem;
+  margin: 0rem;
+  box-sizing: border-box;
+  background-color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  @include border-input-default;
+}
+
+.date-filter_label {
+  position: relative;
+}
+
+.date-filter_label::after {
+  position: absolute;
+  content: " ";
+  border: solid $dark-shade-50;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  float: right;
+  padding: 0.21rem;
+  top: 0.23rem;
+  right: 1.05rem;
+  transform: rotate(45deg); 
+}
+
+.first-date,
+.last-date  {
+  display: block;
+}
+
+.first-date__title,
+.last-date__title {
+  margin-bottom: 0.3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* месяцы и годы */
 .dropdown-js__month-calendar{
   width: 19.8rem;

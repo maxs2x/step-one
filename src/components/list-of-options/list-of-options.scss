@@ -1,4 +1,7 @@
-.dropdown-js__list-of-options {
+@import '../dropdown/dropdown.scss';
+
+.list-of-options,
+.list-of-options_with-buttons {
     position: absolute;
     z-index: 3;
     background-color: white;
@@ -13,7 +16,7 @@
     border-bottom-right-radius: 0.3rem;
 }
 
-.dropdown-js__item-dropdown {
+.js-list-of-options__item {
     padding-right: 0.5rem;
     p {
         font-family: $mainFont;
@@ -29,20 +32,20 @@
     }
 }
 
-.dropdown-js__item-dropdown {
+.js-list-of-options__item {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
 }
    
-.dropdown-js__quantity {
+.quantity {
     display: flex;
     justify-content: center;
 }  
 
-.dropdown-js__quantity .quantity__button-minus,
-.dropdown-js__quantity .quantity__button-plus,
-.dropdown-js__quantity .quantity {
+.quantity .quantity__button-minus,
+.quantity .quantity__button-plus,
+.quantity .quantity__input {
     color: $dark-shade-50;
     height: 1.85rem;
     width: 1.95rem;
@@ -54,7 +57,7 @@
     outline: 0;
 }
 
-.dropdown-js__quantity .quantity {
+.quantity .quantity__input {
     width: 1.0rem;
     margin: 0.25rem 0.4rem 0rem;
     text-align: center;
@@ -63,15 +66,15 @@
     color: $dark-shade-100;
     border: none;
 }
-.dropdown-js__quantity .quantity__button-minus svg,
-.dropdown-js__quantity .quantity__button-plus svg {
+.quantity .quantity__button-minus svg,
+.quantity .quantity__button-plus svg {
     stroke: $dark-shade-50;
     stroke-width: 1.5px;
     transition: 0.5s;
     margin: 4px;
 }
 
-.dropdown-js__two-button {
+.list-of-options__bottom-button {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -81,19 +84,18 @@
     padding-right: 0rem;
 }
 
-.dropdown-js__bottom-button {
-    .button-dropdown {
-        border: none;
-        background-color: #fff;
-        padding: 0.0rem;
-        font-family: $mainFont;
-        font-size: 12px;
-        text-transform: uppercase;
-        
-        p {
-            line-height: 0rem;
-            color: $purple;
-            letter-spacing: 0rem;
-        }
+.list-of-options__button_clear,
+.list-of-options__button_apply {
+    border: none;
+    background-color: #fff;
+    padding: 0.0rem;
+    font-family: $mainFont;
+    font-size: 12px;
+    text-transform: uppercase;
+    
+    p {
+        line-height: 0rem;
+        color: $purple;
+        letter-spacing: 0rem;
     }
 }

@@ -1,1 +1,2 @@
-import '../dropdown/dropdown.js';
+import '../calendar/calendar.js';
+import '../list-of-options/list-of-options.js';

@@ -1,40 +1,21 @@
-include ./list-of-options/list-of-options.pug
-include ./_calendar/calendar.pug
-
 mixin dropdown-button([content, text_placeholder])
-  if content === 'list-of-options_default'
-    .dropdown-button.border-for-dropdown_default
-      i.dropdown-js__arrow.dropdown-js__arrow_down
-      i.dropdown-js__arrow.dropdown-js__arrow_up.dropdown-js__inviseble
-      p #{text_placeholder}
+  if content === 'list-of-options_with-buttons'
+    .dropdown-button.js-dropdown-button.border-for-dropdown
+      .dropdown__arrow.dropdown__arrow_down.js-dropdown__arrow_down
+      .dropdown__arrow.js-dropdown__arrow_up.dropdown__arrow_up.js-dropdown__inviseble
+      p.dropdown-button__text-placeholder.js-dropdown-button__text-placeholder #{text_placeholder}
   else
-    .dropdown-button.border-for-dropdown
-      i.dropdown-js__arrow.dropdown-js__arrow_down
-      i.dropdown-js__arrow.dropdown-js__arrow_up.dropdown-js__inviseble
-      p #{text_placeholder}
+    .dropdown-button.js-dropdown-button.border-for-dropdown_default
+      .dropdown__arrow.dropdown__arrow_down.js-dropdown__arrow_down
+      .dropdown__arrow.js-dropdown__arrow_up.dropdown__arrow_up.js-dropdown__inviseble
+      p.dropdown-button__text-placeholder.js-dropdown-button__text-placeholder #{text_placeholder}
 
-mixin dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
-  +dropdown-button([content, text_placeholder])
-  if content === 'list-of-options'
-    +list-of-options([quantity_adults, quantity_child, quantity_baby])
-  else if content === 'list-of-options_default'
-    +list-of-options_default()
-  else if content === 'calendar'
-    +calendar()
-  else if content === 'filter-date'
-    .dropdown-js__calendar_filtre
-      +calendar()
-
-
-mixin dropdown-js([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
-  if content === 'list-of-options_default'
-    .dropdown-js.dropdown-js_default
-      +dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
-  else if content === 'list-of-options'
-    .dropdown-js.dropdown-js_list-of-options
-      +dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
-  else
-    .dropdown-js
-      +dropdown-content([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
-
+mixin dropdown([content, text_placeholder])
+  .dropdown.js-dropdown  
+    +dropdown-button([content, text_placeholder])
+    .dropdown__hidden-block.js-dropdown__hidden-block.js-dropdown__inviseble
+      if block
+          block
+      else
+        p No content provided
       

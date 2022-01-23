@@ -2,7 +2,8 @@ extends ../../../index.pug
 
 include ../../../components/header-for-ui-kit/header-for-ui-kit.pug
 include ../../../components/text-field/text-field.pug
-include ../../../components/dropdown/dropdown.pug
+include ../../../components/list-of-options/list-of-options.pug
+include ../../../components/calendar/calendar.pug
 include ../../../components/checkbox-list/checkbox-list.pug
 include ../../../components/benefits/benefits.pug
 include ../../../components/radio-button/radio-button.pug
@@ -41,25 +42,18 @@ block content
       .form-element 
         .name-element
           h3 dropdown 
-        +dropdown-js(['list-of-options', 0, 0, 0, 'Сколько гостей'])
+        +list-of-options_with-buttons(['list-of-options_with-buttons', 0, 0, 0, 'Сколько гостей'])
       .form-element 
         .name-element
           h3 masked text field
         +text-field({class: 'text-field_default', placeholder: 'ДД.ММ.ГГ'})
       .form-element.form-element_two-dropdown
-        .mini-dropdown
-          .name-element
-            h3 date dropdown
-          +dropdown-js(['calendar', 0, 0, 0, 'ДД.ММ.ГГГГ'])
-        .mini-dropdown
-          .name-element
-            h3 date dropdown
-          +dropdown-js(['calendar', 0, 0, 0, '19.08.2019'])
+        +date-range(['ДД.ММ.ГГГГ',  'ДД.ММ.ГГГГ', 'true'])
       .small-form-element 
         .form-element 
           .name-element
             h3 filter date dropdown
-          +dropdown-js(['filter-date', 0, 0, 0, '19 авг - 23 авг'])
+          +date-filter(['19 авг - 23 авг'])
         .form-element 
           .name-element 
             h3 subscription text field
@@ -122,12 +116,12 @@ block content
           .name-element
             h3 dropdown 
             h3 default
-          +dropdown-js(['list-of-options_default', 2, 2, 0, '2 спальни, 2 кровати...'])
+          +list-of-options(['list-of-options', 2, 2, 0, '2 спальни, 2 кровати...'])
         .form-element_dropdown-default-open 
           .name-element
             h3 dropdown 
             h3 expanded
-          +dropdown-js(['list-of-options_default', 2, 2, 0, '2 спальни, 2 кровати'])
+          +list-of-options(['list-of-options', 2, 2, 0, '2 спальни, 2 кровати'])
         .form-element_checkbox-list
           +checkbox-list(['expandable checkbox list'])
         .form-element_checkbox-list-open
@@ -141,7 +135,7 @@ block content
         .two-columns__dropdown-first
           .name-element
             h3 dropdown 
-          +dropdown-js(['list-of-options', 0, 0, 0, 'Сколько гостей'])
+          +list-of-options_with-buttons(['list-of-options_with-buttons', 0, 0, 0, 'Сколько гостей'])
         .form-element_rich-checkboxes 
           .name-element 
             h3 rich Checkbox Buttons
@@ -153,7 +147,7 @@ block content
         .two-columns__dropdown-last
           .name-element
             h3 dropdown 
-          +dropdown-js(['list-of-options', 0, 0, 0, '3 гостя'])
+          +list-of-options(['list-of-options', 0, 0, 0, '3 гостя'])
         .form-element_bullet-list
           .name-element 
             h3 bullet list

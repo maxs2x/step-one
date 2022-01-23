@@ -1,0 +1,29 @@
+include ../dropdown/dropdown.pug
+
+mixin date-filter([text_placeholder])
+  label.date-filter_label
+    input.date-filter 
+
+mixin date-range([first_date, last_date, form_elements])
+  if form_elements 
+    .date-range 
+      .first-date
+        h3.first-date__title date Dropdown
+        label.date-filter_label
+          input#datein(type="text")
+      .last-date  
+        h3.last-date__title date Dropdown  
+        label.date-filter_label
+          input#dateout(type="text")
+  else 
+    .date-range 
+      .first-date
+        h3.first-date__title прибытие
+        label.date-filter_label
+          input#datein(type="text")
+      .last-date 
+        h3.last-date__title выезд
+        label.date-filter_label
+          input#dateout(type="text")
+  
+  

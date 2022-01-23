@@ -1,11 +1,8 @@
-@import './_calendar/calendar.scss'; 
-@import './list-of-options/list-of-options.scss';
-
-.dropdown-js__inviseble {
+.js-dropdown__inviseble {
     display: none;
 }
 
-.dropdown-js {
+.dropdown {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -18,7 +15,7 @@
     letter-spacing: 0.04em;
 }
 
-.dropdown-js > .dropdown-button > p {
+.dropdown-button__text-placeholder {
     padding-left: 0.9rem;
     margin: 0px;
     font-size: 14px;
@@ -45,7 +42,7 @@
     border-color: $dark-shade-50;
 }
 
-.dropdown-js__arrow {
+.dropdown__arrow {
     border: solid $dark-shade-50;
     border-width: 0 2px 2px 0;
     display: inline-block;
@@ -54,15 +51,15 @@
     margin: 0.9rem 1.12rem 0rem 0rem;
 }
 
-i.dropdown-js__inviseble {
+.js-dropdown__inviseble {
     display: none;
 }
 
-.dropdown-js__arrow_down {
+.dropdown__arrow_down {
     transform: rotate(45deg);   
 }
 
-.dropdown-js__arrow_up {
+.dropdown__arrow_up {
     margin: 1.1rem 1.12rem;
     transform: rotate(225deg);
 }

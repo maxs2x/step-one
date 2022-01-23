@@ -1,18 +1,14 @@
-include ../dropdown/dropdown.pug
+include ../calendar/calendar.pug
+include ../list-of-options/list-of-options.pug
 include ../button/button.pug
 
 mixin rooms-search()
   form.container-rooms-search 
     h1 Найдём номера под ваши пожелания
     .rooms-search__in-out 
-      .rooms-search__checkin
-        h3 прибытие 
-        +dropdown-js(['calendar', quantity_adults, quantity_child, quantity_baby, 'ДД.ММ.ГГГГ'])
-      .rooms-search__checkout
-        h3 выезд
-        +dropdown-js(['calendar', quantity_adults, quantity_child, quantity_baby, 'ДД.ММ.ГГГГ'])
+      +date-range(['ДД.ММ.ГГГГ', 'ДД.ММ.ГГГГ'])
     .rooms-search__guests
       h3 гости
-      +dropdown-js(['list-of-options', '2', '0', '0', 'Сколько гостей'])
+      +list-of-options_with-buttons(['list-of-options_with-buttons', '2', '1', '0', 'Сколько гостей'])
     .rooms-search__button-search
       +button(['big', 'подобрать номер'])
