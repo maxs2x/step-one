@@ -21,12 +21,14 @@
   width: 100%;
   min-height: 2.7rem;
   margin: 0rem;
+  padding-left: 0.8rem;
   box-sizing: border-box;
   background-color: white;
   cursor: pointer;
-  font-size: 15px;
+  font-family: $mainFont;
+  font-size: 14px;
   font-weight: 400;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.0em;
   @include border-input-default;
 }
 
@@ -56,6 +58,98 @@
 .last-date__title {
   margin-bottom: 0.3rem;
 }
+
+
+.air-datepicker {
+  width: 100%;
+}
+
+.air-datepicker__prev-button,
+.air-datepicker__next-button {
+  font-family: 'Material Icons';
+  font-size: 24px;
+  color: $purple;
+}
+
+.air-datepicker-nav--title {
+  font-family: $mainFont;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.air-datepicker-body--day-names {
+  font-size: 16px;
+  margin: 1.4rem 0 3px;
+}
+
+.air-datepicker-cell.-day- {
+  box-sizing: border-box;
+  padding: 0.785rem 0rem;
+  color: $dark-shade-50;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.air-datepicker-cell.-day-.-current-.-min-date- {
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  border-radius: 50%;
+}
+
+
+.air-datepicker-cell.-day-.-selected-.-range-from-,
+.air-datepicker-cell.-day-.-selected-.-range-to- {
+  color: #fff;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+.air-datepicker-cell.-day-.-selected-.-range-from-.-focus-,
+.air-datepicker-cell.-day-.-selected-.-range-to-.-focus- {
+  opacity: 0.85;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.air-datepicker-cell.-day-.-selected-.-range-from-:after { 
+  content: "";
+  position: absolute;
+  top: 0rem;
+  left: 1.5rem;
+  width: 1rem;
+  height: 2.5rem;
+  opacity: 0.25;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+.air-datepicker-cell.-day-.-selected-.-range-to-:before {
+  content: "";
+  position: absolute;
+  top: 0rem;
+  right: 1.5rem;
+  width: 1rem;
+  height: 2.5rem;
+  opacity: 0.25;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.air-datepicker-cell.-day-.-in-range- {
+  background: none;
+  color: $dark-shade-75;
+}
+
+.air-datepicker-cell.-day-.-in-range-:before {
+  content: "";
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  width: 2.45rem;
+  height: 2.5rem;
+  opacity: 0.25;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  opacity: 0.25;
+  color: $dark-shade-75;
+}
+
 
 
 
@@ -169,7 +263,7 @@
 .calendar__days{
     box-sizing: border-box;
     margin: 0rem;
-    padding: 0.5rem 1.15rem 0rem 1.18rem ;
+    padding: 0.5rem 1.15rem 0rem 1.18rem;
     background-color: white;
     width: 100%;
     display: flex;

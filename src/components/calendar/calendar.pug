@@ -2,7 +2,7 @@ include ../dropdown/dropdown.pug
 
 mixin date-filter([text_placeholder])
   label.date-filter_label
-    input.date-filter 
+    input.date-filter(placeholder=text_placeholder)
 
 mixin date-range([first_date, last_date, form_elements])
   if form_elements 
@@ -10,11 +10,11 @@ mixin date-range([first_date, last_date, form_elements])
       .first-date
         h3.first-date__title date Dropdown
         label.date-filter_label
-          input#datein(type="text")
+          input#datein(type="text" placeholder=first_date)
       .last-date  
         h3.last-date__title date Dropdown  
         label.date-filter_label
-          input#dateout(type="text")
+          input#dateout(type="text" placeholder=last_date)
   else 
     .date-range 
       .first-date
