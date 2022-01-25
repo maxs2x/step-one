@@ -4,17 +4,17 @@ import '../list-of-options/list-of-options.js';
 class Reservations {
     constructor(block) {
         this.container = block;
-        this.checkinDate = this.container.querySelector('.first-date #datein').placeholder;
-        this.checkoutDate = this.container.querySelector('.last-date #dateout').placeholder;
-        this.pricePerDay = this.container.querySelector('.price-calculation__price-per-day');
-        this.quantityDay = this.container.querySelector('.price-calculation__quantity-days');
-        this.totalFirst = this.container.querySelector('.price-calculation__result');
-        this.rightColumn = this.container.querySelectorAll('.row-with-price__numbers');
-        this.totalElement = this.container.querySelectorAll('.reservation__total h2')[1];
+        this.checkinDate = this.container.querySelector('.jd-datein').placeholder;
+        this.checkoutDate = this.container.querySelector('.js-dateout').placeholder;
+        this.pricePerDay = this.container.querySelector('.js-price-calculation__price-per-day');
+        this.quantityDay = this.container.querySelector('.js-price-calculation__quantity-days');
+        this.totalFirst = this.container.querySelector('.js-price-calculation__result');
+        this.rightColumn = this.container.querySelectorAll('.js-row-with-price__numbers');
+        this.totalElement = this.container.querySelectorAll('.js-reservation__total-text ')[1];
         this.calculationPreliminaryResult();
         this.calculationTotal();
-        this.container.querySelector('.first-date #datein').onclick = this.update.bind(this);
-        this.container.querySelector('.last-date #dateout').onclick = this.update.bind(this);
+        this.container.querySelector('.js-datein').onclick = this.update.bind(this);
+        this.container.querySelector('.js-dateout').onclick = this.update.bind(this);
     }
 
     addSpaceForThousand(number) {
@@ -62,14 +62,14 @@ class Reservations {
     }
 
     update() {
-        this.checkinDate = this.container.querySelector('.first-date #datein').placeholder;
-        this.checkoutDate = this.container.querySelector('.last-date #dateout').placeholder;
+        this.checkinDate = this.container.querySelector('.js-datein').placeholder;
+        this.checkoutDate = this.container.querySelector('.js-dateout').placeholder;
         this.calculationPreliminaryResult();
         this.calculationTotal();       
     }
 }
 
-let reservations = document.querySelectorAll('.container-reservation ');
+let reservations = document.querySelectorAll('.js-container-reservation');
 
 for (let block of reservations) {
     new Reservations(block);

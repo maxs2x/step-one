@@ -3,7 +3,7 @@ include ../list-of-options/list-of-options.pug
 include ../button/button.pug
 
 mixin reservation()
-  form.container-reservation 
+  form.container-reservation.js-container-reservation 
     .reservation__header
       .reservation__room-number
         h3 № 
@@ -24,27 +24,27 @@ mixin reservation()
       .row-with-price
           .row-with-price__description
             p
-              span.price-calculation__price-per-day 9 990₽ 
+              span.price-calculation__price-per-day.js-price-calculation__price-per-day 9 990₽ 
               | х 
-              span.price-calculation__quantity-days 4
+              span.price-calculation__quantity-days.js-price-calculation__quantity-days 4
               | суток
-          .row-with-price__numbers    
+          .row-with-price__numbers.js-row-with-price__numbers    
             p
-              span.price-calculation__result 39 960₽
+              span.price-calculation__result.js-price-calculation__result 39 960₽
       .row-with-price
         .row-with-price__description
           p Сбор за услуги: скидка 2 179₽
           .reservation__info_about_service i
-        .row-with-price__numbers 
+        .row-with-price__numbers.js-row-with-price__numbers 
           p 0₽
       .row-with-price
         .row-with-price__description
           p Сбор за дополнительные услуги
           .reservation__info_about_service i
-        .row-with-price__numbers 
+        .row-with-price__numbers.js-row-with-price__numbers 
           p 300₽
     .reservation__total 
-      h2 Итого
+      h2.js-reservation__total-text  Итого
       h2 38 081₽
     .reservation__button-reservation
       +button(['big', 'забронировать'])
