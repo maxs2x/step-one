@@ -31,7 +31,7 @@ if (document.querySelectorAll('.date-filter')) {
 
 if (document.querySelectorAll('.date-range')) {
     let dpMin, dpMax;
-    dpMin = new AirDatepicker('.datein', {
+    dpMin = new AirDatepicker('.js-datein', {
         onSelect({date}) {
             dpMax.update({
                 minDate: date
@@ -52,7 +52,7 @@ if (document.querySelectorAll('.date-range')) {
         nextHtml: '<span class="air-datepicker__next-button">arrow_forward</span>'
     });
 
-    dpMax = new AirDatepicker('.dateout', {
+    dpMax = new AirDatepicker('.js-dateout', {
         onSelect({date}) {
             dpMin.update({
                 maxDate: date
