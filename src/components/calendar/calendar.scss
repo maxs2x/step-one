@@ -8,25 +8,12 @@
 .first-date {
   width: 100%;
   max-width: 9.35rem;
+  display: block;
 }
 
-.date-filter,
-.datein,
-.dateout {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  min-height: 2.7rem;
-  margin: 0rem;
-  padding-left: 0.8rem;
-  box-sizing: border-box;
-  background-color: white;
-  cursor: pointer;
-  font-family: $mainFont;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.0em;
-  @include border-input-default;
+.first-date__title,
+.last-date__title {
+  margin-bottom: 0.3rem;
 }
 
 .date-filter_label {
@@ -46,14 +33,23 @@
   transform: rotate(45deg); 
 }
 
-.first-date,
-.last-date  {
-  display: block;
-}
-
-.first-date__title,
-.last-date__title {
-  margin-bottom: 0.3rem;
+.date-filter,
+.datein,
+.dateout {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 2.7rem;
+  margin: 0rem;
+  padding-left: 0.8rem;
+  box-sizing: border-box;
+  background-color: white;
+  cursor: pointer;
+  font-family: $mainFont;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.0em;
+  @include border-input-default;
 }
 
 .air-datepicker {
