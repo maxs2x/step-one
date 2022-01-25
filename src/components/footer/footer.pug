@@ -30,7 +30,8 @@ mixin footer()
     .footer-top__subscription
       h3 Подписка
       p Получайте специальные предложения и новости сервиса
-      +text-field({id:"footer-subscription", class:"text-field_subscription", placeholder:"Email"})
+      .element-text-field
+        +text-field({id:"footer-subscription", class:"text-field_subscription", placeholder:"Email"})
   .footer-bottom 
     .footer-bottom__logo
       .footer-bottom__image-logo 
