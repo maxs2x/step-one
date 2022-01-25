@@ -1,15 +1,15 @@
+include ./_active/like-button_active.pug
+
 mixin like-button([counter, condition])
   if condition == 'active'
-    .container-like-button.container-like-button_active
-      .icon-heart_active
-      .counter-likes.counter-likes_active=counter 
+    +like-button_active([counter])
   else 
-    .container-like-button 
-      .icon-heart
-        .icon-heart-before
-          .icon-heart-cirkle-white2
-        .icon-heart-after
-          .icon-heart-cirkle-white
-        .icon-heart_cube-white
-        .icon-heart_cube-white2
-      .counter-likes=counter 
+    .like-button 
+      .like-button__icon-heart
+        .like-button__icon-heart-right-semicircle
+          .like-button__icon-heart-right-white-semicircular-space
+        .like-button__icon-heart-left-semicircle
+          .like-button__icon-heart-left-white-semicircular-space
+        .like-button__icon-heart-left-white-cube-space
+        .like-button__icon-heart-right-white-cube-space
+      .like-button__counter-likes=counter 
