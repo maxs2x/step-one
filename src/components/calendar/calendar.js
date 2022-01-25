@@ -30,56 +30,49 @@ if (document.querySelectorAll('.date-filter')) {
 
 
 if (document.querySelectorAll('.date-range')) {
-    let dateRange = document.querySelectorAll('.date-range');
-
-    for (let elem of dateRange) {
-        let dateRangeIn = elem.querySelectorAll('#datein'),
-            dateRangeOut = elem.querySelectorAll('#dateout'),
-            dpMin, dpMax;
-        console.log(dateRangeIn);
-        dpMin = new AirDatepicker('#datein', {
-            onSelect({date}) {
-                dpMax.update({
-                    minDate: date
-                })
-            },
-            buttons: ['clear',
-                {
-                    content: 'Применить',
-                    onClick() {
-                        if (dpMin.selectedDates.length == 1) {
-                            dpMin.hide(); 
-                        }
+    let dpMin, dpMax;
+    dpMin = new AirDatepicker('.datein', {
+        onSelect({date}) {
+            dpMax.update({
+                minDate: date
+            })
+        },
+        buttons: ['clear',
+            {
+                content: 'Применить',
+                onClick() {
+                    if (dpMin.selectedDates.length == 1) {
+                        dpMin.hide(); 
                     }
                 }
-            ],
-            minDate: new Date(),
-            prevHtml: '<span class="air-datepicker__prev-button">arrow_back</span>',
-            nextHtml: '<span class="air-datepicker__next-button">arrow_forward</span>'
-        })
+            }
+        ],
+        minDate: new Date(),
+        prevHtml: '<span class="air-datepicker__prev-button">arrow_back</span>',
+        nextHtml: '<span class="air-datepicker__next-button">arrow_forward</span>'
+    });
 
-        dpMax = new AirDatepicker('#dateout', {
-            onSelect({date}) {
-                dpMin.update({
-                    maxDate: date
-                })
-            },
-            buttons: ['clear',
-                {
-                    content: 'Применить',
-                    onClick() {
-                        if ( dpMax.selectedDates.length == 1) {
-                            dpMax.hide(); 
-                        }
+    dpMax = new AirDatepicker('.dateout', {
+        onSelect({date}) {
+            dpMin.update({
+                maxDate: date
+            })
+        },
+        buttons: ['clear',
+            {
+                content: 'Применить',
+                onClick() {
+                    if ( dpMax.selectedDates.length == 1) {
+                        dpMax.hide(); 
                     }
                 }
-            ],
-            minDate: new Date(),
-            position: 'bottom right',
-            prevHtml: '<span class="air-datepicker__prev-button">arrow_back</span>',
-            nextHtml: '<span class="air-datepicker__next-button">arrow_forward</span>'
-        })
-    }
+            }
+        ],
+        minDate: new Date(),
+        position: 'bottom right',
+        prevHtml: '<span class="air-datepicker__prev-button">arrow_back</span>',
+        nextHtml: '<span class="air-datepicker__next-button">arrow_forward</span>'
+    })
 };
 
 

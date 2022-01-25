@@ -10,20 +10,20 @@ mixin date-range([first_date, last_date, form_elements])
       .first-date
         h3.first-date__title date Dropdown
         label.date-filter_label
-          input#datein(type="text" placeholder=first_date)
+          input.datein(type="text" placeholder=first_date)
       .last-date  
         h3.last-date__title date Dropdown  
         label.date-filter_label
-          input#dateout(type="text" placeholder=last_date)
+          input.dateout(type="text" placeholder=last_date)
   else 
     .date-range 
       .first-date
         h3.first-date__title прибытие
         label.date-filter_label
-          input#datein(type="text")
+          input.datein(type="text" placeholder=first_date)
       .last-date 
         h3.last-date__title выезд
         label.date-filter_label
-          input#dateout(type="text")
+          input.dateout(type="text" placeholder=last_date)
   
   

@@ -6,7 +6,7 @@ mixin rooms-search()
   form.container-rooms-search 
     h1 Найдём номера под ваши пожелания
     .rooms-search__in-out 
-      +date-range(['ДД.ММ.ГГГГ', 'ДД.ММ.ГГГГ'])
+      +date-range(['ДД.ММ.ГГГГ', 'ДД.ММ.ГГГГ', ''])
     .rooms-search__guests
       h3 гости
       +list-of-options_with-buttons(['list-of-options_with-buttons', '2', '1', '0', 'Сколько гостей'])
