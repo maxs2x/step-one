@@ -1,20 +1,21 @@
-mixin benefit-comfort()
-  .benefit 
-    image(src=require('../../../components/benefits/img/insert_emoticon.jpg') class='benefit__image')
-    .benefit__text 
-      p.benefit__heading Комфорт
-      p.benefit__description Шумопоглощающие стены
+mixin benefit(options)
+  - var alt = options.alt;
+  - var title = options.title;
+  - var description = options.description;
+  - var modificator = (options.modificator) ? options.modificator : '';
+  - var classMainBlock = 'benefit';
+  - var classTextBlock = 'benefit__text';
+  - switch (modificator) {
+  -     case 'conveniences':
+  -         classMainBlock += ' benefit_conveniences';
+  -         classTextBlock += ' benefit__text_conveniences';
+  -     case 'whatshot':
+  -         classMainBlock += ' benefit_whatshot';
+  -         classTextBlock += ' benefit__text_whatshot';
+  - };
 
-mixin benefit-conveniences()
-  .benefit.benefit_conveniences
-    image(src=require('../../../components/benefits/img/location_city.jpg') class='benefit__image')
-    .benefit__text.benefit__text_conveniences
-      p.benefit__heading Удобство
-      p.benefit__description Окно в каждой из спален
-
-mixin benefit-whatshot()
-  .benefit.benefit_whatshot
-    image(src=require('../../../components/benefits/img/whatshot.jpg') class='benefit__image')
-    .benefit__text.benefit__text_whatshot
-      p.benefit__heading Уют
-      p.benefit__description Номер оснащён камином
+  div(class=classMainBlock)
+    image.benefit__image(src=require('./images/' + options.image), alt=alt)
+    div(class=classTextBlock)
+      p.benefit__heading= title 
+      p.benefit__description= description

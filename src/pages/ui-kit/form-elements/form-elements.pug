@@ -128,9 +128,9 @@ block content
         .form-element_checkbox-list-open
           +checkbox-list(['expandable checkbox list'])
         .form-element_benefit-comfort
-          +benefit-comfort()
+          +benefit({image: "insert_emoticon.jpg", alt: "image smiile", title: "Комфорт", description: "Шумопоглощающие стены"})
         .form-element 
-          +benefit-conveniences()  
+          +benefit({modificator: "conveniences", image: "location_city.jpg", alt: "image city", title: "Удобство", description: "Окно в каждой из спален"})  
     .content-form-elements__two-columns
       .content-form-elements__column 
         .two-columns__dropdown-first

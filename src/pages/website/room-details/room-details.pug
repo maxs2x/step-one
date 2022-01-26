@@ -29,11 +29,11 @@ block content
       .room-details 
         article.information-about-room 
           h2 Сведения о номере
-          +benefit-comfort()
+          +benefit({image: "insert_emoticon.jpg", alt: "image smiile", title: "Комфорт", description: "Шумопоглощающие стены"})
           .delimiter
-          +benefit-conveniences()
+          +benefit({modificator: "conveniences", image: "location_city.jpg", alt: "image city", title: "Удобство", description: "Окно в каждой из спален"}) 
           .delimiter
-          +benefit-whatshot()
+          +benefit({modificator: "whatshot", image: "whatshot.jpg", alt: "image burn", title: "Уют", description: "Номер оснащён камином"})
         article.room-impressions
           h2 Впечатления от номера
           .doughnut-diagramm-wrapper.js-doughnut-diagramm-wrapper
