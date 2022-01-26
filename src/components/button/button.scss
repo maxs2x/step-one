@@ -1,3 +1,8 @@
+@import './_big/big.scss';
+@import './_white/while.scss';
+@import './_without-border/without-border.scss';
+@import './_header-white/header-white.scss';
+@import './_header-standart/header-standart.scss';
 
 .button {
     width: 6.2rem;
@@ -17,9 +22,4 @@
     opacity: 0.5;
 }
 
-@import './big/big.scss';
-@import './white/while.scss';
-@import './without-border/without-border.scss';
-@import './header-white/header-white.scss';
-@import './header-standart/header-standart.scss';
 

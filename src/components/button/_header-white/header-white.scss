@@ -6,25 +6,16 @@
   opacity: 0.5;  
 }
   
-.button_header-white  {
+button.button_header-white  {
   display: flex;
   justify-content: center;
   align-items: center;    
   padding: 0rem;
   width: 5.4rem;
   height: 2.1rem;
-  border: none;
-  border-radius: 1.4rem;
-  font-family: $mainFont;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: white;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-  cursor: pointer;
 }
   
-.text-button_header-white {
+.button_header-white__text {
   width: 5.17rem;
   height: 1.82rem;
   border-radius: 1.5rem;

@@ -2,13 +2,13 @@
     position: relative;
 }
 
-.button_big {
+.button.button_big {
     width: 100%;
     height: 2.75rem;
     border-radius: 1.9rem;
 }
 
-.materia {
+.button__material-icons {
     position: absolute;
     top: 0.6rem;
     right: 0.6rem;

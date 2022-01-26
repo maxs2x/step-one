@@ -6,7 +6,7 @@
   opacity: 0.5;  
 }
 
-.button_white {
+button.button_white {
   display: flex;
   justify-content: center;
   align-items: center;    
@@ -20,17 +20,5 @@
   background: white;
   line-height: 2.4rem;
   color: $purple;
-}
-
-.button__text {
-  position: absolute;
-  top: 0.9rem;
-  left: 1.15rem;
-  font-family: $mainFont;
-  font-size: 12px;
-  font-weight: 700;
-  color: $purple;
-  text-transform: uppercase;
-  cursor: pointer;
 }
 
