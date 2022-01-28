@@ -16,10 +16,10 @@ function Range(begin, end) {
 class RangeSlider {
     constructor(slider) {
         this.container = slider;
-        this.hoverLine = this.container.querySelector('.range-slider__line-for-hover');
-        this.leftToggle = this.hoverLine.querySelector('.range-slider__left-point ');
-        this.rightToggle = this.container.querySelector('.range-slider__right-point ');
-        this.placeHolder = this.container.querySelector('.range-slideer__interval');
+        this.hoverLine = this.container.querySelector('.js-range-slider__line-for-hover');
+        this.leftToggle = this.hoverLine.querySelector('.js-range-slider__left-point');
+        this.rightToggle = this.container.querySelector('.js-range-slider__right-point');
+        this.placeHolder = this.container.querySelector('.js-range-slideer__interval');
         this.isResizingLeft = false;
         this.isResizingRightRight = false;
         this.leftToggle.onmousedown = this.startResizingLeft.bind(this);
@@ -99,7 +99,7 @@ class RangeSlider {
     }
 }
 
-let allRangeSliders = document.querySelectorAll(".container-range-slider");
+let allRangeSliders = document.querySelectorAll(".js-range-slider");
 for (let slider of allRangeSliders) {
     new RangeSlider(slider);
 }
