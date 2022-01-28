@@ -4,23 +4,24 @@
   width: 100%;
 }
 
-.last-date,
-.first-date {
+.date-range__last-date,
+.date-range__first-date {
   width: 100%;
   max-width: 9.35rem;
   display: block;
 }
 
-.first-date__title,
-.last-date__title {
+.date-range__first-date-title,
+.date-range__last-date-title {
   margin-bottom: 0.3rem;
 }
 
-.date-filter_label {
+.date-filter,
+.date-range__label {
   position: relative;
 }
 
-.date-filter_label::after {
+.date-filter::after {
   position: absolute;
   content: " ";
   border: solid $dark-shade-50;
@@ -33,9 +34,9 @@
   transform: rotate(45deg); 
 }
 
-.date-filter,
-.datein,
-.dateout {
+.date-filter__input,
+.date-range__date-in,
+.date-range__date-out {
   position: relative;
   display: inline-block;
   width: 100%;

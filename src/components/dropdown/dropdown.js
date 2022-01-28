@@ -1,7 +1,7 @@
 class Dropdown {
     constructor(elem) {
         this._elem = elem;
-        elem.querySelector('.js-dropdown-button').onclick = this.openOrClose.bind(this);
+        elem.querySelector('.js-dropdown__button').onclick = this.openOrClose.bind(this);
 
     }
 
@@ -9,7 +9,7 @@ class Dropdown {
         let arrowRight = this._elem.querySelector('.js-dropdown__arrow_up');
         let arrowDown = this._elem.querySelector('.js-dropdown__arrow_down');
         let hiddenBlock = this._elem.querySelector('.js-dropdown__hidden-block');
-        let borderDropdown = this._elem.querySelector('.js-dropdown-button');
+        let borderDropdown = this._elem.querySelector('.js-dropdown__button');
         let borderDropdownMod = 'border-for-dropdown_active';
 
         arrowRight.classList.toggle('js-dropdown__inviseble');

@@ -1,0 +1,26 @@
+.list-of-options__bottom-button {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-top: 0.85rem;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    padding-right: 0rem;
+}
+
+.list-of-options__button_clear,
+.list-of-options__button_apply {
+    border: none;
+    background-color: #fff;
+    padding: 0.0rem;
+    font-family: $mainFont;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.list-of-options__text-button {
+    line-height: 0rem;
+    color: $purple;
+    letter-spacing: 0rem; 
+    text-transform: uppercase; 
+}

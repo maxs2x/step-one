@@ -1,67 +1,63 @@
-.js-dropdown__inviseble {
-    display: none;
-}
-
 .dropdown {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    min-height: 2.6rem;
-    min-width: 9.4rem;
-    background-color: white;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-}
-
-.dropdown-button__text-placeholder {
-    padding-left: 0.9rem;
-    margin: 0px;
-    font-size: 14px;
-    letter-spacing: 0.00rem;
-    line-height: 2.6rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 2.6rem;
+  min-width: 9.4rem;
+  background-color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .border-for-dropdown {
-    @include border-input-default;
+  @include border-input-default;
 }
 
 .border-for-dropdown.border-for-dropdown_active {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .border-for-dropdown_default {
-    @include border-input-default;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+  @include border-input-default;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .border-for-dropdown_active {
-    border-color: $dark-shade-50;
+  border-color: $dark-shade-50;
 }
 
 .dropdown__arrow {
-    border: solid $dark-shade-50;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    float: right;
-    padding: 0.21rem;
-    margin: 0.9rem 1.12rem 0rem 0rem;
-}
-
-.js-dropdown__inviseble {
-    display: none;
+  border: solid $dark-shade-50;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  float: right;
+  padding: 0.21rem;
+  margin: 0.9rem 1.12rem 0rem 0rem;
 }
 
 .dropdown__arrow_down {
-    transform: rotate(45deg);   
+  transform: rotate(45deg);   
 }
 
 .dropdown__arrow_up {
-    margin: 1.1rem 1.12rem;
-    transform: rotate(225deg);
+  margin: 1.1rem 1.12rem;
+  transform: rotate(225deg);
+}
+
+.dropdown__text-placeholder {
+  padding-left: 0.9rem;
+  margin: 0px;
+  font-size: 14px;
+  letter-spacing: 0.00rem;
+  line-height: 2.6rem;
+}
+
+.js-dropdown__inviseble {
+  display: none;
 }
 
 

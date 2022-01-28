@@ -4,8 +4,8 @@ import AirDatepicker from 'air-datepicker'
 import 'air-datepicker/air-datepicker.css'
 
 
-if (document.querySelectorAll('.date-filter')) {
-    let dateFilter = document.querySelectorAll('.date-filter');
+if (document.querySelectorAll('.js-date-filter__input')) {
+    let dateFilter = document.querySelectorAll('.js-date-filter__input');
     for (let elem of dateFilter) {
         let calendar = new AirDatepicker(elem, {
             buttons: ['clear',
@@ -29,9 +29,9 @@ if (document.querySelectorAll('.date-filter')) {
 };
 
 
-if (document.querySelectorAll('.date-range')) {
+if (document.querySelectorAll('.js-date-range')) {
     let dpMin, dpMax;
-    dpMin = new AirDatepicker('.js-datein', {
+    dpMin = new AirDatepicker('.js-date-range__date-in', {
         onSelect({date}) {
             dpMax.update({
                 minDate: date
@@ -52,7 +52,7 @@ if (document.querySelectorAll('.date-range')) {
         nextHtml: '<span class="air-datepicker__next-button">arrow_forward</span>'
     });
 
-    dpMax = new AirDatepicker('.js-dateout', {
+    dpMax = new AirDatepicker('.js-date-range__date-out', {
         onSelect({date}) {
             dpMin.update({
                 maxDate: date

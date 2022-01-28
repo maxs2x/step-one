@@ -11,27 +11,6 @@
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.04em;
-  .checkbox-list__dropdown-button {
-    p {
-      margin: 0rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 0.005rem;
-    }
-  }
-}
-
-.checkbox-elements__inviseble {
-  display: none;
-}
-
-i.checkbox-elements__inviseble {
-  display: none;
-}
-
-.checkbox-elements {
-  margin-top: 0.75rem;
 }
 
 .checkbox-list__arrow {
@@ -43,13 +22,29 @@ i.checkbox-elements__inviseble {
   margin: 0.35rem 1.12rem 0rem 0rem;
 }
 
-i.checkbox-list__arrow_down {
+.checkbox-list__arrow_down {
   transform: rotate(45deg);   
 }
 
 .checkbox-list__arrow_up {
   margin: 0.6rem 1.15rem;
   transform: rotate(225deg);
+}
+
+.checkbox-list__placeholder {
+  margin: 0rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.005rem;
+}
+
+.checkbox-list__elements {
+  margin-top: 0.75rem;
+}
+
+.js-checkbox-elements__inviseble {
+  display: none;
 }
 
 .checkbox-container {
@@ -66,14 +61,12 @@ i.checkbox-list__arrow_down {
   letter-spacing: 0.005rem;
 }
   
-  /* Hide the browser's default radio button */
 .checkbox-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
  
-  /* Create a custom radio button */
 .checkbox-container__checkmark {
   position: absolute;
   top: 0;
@@ -87,7 +80,6 @@ i.checkbox-list__arrow_down {
   outline-color: $dark-shade-25;
 }
   
-  /* When the radio button is checked, add a blue background */
 .checkbox-container input:checked ~ .checkbox-container__checkmark {
   background-color: white;
   outline-width: 1px;
@@ -95,19 +87,16 @@ i.checkbox-list__arrow_down {
   outline-color: $purple;
 }
   
-  /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkbox-container__checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
   
-  /* Show the indicator (dot/circle) when checked */
 .checkbox-container input:checked ~ .checkbox-container__checkmark:after {
   display: block;
 }
   
-  /* Style the indicator (dot/circle) */
 .checkbox-container input:checked ~ .checkbox-container__checkmark:after {
   top: 0.25rem;
   left: 0.38rem;

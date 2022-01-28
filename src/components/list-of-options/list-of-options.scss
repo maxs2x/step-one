@@ -1,101 +1,72 @@
 @import '../dropdown/dropdown.scss';
+@import './_with-buttons/list-of-options_with-buttons.scss';
 
-.list-of-options,
-.list-of-options_with-buttons {
-    position: absolute;
-    z-index: 3;
-    background-color: white;
-    width: 100%;
-    list-style: none;
-    margin-top: 0;
-    padding: 0.15rem 0.0rem 0.42rem 0rem;
-    outline: 1px solid $dark-shade-50;
-    outline-offset: -1px;
-    border-top: none;
-    border-bottom-left-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
+.list-of-options {
+  position: absolute;
+  z-index: 3;
+  background-color: white;
+  width: 100%;
+  list-style: none;
+  margin-top: 0;
+  padding: 0.15rem 0.0rem 0.42rem 0rem;
+  outline: 1px solid $dark-shade-50;
+  outline-offset: -1px;
+  border-top: none;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
 }
 
-.js-list-of-options__item {
-    padding-right: 0.5rem;
-    p {
-        font-family: $mainFont;
-        font-weight: 700;
-        line-height: 2.3rem;
-        padding-left: 0.9rem;
-        margin: 0px;
-        font-size: 13px;
-        letter-spacing: -0.05rem;
-    }
-    .uppercase {
-        text-transform: uppercase;
-    }
+.list-of-options__item {
+  padding-right: 0.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
-.js-list-of-options__item {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+.list-of-options__title-item {
+  font-family: $mainFont;
+  font-weight: 700;
+  line-height: 2.3rem;
+  padding-left: 0.9rem;
+  margin: 0px;
+  font-size: 13px;
+  letter-spacing: -0.05rem;
+  text-transform: uppercase;
 }
    
 .quantity {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }  
 
-.quantity .quantity__button-minus,
-.quantity .quantity__button-plus,
-.quantity .quantity__input {
-    color: $dark-shade-50;
-    height: 1.85rem;
-    width: 1.95rem;
-    padding: 0;
-    margin: 0.2rem 0rem 0rem 0rem;
-    border-radius: 50%;
-    border: 1px solid $dark-shade-25;
-    cursor: pointer;
-    outline: 0;
+.quantity__button-minus,
+.quantity__button-plus,
+.quantity__input {
+  color: $dark-shade-50;
+  height: 1.85rem;
+  width: 1.95rem;
+  padding: 0;
+  margin: 0.2rem 0rem 0rem 0rem;
+  border-radius: 50%;
+  border: 1px solid $dark-shade-25;
+  cursor: pointer;
+  outline: 0;
 }
 
-.quantity .quantity__input {
-    width: 1.0rem;
-    margin: 0.25rem 0.4rem 0rem;
-    text-align: center;
-    font-size: 0.8rem;
-    font-family: $mainFont;
-    color: $dark-shade-100;
-    border: none;
-}
-.quantity .quantity__button-minus svg,
-.quantity .quantity__button-plus svg {
-    stroke: $dark-shade-50;
-    stroke-width: 1.5px;
-    transition: 0.5s;
-    margin: 4px;
+.quantity__button-minus,
+.quantity__button-plus {
+  stroke: $dark-shade-50;
+  stroke-width: 1.5px;
+  transition: 0.5s;
+  margin: 4px;
 }
 
-.list-of-options__bottom-button {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    margin-top: 0.85rem;
-    margin-left: 1rem;
-    margin-right: 0.5rem;
-    padding-right: 0rem;
-}
-
-.list-of-options__button_clear,
-.list-of-options__button_apply {
-    border: none;
-    background-color: #fff;
-    padding: 0.0rem;
-    font-family: $mainFont;
-    font-size: 12px;
-    text-transform: uppercase;
-    
-    p {
-        line-height: 0rem;
-        color: $purple;
-        letter-spacing: 0rem;
-    }
+.quantity__input {
+  width: 1.0rem;
+  margin: 0.25rem 0.4rem 0rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: $mainFont;
+  color: $dark-shade-100;
+  border: none;
 }

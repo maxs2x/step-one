@@ -8,7 +8,7 @@ class DropdownOpenPart {
     }
 
     updatePlaceholder(parent) {
-        let placeholder = parent.currentTarget.closest('.js-dropdown').querySelector('.js-dropdown-button p');
+        let placeholder = parent.currentTarget.closest('.js-dropdown').querySelector('.dropdown__text-placeholder');
         return placeholder
     }
 
@@ -72,13 +72,13 @@ class DropdownDefault extends DropdownOpenPart {
 
         for (let elem of allStringsOpenPart) {
             if (elem.querySelector('p').innerHTML === 'спальни') {
-                countBedroom = elem.querySelector('.quantity').getAttribute('value');
+                countBedroom = elem.querySelector('.js-quantity__input').getAttribute('value');
             };
             if (elem.querySelector('p').innerHTML === 'кровати') {
-                countBed = elem.querySelector('.quantity').getAttribute('value');
+                countBed = elem.querySelector('.js-quantity__input').getAttribute('value');
             };
             if (elem.querySelector('p').innerHTML === 'ванные комнаты') {
-                countBathroom = elem.querySelector('.quantity').getAttribute('value');
+                countBathroom = elem.querySelector('.js-quantity__input').getAttribute('value');
             };
         }
         
@@ -146,7 +146,7 @@ class DropdownWithButton extends DropdownDefault {
     }
 
     buttonHendlingClear(parent) {
-        let placeholder = parent.currentTarget.closest('.js-dropdown').querySelector('.js-dropdown-button__text-placeholder'),
+        let placeholder = parent.currentTarget.closest('.js-dropdown').querySelector('.js-dropdown__text-placeholder'),
             inputQuantity = parent.currentTarget.closest('.js-dropdown').querySelectorAll('.js-quantity__input'),
             buttonClear = parent.currentTarget.closest('.js-list-of-options__button_clear'),
             standartPlaceholder = 'Сколько гостей';
@@ -163,7 +163,7 @@ class DropdownWithButton extends DropdownDefault {
     }
 
     buttonHendlingApply(parent) {
-        let placeholder = parent.currentTarget.closest('.js-dropdown').querySelector('.js-dropdown-button__text-placeholder'),
+        let placeholder = parent.currentTarget.closest('.js-dropdown').querySelector('.js-dropdown__text-placeholder'),
             inputQuantity= parent.currentTarget.closest('.js-dropdown').querySelectorAll('.js-quantity__input'),
             numberOfVisitors = 0,
             numberOfAdults = 0,
