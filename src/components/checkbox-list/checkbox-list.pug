@@ -16,11 +16,11 @@ mixin checkbox([text, checked, name])
 
 mixin checkbox-list(text_placeholder)
   .checkbox-list 
-    .checkbox-list__dropdown-button
-      i.checkbox-list__arrow.checkbox-list__arrow_down
-      i.checkbox-list__arrow.checkbox-list__arrow_up.checkbox-elements__inviseble
-      p #{text_placeholder}
-    .checkbox-elements.checkbox-elements__inviseble
+    .checkbox-list__dropdown-button.js-checkbox-list__dropdown-button
+      .checkbox-list__arrow.checkbox-list__arrow_down.js-checkbox-list__arrow_down
+      .checkbox-list__arrow.checkbox-list__arrow_up.js-checkbox-list__arrow_up.js-checkbox-elements__inviseble
+      p.checkbox-list__placeholder #{text_placeholder}
+    .checkbox-list__elements.js-checkbox-list__elements.js-checkbox-elements__inviseble
       +checkbox(['Завтрак', 'unchecked', 'radio'])
       +checkbox(['Письменный стол', 'checked', 'radio'])
       +checkbox(['Стул для кормления', 'checked', 'radio'])
