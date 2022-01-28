@@ -1,12 +1,35 @@
-.container-rate .material-icons {
-    position: relative;
+.rate__star {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; 
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  background: -webkit-linear-gradient(#BC9CFF, #8BA4F9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
 }
 
-.material-icons.star-unchecked {
-    position: absolute;
-    top: 0.33rem;
-    left: 0.33rem;
-    font-size: 14px;
-    background: -webkit-linear-gradient(#FFF, #FFF);
-    -webkit-background-clip: text;
+.rate__star-inner {
+  position: relative;
 }
+
+.rate__star_unchecked {
+  position: absolute;
+  top: 0.33rem;
+  left: 0.31rem;
+  font-family: 'Material Icons';
+  font-size: 14px;
+  background: -webkit-linear-gradient(#FFF, #FFF);
+  -webkit-background-clip: text;
+}
+

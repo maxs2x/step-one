@@ -1,9 +1,9 @@
 mixin rate-button(count_checked)
   - let countChecked = count_checked
-  .container-rate 
+  .rate 
     - for (let i = 0; i < countChecked; i++)
-      .material-icons star
+      .rate__star star
     - for (let i = 0; i < (5 - countChecked); i++)
-      .material-icons star
-        .material-icons.star-unchecked star
+      .rate__star.rate__star-inner star
+        .rate__star.rate__star_unchecked star
       
