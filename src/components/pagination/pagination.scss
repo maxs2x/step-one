@@ -22,21 +22,6 @@
   cursor: pointer;
 }
 
-.js-pagination__page {
-  @include circle;
-  font-size: 12px;
-}
-
-.js-pagination__hover-page {
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-}
-
-.pagination__three-point,
-.pagintation__last-page,
-.pagintation__first-page {
-  @include circle;
-}
-
 .pagination__button-prev,
 .pagination__button-next {
   @include circle;
@@ -48,6 +33,21 @@
   font-family: "Material Icons";
   font-size: 24px;
   color: white;
+}
+
+.js-pagination__page {
+  @include circle;
+  font-size: 12px;
+}
+
+.js-pagination__hover-page {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.pagintation__first-page,
+.pagination__three-point,
+.pagintation__last-page {
+  @include circle;
 }
 
 .pagination__bottom-text {
