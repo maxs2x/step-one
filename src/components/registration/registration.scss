@@ -3,7 +3,7 @@
 @import '../radio-button/radio-button.scss';
 @import '../button/button.scss';
 
-.container-registration  {
+.registration  {
   padding: 2.5rem 1.8rem 1.5rem 1.8rem;
   box-shadow: 0px 0px 25px rgb(0 0 0 / 29%);
   border-radius: 4px;
@@ -31,19 +31,19 @@
   margin-top: 0.7rem;
 }
 
-.registration__birthday h3 {
+.registration__title-birthday {
   margin-bottom: 0.3rem;
 }
 
-.registration__data-for-login {
+.registration__login-data {
   margin-top: 1.4rem;
 }
 
-.registration__data-for-login h3 {
+.registration__title-login-data {
   margin-bottom: 0.27rem;
 }
 
-.registration__data-for-login > :nth-child(2) {
+.registration__login-data > :nth-child(2) {
   margin-bottom: 0.65rem;
 }
 
@@ -58,6 +58,6 @@
   margin-top: 1.7rem;
 }
 
-.registration__login .container-button {
+.registration__login .button {
     margin-top: 0.2rem;
 }

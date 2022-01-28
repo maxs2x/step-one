@@ -4,8 +4,8 @@ include ../radio-button/radio-button.pug
 include ../button/button.pug
 
 mixin registration()
-  form.container-registration 
-    h1 Регистрация аккаунта
+  form.registration 
+    h1.registration__title Регистрация аккаунта
     .registration__input-name 
       +text-field({id:'name', placeholder:'Имя'})
     .registration__input-second-name 
@@ -14,10 +14,10 @@ mixin registration()
       +radio-button(['Мужчина', 'gender', 'checked'])
       +radio-button(['Женщина', 'gender', 'unchecked'])
     .registration__birthday 
-      h3 дата рождения
+      h3.registration__title-birthday  дата рождения
       +text-field({id:'second-name', type:'date', placeholder:'Фамилия'})
-    .registration__data-for-login
-      h3 данные для входа в сервис
+    .registration__login-data
+      h3.registration__title-login-data данные для входа в сервис
       +text-field({id:'email', type:'email', placeholder:'Email'})
       +text-field({id:'password', type:'password', placeholder:'Пароль'})
     .registration__spam-switcher 
