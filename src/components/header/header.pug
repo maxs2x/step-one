@@ -1,19 +1,19 @@
 include ../button/button.pug
 
 mixin header(header)
-  .container-header
+  .header
     .header__logo 
       .header__image-logo 
         img(src=require("../../../components/header/image/header-logo.jpg"))
       .header__text-logo 
         img(src=require("../../../components/header/image/TOXIN.jpg"))
-    .header__navigation
+    nav.header__navigation
       .header__navlinks 
         a(class="header__navlink header__navlink_active" href="about") О нас
         .header__dropdown  
-          p Услуги
-          i.header__dropdown-arrow_down
-          i.header__dropdown-arrow_up
+          p.header__dropdown-title Услуги
+          .header__dropdown-arrow_down
+          .header__dropdown-arrow_up
           .header__dropdown-content
             a(class="header__navlink" href='#home') Услуга 1
             a(class="header__navlink" href='#about') Услуга 2
@@ -21,32 +21,33 @@ mixin header(header)
         a(class="header__navlink" href="about") Вакансии
         a(class="header__navlink" href="about") Новости
         .header__dropdown  
-          p Соглашения
-          i.header__dropdown-arrow_down
-          i.header__dropdown-arrow_up
+          p.header__dropdown-title Соглашения
+          .header__dropdown-arrow_down
+          .header__dropdown-arrow_up
           .header__dropdown-content
             a(class="header__navlink" href='#home') Соглашение 1
             a(class="header__navlink" href='#about') Соглашение 2
             a(class="header__navlink" href='#contact') Соглашение 3
       .header__login-block
         if header.type == 'no-login'
-          +button(['header-white', 'войти'])
+          .header__button-login
+            +button(['header-white', 'войти'])
           +button(['header-standart', 'зарегистрироваться'])
         else 
           .header__nick-name
-            p Юлий Цезарь
+            p.header__text-nick-name Юлий Цезарь
     .header__burger-menu
-      input#burger-menu.wrapper__checkbox(type='checkbox')
-      label.wrapper__button(for='burger-menu')
-        span.wrapper__button-line
-        span.wrapper__button-line
-        span.wrapper__button-line
-      .wrapper__menu
-        a.wrapper__menu-link(href='/profile') О нас
-        a.wrapper__menu-link(href='/') Услуги
-        a.wrapper__menu-link(href='/about') Вакансии
-        a.wrapper__menu-link(href='/contacts') Новости
-        a.wrapper__menu-link(href='#') Соглашения
+      input#header__button-burger-menu.header__checkbox(type='checkbox')
+      label.header__button-burger-menu(for='header__button-burger-menu')
+        span.header__button-line
+        span.header__button-line
+        span.header__button-line
+      nav.header__mobile-menu
+        a.header__mobile-menu-link(href='/profile') О нас
+        a.header__mobile-menu-link(href='/') Услуги
+        a.header__mobile-menu-link(href='/about') Вакансии
+        a.header__mobile-menu-link(href='/contacts') Новости
+        a.header__mobile-menu-link(href='#') Соглашения
         if header.type == 'no-login'
           +button(['header-white', 'войти'])
           +button(['header-standart', 'зарегистрироваться'])

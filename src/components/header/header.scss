@@ -1,6 +1,6 @@
 @import '../button/button.scss';
 
-.container-header {
+.header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -34,11 +34,6 @@
   }
 }
 
-.header__navlinks > .header__navlink,
-.header__navlinks > .header__dropdown {
-  margin: 0rem 0.71rem;
-}
-
 .header__navlinks {
   align-self: center;
 }
@@ -47,6 +42,11 @@
   text-decoration: none;
   color: $dark-shade-50;
   font-size: 14px;
+}
+
+.header__navlinks > .header__navlink,
+.header__navlinks > .header__dropdown {
+  margin: 0rem 0.71rem;
 }
 
 .header__navlink_active {
@@ -62,7 +62,7 @@
   color: $dark-shade-50;
 }
 
-.header__dropdown p {
+.header__dropdown-title {
   margin: 0rem;
   color: $dark-shade-50;
   font-size: 14px;
@@ -124,7 +124,7 @@
   margin-top: 0.21rem;
 }
 
-.button_header-white  {
+.header__button-login  {
   margin: 0rem 1.25rem 0rem 1rem;
 }
 
@@ -142,7 +142,7 @@
   border-color: $dark-shade-25;
 }
 
-.header__nick-name p {
+.header__text-nick-name {
   color: $dark-shade-50;
   font-size: 14px;
 }
@@ -162,28 +162,28 @@
   }
 }
 
-.wrapper__checkbox {
+.header__checkbox {
   display: none;
 }
-.wrapper__checkbox:checked ~ .wrapper__menu {
+.header__checkbox:checked ~ .wrapper__menu {
   display: flex;
   right: -1rem;
 }
 
-.wrapper__checkbox:checked ~ .wrapper__button .wrapper__button-line:nth-child(1) {
+.header__checkbox:checked ~ .header__button-line:nth-child(1) {
   transform: rotate(45deg);
   top: 0.45rem;
 }
-.wrapper__checkbox:checked ~ .wrapper__button .wrapper__button-line:nth-child(2) {
+.header__checkbox:checked ~ .header__button-line:nth-child(2) {
   opacity: 0;
 }
 
-.wrapper__checkbox:checked ~ .wrapper__button .wrapper__button-line:nth-child(3) {
+.header__checkbox:checked ~ .header__button-line:nth-child(3) {
   transform: rotate(-45deg);
   top: -0.55rem;
 }
 
-.wrapper__button {
+.header__button-burger-menu {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,12 +197,12 @@
 }
 
 @media (max-width: 1000px) {
-  .wrapper__menu button {
+  .header__button-burger-menu button {
     margin-bottom: 1rem;
   }
 }
 
-.wrapper__button-line {
+.header__button-line {
   display: block;
   width: 1.5rem;
   height: 0.2rem;
@@ -213,7 +213,7 @@
   transition: all .2s ;
 }
 
-.wrapper__menu {
+.header__mobile-menu {
   position: absolute;
   top: 0;
   right: -200rem;
@@ -228,7 +228,7 @@
   border-bottom-left-radius: 5rem;
 }
 
-.wrapper__menu-link {
+.header__mobile-menu-link {
   font-size: 18px;
   font-weight: bold;
   line-height: 1.2rem;
@@ -240,7 +240,7 @@
   transition: all .2s linear;
 }
 
-.wrapper__menu-link:hover {
+.header__mobile-menu-link:hover {
   padding-right: 0.5rem;
   color: $dark-shade-75;
 }
