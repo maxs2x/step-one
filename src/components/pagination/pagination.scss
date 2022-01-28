@@ -8,7 +8,7 @@
   font-size: 12px;
 }
 
-.container-pagination {
+.pagination {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -22,12 +22,12 @@
   cursor: pointer;
 }
 
-.pagination__page {
+.js-pagination__page {
   @include circle;
   font-size: 12px;
 }
 
-.pagination__hover-page {
+.js-pagination__hover-page {
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
 
@@ -44,7 +44,7 @@
   background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 }
 
-.pagination__arrow-next {
+.pagination__arrow {
   font-family: "Material Icons";
   font-size: 24px;
   color: white;
@@ -55,7 +55,7 @@
   
 }
 
-.pagination__invis-element {
+.js-pagination__invis-element {
   display: none;
 }
 
