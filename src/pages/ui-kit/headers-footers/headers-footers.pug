@@ -17,7 +17,9 @@ block content
   +header-for-ui-kit()
   .content-heeaders-footers
     +header({type: 'no-login'})
-    +header({type: 'login'})
-    +footer()
-    .footer_small
+    .header-login
+      +header({type: 'login'})
+    footer  
       +footer()
+      .footer_small
+        +footer()
