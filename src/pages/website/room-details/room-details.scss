@@ -270,13 +270,13 @@ article.room-impressions {
   }
 }
 
-.container-reservation {
+.reservation {
   height: fit-content;
   width: 20.15rem;
 }
 
 @media (max-width: 1000px) {
-  .container-reservation {
+  .reservation {
     margin-bottom: 2.5rem;
     width: 100%;
     order: -1;

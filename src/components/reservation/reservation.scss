@@ -2,7 +2,7 @@
 @import '../list-of-options/list-of-options.scss';
 @import '../button/button.scss';
 
-.container-reservation {
+.reservation {
   max-width: 30rem;
   min-width: 19.2rem;
   margin-top: 0.4rem;
@@ -13,14 +13,14 @@
 }
 
 @media (max-width: 750px) {
-  .container-reservation {
+  .reservation {
     margin-left: 0rem; 
     padding: 2.5rem 0.7rem 1.85rem 0.7rem;
   }
 }
 
 @media (max-width: 400px) {
-  .container-reservation {  
+  .reservation {  
     margin-left: 0rem; 
     padding: 2.5rem 0.2rem 1.85rem 0.2rem;
   }
@@ -36,11 +36,16 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: baseline;
+}
 
-  h3 {
-    margin-left: 0.1rem;
-    margin-right: 0.4rem;
-  }
+.reservation__symbol-number {
+  margin-left: 0.1rem;
+  margin-right: 0.4rem;
+}
+
+.reservation__value-number {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .reseruation__luxury {
@@ -51,16 +56,15 @@
 
 .reservation__room-price {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-end;
   font-size: 12px;
-  p {
-    margin: 0rem;
-  }
+  margin: 0.4rem 0rem 0rem;
 }
 
-.price-per-day {
+.reservation__price-per-day {
   font-size: 14px;
+  margin-right: 0.4rem;
 }
 
 .reservation__date-in-out {
@@ -69,18 +73,15 @@
   justify-content: space-between;
   margin-top: 1.2rem;
   padding-left: 0.1rem;
-
-  h3 {
-    margin-bottom: 0.3rem;
-  }
 }
 
 .reservation__guests {
   margin-top: 1.3rem;
   padding-left: 0.1rem;
-  h3 {
-    margin-bottom: 0.3rem;
-  }
+}
+
+.reservation__title-guests {
+  margin-bottom: 0.3rem;
 }
 
 .reservation__price-calculation {
@@ -102,13 +103,16 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   flex-basis: 75%;
-  p {
-    margin: 0rem;
-    line-height: 1.1rem;
-  }
 }
 
-.price-calculation__quantity-days {
+.row-with-price__text, 
+.row-with-price__numbers,
+.row-with-price__calculation-result {
+  margin: 0rem;
+  line-height: 1.1rem;
+}
+
+.row-with-price__quantity-days {
   margin-right: 0.3rem;
 }
 
@@ -122,16 +126,11 @@
   text-align: center;
 }
 
-.row-with-price__numbers p {
-  margin: 0rem;
-  line-height: 1.1rem;
-}
-
 .reservation__total {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  margin-top: 0.75rem;
+  margin-top: 0.8rem;
   padding-left: 0.15rem;
 }
 

@@ -3,47 +3,45 @@ include ../list-of-options/list-of-options.pug
 include ../button/button.pug
 
 mixin reservation()
-  form.container-reservation.js-container-reservation 
+  form.reservation.js-reservation 
     .reservation__header
       .reservation__room-number
-        h3 № 
-        h1 888
+        h3.reservation__symbol-number № 
+        h3.reservation__value-number 888
         p.reseruation__luxury люкс 
-      .reservation__room-price
-        p
+      p.reservation__room-price
           |
-          span.price-per-day 9 990₽
+          span.reservation__price-per-day 9 990₽
           |
           | в сутки
     .reservation__date-in-out 
       +date-range(['19.08.2019', '23.08.2019'])
     .reservation__guests 
-      h3 гости
+      h3.reservation__title-guests гости
       +list-of-options(['list-of-options_with-buttons', '2', '1', '0', '3 гостя'])
     .reservation__price-calculation       
       .row-with-price
-          p.row-with-price__description
-            span.price-calculation__price-per-day.js-price-calculation__price-per-day 9 990₽ 
-            | х 
-            span.price-calculation__quantity-days.js-price-calculation__quantity-days 4
-            | суток
-          p.row-with-price__numbers.js-row-with-price__numbers
-            span.price-calculation__result.js-price-calculation__result 39 960₽
+          .row-with-price__description
+            p.row-with-price__text
+              span.row-with-price__price-per-day.js-row-with-price__price-per-day 9 990₽ 
+              | х 
+              span.row-with-price__quantity-days.js-row-with-price__quantity-days 4
+              | суток
+          .row-with-price__numbers.js-row-with-price__numbers
+            p.row-with-price__calculation-result.js-row-with-price__calculation-result 39 960₽
       .row-with-price
-        .row-with-price__description
-          p Сбор за услуги: скидка 2 179₽
+        .row-with-price__description 
+          p.row-with-price__text Сбор за услуги: скидка 2 179₽
           .reservation__info_about_service i
-        .row-with-price__numbers.js-row-with-price__numbers 
-          p 0₽
+        p.row-with-price__numbers.js-row-with-price__numbers 0₽
       .row-with-price
-        .row-with-price__description
-          p Сбор за дополнительные услуги
+        .row-with-price__description 
+          p.row-with-price__text Сбор за дополнительные услуги
           .reservation__info_about_service i
-        .row-with-price__numbers.js-row-with-price__numbers 
-          p 300₽
+        p.row-with-price__numbers.js-row-with-price__numbers 300₽
     .reservation__total 
-      h2.js-reservation__total-text  Итого
-      h2 38 081₽
+      h2.reservation__total-text  Итого
+      h2.reservation__value-total.js-reservation__value-total 38 081₽
     .reservation__button-reservation
       +button(['big', 'забронировать'])
       

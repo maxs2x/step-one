@@ -18,11 +18,11 @@ mixin date-range([first_date, last_date, form_elements])
   else 
     .date-range.js-date-range
       .date-range__first-date
-        h3.first-date__title прибытие
+        h3.date-range__first-date-title прибытие
         label.date-range__label
           input.date-range__date-in.js-date-range__date-in(type="text" placeholder=first_date)
       .date-range__last-date 
-        h3.last-date__title выезд
+        h3.date-range__last-date-title выезд
         label.date-range__label
           input.date-range__date-out.js-date-range__date-out(type="text" placeholder=last_date)
   

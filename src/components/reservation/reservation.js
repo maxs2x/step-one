@@ -4,17 +4,17 @@ import '../list-of-options/list-of-options.js';
 class Reservations {
     constructor(block) {
         this.container = block;
-        this.checkinDate = this.container.querySelector('.jd-datein').placeholder;
-        this.checkoutDate = this.container.querySelector('.js-dateout').placeholder;
-        this.pricePerDay = this.container.querySelector('.js-price-calculation__price-per-day');
-        this.quantityDay = this.container.querySelector('.js-price-calculation__quantity-days');
-        this.totalFirst = this.container.querySelector('.js-price-calculation__result');
+        this.checkinDate = this.container.querySelector('.js-date-range__date-in').placeholder;
+        this.checkoutDate = this.container.querySelector('.js-date-range__date-out').placeholder;
+        this.pricePerDay = this.container.querySelector('.js-row-with-price__price-per-day');
+        this.quantityDay = this.container.querySelector('.js-row-with-price__quantity-days');
+        this.totalFirst = this.container.querySelector('.js-row-with-price__calculation-result');
         this.rightColumn = this.container.querySelectorAll('.js-row-with-price__numbers');
-        this.totalElement = this.container.querySelectorAll('.js-reservation__total-text ')[1];
+        this.totalElement = this.container.querySelectorAll('.js-reservation__value-total');
         this.calculationPreliminaryResult();
         this.calculationTotal();
-        this.container.querySelector('.js-datein').onclick = this.update.bind(this);
-        this.container.querySelector('.js-dateout').onclick = this.update.bind(this);
+        this.container.querySelector('.js-date-range__date-in').onclick = this.update.bind(this);
+        this.container.querySelector('.js-date-range__date-out').onclick = this.update.bind(this);
     }
 
     addSpaceForThousand(number) {
@@ -54,22 +54,22 @@ class Reservations {
     }
 
     calculationTotal() {
-        let discount = (Number(this.rightColumn[1].querySelector('p').innerHTML.slice(0,this.rightColumn[1].querySelector('p').innerHTML.length - 1).replace(/\s+/g, '')) === 0) ? -2179 : this.rightColumn[1].innerHTML.slice(0,this.pricePerDay.innerHTML.length - 2).replace(/\s+/g, '');
-        let dopService = Number(this.rightColumn[2].querySelector('p').innerHTML.slice(0,this.rightColumn[2].querySelector('p').innerHTML.length - 1).replace(/\s+/g, ''));
+        let discount = (Number(this.rightColumn[1].innerHTML.slice(0,this.rightColumn[1].innerHTML.length - 1).replace(/\s+/g, '')) === 0) ? -2179 : this.rightColumn[1].innerHTML.slice(0,this.pricePerDay.innerHTML.length - 2).replace(/\s+/g, '');
+        let dopService = Number(this.rightColumn[2].innerHTML.slice(0,this.rightColumn[2].innerHTML.length - 1).replace(/\s+/g, ''));
         let total = this.addSpaceForThousand(Number(this.totalFirst.innerHTML.slice(0,this.pricePerDay.innerHTML.length - 1).replace(/\s+/g, '')) + discount + dopService);
         this.totalElement.innerHTML = total + '₽';
         console.log(this.totalFirst.innerHTML.slice(0,this.pricePerDay.innerHTML.length - 1).replace(/\s+/g, ''));
     }
 
     update() {
-        this.checkinDate = this.container.querySelector('.js-datein').placeholder;
-        this.checkoutDate = this.container.querySelector('.js-dateout').placeholder;
+        this.checkinDate = this.container.querySelector('.js-date-range__date-in').placeholder;
+        this.checkoutDate = this.container.querySelector('.js-date-range__date-out').placeholder;
         this.calculationPreliminaryResult();
         this.calculationTotal();       
     }
 }
 
-let reservations = document.querySelectorAll('.js-container-reservation');
+let reservations = document.querySelectorAll('.js-reservation');
 
 for (let block of reservations) {
     new Reservations(block);
