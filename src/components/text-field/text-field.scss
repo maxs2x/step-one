@@ -1,4 +1,5 @@
-@import './_subscription/subscription.scss';
+@import './_date/text-field_date.scss';
+@import './_subscription/text-field_subscription.scss';
 
 .text-field {
   padding-left: 0.9rem;
@@ -6,9 +7,9 @@
   border-radius: 0.3rem;
   width: calc(100% - 1.15rem);
   height: 2.5rem;
+  font-size: 14px;
+  line-height: 2.5rem;
   color: $dark-shade-75;
-  font-size: 10px;
-  letter-spacing: -0.1rem;
   font-family: 'Montserrat';
 }
 
@@ -19,22 +20,18 @@
 .text-field:focus {
   outline: none;
   color: $dark-shade-75;
-
 }
 
 .text-field::placeholder {
   color: $dark-shade-25;
   text-overflow: ellipsis;
-  font-size: 1rem;
   font-family: 'Montserrat';
 }
 
 .text-field:focus::placeholder {
-  font-size: 0.85rem;
   font-family: 'Montserrat';
   opacity: 0; 
   transition: 
   opacity 0.8s ease;
 }
 
-@import './_date/date.scss';

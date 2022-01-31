@@ -3,12 +3,12 @@ include ../list-of-options/list-of-options.pug
 include ../button/button.pug
 
 mixin rooms-search()
-  form.container-rooms-search 
+  form.rooms-search 
     h1 Найдём номера под ваши пожелания
     .rooms-search__in-out 
       +date-range(['ДД.ММ.ГГГГ', 'ДД.ММ.ГГГГ', ''])
     .rooms-search__guests
-      h3 гости
+      h3.rooms-search__title-guests гости
       +list-of-options(['list-of-options_with-buttons', '2', '1', '0', 'Сколько гостей'])
     .rooms-search__button-search
       +button(['big', 'подобрать номер'])
