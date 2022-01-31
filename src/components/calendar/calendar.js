@@ -37,6 +37,17 @@ if (document.querySelectorAll('.js-date-range')) {
                 minDate: date
             })
         },
+        position({$datepicker, $target, $pointer}) {
+            let coords = $target.getBoundingClientRect();
+        
+            let top =  coords.y + coords.height + window.scrollY + 6;
+            let left = coords.x  ;
+        
+            $datepicker.style.left = `${left}px`;
+            $datepicker.style.top = `${top}px`;
+        
+            $pointer.style.display = 'none';
+        },
         buttons: ['clear',
             {
                 content: 'Применить',
@@ -58,6 +69,18 @@ if (document.querySelectorAll('.js-date-range')) {
                 maxDate: date
             })
         },
+        position({$datepicker, $target, $pointer}) {
+            let coords = $target.getBoundingClientRect(),
+                dpWidth = $datepicker.clientWidth;
+        
+            let top =  coords.y + coords.height + window.scrollY + 6;
+            let left = coords.x - dpWidth / 1.87;
+        
+            $datepicker.style.left = `${left}px`;
+            $datepicker.style.top = `${top}px`;
+        
+            $pointer.style.display = 'none';
+        },
         buttons: ['clear',
             {
                 content: 'Применить',
@@ -69,7 +92,6 @@ if (document.querySelectorAll('.js-date-range')) {
             }
         ],
         minDate: new Date(),
-        position: 'bottom right',
         prevHtml: '<span class="air-datepicker__prev-button">arrow_back</span>',
         nextHtml: '<span class="air-datepicker__next-button">arrow_forward</span>'
     })
