@@ -11,17 +11,18 @@ mixin add-del-buttons([quantity])
 
 mixin list-of-options([content, quantity_bedrooms, quantity_beds, quantity_bathrooms, text_placeholder])
   - var typeList = (content === "list-of-options_with-buttons") ? "list-of-options list-of-options_with-buttons js-list-of-options_with-buttons" : "list-of-options js-list-of-options";
-  
+  - var titleRow = (content === "list-of-options_with-buttons") ? {row1: "Взрослые", row2: "Дети", row3: "Младенцы"} : {row1: "спальни", row2: "кровати", row3: "ванные комнаты"};
+
   +dropdown([content, text_placeholder])
     ul(class= typeList)
       li.list-of-options__item.js-list-of-options__item
-        p.list-of-options__title-item спальни
+        p.list-of-options__title-item= titleRow.row1 
         +add-del-buttons([quantity_bedrooms])
       li.list-of-options__item.js-list-of-options__item
-        p.list-of-options__title-item кровати
+        p.list-of-options__title-item= titleRow.row2
         +add-del-buttons([quantity_beds])
       li.list-of-options__item.js-list-of-options__item
-        p.list-of-options__title-item ванные комнаты
+        p.list-of-options__title-item= titleRow.row3
         +add-del-buttons([quantity_bathrooms])
       if content === "list-of-options_with-buttons"
         li.list-of-options__bottom-button.js-list-of-options__bottom-button
@@ -29,25 +30,6 @@ mixin list-of-options([content, quantity_bedrooms, quantity_beds, quantity_bathr
             p.list-of-options__text-button очистить
           .list-of-options__button_apply.js-list-of-options__button_apply
             p.list-of-options__text-button применить
-        
-
-mixin list-of-options_with-buttons([content, quantity_adults, quantity_child, quantity_baby, text_placeholder])
-  +dropdown([content, text_placeholder])  
-    ul.list-of-options.list-of-options_with-buttons.js-list-of-options_with-buttons
-      li.list-of-options__item.js-list-of-options__item
-        p.list-of-options__title-item Взрослые
-        +add-del-buttons([quantity_adults])
-      li.list-of-options__item.js-list-of-options__item
-        p.list-of-options__title-item Дети
-        +add-del-buttons([quantity_child])
-      li.list-of-options__item.js-list-of-options__item
-        p.list-of-options__title-item Младенцы
-        +add-del-buttons([quantity_baby])
-      li.list-of-options__bottom-button.js-list-of-options__bottom-button
-        .list-of-options__button_clear.js-list-of-options__button_clear
-          p.list-of-options__text-button очистить
-        .list-of-options__button_apply.js-list-of-options__button_apply
-          p.list-of-options__text-button применить
         
       
     
