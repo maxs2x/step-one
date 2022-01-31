@@ -183,7 +183,7 @@ article.room-impressions {
 }
 
 .room-revew {
-  margin-top: 0.85rem;
+  margin-top: 0.7rem;
 }
 
 @media (max-width: 1200px) {
@@ -203,10 +203,11 @@ article.room-impressions {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  p {
-    margin: 0rem;
-    color: $dark-shade-50;
-  }
+}
+
+.room-revew__quantity-revews {
+  margin: 0rem;
+  color: $dark-shade-50;
 }
 
 @media (max-width: 750px) {
@@ -220,12 +221,6 @@ article.room-impressions {
 
 .room-revew > :nth-child(2) {
   margin-top: 1.3rem;
-}
-
-.container-revew {
-  margin-top: 1.6rem;
-  margin-left: 0.1rem;
-  max-width: 44.3rem;
 }
 
 .room-rules {
