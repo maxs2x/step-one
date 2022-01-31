@@ -22,18 +22,16 @@ mixin reservation()
       +list-of-options(['list-of-options_with-buttons', '2', '1', '0', '3 гостя'])
     .reservation__price-calculation       
       .row-with-price
-          .row-with-price__description
-            p
-              span.price-calculation__price-per-day.js-price-calculation__price-per-day 9 990₽ 
-              | х 
-              span.price-calculation__quantity-days.js-price-calculation__quantity-days 4
-              | суток
-          .row-with-price__numbers.js-row-with-price__numbers    
-            p
-              span.price-calculation__result.js-price-calculation__result 39 960₽
+          p.row-with-price__description
+            span.price-calculation__price-per-day.js-price-calculation__price-per-day 9 990₽ 
+            | х 
+            span.price-calculation__quantity-days.js-price-calculation__quantity-days 4
+            | суток
+          p.row-with-price__numbers.js-row-with-price__numbers
+            span.price-calculation__result.js-price-calculation__result 39 960₽
       .row-with-price
         .row-with-price__description
-          p sadfsadfСбор за услуги: скидка 2 179₽
+          p Сбор за услуги: скидка 2 179₽
           .reservation__info_about_service i
         .row-with-price__numbers.js-row-with-price__numbers 
           p 0₽
