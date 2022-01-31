@@ -1,40 +1,38 @@
 include ../rate-button/rate-button.pug
 
 mixin image-slider(...images)
-  .js-container__img-slider
+  .image-slider.js-image-slider
     each image in images
-      .js-image-slider__photo-room.image-slider__fade
-        img(src=require('../../../images/slider/' + image))
-    a.js-image-slider__prev 
+      .image-slider__photo-room.js-image-slider__photo-room.image-slider__fade
+        img.image-slider__image-room(src=require('../../../images/slider/' + image))
+    a.image-slider__prev.js-image-slider__prev 
       span.image-slider__arrow-left navigate_before
-    a.js-image-slider__next
+    a.image-slider__next.js-image-slider__next
       span.image-slider__arrow-right navigate_before
     div.image-slider__dots
-      span(class="js-image-slider__dot" data-index="1")
-      span(class="js-image-slider__dot" data-index="2")
-      span(class="js-image-slider__dot" data-index="3")
-      span(class="js-image-slider__dot" data-index="4")
+      span(class="image-slider__dot js-image-slider__dot" data-index="1")
+      span(class="image-slider__dot js-image-slider__dot" data-index="2")
+      span(class="image-slider__dot js-image-slider__dot" data-index="3")
+      span(class="image-slider__dot js-image-slider__dot" data-index="4")
 
 mixin room-card([number, price, luxury, rate, revew, image0, image1, image2, image3])
-  article.container-room-card 
+  article.room-card 
     .room-card__slider 
       +image-slider(image0, image1, image2, image3)
     .room-card__description 
       .room-card__room-number
-        h3 № 
-        h3= number
+        h3.room-card__symbol-number № 
+        h3.room-card__value-number= number
         p.room-card__luxury=luxury
       .room-card__price
-        p
-          |
+        p.room-card__text-price
           span.room-card__price-per-day=price 
           |
           | в сутки
       .room-card__rate 
         +rate-button(rate)
-      .room-card__revew
-        p
-          |
-          span.room-card__count-revewers=revew 
-          |
-          | Отзывов
+      p.room-card__revew
+        |
+        span.room-card__count-revewers=revew 
+        |
+        | Отзывов

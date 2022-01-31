@@ -58,7 +58,7 @@ class ImageSlider {
     }
 }
 
-let allImageSliders = document.querySelectorAll('.js-container__img-slider');
+let allImageSliders = document.querySelectorAll('.js-image-slider');
 console.log(allImageSliders);
 for (let slider of allImageSliders) {
     new ImageSlider(slider);
