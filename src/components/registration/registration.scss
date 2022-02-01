@@ -4,7 +4,9 @@
 @import '../button/button.scss';
 
 .registration  {
-  padding: 2.5rem 1.8rem 1.5rem 1.8rem;
+  max-width: 20.0rem;
+  width: 100%;
+  padding: 2.5rem 1.85rem 1.5rem 1.9rem;
   box-shadow: 0px 0px 25px rgb(0 0 0 / 29%);
   border-radius: 4px;
   background-color: white;
@@ -12,7 +14,7 @@
 
 .registration__input-name {
   margin-top: 1.3rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.65rem;
 }
 
 .registration__input-second-name {
@@ -23,12 +25,11 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  margin-left: 0.07rem;
-  width: 68%;
+  width: 68.5%;
 }
 
 .registration__birthday {
-  margin-top: 0.7rem;
+  margin-top: 1.55rem;
 }
 
 .registration__title-birthday {
@@ -36,7 +37,7 @@
 }
 
 .registration__login-data {
-  margin-top: 1.4rem;
+  margin-top: 1.28rem;
 }
 
 .registration__title-login-data {
@@ -48,16 +49,16 @@
 }
 
 .registration__spam-switcher {
-  margin-top: 0.7rem;
-  margin-bottom: 1.4rem;
+  margin-top: 0.6rem;
+  margin-bottom: 1.532rem;
 }
 
 .registration__login {
   display: flex;
   justify-content: space-between;
-  margin-top: 1.7rem;
+  margin-top: 1.75rem;
 }
 
 .registration__login .button {
-    margin-top: 0.2rem;
+    margin-top: 0.1rem;
 }

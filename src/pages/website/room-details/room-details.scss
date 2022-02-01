@@ -65,7 +65,7 @@ main {
 }
 
 @media (max-width: 1000px) {
-  .room-photo__main-photo {
+  .room-photo__photo_max {
     width: 100%;
   }
 }
@@ -75,10 +75,11 @@ main {
   flex-flow: column;
   width: 31.9%;
   height: auto;
-  img {
-    width: 100%;
-    height: 50%;
-  }
+}
+
+.room-photo__photo_min {
+  width: 100%;
+  height: 50%;
 }
 
 @media (max-width: 1000px) {
@@ -129,22 +130,16 @@ section.container {
   flex-basis: 39%;
   display: flex;
   flex-flow: column nowrap;
-  h2 {
-    margin-bottom: 1.4rem;
-  }
+  margin-top: 1px;
 }
 
-.benefit {
+.information-about-room__title {
+  margin-bottom: 1.35rem;
+}
+
+.information-about-room__comfort {
   margin-left: 0.05rem;
   margin-bottom: 1.2rem;
-}
-
-.benefit.benefit_conveniences {
-  margin-top: 1.15rem;
-}
-
-.benefit_whatshot {
-  margin-top: 1.1rem;
 }
 
 .delimiter {
@@ -155,11 +150,23 @@ section.container {
   background-color: $dark-shade-10;
 }
 
+.information-about-room__conveniences {
+  margin-top: 1.05rem;
+  margin-bottom: 1.2rem;
+}
+
+.information-about-room__whatshot {
+  margin-top: 1.0rem;
+  margin-bottom: 1.35rem;
+  margin-left: 0.1rem;
+}
+
 article.room-impressions {
   flex-basis: 51.5%;
-  h2 {
-    margin-left: 1rem;
-  }
+}
+
+.room-impressions__title {
+  margin-left: 1rem;
 }
 
 @media (max-width: 750px) {
@@ -203,10 +210,11 @@ article.room-impressions {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-bottom: 1.25rem;
 }
 
 .room-revew__quantity-revews {
-  margin: 0rem;
+  margin: 0.2rem 0.1rem 0.0rem 0.0rem;
   color: $dark-shade-50;
 }
 
@@ -219,19 +227,19 @@ article.room-impressions {
   }
 }
 
-.room-revew > :nth-child(2) {
-  margin-top: 1.3rem;
+.room-revew__inner {
+  margin-bottom: 1.6rem;
 }
 
 .room-rules {
   flex-basis: 37%; 
-  margin-top: 2.0rem;
-  h2 {
-    margin-left: 1.2rem;
-    margin-bottom: 1.2rem;
-  }
+  margin-top: 0.4rem;
 }
 
+.room-rules__title {
+  margin-left: 1.2rem;
+  margin-bottom: 1.2rem;
+}
 
 @media (max-width: 750px) {
   .room-rules {
@@ -246,10 +254,7 @@ article.room-impressions {
 .cancel-room {
   flex-basis: 48%; 
   margin-right: 0.55rem;
-  margin-top: 2.0rem;
-  h2 {
-    margin-bottom: 1.2rem;
-  }
+  margin-top: .4rem;
 }
 
 @media (max-width: 750px) {
@@ -258,8 +263,12 @@ article.room-impressions {
   }
 }
 
+.cancel-room__title {
+  margin-bottom: 1.2rem;
+}
+
 @media (max-width: 750px) {
-  .cancel-room h2 {
+  .cancel-room__title {
     flex-basis: 100%;
     text-align: center;
   }
@@ -289,6 +298,3 @@ footer {
   }
 }
 
-.footer-bottom {
-  padding-top:  5rem;
-}

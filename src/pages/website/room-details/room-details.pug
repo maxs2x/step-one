@@ -21,37 +21,40 @@ block content
     +header({type: 'no-login'}) 
   main
     section.room-photo
-      img(class="room-photo__main-photo" src=require("./images/photo01.jpg") alt="большая спальня" data-fancybox='gallery')
+      img(class="room-photo__photo_max" src=require("./images/photo01.jpg") alt="большая спальня" data-fancybox='gallery')
       .room-photo__additional-photo
-        img(src=require("./images/photo02.jpg") alt="малая спальня" data-fancybox='gallery')
-        img(src=require("./images/photo03.jpg") alt="гостинная" data-fancybox='gallery')
+        img(class="room-photo__photo_min" src=require("./images/photo02.jpg") alt="малая спальня" data-fancybox='gallery')
+        img(class="room-photo__photo_min" src=require("./images/photo03.jpg") alt="гостинная" data-fancybox='gallery')
     section.container 
       .room-details 
         article.information-about-room 
-          h2 Сведения о номере
-          +benefit({image: "insert_emoticon.jpg", alt: "image smiile", title: "Комфорт", description: "Шумопоглощающие стены"})
+          h2.information-about-room__title Сведения о номере
+          .information-about-room__comfort
+            +benefit({image: "insert_emoticon.jpg", alt: "image smiile", title: "Комфорт", description: "Шумопоглощающие стены"})
           .delimiter
-          +benefit({modificator: "conveniences", image: "location_city.jpg", alt: "image city", title: "Удобство", description: "Окно в каждой из спален"}) 
+          .information-about-room__conveniences
+            +benefit({modificator: "conveniences", image: "location_city.jpg", alt: "image city", title: "Удобство", description: "Окно в каждой из спален"}) 
           .delimiter
-          +benefit({modificator: "whatshot", image: "whatshot.jpg", alt: "image burn", title: "Уют", description: "Номер оснащён камином"})
+          .information-about-room__whatshot
+            +benefit({modificator: "whatshot", image: "whatshot.jpg", alt: "image burn", title: "Уют", description: "Номер оснащён камином"})
         article.room-impressions
-          h2 Впечатления от номера
+          h2.room-impressions__title Впечатления от номера
           .doughnut-diagramm-wrapper.js-doughnut-diagramm-wrapper
 
         article.room-revew 
           .room-revew__title
-            h2 Отзывы посетителей номера
+            h2.room-revew__title-text Отзывы посетителей номера
             p.room-revew__quantity-revews 2 отзыва
-          +room-revew(['avatar1.jpg', 12, 'active', 'Мурад Сарафанов', '5 дней назад', 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.']) 
-          +room-revew(['avatar2.jpg', 2, 'no_activ', 'Патрисия Стёклышкова', 'Неделю назад', 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент']) 
+          .room-revew__inner
+            +room-revew(['avatar1.jpg', 12, 'active', 'Мурад Сарафанов', '5 дней назад', 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.']) 
+          .room-revew__inner
+            +room-revew(['avatar2.jpg', 2, 'no_activ', 'Патрисия Стёклышкова', 'Неделю назад', 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент']) 
         article.room-rules
-          h2 Правила
+          h2.room-rules__title Правила
           +bullet-list("Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00")
         article.cancel-room
-          .cancel-room__title
-            h2 Отмена
-          .cancel-room__text
-            p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+          h2.cancel-room__title Отмена
+          p.cancel-room__text Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
       +reservation()
   footer.container
     +footer()

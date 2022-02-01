@@ -4,6 +4,10 @@
 @import '../../../components/registration/registration.scss';
 @import '../../../components/footer/footer.scss';
 
+body {
+  margin: 0.95rem 0rem 0rem;
+}
+
 html,
 body,
 main {
@@ -54,14 +58,19 @@ main .container {
   justify-content: center;
 }
 
-.registration {
-  margin-top: 1.25rem;
+main .container::before {
+  display: block;
+  content: " ";
+  width: 0.35rem;
+  height: 0.5rem;
+}
+
+.registration__inner  {
+  margin-top: 1.15rem;
   margin-bottom: 1.15rem;
-  max-width: 20.2rem;
-  width: 100%;
 }
 
 footer {
   flex: 0 0 auto;
-  padding-top: 6.3rem;
+  padding-top: 6.35rem;
 }

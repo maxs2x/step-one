@@ -28,33 +28,33 @@ block content
         span.container__button-line
         span.container__button-line
         span.container__button-line
-      p фильтр
+      p.filter-button__text-button фильтр
     section.search-filter
       .date-visit 
         h3 даты пребывания в отеле
         +date-filter(['19 авг - 23 авг'])
       .guests 
-        h3 гости
+        h3.guests__title гости
         +list-of-options(['list-of-options_with-buttons', '2', '1', '1', '3 гостя, 1 младенец'])
       .price-range 
         +range-slider('диапазон цены')
-        p Стоимость за сутки пребывания в номере
+        p.price-range__description Стоимость за сутки пребывания в номере
       .house-rules
-        h3 правила дома
+        h3.house-rules__title правила дома
         +checkbox(['Можно курить', 'unchecked', 'smocking'])
         +checkbox(['Можно с питомцами', 'checked', 'pet'])
         +checkbox(['Можно пригласить гостей (до 10 человек)', 'checked', 'guests'])
       .acessibility
-        h3 доступность
+        h3.acessibility__title доступность
         +rich-checkbox(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'wild-hollway'])
         +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'assistance-disabled'])
       .room-amenities 
-        h3 удобства номера
+        h3.room-amenities__title удобства номера
         +list-of-options(['list-of-options', '2', '1', '1', '2 спальни, 2 кровати...'])
       .additional-amenities 
         +checkbox-list('дополнительные удобства')
     section.rooms-list
-      h1 Номера, которые мы для вас подобрали
+      h1.rooms-list__title Номера, которые мы для вас подобрали
       .room-cards 
         +room-card(['888', '9 990₽', ' люкс', 5, '145 ', 'im1.jpg', 'im2.jpg', 'im3.jpg', 'im4.jpg'])
         +room-card(['840', '9 990₽', '', 4, '65 ', 'im2.jpg', 'im6.jpg', 'im7.jpg', 'im8.jpg'])
@@ -68,7 +68,7 @@ block content
         +room-card(['666', '5 000₽', '', 5, '25 ', 'im10.jpg', 'im11.jpg', 'im12.jpg', 'im1.jpg'])
         +room-card(['444', '5 000₽', '', 3, '15 ', 'im11.jpg', 'im12.jpg', 'im1.jpg', 'im2.jpg'])
         +room-card(['352', '5 000₽', '', 3, '55 ', 'im12.jpg', 'im1.jpg', 'im2.jpg', 'im3.jpg'])
-      .pagination
+      .rooms-list__pagination
         +pagination()
   footer.container
     +footer()
