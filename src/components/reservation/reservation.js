@@ -4,7 +4,7 @@ import '../list-of-options/list-of-options.js';
 class Reservations {
     constructor(block) {
         this.container = block;
-        this.checkinDate = this.container.querySelector('.js-date-range__date-in').placeholder;
+        this.checkingDate = this.container.querySelector('.js-date-range__date-in').placeholder;
         this.checkoutDate = this.container.querySelector('.js-date-range__date-out').placeholder;
         this.pricePerDay = this.container.querySelector('.js-row-with-price__price-per-day');
         this.quantityDay = this.container.querySelector('.js-row-with-price__quantity-days');
@@ -18,11 +18,11 @@ class Reservations {
     }
 
     addSpaceForThousand(number) {
-        let numberFormated = 0
+        let numberFormatted = 0
         if ((number/1000) > 0) {
-            numberFormated = String(number).slice(0, (String(number).length - 3)) + ' ' + String(number).slice(-3);
+            numberFormatted = String(number).slice(0, (String(number).length - 3)) + ' ' + String(number).slice(-3);
         };
-        return numberFormated;
+        return numberFormatted;
     }
 
     daysDifference(firstDay, secondDay) {
@@ -30,17 +30,17 @@ class Reservations {
         return Math.round(diff/8.64e7);
     }
 
-    convertateDate(date) {
+    convertedDate(date) {
         let splitPlaceholder = date.split('.'),
             validDate = new Date(Number(splitPlaceholder[2]), (Number(splitPlaceholder[1]) - 1), Number(splitPlaceholder[0]));
         return validDate
     }
 
     calculationQuantityDays() {
-        let firstDatePlaceholder = this.checkinDate,
-            firstDay = this.convertateDate(firstDatePlaceholder),
+        let firstDatePlaceholder = this.checkingDate,
+            firstDay = this.convertedDate(firstDatePlaceholder),
             secondDatePlaceholder = this.checkoutDate,
-            secondDay = this.convertateDate(secondDatePlaceholder),
+            secondDay = this.convertedDate(secondDatePlaceholder),
             difference = this.daysDifference(firstDay, secondDay);
         return difference;
     }
@@ -62,7 +62,7 @@ class Reservations {
     }
 
     update() {
-        this.checkinDate = this.container.querySelector('.js-date-range__date-in').placeholder;
+        this.checkingDate = this.container.querySelector('.js-date-range__date-in').placeholder;
         this.checkoutDate = this.container.querySelector('.js-date-range__date-out').placeholder;
         this.calculationPreliminaryResult();
         this.calculationTotal();       
