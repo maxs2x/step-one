@@ -5,12 +5,12 @@ mixin login()
   form.login 
     h1 Войти 
     .login__email 
-      +text-field({id: 'email', type: 'email', placeholder:'Email'})
+      +text-field({id: "email", type: "email", placeholder: "Email"})
     .login__password 
-      +text-field({id: 'password', type: 'password', placeholder:'Пароль'})
+      +text-field({id: "password", type: "password", placeholder: "Пароль"})
     .login__button-login 
-      +button(['big', 'войти'])
+      +button(["big", "войти"])
     .login__button-registration 
       p Нет аккаунта на Toxin?
       .login__button-sing-in
-        +button(['white', 'создать'])
+        +button(["white", "создать"])
