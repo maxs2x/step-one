@@ -32,7 +32,7 @@ mixin header(header)
         if header.type == 'no-login'
           .header__button-login
             +button(['header-white', 'войти'])
-          +button(['header-standart', 'зарегистрироваться'])
+          +button(['header-standard', 'зарегистрироваться'])
         else 
           .header__nick-name
             p.header__text-nick-name Юлий Цезарь
@@ -50,7 +50,7 @@ mixin header(header)
         a.header__mobile-menu-link(href='#') Соглашения
         if header.type == 'no-login'
           +button(['header-white', 'войти'])
-          +button(['header-standart', 'зарегистрироваться'])
+          +button(['header-standard', 'зарегистрироваться'])
         else 
           .header__nick-name
             p Юлий Цезарь

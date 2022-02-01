@@ -149,9 +149,9 @@ class DropdownWithButton extends DropdownDefault {
         let placeholder = parent.currentTarget.closest('.js-dropdown').querySelector('.js-dropdown__text-placeholder'),
             inputQuantity = parent.currentTarget.closest('.js-dropdown').querySelectorAll('.js-quantity__input'),
             buttonClear = parent.currentTarget.closest('.js-list-of-options__button_clear'),
-            standartPlaceholder = 'Сколько гостей';
+            standardPlaceholder = 'Сколько гостей';
             
-        placeholder.innerHTML = standartPlaceholder;
+        placeholder.innerHTML = standardPlaceholder;
 
         for (let elem of inputQuantity) {
             elem.setAttribute('value', 0);

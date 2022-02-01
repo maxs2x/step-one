@@ -2,18 +2,21 @@ include ./_white/white.pug
 include ./_big/big
 include ./_without-border/without-border
 include ./_header-white/header-white
-include ./_header-standart/header-standart
+include ./_header-standard/header-standard
 
 mixin button([variant_button, text_button])
-  if variant_button == 'standart'
-    button.button=text_button
-  else if variant_button == 'header-standart'
-    +button-header-standart(text_button)
-  else if variant_button == 'white'
-    +button-white(text_button)
-  else if variant_button == 'header-white'
-    +button-header-white(text_button)
-  else if variant_button == 'without-border'
-    +button-without-border(text_button)
-  else if variant_button == 'big'
-    +button-big(text_button)
+  - var variantButton = (variant_button) ? variant_button : "standard";
+  - var textButton = (text_button) ? text_button : "Button";
+
+  if variantButton == 'standard'
+    button.button=textButton
+  else if variantButton == 'header-standard'
+    +button-header-standard(textButton)
+  else if variantButton == 'white'
+    +button-white(textButton)
+  else if variantButton == 'header-white'
+    +button-header-white(textButton)
+  else if variantButton == 'without-border'
+    +button-without-border(textButton)
+  else if variantButton == 'big'
+    +button-big(textButton)
