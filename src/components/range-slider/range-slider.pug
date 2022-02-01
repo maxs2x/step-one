@@ -1,11 +1,13 @@
 mixin range-slider(placeholder)
+  - var placeholder = (placeholder) ? placeholder : "default slider";
+
   .range-slider.js-range-slider
-    .range-slideer__header
+    .range-slider__header
       if placeholder
         h3(class="range-slider__title")=placeholder 
       else 
         h3.range-slider__title Range Slider
-      .range-slideer__interval.js-range-slideer__interval 5 000₽ - 10 000₽
+      .range-slider__interval.js-range-slider__interval 5 000₽ - 10 000₽
     .range-slider__slider
       .range-slider__background-line 
       .range-slider__line-for-hover.js-range-slider__line-for-hover

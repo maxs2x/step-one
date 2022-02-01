@@ -19,7 +19,7 @@ class RangeSlider {
         this.hoverLine = this.container.querySelector('.js-range-slider__line-for-hover');
         this.leftToggle = this.hoverLine.querySelector('.js-range-slider__left-point');
         this.rightToggle = this.container.querySelector('.js-range-slider__right-point');
-        this.placeHolder = this.container.querySelector('.js-range-slideer__interval');
+        this.placeHolder = this.container.querySelector('.js-range-slider__interval');
         this.isResizingLeft = false;
         this.isResizingRightRight = false;
         this.leftToggle.onmousedown = this.startResizingLeft.bind(this);
