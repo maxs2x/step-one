@@ -44,9 +44,9 @@
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
 
-.pagintation__first-page,
+.pagination__first-page,
 .pagination__three-point,
-.pagintation__last-page {
+.pagination__last-page {
   @include circle;
 }
 
@@ -55,7 +55,7 @@
   
 }
 
-.js-pagination__invis-element {
+.js-pagination__invisible-element {
   display: none;
 }
 
