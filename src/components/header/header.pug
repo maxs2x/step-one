@@ -1,6 +1,8 @@
 include ../button/button.pug
 
 mixin header(header)
+  - var valueLogin = (header.type) ? header.type : "no-login";
+
   .header
     .header__logo 
       .header__image-logo 
@@ -29,7 +31,7 @@ mixin header(header)
             a(class="header__navlink" href='#about') Соглашение 2
             a(class="header__navlink" href='#contact') Соглашение 3
       .header__login-block
-        if header.type == 'no-login'
+        if valueLogin == 'no-login'
           .header__button-login
             +button(['header-white', 'войти'])
           +button(['header-standard', 'зарегистрироваться'])
