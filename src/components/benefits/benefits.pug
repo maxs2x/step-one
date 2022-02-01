@@ -1,21 +1,21 @@
 mixin benefit(options)
-  - var alt = options.alt;
-  - var title = options.title;
-  - var description = options.description;
-  - var modificator = (options.modificator) ? options.modificator : '';
-  - var classMainBlock = 'benefit';
-  - var classTextBlock = 'benefit__text';
-  - switch (modificator) {
-  -     case 'conveniences':
-  -         classMainBlock += ' benefit_conveniences';
-  -         classTextBlock += ' benefit__text_conveniences';
-  -     case 'whatshot':
-  -         classMainBlock += ' benefit_whatshot';
-  -         classTextBlock += ' benefit__text_whatshot';
+  - var alt = (options.alt) ? options.alt : "icon";
+  - var title = (options.title) ? options.title : "Default title";
+  - var description = (options.description) ? options.description : "Default description";
+  - var modifier = (options.modifier) ? options.modifier : "";
+  - var classMainBlock = "benefit";
+  - var classTextBlock = "benefit__text";
+  - switch (modifier) {
+  -     case "conveniences":
+  -         classMainBlock += " benefit_conveniences";
+  -         classTextBlock += " benefit__text_conveniences";
+  -     case "cosiness":
+  -         classMainBlock += " benefit_cosiness";
+  -         classTextBlock += " benefit__text_cosiness";
   - };
 
   div(class=classMainBlock)
-    image.benefit__image(src=require('./images/' + options.image), alt=alt)
+    image.benefit__image(src=require("./images/" + options.image), alt=alt)
     div(class=classTextBlock)
       p.benefit__heading= title 
       p.benefit__description= description
