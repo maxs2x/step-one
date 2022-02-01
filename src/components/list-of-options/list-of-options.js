@@ -24,7 +24,7 @@ class DropdownOpenPart {
         if (action === 'addition') {
             let count = submitButton.previousElementSibling.getAttribute('value');
             if (count === '0') {
-                submitButton.parentElement.firstElementChild.classList.toggle('js-dropdown__inviseble');
+                submitButton.parentElement.firstElementChild.classList.toggle('js-dropdown__invisible');
             };
             if (count < 11) {
                 newCount = ++count;
@@ -36,7 +36,7 @@ class DropdownOpenPart {
             let count = submitButton.nextElementSibling.getAttribute('value');
             newCount = --count;
             if (newCount === 0) {
-                submitButton.classList.toggle('js-dropdown__inviseble');
+                submitButton.classList.toggle('js-dropdown__invisible');
             };
             submitButton.nextElementSibling.setAttribute('value', newCount);
         };
@@ -108,10 +108,10 @@ class DropdownDefault extends DropdownOpenPart {
 class DropdownWithButton extends DropdownDefault {
     constructor(openPart) {
         super(openPart);  
-        this.inviseCancel();      
+        this.invisibleCancel();      
     }
 
-    inviseCancel() {
+    invisibleCancel() {
         let buttonClear = this.openPart.querySelector('.js-list-of-options__bottom-button .js-list-of-options__button_clear');
         let allStringsQuantity = this.openPart.querySelectorAll('.js-quantity__input');
         let summQuantity = 0;
@@ -119,12 +119,12 @@ class DropdownWithButton extends DropdownDefault {
             summQuantity = summQuantity + Number(string.getAttribute('value'));
         }
         if ((summQuantity === 0) && (!(buttonClear === null))) {
-            buttonClear.classList.add('js-dropdown__inviseble');
+            buttonClear.classList.add('js-dropdown__invisible');
         }
     }
 
     updatePlaceholder() {
-        let errorNone = 'PUSTO';
+        let errorNone = 'Default value';
     }
 
     handleDropDownButtonsClick(oneString) {
@@ -132,7 +132,7 @@ class DropdownWithButton extends DropdownDefault {
         let buttonClear = oneString.currentTarget.closest('.js-dropdown').querySelector('.js-list-of-options__bottom-button .js-list-of-options__button_clear');
         
         if (!(buttonClear === null)) {
-            buttonClear.classList.remove('js-dropdown__inviseble');
+            buttonClear.classList.remove('js-dropdown__invisible');
         }
         
         let allStringsQuantity = oneString.currentTarget.closest('.js-dropdown').querySelectorAll('.js-list-of-options_with-buttons .js-quantity__input');
@@ -141,11 +141,11 @@ class DropdownWithButton extends DropdownDefault {
             summQuantity = summQuantity + Number(string.getAttribute('value'));
         }
         if ((summQuantity === 0) && (!(buttonClear === null))) {
-            buttonClear.classList.add('js-dropdown__inviseble');
+            buttonClear.classList.add('js-dropdown__invisible');
         }
     }
 
-    buttonHendlingClear(parent) {
+    buttonHandlingClear(parent) {
         let placeholder = parent.currentTarget.closest('.js-dropdown').querySelector('.js-dropdown__text-placeholder'),
             inputQuantity = parent.currentTarget.closest('.js-dropdown').querySelectorAll('.js-quantity__input'),
             buttonClear = parent.currentTarget.closest('.js-list-of-options__button_clear'),
@@ -155,14 +155,14 @@ class DropdownWithButton extends DropdownDefault {
 
         for (let elem of inputQuantity) {
             elem.setAttribute('value', 0);
-            if (!(elem.previousSibling.classList.contains('js-dropdown__inviseble'))) {
-                elem.previousSibling.classList.toggle('js-dropdown__inviseble');
+            if (!(elem.previousSibling.classList.contains('js-dropdown__invisible'))) {
+                elem.previousSibling.classList.toggle('js-dropdown__invisible');
             }
         }
-        buttonClear.classList.add('js-dropdown__inviseble');
+        buttonClear.classList.add('js-dropdown__invisible');
     }
 
-    buttonHendlingApply(parent) {
+    buttonHandlingApply(parent) {
         let placeholder = parent.currentTarget.closest('.js-dropdown').querySelector('.js-dropdown__text-placeholder'),
             inputQuantity= parent.currentTarget.closest('.js-dropdown').querySelectorAll('.js-quantity__input'),
             numberOfVisitors = 0,
@@ -198,8 +198,8 @@ class DropdownWithButton extends DropdownDefault {
         super.assignHandler();
         let buttonClear = this.openPart.querySelector('.js-list-of-options__button_clear'),
             buttonApply = this.openPart.querySelector('.js-list-of-options__button_apply');
-        buttonClear.addEventListener('click', this.buttonHendlingClear);
-        buttonApply.addEventListener('click', this.buttonHendlingApply);
+        buttonClear.addEventListener('click', this.buttonHandlingClear);
+        buttonApply.addEventListener('click', this.buttonHandlingApply);
     }
 
 }
@@ -208,7 +208,7 @@ let quantity = document.querySelectorAll('.js-quantity__input');
 
 for (let elem of quantity) {
     if (elem.value === '0') {
-        elem.previousElementSibling.classList.toggle('js-dropdown__inviseble');
+        elem.previousElementSibling.classList.toggle('js-dropdown__invisible');
     };
 }
 

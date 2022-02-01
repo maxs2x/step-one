@@ -2,18 +2,20 @@ mixin dropdown__button([content, text_placeholder])
   if content === "list-of-options_with-buttons"
     .dropdown__button.js-dropdown__button.border-for-dropdown
       .dropdown__arrow.dropdown__arrow_down.js-dropdown__arrow_down
-      .dropdown__arrow.js-dropdown__arrow_up.dropdown__arrow_up.js-dropdown__inviseble
+      .dropdown__arrow.js-dropdown__arrow_up.dropdown__arrow_up.js-dropdown__invisible
       p.dropdown__text-placeholder.js-dropdown__text-placeholder #{text_placeholder}
   else
     .dropdown__button.js-dropdown__button.border-for-dropdown_default
       .dropdown__arrow.dropdown__arrow_down.js-dropdown__arrow_down
-      .dropdown__arrow.js-dropdown__arrow_up.dropdown__arrow_up.js-dropdown__inviseble
+      .dropdown__arrow.js-dropdown__arrow_up.dropdown__arrow_up.js-dropdown__invisible
       p.dropdown__text-placeholder.js-dropdown__text-placeholder #{text_placeholder}
 
 mixin dropdown([content, text_placeholder])
+  - var textPlaceholder = (text_placeholder) ? text_placeholder : "Dropdown"
+
   .dropdown.js-dropdown  
-    +dropdown__button([content, text_placeholder])
-    .dropdown__hidden-block.js-dropdown__hidden-block.js-dropdown__inviseble
+    +dropdown__button([content, textPlaceholder])
+    .dropdown__hidden-block.js-dropdown__hidden-block.js-dropdown__invisible
       if block
           block
       else

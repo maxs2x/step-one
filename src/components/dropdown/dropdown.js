@@ -12,9 +12,9 @@ class Dropdown {
         let borderDropdown = this._elem.querySelector('.js-dropdown__button');
         let borderDropdownMod = 'border-for-dropdown_active';
 
-        arrowRight.classList.toggle('js-dropdown__inviseble');
-        arrowDown.classList.toggle('js-dropdown__inviseble');
-        hiddenBlock.classList.toggle('js-dropdown__inviseble');     
+        arrowRight.classList.toggle('js-dropdown__invisible');
+        arrowDown.classList.toggle('js-dropdown__invisible');
+        hiddenBlock.classList.toggle('js-dropdown__invisible');     
         borderDropdown.classList.toggle(borderDropdownMod);
     }
 }
