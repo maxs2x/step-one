@@ -1,5 +1,6 @@
 mixin rate-button(count_checked)
-  - let countChecked = count_checked
+  - let countChecked = (count_checked) ? count_checked : 1;
+  
   .rate 
     - for (let i = 0; i < countChecked; i++)
       .rate__star star

@@ -7,23 +7,23 @@ mixin registration()
   form.registration 
     h1.registration__title Регистрация аккаунта
     .registration__input-name 
-      +text-field({id:'name', placeholder:'Имя'})
+      +text-field({id: "name", placeholder: "Имя"})
     .registration__input-second-name 
-      +text-field({id:'second-name', placeholder:'Фамилия'})
+      +text-field({id: "second-name", placeholder: "Фамилия"})
     .registration__gender 
-      +radio-button(['Мужчина', 'gender', 'checked'])
-      +radio-button(['Женщина', 'gender', 'unchecked'])
+      +radio-button([ "Мужчина", "gender", "checked"])
+      +radio-button([ "Женщина", "gender", "unchecked"])
     .registration__birthday 
       h3.registration__title-birthday  дата рождения
-      +text-field({id:'second-name', type:'date', placeholder:'ДД.ММ.ГГГГ'})
+      +text-field({id: "second-name", type: "date", placeholder: "ДД.ММ.ГГГГ"})
     .registration__login-data
       h3.registration__title-login-data данные для входа в сервис
-      +text-field({id:'email', type:'email', placeholder:'Email'})
-      +text-field({id:'password', type:'password', placeholder:'Пароль'})
+      +text-field({id: "email", type: "email", placeholder: "Email"})
+      +text-field({id: "password", type: "password", placeholder: "Пароль"})
     .registration__spam-switcher 
-      +toggle(['Получать спецпредложения', 'get-spam', 'unchecked']) 
+      +toggle([ "Получать спецпредложения", "get-spam", "unchecked"]) 
     .registration__pay-button 
-      +button(['big', 'зарегистрироваться'])
+      +button(["big", "зарегистрироваться"])
     .registration__login 
       p Уже есть аккаунт на Toxin
-      +button(['white', 'войти'])
+      +button(["white", "войти"])
