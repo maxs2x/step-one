@@ -1,26 +1,31 @@
 include ../dropdown/dropdown.pug
 
 mixin date-filter([text_placeholder])
+  - var textPlaceholder = (text_placeholder) ? text_placeholder : "dd.mm - dd.mm";
+
   label.date-filter
-    input.date-filter__input.js-date-filter__input(placeholder=text_placeholder)
+    input.date-filter__input.js-date-filter__input(placeholder=textPlaceholder)
 
 mixin date-range([first_date, last_date, form_elements])
+  - var firstDate = (first_date) ? first_date : "17.09.2021";
+  - var lastDate = (last_date) ? last_date : "21.09.2021";
+
   if form_elements 
     .date-range.js-date-range
       .date-range__first-date
         h3.date-range__first-date-title date Dropdown
         label.date-range__label
-          input.date-range__date-in.js-date-range__date-in(type="text" placeholder=first_date)
+          input.date-range__date-in.js-date-range__date-in(type="text" placeholder=firstDate)
       .date-range__last-date  
         h3.date-range__last-date-title date Dropdown  
         label.date-range__label
-          input.date-range__date-out.js-date-range__date-out(type="text" placeholder=last_date)
+          input.date-range__date-out.js-date-range__date-out(type="text" placeholder=lastDate)
   else 
     .date-range.js-date-range
       .date-range__first-date
         h3.date-range__first-date-title прибытие
         label.date-range__label
-          input.date-range__date-in.js-date-range__date-in(type="text" placeholder=first_date)
+          input.date-range__date-in.js-date-range__date-in(type="text" placeholder=firstDate)
       .date-range__last-date 
         h3.date-range__last-date-title выезд
         label.date-range__label
