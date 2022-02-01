@@ -17,9 +17,9 @@ mixin header(header)
           .header__dropdown-arrow_down
           .header__dropdown-arrow_up
           .header__dropdown-content
-            a(class="header__navlink" href='#home') Услуга 1
-            a(class="header__navlink" href='#about') Услуга 2
-            a(class="header__navlink" href='#contact') Услуга 3
+            a(class="header__navlink" href="#home") Услуга 1
+            a(class="header__navlink" href="#about") Услуга 2
+            a(class="header__navlink" href="#contact") Услуга 3
         a(class="header__navlink" href="about") Вакансии
         a(class="header__navlink" href="about") Новости
         .header__dropdown  
@@ -27,32 +27,32 @@ mixin header(header)
           .header__dropdown-arrow_down
           .header__dropdown-arrow_up
           .header__dropdown-content
-            a(class="header__navlink" href='#home') Соглашение 1
-            a(class="header__navlink" href='#about') Соглашение 2
-            a(class="header__navlink" href='#contact') Соглашение 3
+            a(class="header__navlink" href="#home") Соглашение 1
+            a(class="header__navlink" href="#about") Соглашение 2
+            a(class="header__navlink" href="#contact") Соглашение 3
       .header__login-block
-        if valueLogin == 'no-login'
+        if valueLogin == "no-login"
           .header__button-login
-            +button(['header-white', 'войти'])
-          +button(['header-standard', 'зарегистрироваться'])
+            +button(["header-white", "войти"])
+          +button(["header-standard", "зарегистрироваться"])
         else 
           .header__nick-name
             p.header__text-nick-name Юлий Цезарь
     .header__burger-menu
-      input#header__button-burger-menu.header__checkbox(type='checkbox')
-      label.header__button-burger-menu(for='header__button-burger-menu')
+      input#header__button-burger-menu.header__checkbox(type="checkbox")
+      label.header__button-burger-menu(for="header__button-burger-menu")
         span.header__button-line
         span.header__button-line
         span.header__button-line
       nav.header__mobile-menu
-        a.header__mobile-menu-link(href='/profile') О нас
-        a.header__mobile-menu-link(href='/') Услуги
-        a.header__mobile-menu-link(href='/about') Вакансии
-        a.header__mobile-menu-link(href='/contacts') Новости
-        a.header__mobile-menu-link(href='#') Соглашения
-        if header.type == 'no-login'
-          +button(['header-white', 'войти'])
-          +button(['header-standard', 'зарегистрироваться'])
+        a.header__mobile-menu-link(href="/profile") О нас
+        a.header__mobile-menu-link(href="/") Услуги
+        a.header__mobile-menu-link(href="/about") Вакансии
+        a.header__mobile-menu-link(href="/contacts") Новости
+        a.header__mobile-menu-link(href="#") Соглашения
+        if header.type == "no-login"
+          +button(["header-white", "войти"])
+          +button(["header-standard", "зарегистрироваться"])
         else 
           .header__nick-name
             p Юлий Цезарь

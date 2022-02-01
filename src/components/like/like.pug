@@ -1,7 +1,10 @@
 include ./_active/like-button_active.pug
 
 mixin like-button([counter, condition])
-  if condition == 'active'
+  - var counter = (counter) ? counter : "99";
+  - var condition = (condition) ? condition : "active";
+
+  if condition == "active"
     +like-button_active([counter])
   else 
     .like-button 
