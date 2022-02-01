@@ -191,7 +191,6 @@ class DropdownWithButton extends DropdownDefault {
         } else if ((numberOfAdults !== 0) && (numberOfBaby !== 0)){
             placeholder.innerHTML = numberOfVisitors + newPlaceholder + ', ' + numberOfBaby + addBaby;
         }
-        
     }
 
     assignHandler() {
@@ -212,15 +211,14 @@ for (let elem of quantity) {
     };
 }
 
-let classDropdownBlock = '';
 if (document.querySelector('.js-list-of-options_with-buttons')) {
-    classDropdownBlock = document.querySelectorAll('.js-list-of-options_with-buttons');
+    let classDropdownBlock = document.querySelectorAll('.js-list-of-options_with-buttons');
     for (let elem of classDropdownBlock) {
         new DropdownWithButton(elem);
     }
 };
 if (document.querySelector('.js-list-of-options')) {
-    classDropdownBlock = document.querySelectorAll('.js-list-of-options');
+    let classDropdownBlock = document.querySelectorAll('.js-list-of-options');
     for (let elem of classDropdownBlock) {
         new DropdownDefault(elem);
     }
