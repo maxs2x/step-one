@@ -1,4 +1,7 @@
 mixin radio-button([text, name, checked])
+  - var text = (text) ? text : "Radio button";
+  - var name = (name) ? name : "name";
+
   label.radio-button=text
     if checked == 'checked'
       input.radio-button__input(type='radio' checked='checked' name='radio')
