@@ -50,6 +50,7 @@ main {
 
 .room-photo {
   display: flex;
+  justify-content: center;
   width: 100%;
 }
 
@@ -59,8 +60,8 @@ main {
   }
 }
 
-.room-photo__main-photo {
-  width: 68.1%;
+.room-photo__photo_max {
+  max-width: 68.1%;
   height: auto;
 }
 
