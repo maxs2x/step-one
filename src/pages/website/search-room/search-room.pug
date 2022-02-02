@@ -19,8 +19,8 @@ block variables
 block title
   title Registration
 block content  
-  header.container
-    +header({type: 'no-login'})
+  header.container 
+    +header({login: "no-login"})
   main.container
     input#filter-menu.container__checkbox(type='checkbox')
     label.filter-button(for='filter-menu')

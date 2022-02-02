@@ -1,0 +1,24 @@
+
+@import './_dropdown/navigation-link_dropdown.scss';
+  
+.navigation-link{
+  text-decoration: none;
+  color: $dark-shade-50;
+  font-size: 14px;
+  align-self: center;
+  margin: 0rem 0.71rem;
+
+  &:hover {
+    color: $dark-shade-75;
+    font-weight: 700;
+  }
+
+  &_active {
+    color: $dark-shade-75;
+    font-weight: 700;
+  }
+}
+  
+
+
+  

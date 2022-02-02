@@ -1,8 +1,28 @@
+include ../navigation-link/navigation-link.pug
 include ../button/button.pug
 
-mixin header(header)
-  - var valueLogin = (header.type) ? header.type : "no-login";
-
+mixin header(options)
+  -
+    options = options || {};
+    valueLogin = options.login || "no-login";
+    defaultMenu = [
+      {text: "О нас", href: "/about", active: true},
+      {text: "Услуги", href: "not_filled", dropdownItems: [
+        {text: "Подбор жлья", href: "/about"},
+        {text: "Размщение", href: "/about"},
+      ]},
+      {text: "Вакансии", href: "not_filled"},
+      {text: "Новости", href: "/news"},
+      {text: "Соглашения", href: "not_filled", dropdownItems: [
+        {text: "Для арендодателя", href: "/about"},
+        {text: "Для арендатора", href: "/about"},
+      ]},
+    ]
+    menu = options.menu || defaultMenu;
+    buttonSingIn = options.singIn || {text: "войти", class:"header-white"};
+    buttonSingUp = options.singUp || {text: "зарегистрироваться", class:"header-standard"};
+    
+    
   .header
     .header__logo 
       .header__image-logo 
@@ -10,34 +30,17 @@ mixin header(header)
       .header__text-logo 
         img(src=require("../../../components/header/image/TOXIN.jpg"))
     nav.header__navigation
-      .header__navlinks 
-        a(class="header__navlink header__navlink_active" href="about") О нас
-        .header__dropdown  
-          p.header__dropdown-title Услуги
-          .header__dropdown-arrow_down
-          .header__dropdown-arrow_up
-          .header__dropdown-content
-            a(class="header__navlink" href="#home") Услуга 1
-            a(class="header__navlink" href="#about") Услуга 2
-            a(class="header__navlink" href="#contact") Услуга 3
-        a(class="header__navlink" href="about") Вакансии
-        a(class="header__navlink" href="about") Новости
-        .header__dropdown  
-          p.header__dropdown-title Соглашения
-          .header__dropdown-arrow_down
-          .header__dropdown-arrow_up
-          .header__dropdown-content
-            a(class="header__navlink" href="#home") Соглашение 1
-            a(class="header__navlink" href="#about") Соглашение 2
-            a(class="header__navlink" href="#contact") Соглашение 3
+      .header__navigation-link
+        each val in menu
+          +navigation-link(val)
       .header__login-block
-        if valueLogin == "no-login"
-          .header__button-login
-            +button(["header-white", "войти"])
-          +button(["header-standard", "зарегистрироваться"])
-        else 
-          .header__nick-name
-            p.header__text-nick-name Юлий Цезарь
+      if valueLogin == "no-login"
+        .header__button-login
+          +button([buttonSingIn.class, buttonSingIn.text])
+        +button([buttonSingUp.class, buttonSingUp.text])
+      else 
+        .header__nick-name
+          p.header__text-nick-name Юлий Цезарь
     .header__burger-menu
       input#header__button-burger-menu.header__checkbox(type="checkbox")
       label.header__button-burger-menu(for="header__button-burger-menu")
@@ -50,9 +53,9 @@ mixin header(header)
         a.header__mobile-menu-link(href="/about") Вакансии
         a.header__mobile-menu-link(href="/contacts") Новости
         a.header__mobile-menu-link(href="#") Соглашения
-        if header.type == "no-login"
-          +button(["header-white", "войти"])
-          +button(["header-standard", "зарегистрироваться"])
+        if valueLogin == "no-login"
+          +button([buttonSingIn.class, buttonSingIn.text])
+          +button([buttonSingUp.class, buttonSingUp.text])
         else 
           .header__nick-name
             p Юлий Цезарь

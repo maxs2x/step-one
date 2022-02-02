@@ -17,8 +17,8 @@ block variables
 block title
   title Room details
 block content 
-  header.container
-    +header({type: 'no-login'}) 
+  header.container 
+    +header({login: "no-login"}) 
   main
     section.room-photo
       img(class="room-photo__photo_max" src=require("./images/photo01.jpg") alt="большая спальня" data-fancybox='gallery')

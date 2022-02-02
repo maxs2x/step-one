@@ -1,0 +1,14 @@
+include ./_dropdown/navigation-link_dropdown.pug
+
+mixin navigation-link(options)
+  -
+    options = options || {};
+    href = options.href || "not_filled";
+    text = options.text || "navigation-link";
+    linkClass = (options.active) ? "navigation-link navigation-link_active" : "navigation-link";
+    dropdownItems = (options.dropdownItems) ? options.dropdownItems : false;
+
+  if dropdownItems
+    +navigation-link_dropdown(options)
+  else
+    a(class=linkClass href=href)=text

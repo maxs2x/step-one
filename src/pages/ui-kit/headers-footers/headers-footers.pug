@@ -12,13 +12,13 @@ block variables
     }
 
 block title
-  title Heeaders & Footers
+  title Headers & Footers
 block content  
   +header-for-ui-kit()
-  .content-heeaders-footers
-    +header({type: 'no-login'})
+  .content-headers-footers
+    +header({login: "no-login"})
     .header-login
-      +header({type: 'login'})
+      +header({login: "login"})
     footer  
       +footer()
       .footer_small
