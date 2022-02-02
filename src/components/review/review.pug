@@ -1,0 +1,14 @@
+include ../like/like.pug
+
+mixin room-review([avatar, count_like, active_like, name_reviewer, last_date, text_review])
+  - let path= "./images/"+ avatar;
+  
+  .review
+    .review__left-part
+      img.review__avatar-reviewer(src=require("./images/" + avatar) alt="avatar")
+      .review__like-button
+        +like-button([count_like, active_like])
+    .review__right-part
+      .review__name-reviewer=name_reviewer
+      .review__last-update=last_date
+      .review__review-body=text_review

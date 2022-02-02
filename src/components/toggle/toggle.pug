@@ -1,10 +1,10 @@
 mixin toggle([text, name, checked])
   .switcher
     label.switch__label
-      if checked == 'checked' 
-        input.switch__input(type='checkbox' checked='checked' name=name)
+      if checked == "checked"
+        input.switch__input(type="checkbox" checked="checked" name=name)
         .switch__slider 
       else 
-        input.switch__input(type='checkbox' name=name)
+        input.switch__input(type="checkbox" name=name)
         .switch__slider
     .switcher-text=text

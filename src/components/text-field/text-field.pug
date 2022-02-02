@@ -2,9 +2,9 @@ include ./_subscription/text-field_subscription.pug
 include ./_date/text-field_date.pug
 
 mixin text-field(options)
-  if options.class === 'text-field_subscription'
+  if options.class === "text-field_subscription"
     +subscription(options)
-  else if options.type === 'date'
+  else if options.type === "date"
     +date(options)
   else
-    input(id=options.id type=options.type class='text-field ' placeholder=options.placeholder)
+    input(id=options.id type=options.type class="text-field " placeholder=options.placeholder)

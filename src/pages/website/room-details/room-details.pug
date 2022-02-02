@@ -2,7 +2,7 @@ extends ../../../index.pug
 
 include ../../../components/header/header.pug
 include ../../../components/benefits/benefits.pug
-include ../../../components/revew/revew.pug
+include ../../../components/review/review.pug
 include ../../../components/bullet-list/bullet-list.pug
 include ../../../components/reservation/reservation.pug
 include ../../../components/footer/footer.pug
@@ -41,14 +41,14 @@ block content
           h2.room-impressions__title Впечатления от номера
           .doughnut-diagramm-wrapper.js-doughnut-diagramm-wrapper
 
-        article.room-revew 
-          .room-revew__title
-            h2.room-revew__title-text Отзывы посетителей номера
-            p.room-revew__quantity-revews 2 отзыва
-          .room-revew__inner
-            +room-revew(['avatar1.jpg', 12, 'active', 'Мурад Сарафанов', '5 дней назад', 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.']) 
-          .room-revew__inner
-            +room-revew(['avatar2.jpg', 2, 'no_activ', 'Патрисия Стёклышкова', 'Неделю назад', 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент']) 
+        article.room-review 
+          .room-review__title
+            h2.room-review__title-text Отзывы посетителей номера
+            p.room-review__quantity-reviews 2 отзыва
+          .room-review__inner
+            +room-review(['avatar1.jpg', 12, 'active', 'Мурад Сарафанов', '5 дней назад', 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.']) 
+          .room-review__inner
+            +room-review(['avatar2.jpg', 2, 'no_activ', 'Патрисия Стёклышкова', 'Неделю назад', 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент']) 
         article.room-rules
           h2.room-rules__title Правила
           +bullet-list("Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00")

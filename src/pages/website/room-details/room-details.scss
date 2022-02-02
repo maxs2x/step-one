@@ -2,7 +2,7 @@
 @import '../../../styles/variables.scss';
 @import '../../../components/header/header.scss';
 @import '../../../components/benefits/benefits.scss';
-@import '../../../components/revew/revew.scss';
+@import '../../../components/review/review.scss';
 @import '../../../components/bullet-list/bullet-list.scss';
 @import '../../../components/reservation/reservation.scss';
 @import '../../../components/footer/footer.scss';
@@ -190,45 +190,45 @@ article.room-impressions {
   }
 }
 
-.room-revew {
+.room-review {
   margin-top: 0.7rem;
 }
 
 @media (max-width: 1200px) {
-  .room-revew {
+  .room-review {
     margin-right: 1.5rem;
   }
 }
 
 @media (max-width: 1000px) {
-  .room-revew {
+  .room-review {
     margin-top: 2.5rem;
     margin-right: 0rem;
   }
 }
 
-.room-revew__title {
+.room-review__title {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 1.25rem;
 }
 
-.room-revew__quantity-revews {
+.room-review__quantity-reviews {
   margin: 0.2rem 0.1rem 0.0rem 0.0rem;
   color: $dark-shade-50;
 }
 
 @media (max-width: 750px) {
-  .room-revew__title {
+  .room-review__title {
     justify-content: center;
   }
-  .room-revew__title p {
+  .room-review__title p {
     display: none;
   }
 }
 
-.room-revew__inner {
+.room-review__inner {
   margin-bottom: 1.6rem;
 }
 

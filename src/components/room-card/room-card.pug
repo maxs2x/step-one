@@ -4,7 +4,7 @@ mixin image-slider(...images)
   .image-slider.js-image-slider
     each image in images
       .image-slider__photo-room.js-image-slider__photo-room.image-slider__fade
-        img.image-slider__image-room(src=require('../../../images/slider/' + image))
+        img.image-slider__image-room(src=require("../../../images/slider/" + image))
     a.image-slider__prev.js-image-slider__prev 
       span.image-slider__arrow-left navigate_before
     a.image-slider__next.js-image-slider__next
@@ -15,7 +15,7 @@ mixin image-slider(...images)
       span(class="image-slider__dot js-image-slider__dot" data-index="3")
       span(class="image-slider__dot js-image-slider__dot" data-index="4")
 
-mixin room-card([number, price, luxury, rate, revew, image0, image1, image2, image3])
+mixin room-card([number, price, luxury, rate, review, image0, image1, image2, image3])
   article.room-card 
     .room-card__slider 
       +image-slider(image0, image1, image2, image3)
@@ -31,8 +31,8 @@ mixin room-card([number, price, luxury, rate, revew, image0, image1, image2, ima
           | в сутки
       .room-card__rate 
         +rate-button(rate)
-      p.room-card__revew
+      p.room-card__review
         |
-        span.room-card__count-revewers=revew 
+        span.room-card__count-reviewers=review 
         |
         | Отзывов
