@@ -11,8 +11,8 @@ mixin registration()
     .registration__input-second-name 
       +text-field({id: "second-name", placeholder: "Фамилия"})
     .registration__gender 
-      +radio-button([ "Мужчина", "gender", "checked"])
-      +radio-button([ "Женщина", "gender", "unchecked"])
+      +radio-button({text: "Мужчина", name: "gender", checked: "checked"}) 
+      +radio-button({text: "Женщина", name: "gender", checked: "unchecked"}) 
     .registration__birthday 
       h3.registration__title-birthday  дата рождения
       +text-field({id: "second-name", type: "date", placeholder: "ДД.ММ.ГГГГ"})

@@ -73,8 +73,8 @@ block content
         .name-element
           h3 radio Buttons
         .radio-buttons
-          +radio-button(['Мужчина', 'gender', 'checked']) 
-          +radio-button(['Женщина', 'gender'])  
+          +radio-button({text: "Мужчина", name: "gender", checked: "checked"}) 
+          +radio-button({text: "Женщина", name: "gender", checked: "unchecked"})  
       .form-element
         .name-element
           h3 Toggle
