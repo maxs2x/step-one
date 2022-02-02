@@ -16,6 +16,12 @@ mixin image-slider(...images)
       span(class="image-slider__dot js-image-slider__dot" data-index="4")
 
 mixin room-card([number, price, luxury, rate, review, image0, image1, image2, image3])
+  - var number = (number) ? number : "888";
+  - var price = (price) ? price : "888";
+  - var rate = (rate) ? rate : 3;
+  - var review = (review) ? review : "2";
+  - var image0 = (image0) ? image0 : "im1.jpg";
+
   article.room-card 
     .room-card__slider 
       +image-slider(image0, image1, image2, image3)

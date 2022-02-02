@@ -1,4 +1,7 @@
 mixin toggle([text, name, checked])
+  - var text = (text) ? text : "Default toggle";
+  - var name = (name) ? name : "name";
+
   .switcher
     label.switch__label
       if checked == "checked"

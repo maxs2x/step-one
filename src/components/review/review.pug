@@ -1,14 +1,18 @@
 include ../like/like.pug
 
 mixin room-review([avatar, count_like, active_like, name_reviewer, last_date, text_review])
-  - let path= "./images/"+ avatar;
+  - let path= "./images/" + avatar;
+  - let countLike = (count_like) ? count_like : "99";
+  - let nameReviewer = (name_reviewer) ? name_reviewer : "Константин Константинопольский";
+  - let lastDate = (last_date) ? last_date : "2 day ago";
+  - let textReview = (text_review) ? text_review : "Lorem ipsum";
   
   .review
     .review__left-part
       img.review__avatar-reviewer(src=require("./images/" + avatar) alt="avatar")
       .review__like-button
-        +like-button([count_like, active_like])
+        +like-button([countLike, active_like])
     .review__right-part
-      .review__name-reviewer=name_reviewer
-      .review__last-update=last_date
-      .review__review-body=text_review
+      .review__name-reviewer=nameReviewer
+      .review__last-update=lastDate
+      .review__review-body=textReview
