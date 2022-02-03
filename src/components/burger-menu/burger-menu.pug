@@ -1,0 +1,34 @@
+include ../button/button.pug
+
+mixin burger-menu(options)
+  -
+    options = options || {};
+    defaultMenu = [
+      {text: "О нас", href: "/about"},
+      {text: "Услуги", href: "not_filled"},
+      {text: "Вакансии", href: "not_filled"},
+      {text: "Новости", href: "/news"},
+      {text: "Соглашения", href: "not_filled"},
+    ]
+    menu = options.menu || defaultMenu;
+    valueLogin = options.login || "no-login";
+    userName = (valueLogin !== "no-login") ? ((options.userLogin) ? options.userLogin: "Константин Константинопольский") : "Константин Константинопольский";
+    buttonSingIn = options.singIn || {text: "войти", class:"header-white"};
+    buttonSingUp = options.singUp || {text: "зарегистрироваться", class:"header-standard"};
+
+  .burger-menu
+    input#burger-menu__button.burger-menu__checkbox(type="checkbox")
+    label.burger-menu__button(for="burger-menu__button")
+      span.burger-menu__button-line
+      span.burger-menu__button-line
+      span.burger-menu__button-line
+    nav.burger-menu__navigation
+      each item in menu 
+        a.burger-menu__navigation-link(href=item.href)= item.text
+      if valueLogin == "no-login"
+        .burger-menu__sing-in
+          +button([buttonSingIn.class, buttonSingIn.text])
+        +button([buttonSingUp.class, buttonSingUp.text])
+      else 
+        .burger-menu____nick-name
+          p=userName

@@ -1,27 +1,28 @@
 include ../navigation-link/navigation-link.pug
 include ../button/button.pug
+include ../burger-menu/burger-menu.pug
 
 mixin header(options)
   -
     options = options || {};
-    valueLogin = options.login || "no-login";
     defaultMenu = [
       {text: "О нас", href: "/about", active: true},
       {text: "Услуги", href: "not_filled", dropdownItems: [
-        {text: "Подбор жлья", href: "/about"},
-        {text: "Размщение", href: "/about"},
+        {text: "Подбор жлья", href: "not_filled"},
+        {text: "Размщение", href: "not_filled"},
       ]},
       {text: "Вакансии", href: "not_filled"},
       {text: "Новости", href: "/news"},
       {text: "Соглашения", href: "not_filled", dropdownItems: [
-        {text: "Для арендодателя", href: "/about"},
-        {text: "Для арендатора", href: "/about"},
+        {text: "Для арендодателя", href: "not_filled"},
+        {text: "Для арендатора", href: "not_filled"},
       ]},
     ]
     menu = options.menu || defaultMenu;
+    valueLogin = options.login || "no-login";
+    userName = (valueLogin !== "no-login") ? options.userLogin : "Константин Константинопольский";
     buttonSingIn = options.singIn || {text: "войти", class:"header-white"};
     buttonSingUp = options.singUp || {text: "зарегистрироваться", class:"header-standard"};
-    
     
   .header
     .header__logo 
@@ -40,22 +41,6 @@ mixin header(options)
         +button([buttonSingUp.class, buttonSingUp.text])
       else 
         .header__nick-name
-          p.header__text-nick-name Юлий Цезарь
+          p.header__text-nick-name=userName
     .header__burger-menu
-      input#header__button-burger-menu.header__checkbox(type="checkbox")
-      label.header__button-burger-menu(for="header__button-burger-menu")
-        span.header__button-line
-        span.header__button-line
-        span.header__button-line
-      nav.header__mobile-menu
-        a.header__mobile-menu-link(href="/profile") О нас
-        a.header__mobile-menu-link(href="/") Услуги
-        a.header__mobile-menu-link(href="/about") Вакансии
-        a.header__mobile-menu-link(href="/contacts") Новости
-        a.header__mobile-menu-link(href="#") Соглашения
-        if valueLogin == "no-login"
-          +button([buttonSingIn.class, buttonSingIn.text])
-          +button([buttonSingUp.class, buttonSingUp.text])
-        else 
-          .header__nick-name
-            p Юлий Цезарь
+      +burger-menu()
