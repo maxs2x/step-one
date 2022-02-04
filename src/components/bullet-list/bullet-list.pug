@@ -1,4 +1,7 @@
 mixin bullet-list(...items)
   ul.bullet-list 
-    each text in items
-      li.bullet-list__item= text 
+    if items
+      each text in items
+        li.bullet-list__item= text 
+    else 
+      li.bullet-list__item= "default text"
