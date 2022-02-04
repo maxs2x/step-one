@@ -1,8 +1,34 @@
 include ../text-field/text-field.pug
 
-mixin footer()
+mixin footer(options)
+  -
+    options = options || {};
+    defaultSectionLInks = [
+      {title: "навигация",
+      links: [
+        {text: "О нас", href: "/about"},
+        {text: "Новости", href: "/news"},
+        {text: "Служба поддержки", href: "/support"},
+        {text: "Услуги", href: "not_filled"},
+      ]},
+      {title: "о нас",
+      links: [
+        {text: "О сервисе", href: "not_filled"},
+        {text: "Наша команда", href: "/news"},
+        {text: "Вакансии", href: "not_filled"},
+        {text: "Инвесторы", href: "not_filled"},
+      ]},
+      {title: "Служба поддержки",
+      links: [
+        {text: "Соглашения", href: "not_filled"},
+        {text: "Сообщества", href: "not_filled"},
+        {text: "Связь с нами", href: "not_filled"},
+      ]},
+    ]
+    sectionLinks = options.sectionLinks || defaultSectionLInks;
+
   .footer-top 
-    .footer-top__brend
+    .footer-top__brent
       .footer-top__logo
         .footer-top__image-logo 
           img(src=require("../../../components/header/image/header-logo.jpg") alt="изображение логотипа")
@@ -10,23 +36,11 @@ mixin footer()
           img(src=require("../../../components/header/image/TOXIN.jpg") alt="название компании TOXIN''") 
       .footer-top__title 
         p.footer-top__text-title  Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-    .footer-top__section-navigation
-      h3.footer-top__title-section навигация
-      a(class="footer-top__link" href="about") О нас
-      a(class="footer-top__link" href="news") Новости
-      a(class="footer-top__link" href="support") Служба поддержки
-      a(class="footer-top__link" href="service") Услуги
-    .footer-top__section-about
-      h3.footer-top__title-section о нас
-      a(class="footer-top__link" href="about") О сервисе
-      a(class="footer-top__link" href="news") Наша команда
-      a(class="footer-top__link" href="support") Вакансии
-      a(class="footer-top__link" href="service") Инвесторы
-    .footer-top__section-support
-      h3.footer-top__title-section Служба поддержки
-      a(class="footer-top__link" href="about") Соглашения
-      a(class="footer-top__link" href="news") Сообщества
-      a(class="footer-top__link" href="support") Связь с нами
+    each section in sectionLinks 
+      .footer-top__section-navigation
+        h3.footer-top__title-section= section.title 
+        each link in section.links
+          a(class="footer-top__link" href=link.href)=link.text
     .footer-top__subscription
       h3.footer-top__title-section Подписка
       p.footer-top__description-subscription Получайте специальные предложения и новости сервиса
@@ -38,8 +52,8 @@ mixin footer()
         img(src=require("../../../components/header/image/header-logo.jpg") alt="излбражение логотипа")
       .footer-bottom__text-logo 
         img(src=require("../../../components/header/image/TOXIN.jpg") alt="название компании TOXIN''") 
-    .footer-bottom__copyryght 
-      p.footer-bottom__text-copyryght Copyright © 2018 Toxin отель. Все права защищены.
+    .footer-bottom__copyright 
+      p.footer-bottom__text-copyright Copyright © 2018 Toxin отель. Все права защищены.
     .footer-bottom__socials
       a(href="not_filled" target='_blank' rel='noopener noreferrer')
         img(class="footer-bottom__image" src=require("../../../components/footer/image/twitter.jpg"))
