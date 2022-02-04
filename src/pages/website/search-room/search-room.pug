@@ -19,8 +19,23 @@ block variables
 block title
   title Registration
 block content  
+  -
+    defaultMenu = [
+      {text: "О нас", href: "/about"},
+      {text: "Услуги", href: "not_filled", dropdownItems: [
+        {text: "Подбор жлья", href: "not_filled"},
+        {text: "Размщение", href: "not_filled"},
+      ]},
+      {text: "Вакансии", href: "not_filled"},
+      {text: "Новости", href: "/news"},
+      {text: "Соглашения", href: "not_filled", dropdownItems: [
+        {text: "Для арендодателя", href: "not_filled"},
+        {text: "Для арендатора", href: "not_filled"},
+      ]},
+    ]
+
   header.container 
-    +header({login: "no-login"})
+    +header({login: "no-login", menu: defaultMenu})
   main.container
     input#filter-menu.container__checkbox(type='checkbox')
     label.filter-button(for='filter-menu')

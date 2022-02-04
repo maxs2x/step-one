@@ -17,8 +17,23 @@ block variables
 block title
   title Room details
 block content 
+  -
+    defaultMenu = [
+      {text: "О нас", href: "/about"},
+      {text: "Услуги", href: "not_filled", dropdownItems: [
+        {text: "Подбор жлья", href: "not_filled"},
+        {text: "Размщение", href: "not_filled"},
+      ]},
+      {text: "Вакансии", href: "not_filled"},
+      {text: "Новости", href: "/news"},
+      {text: "Соглашения", href: "not_filled", dropdownItems: [
+        {text: "Для арендодателя", href: "not_filled"},
+        {text: "Для арендатора", href: "not_filled"},
+      ]},
+    ]
+    
   header.container 
-    +header({login: "no-login"}) 
+    +header({login: "no-login", menu: defaultMenu}) 
   main
     section.room-photo
       img(class="room-photo__photo_max" src=require("./images/photo01.jpg") alt="большая спальня" data-fancybox='gallery')

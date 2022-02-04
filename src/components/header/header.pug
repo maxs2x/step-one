@@ -20,9 +20,9 @@ mixin header(options)
     ]
     menu = options.menu || defaultMenu;
     valueLogin = options.login || "no-login";
-    userName = (valueLogin !== "no-login") ? options.userLogin : "Константин Константинопольский";
-    buttonSingIn = options.singIn || {text: "войти", class:"header-white"};
-    buttonSingUp = options.singUp || {text: "зарегистрироваться", class:"header-standard"};
+    userLogin = (valueLogin !== "no-login") ? options.userLogin : "Константин Константинопольский";
+    buttonSingIn = options.singIn || {text: "войти", class:"header-white", href: "/pages/website/login/login.html"};
+    buttonSingUp = options.singUp || {text: "зарегистрироваться", class:"header-standard", href: "/pages/website/registration/registration.html"};
     
   .header
     .header__logo 
@@ -37,10 +37,12 @@ mixin header(options)
       .header__login-block
       if valueLogin == "no-login"
         .header__button-login
-          +button([buttonSingIn.class, buttonSingIn.text])
-        +button([buttonSingUp.class, buttonSingUp.text])
+          a.header__button-sing-in(href=buttonSingIn.href)
+            +button([buttonSingIn.class, buttonSingIn.text])
+          a.header__button-sing-up(href=buttonSingUp.href)
+            +button([buttonSingUp.class, buttonSingUp.text])
       else 
         .header__nick-name
-          p.header__text-nick-name=userName
+          p.header__text-nick-name=userLogin
     .header__burger-menu
       +burger-menu()

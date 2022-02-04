@@ -14,8 +14,23 @@ block variables
 block title
   title Landing Page
 block content 
+  -
+    landingMenu = [
+      {text: "О нас", href: "/about"},
+      {text: "Услуги", href: "not_filled", dropdownItems: [
+        {text: "Подбор жлья", href: "not_filled"},
+        {text: "Размщение", href: "not_filled"},
+      ]},
+      {text: "Вакансии", href: "not_filled"},
+      {text: "Новости", href: "/news"},
+      {text: "Соглашения", href: "not_filled", dropdownItems: [
+        {text: "Для арендодателя", href: "not_filled"},
+        {text: "Для арендатора", href: "not_filled"},
+      ]},
+    ]
+
   header.container
-    +header({login: "no-login"})
+    +header({login: "no-login", menu: landingMenu})
   main
     .slide-first
     .slide-second
