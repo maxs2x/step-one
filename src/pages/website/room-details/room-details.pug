@@ -2,6 +2,7 @@ extends ../../../index.pug
 
 include ../../../components/header/header.pug
 include ../../../components/benefits/benefits.pug
+include ../../../components/doughnut-diagram/doughnut-diagram.pug
 include ../../../components/review/review.pug
 include ../../../components/bullet-list/bullet-list.pug
 include ../../../components/reservation/reservation.pug
@@ -54,8 +55,8 @@ block content
             +benefit({modifier: "cosiness", image: "cosiness.jpg", alt: "image burn", title: "Уют", description: "Номер оснащён камином"})
         article.room-impressions
           h2.room-impressions__title Впечатления от номера
-          .doughnut-diagramm-wrapper.js-doughnut-diagramm-wrapper
-
+          .room-impressions__inner  
+            +doughnut-diagram()
         article.room-review 
           .room-review__title
             h2.room-review__title-text Отзывы посетителей номера
