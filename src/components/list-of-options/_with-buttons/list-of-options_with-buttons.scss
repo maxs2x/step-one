@@ -1,26 +1,41 @@
-.list-of-options__bottom-button {
+.list-of-options{
+  &__bottom {  
     display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    margin-top: 0.85rem;
-    margin-left: 1rem;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  &__bottom-button {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 0.8125rem;
+    margin-left: 0.875rem;
     margin-right: 0.5rem;
     padding-right: 0rem;
-}
+    cursor: pointer;
+  }
 
-.list-of-options__button_clear,
-.list-of-options__button_apply {
+  &__button_clear,
+  &__button_apply {
     border: none;
     background-color: #fff;
     padding: 0.0rem;
     font-family: $mainFont;
     font-size: 12px;
     text-transform: uppercase;
-}
+    flex-grow: 1;
+  }
 
-.list-of-options__text-button {
+  &__button_apply {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__text-button {
     line-height: 0rem;
     color: $purple;
     letter-spacing: 0rem; 
     text-transform: uppercase; 
+  }
 }
