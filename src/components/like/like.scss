@@ -1,88 +1,91 @@
 @import './_active/like-button_active.scss'; 
 
 .like-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 2.3rem;
-    height: 1.05rem;
-    font-size: 10px;
-    color: $dark-shade-25;
-    border: 0.1rem solid;
-    border-radius: 0.9rem;
-    border-color: $dark-shade-25;
-}
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 2.375rem;
+  height: 1.125rem;
+  font-size: 10px;
+  color: $dark-shade-25;
+  border: 0.0625rem solid;
+  border-radius: 1rem;
+  border-color: $dark-shade-25;
 
-.like-button__icon-heart {
-    width: 0.3rem; 
-    height: 0.3rem;
-    margin-left: 0.43rem;
-    margin-top: 0.12rem;
+  &__icon-heart {
+    width: 0.3125rem; 
+    height: 0.3125rem;
+    margin-left: 0.4375rem;
+    margin-top: 0.125rem;
     background-color: #d3d4e9; 
     transform: rotate(45deg);
     position: relative;
-}
+  }
 
-.like-button__icon-heart-right-semicircle {
-    top: -0.16rem;
+  &__icon-heart-right-semicircle {
+    top: -0.1875rem;
     left: 0px;
-}
+  }
 
-.like-button__icon-heart-left-semicircle {
+  &__icon-heart-left-semicircle {
     top: 00px;
-    left: -0.16rem;
-}
+    left: -0.1875rem;
+  }
 
-.like-button__icon-heart-right-semicircle,
-.like-button__icon-heart-left-semicircle {
+  &__icon-heart-left-semicircle {
+    top: 00px;
+    left: -0.1875rem;
+  }
+
+  &__icon-heart-right-semicircle,
+  &__icon-heart-left-semicircle {
     position: absolute;
     content : ''; 
     display: block;
-    width: 0.3rem;
-    height: 0.3rem;
+    width: 0.3125rem;
+    height: 0.3125rem;
     background-color: #d3d4e9;
     border-radius: 50%;
     position: absolute;
-}
+  }
 
-.like-button__icon-heart-right-white-semicircular-space {
-    margin: 0.036rem;
+  &__icon-heart-right-white-semicircular-space {
+    margin: 0.0625rem;
     content : ''; 
     display: block;
-    width: 0.2rem;
-    height: 0.2rem;
+    width: 0.1875rem;
+    height: 0.1875rem;
     background-color: white;
     border-radius: 50%;
-}
+  }
 
-.like-button__icon-heart-left-white-semicircular-space {
-    margin: 0.036rem;
+  &__icon-heart-left-white-semicircular-space {
+    margin: 0.0625rem;
     content : ''; 
     display: block;
-    width: 0.2rem;
-    height: 0.2rem;
+    width: 0.3125rem;
+    height: 0.1875rem;
     background-color: white;
     border-radius: 50%;
-}
+  }
 
-.like-button__icon-heart-left-white-cube-space {
-    margin: 0.05rem 0.07rem 0.01rem -0.02rem;
-    width: 0.26rem; 
-    height: 0.20rem;
+  &__icon-heart-left-white-cube-space {
+    margin: 0.0625rem 0.0625rem 0.00rem 0.00rem;
+    width: 0.25rem; 
+    height: 0.1875rem;
     background-color: white; 
     position: absolute;
-}
+  }
 
-.like-button__icon-heart-right-white-cube-space {
-    margin: 0.0rem 0.0rem 0.07rem 0.05rem;
-    width: 0.2rem; 
-    height: 0.22rem;
+  &__icon-heart-right-white-cube-space {
+    margin: 0.0rem 0.0rem 0.0625rem 0.0625rem;
+    width: 0.1875rem; 
+    height: 0.1875rem;
     background-color: white; 
     position: absolute;
+  }
+
+  &__counter-likes {
+    margin-right: 0.625rem;
+  }
 }
-
-.like-button__counter-likes {
-    margin-right: 0.6rem;
-}
-
-
