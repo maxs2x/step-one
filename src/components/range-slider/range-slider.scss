@@ -2,54 +2,54 @@
   display: flex;
   flex-flow: column;
   width: 100%;
-}
 
-.range-slider__header {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  margin-bottom: 1.41rem;
-  max-width: 16.6rem;
-}
+  &__header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 1.4375rem;
+    max-width: 16.625rem;
+  }
 
-.range-slider__interval {
-  font-size: 12px;
-}
+  &__interval {
+    font-size: 12px;
+  }
 
-.range-slider__slider {
-  position: relative
-}
+  &__slider {
+    position: relative
+  }
 
-.range-slider__background-line {
-  content: " ";
-  position: absolute;
-  width: 100%;
-  height: 0.2rem;
-  border: 0.1rem solid;
-  border-radius: 0.52rem;
-  border-color: $dark-shade-25;
-}
+  &__background-line {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 0.3125em;
+    border: 0.0625rem solid;
+    border-radius: 0.5rem;
+    border-color: $dark-shade-25;
+  }
 
-.range-slider__line-for-hover {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  content: " ";
-  position: absolute;
-  width: 103px;
-  height: 0.4rem;
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-  left: 74px;
-}
+  &__line-for-hover {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    content: " ";
+    position: absolute;
+    width: 6.3125rem;
+    height: 0.375rem;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    left: 4.6875rem;
+  }
 
-.range-slider__left-point ,
-.range-slider__right-point  {
-  content: " ";
-  width: 0.68rem;
-  height: 0.68rem;
-  margin-top: -0.3rem;
-  border-radius: 50%;
-  border: 0.2rem solid;
-  border-color: white;
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  &__left-point,
+  &__right-point  {
+    content: " ";
+    width: 0.6875rem;
+    height: 0.6875rem;
+    margin-top: -0.3125rem;
+    border-radius: 50%;
+    border: 0.157rem solid;
+    border-color: white;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  }
 }

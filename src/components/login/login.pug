@@ -3,7 +3,7 @@ include ../text-field/text-field.pug
 
 mixin login()
   form.login 
-    h1 Войти 
+    h1.login__title Войти 
     .login__email 
       +text-field({id: "email", type: "email", placeholder: "Email"})
     .login__password 

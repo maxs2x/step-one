@@ -6,59 +6,63 @@
 .registration  {
   max-width: 20.0rem;
   width: 100%;
-  padding: 2.5rem 1.85rem 1.5rem 1.9rem;
+  padding: 2.5rem 1.8125rem 1.5rem 1.875rem;
   box-shadow: 0px 0px 25px rgb(0 0 0 / 29%);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background-color: white;
-}
 
-.registration__input-name {
-  margin-top: 1.3rem;
-  margin-bottom: 0.65rem;
-}
+  &__input-name {
+    margin-top: 1.3125rem;
+    margin-bottom: 0.625rem;
+  }
 
-.registration__input-second-name {
-  margin-bottom: 0.65rem;
-}
+  &__input-second-name {
+    margin-bottom: 0.625rem;
+  }
 
-.registration__gender {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 68.5%;
-}
+  &__gender {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 68.5%;
+  }
 
-.registration__birthday {
-  margin-top: 1.55rem;
-}
+  &__birthday {
+    margin-top: 1.625rem;
+  }
 
-.registration__title-birthday {
-  margin-bottom: 0.3rem;
-}
+  &__title-birthday {
+    margin-bottom: 0.3125rem;
+    font-size: 11px;
+    letter-spacing: 0.05rem;
+  }
 
-.registration__login-data {
-  margin-top: 1.28rem;
-}
+  &__login-data {
+    margin-top: 1.3125rem;
+  }
 
-.registration__title-login-data {
-  margin-bottom: 0.27rem;
-}
+  &__title-login-data {
+    margin-bottom: 0.3125rem;
+    font-size: 11px;
+    letter-spacing: 0.05rem;
+  }
 
-.registration__login-data > :nth-child(2) {
-  margin-bottom: 0.65rem;
-}
+  &__login-data > :nth-child(2) {
+    margin-bottom: 0.625rem;
+  }
 
-.registration__spam-switcher {
-  margin-top: 0.6rem;
-  margin-bottom: 1.532rem;
-}
+  &__spam-switcher {
+    margin-top: 0.625rem;
+    margin-bottom: 1.5rem;
+  }
 
-.registration__login {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.75rem;
-}
+  &__login {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.75rem;
+  }
 
-.registration__login .button {
-    margin-top: 0.1rem;
+  &__login .button {
+    margin-top: 0.125rem;
+  }
 }

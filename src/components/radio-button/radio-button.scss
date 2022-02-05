@@ -19,24 +19,24 @@
 
 .radio-button__checkmark {
   position: absolute;
-  top: 1px;
+  top: 0.0625rem;
   left: 0rem;
   height: 18px;
   width: 18px;
   background-color: white;
-  border: 1px solid;
+  border: 0.0625rem solid;
   border-color: rgba(31, 32, 65, 0.25);
   border-radius: 50%;
 }
   
 .radio-button__input:checked + .radio-button__checkmark {
   position: absolute;
-  top: 1px;
+  top: 0.0625rem;
   left: 0rem;
-  height: 18px;
-  width: 18px;
+  height: 1.125rem;
+  width: 1.125rem;
   background-color: white;
-  border: 1px solid;    
+  border: 0.0625rem solid;    
   border-color: $purple;
   border-radius: 50%;
 }
@@ -49,10 +49,10 @@
   content: "";
   position: absolute;
   display: none;
-  top: 3px;
-  left: 3px;
-  width: 12px;
-  height: 12px;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: 50%;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
