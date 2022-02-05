@@ -11,7 +11,7 @@ mixin dropdown__button([content, text_placeholder])
       p.dropdown__text-placeholder.js-dropdown__text-placeholder #{text_placeholder}
 
 mixin dropdown([content, text_placeholder])
-  - var textPlaceholder = (text_placeholder) ? text_placeholder : "Dropdown"
+  - var textPlaceholder = (text_placeholder) ? text_placeholder : "Dropdown";
 
   .dropdown.js-dropdown  
     +dropdown__button([content, textPlaceholder])
