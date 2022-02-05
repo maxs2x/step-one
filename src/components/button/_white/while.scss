@@ -9,14 +9,15 @@
 button.button_white {
   display: flex;
   justify-content: center;
-  align-items: center;    
+  align-items: center;
+  width: 6.1875rem;    
   padding: 0rem;
 }
 
 .button__content {
-  width: 5.9rem;
+  width: 5.9375rem;
   height: 2.5rem;
-  border-radius: 1.6rem;
+  border-radius: 1.625rem;
   background: white;
   line-height: 2.5rem;
   color: $purple;

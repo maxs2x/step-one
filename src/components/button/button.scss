@@ -5,21 +5,23 @@
 @import './_header-standard/header-standard.scss';
 
 .button {
-    width: 6.2rem;
-    height: 2.85rem;
-    border: none;
-    border-radius: 1.8rem;
-    font-family: $mainFont;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: white;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-    cursor: pointer;
+  width: 6.1875rem;
+  height: 2.75rem;
+  border: none;
+  border-radius: 1.8125rem;
+  font-family: $mainFont;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
-.button:hover {
-    opacity: 0.5;
-}
+
 
 
