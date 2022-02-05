@@ -9,12 +9,10 @@ class AllCheckboxList {
         let arrowRight = this._elem.querySelector('.js-checkbox-list__arrow_up');
         let arrowDown = this._elem.querySelector('.js-checkbox-list__arrow_down');
         let listOfOptions = this._elem.querySelector('.js-checkbox-list__elements');
-        console.log('openorclose');
-        console.log(arrowDown, listOfOptions);
 
-        arrowRight.classList.toggle('js-checkbox-elements__inviseble');
-        arrowDown.classList.toggle('js-checkbox-elements__inviseble');
-        listOfOptions.classList.toggle('js-checkbox-elements__inviseble');   
+        arrowRight.classList.toggle('js-checkbox-elements__invisible');
+        arrowDown.classList.toggle('js-checkbox-elements__invisible');
+        listOfOptions.classList.toggle('js-checkbox-elements__invisible');   
     }
 
 

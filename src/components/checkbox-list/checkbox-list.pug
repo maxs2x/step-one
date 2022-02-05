@@ -1,36 +1,27 @@
-include ./rich-checkbox/rich-checkbox
+include ../checkbox/checkbox.pug
 
-mixin checkbox([text, checked, name])
-  - var text = (text) ? text : "Checkbox";
-  - var name = (name) ? name : "name";
-
-  label.checkbox-container
-    | #{text}
-    if checked == 'checked' 
-      input(type='checkbox' checked='checked' name=name)
-      .checkbox-container__checkmark
-      span.checkbox-container__checkmark-inner
-    else
-      input(type='checkbox' name=name)
-      .checkbox-container__checkmark
-      span.checkbox-container__checkmark-inner
-      
-
-
-mixin checkbox-list(text_placeholder)
-  - var placeholder = (text_placeholder) ? text_placeholder : "Default placeholder";
+mixin checkbox-list(options)
+  -
+    options = options || {};
+    placeholder = options.placeholder || "Default placeholder";
+    defaultCheckbox = [
+      {text: "Завтрак", condition: "unchecked", name: "eat"},
+      {text: "Письменный стол", condition: "checked", name: "table"},
+      {text: "Стул для кормления", condition: "checked", name: "name"},
+      {text: "Кроватка", condition: "checked", name: "name"},
+      {text: "Телевизор", condition: "unchecked", name: "tv"},
+      {text: "Шампунь", condition: "unchecked", name: "name"},
+      {text: "Телевизор", condition: "unchecked", name: "tv"},
+      {text: "Шампунь", condition: "unchecked", name: "name"},
+    ]
+    checkboxList = options.checkboxList || defaultCheckbox;
 
   .checkbox-list 
     .checkbox-list__dropdown-button.js-checkbox-list__dropdown-button
       .checkbox-list__arrow.checkbox-list__arrow_down.js-checkbox-list__arrow_down
-      .checkbox-list__arrow.checkbox-list__arrow_up.js-checkbox-list__arrow_up.js-checkbox-elements__inviseble
-      p.checkbox-list__placeholder #{text_placeholder}
-    .checkbox-list__elements.js-checkbox-list__elements.js-checkbox-elements__inviseble
-      +checkbox(['Завтрак', 'unchecked', 'radio'])
-      +checkbox(['Письменный стол', 'checked', 'radio'])
-      +checkbox(['Стул для кормления', 'checked', 'radio'])
-      +checkbox(['Кроватка', 'checked', 'radio'])
-      +checkbox(['Телевизор', 'unchecked', 'radio'])
-      +checkbox(['Шампунь', 'unchecked', 'radio'])
-      +checkbox(['Телевизор', 'unchecked', 'radio'])
-      +checkbox(['Шампунь', 'unchecked', 'radio'])
+      .checkbox-list__arrow.checkbox-list__arrow_up.js-checkbox-list__arrow_up.js-checkbox-elements__invisible
+      p.checkbox-list__placeholder= placeholder
+    .checkbox-list__elements.js-checkbox-list__elements.js-checkbox-elements__invisible
+      each item in checkboxList
+       +checkbox({text: item.text, condition: item.condition, name: item.name})
+      

@@ -1,0 +1,18 @@
+mixin checkbox_rich(options)
+  -
+    options = options || {};
+    title = options.title || "Title";
+    description = options.description || "Description";
+    condition = options.condition || "unchecked";
+    name = options.name || "name";
+    
+  label.checkbox-container.checkbox-container_checkbox_rich
+    .checkbox_rich__text
+        span.checkbox_header=title
+        span.checkbox_description=description
+    if condition ==  "checked"
+      input(type='checkbox' checked name=name)
+    else 
+      input(type='checkbox' name=name)
+    .checkbox-container__checkmark
+    span.checkbox-container__checkmark-inner

@@ -6,6 +6,7 @@ include ../../../components/list-of-options/list-of-options.pug
 include ../../../components/calendar/calendar.pug
 include ../../../components/checkbox-list/checkbox-list.pug
 include ../../../components/benefits/benefits.pug
+include ../../../components/checkbox/checkbox.pug
 include ../../../components/radio-button/radio-button.pug
 include ../../../components/toggle/toggle.pug
 include ../../../components/like/like.pug
@@ -65,9 +66,9 @@ block content
         .name-element
             h3 Checkbox Buttons
         .checkbox-buttons
-          +checkbox(['Можно курить', 'unchecked', 'smoking'])
-          +checkbox(['Можно с питомцами', 'checked', 'pet'])
-          +checkbox(['Можно пригласить гостей (до 10 человек)', 'checked', 'guests'])
+          +checkbox({text: 'Можно курить', condition: 'unchecked', name:'smoking'})
+          +checkbox({text: 'Можно с питомцами', condition: "checked", name: 'pet'})
+          +checkbox({text: 'Можно пригласить гостей (до 10 человек)', condition: "checked", name: 'guests'})
       .form-element
         .name-element
           h3 radio Buttons
@@ -123,9 +124,9 @@ block content
             h3 expanded
           +list-of-options(['list-of-options', 2, 2, 0, '2 спальни, 2 кровати'])
         .form-element_checkbox-list
-          +checkbox-list(['expandable checkbox list'])
+          +checkbox-list({placeholder: 'expandable checkbox list'})
         .form-element_checkbox-list-open
-          +checkbox-list(['expandable checkbox list'])
+          +checkbox-list({placeholder: 'expandable checkbox list'})
         .form-element_benefit-comfort
           +benefit({image: "insert_emoticon.jpg", alt: "image smiile", title: "Комфорт", description: "Шумопоглощающие стены"})
         .form-element 
@@ -136,12 +137,12 @@ block content
           .name-element
             h3 dropdown 
           +list-of-options(['list-of-options_with-buttons', 0, 0, 0, 'Сколько гостей'])
-        .form-element_rich-checkboxes 
+        .form-element_checkbox_riches 
           .name-element 
             h3 rich Checkbox Buttons
-          .rich-checkboxes
-            +rich-checkbox(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'max-width'])
-            +rich-checkbox(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'support for invalids'])
+          .checkbox_riches
+            +checkbox_rich({title:'Широкий коридор', description:'Ширина коридоров в номере не менее 91 см.', condition:'unchecked', name:'max-width'})
+            +checkbox_rich({title:'Помощник для инвалидов', description:'На 1 этаже вас встретит специалист  и проводит до номера.', condition:'unchecked', name:'support for invalids'})
 
       .content-form-elements__column 
         .two-columns__dropdown-last
