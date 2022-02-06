@@ -35,6 +35,8 @@ mixin room-card([number, price, luxury, rate, review, image0, image1, image2, im
           span.room-card__price-per-day=price 
           |
           | в сутки
+    .room-card__line
+    .room-card__description 
       .room-card__rate 
         +rate-button(rate)
       p.room-card__review

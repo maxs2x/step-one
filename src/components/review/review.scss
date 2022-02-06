@@ -24,7 +24,7 @@
 }
 
 .review__like-button {
-  margin-top: 0.55rem;
+  margin-top: 0.5625rem;
   margin-left: 0.25rem;
 }
 
@@ -32,19 +32,19 @@
   display: flex;
   flex-flow: column nowrap;
   align-content: flex-start;
-  margin-left: 0.6rem;
+  margin-left: 0.625rem;
 }
 
 .review__name-reviewer {
   font-weight: 700;
   text-align: left; 
-  margin-bottom: 0.45rem; 
-  letter-spacing: 0.005rem;
+  margin-bottom: 0.4375rem; 
+  letter-spacing: 0.01rem;
 }
 
 .review__last-update {
   text-align: left;
-  margin-bottom: 0.8rem; 
+  margin-bottom: 0.75rem; 
 }
 
 .review__review-body {

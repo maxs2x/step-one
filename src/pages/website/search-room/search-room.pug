@@ -46,7 +46,7 @@ block content
       p.filter-button__text-button фильтр
     section.search-filter
       .date-visit 
-        h3 даты пребывания в отеле
+        h3.date-visit__title даты пребывания в отеле
         +date-filter(['19 авг - 23 авг'])
       .guests 
         h3.guests__title гости
@@ -56,18 +56,18 @@ block content
         p.price-range__description Стоимость за сутки пребывания в номере
       .house-rules
         h3.house-rules__title правила дома
-        +checkbox(['Можно курить', 'unchecked', 'smocking'])
-        +checkbox(['Можно с питомцами', 'checked', 'pet'])
-        +checkbox(['Можно пригласить гостей (до 10 человек)', 'checked', 'guests'])
-      .acessibility
-        h3.acessibility__title доступность
-        +checkbox_rich(['Широкий коридор', 'Ширина коридоров в номере не менее 91 см.', 'unchecked', 'wild-hollway'])
-        +checkbox_rich(['Помощник для инвалидов', 'На 1 этаже вас встретит специалист  и проводит до номера.', 'unchecked', 'assistance-disabled'])
+        +checkbox({text: "Можно курить", condition: "no", name: "smocking"})
+        +checkbox({text: "Можно с питомцами", condition: "checked", name: "pet"})
+        +checkbox({text: "Можно пригласить гостей (до 10 человек)", condition: "checked", name: "guests"})
+      .accessibility
+        h3.accessibility__title доступность
+        +checkbox({modifier: "rich", title: "Широкий коридор", description: "Ширина коридоров в номере не менее 91 см.", condition: "unchecked", name: "wild-hollway"})
+        +checkbox({modifier: "rich", title: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист  и проводит до номера.", condition: "unchecked", name: "assistance-disabled"})
       .room-amenities 
         h3.room-amenities__title удобства номера
-        +list-of-options(['list-of-options', '2', '1', '1', '2 спальни, 2 кровати...'])
+        +list-of-options(["list-of-options", "2", "1", "1", "2 спальни, 2 кровати..."])
       .additional-amenities 
-        +checkbox-list('дополнительные удобства')
+        +checkbox-list({placeholder: "дополнительные удобства"})
     section.rooms-list
       h1.rooms-list__title Номера, которые мы для вас подобрали
       .room-cards 

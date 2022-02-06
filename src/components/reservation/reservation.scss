@@ -4,137 +4,157 @@
 
 .reservation {
   max-width: 30rem;
-  min-width: 19.2rem;
-  margin-top: 0.4rem;
+  min-width: 19.1875rem;
+  margin-top: 0.4375rem;
   margin-left: 0.25rem;
-  padding: 2.5rem 1.85rem 1.85rem 1.7rem;
-  box-shadow: 0px 0px 25px rgb(0 0 0 / 29%);
-  border-radius: 4px;
-}
+  padding: 2.5rem 1.875rem 1.875rem 1.75rem;
+  box-shadow: 0rem 0rem 1.5625rem rgb(0 0 0 / 29%);
+  border-radius: 0.25rem;
 
-@media (max-width: 750px) {
-  .reservation {
+  @media (max-width: 750px) {  
     margin-left: 0rem; 
     padding: 2.5rem 0.7rem 1.85rem 0.7rem;
   }
-}
 
-@media (max-width: 400px) {
-  .reservation {  
+  @media (max-width: 400px) {
     margin-left: 0rem; 
     padding: 2.5rem 0.2rem 1.85rem 0.2rem;
   }
-}
 
-.reservation__header {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
+  &__header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
 
-.reservation__room-number {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: baseline;
-}
+  &__room-number {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+  }
 
-.reservation__symbol-number {
-  margin-left: 0.1rem;
-  margin-right: 0.4rem;
-}
+  &__symbol-number {
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+    margin-left: 0.125rem;
+    font-size: 14px;
+  }
 
-.reservation__value-number {
-  font-size: 24px;
-  font-weight: 700;
-}
+  &__value-number {
+    font-size: 24px;
+    font-weight: 700;
+  }
 
-.reservation__luxury {
-  margin: 0rem 0rem 0rem 0.5rem;
-  color: $purple;
-  font-weight: 700;
-}
+  &__luxury {
+    margin: 0.5rem 0rem 0rem 0.5625rem;
+    color: $purple;
+    font-size: 15px;
+    font-weight: 700;
+  }
 
-.reservation__room-price {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  font-size: 12px;
-  margin: 0.4rem 0rem 0rem;
-}
+  &__room-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0.5625rem 0rem 0rem;
+    font-size: 12px;
+    letter-spacing: 0.02rem;
+    line-height: 1.3125rem;
+  }
 
-.reservation__price-per-day {
-  font-size: 14px;
-  margin-right: 0.4rem;
-}
+  &__price-per-day {
+    font-size: 14px;
+    margin-right: 0.125rem;
+  }
 
-.reservation__date-in-out {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  margin-top: 1.2rem;
-  padding-left: 0.1rem;
-}
+  &__date-in-out {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-top: 1.1875rem;
+    padding-left: 0.125rem;
+  }
 
-.reservation__guests {
-  margin-top: 1.3rem;
-  padding-left: 0.1rem;
-}
+  &__guests {
+    margin-top: 1.3125rem;
+    padding-left: 0.125rem;
+  }
 
-.reservation__title-guests {
-  margin-bottom: 0.3rem;
-}
+  &__title-guests {
+    margin-bottom: 0.3rem;
+  }
 
-.reservation__price-calculation {
-  display: flex;
-  flex-flow: column nowrap;
-  margin-top: 1.4rem;
-  padding-left: 0.1rem;
+  &__price-calculation {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 1.3125rem;
+    padding-left: 0.1875rem;
+  }
 }
 
 .row-with-price {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9375rem;
+
+  &__description {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    flex-basis: 75%;
+  }
+
+  &__text {
+    max-width: 91%;
+  }
+
+  &__text, 
+  &__numbers,
+  &__calculation-result {
+    margin: 0rem;
+    line-height: 1.125rem;
+  }
+
+  &__quantity-days {
+    margin-right: 0.25rem;
+  }
+
+  &__info_about_service {
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 0.0625rem solid;
+    border-color: $dark-shade-25;
+    border-radius: 50%;
+    color: $dark-shade-25;
+    text-align: center;
+  }
 }
 
-.row-with-price__description {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  flex-basis: 75%;
-}
 
-.row-with-price__text, 
-.row-with-price__numbers,
-.row-with-price__calculation-result {
-  margin: 0rem;
-  line-height: 1.1rem;
-}
+.reservation {
+  &__total {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-top: 0.9375rem;
+    padding-left: 0.1875rem;
+  }
 
-.row-with-price__quantity-days {
-  margin-right: 0.3rem;
-}
+  &__total-text {
+    padding-right: 0.25rem;
+  }
 
-.reservation__info_about_service {
-  width: 1rem;
-  height: 1rem;
-  border: 0.1rem solid;
-  border-color: $dark-shade-25;
-  border-radius: 50%;
-  color: $dark-shade-25;
-  text-align: center;
-}
-
-.reservation__total {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  margin-top: 0.8rem;
-  padding-left: 0.15rem;
+  &__delimiter-line {
+    display: block;
+    flex-grow: 1;
+    margin-bottom: 0.25rem;
+    border-bottom: 0.0625rem dotted;
+    border-color: $dark-shade-25;
+  }
 }
 
 .reservation__button-reservation {
-  padding-left: 0.1rem;
-  margin-top: 1.35rem;
+  margin-top: 1.25rem;
+  padding-left: 0.125rem;
 }

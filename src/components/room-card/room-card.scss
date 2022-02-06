@@ -8,8 +8,8 @@
 .image-slider {
   box-sizing: border-box;
   max-width: 30rem;
-  margin: 0rem auto;
-  height: 9.45rem;
+  margin: 0rem auto 1.1875rem;
+  height: 9.5rem;
   position:relative;
 }
 
@@ -43,7 +43,7 @@
 
 .image-slider__next {
   right: 0;
-  border-radius: 0.2rem 0 0 0.2rem;
+  border-radius: 0.25rem 0 0 0.25rem;
 }
 
 .image-slider__arrow-left,
@@ -75,16 +75,16 @@
 
 .image-slider__dots {
   position: absolute;
-  bottom: 0.7rem;
-  right: 0.8rem;
+  bottom: 0.75rem;
+  right: 0.8125rem;
 }
 
 .image-slider__dot {
   cursor: pointer;
-  height: 0.45rem;
-  width: 0.45rem;
-  margin: 0 0.13rem;
-  border: 0.12rem solid #FFFFFF;
+  height: 0.4375rem;
+  width: 0.4375rem;
+  margin: 0rem 0.125rem;
+  border: 0.0625rem solid #FFFFFF;
   border-radius: 50%;
   box-sizing: border-box;
   filter: drop-shadow(0rem 0.25rem 0.25rem rgba(31, 32, 65, 0.3));
@@ -119,8 +119,8 @@
   flex-flow: row wrap;
   justify-content: space-between;
   align-content: space-between;
-  margin-top: 1.2rem;
-  padding: 0rem 1.1rem 0rem 1.3rem;
+  margin-top: 0rem;
+  padding: 0rem 1.0rem 0rem 1.1875rem;
 }
   
 .room-card__room-number {
@@ -130,21 +130,21 @@
 }
 
 .room-card__symbol-number {
-  font-size: 14px;
-  margin-right: 0.2rem;
+  font-size: 15px;
+  margin-right: 0.25rem;
 }
 
 .room-card__value-number {
     font-size: 20px;
-    letter-spacing: -0.05rem;
+    letter-spacing: -0.0625rem;
 }
   
 .room-card__luxury {
-  margin: 0.15rem 0rem 0rem 0.6rem;
+  margin: 0.3125rem 0rem 0rem 0.625rem;
   color: $purple;
   font-weight: 700;
   font-size: 16px;
-  letter-spacing: -0.05rem;
+  letter-spacing: -0.0625rem;
 }
   
 .room-card__price {
@@ -154,22 +154,33 @@
 }
 
 .room-card__text-price {
-  font-size: 12px;
-  margin: 0rem;
+  margin: 0rem 0rem 0.125rem 0rem;
+  font-size: 11px;
+  letter-spacing: 0.05rem;
 }
   
 .room-card__price-per-day {
+  margin-left: 0.25rem;
   font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0rem;
+}
+
+.room-card__line {
+  box-sizing: border-box;
+  display: block;
+  margin: 0.625rem 1.25rem 0.5rem 1.25rem;
+  border-bottom: 0.0625rem solid;
+  border-color: $dark-shade-10;
 }
 
 .room-card__rate {
-  margin-top: 1.1rem;
+  margin-left: 0.0625rem;
 }
 
 .room-card__review{
-  margin-top: 1.2rem;
-  margin-right: 0.2rem;
+  margin-top: 0.25rem;
+  margin-right: 0.25rem;
   margin-bottom: 0rem;
   font-size: 14px;
 }

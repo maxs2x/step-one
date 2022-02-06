@@ -5,13 +5,13 @@
   position: absolute;  
   width: 100%;  
   margin-top: 0;
-  padding: 0.15rem 0.0rem 0.42rem 0rem;
+  padding: 0.185rem 0.0rem 0.3125rem 0rem;
   background-color: white;
-  outline: 1px solid $dark-shade-50;
-  outline-offset: -1px;
+  outline: 0.0625rem solid $dark-shade-50;
+  outline-offset: -0.0625rem;
   border-top: none;
-  border-bottom-left-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3125rem;
+  border-bottom-right-radius: 0.3125rem;
   list-style: none;
   z-index: 3;
 
@@ -38,6 +38,7 @@
 .quantity {
   display: flex;
   justify-content: center;
+  padding-top: 0.0625rem;
 
   &__button-minus,
   &__button-plus,

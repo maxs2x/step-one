@@ -32,15 +32,16 @@ mixin reservation()
       .row-with-price
         .row-with-price__description 
           p.row-with-price__text Сбор за услуги: скидка 2 179₽
-          .reservation__info_about_service i
+          .row-with-price__info_about_service i
         p.row-with-price__numbers.js-row-with-price__numbers 0₽
       .row-with-price
         .row-with-price__description 
           p.row-with-price__text Сбор за дополнительные услуги
-          .reservation__info_about_service i
+          .row-with-price__info_about_service i
         p.row-with-price__numbers.js-row-with-price__numbers 300₽
     .reservation__total 
       h2.reservation__total-text  Итого
+      .reservation__delimiter-line
       h2.reservation__value-total.js-reservation__value-total 38 081₽
     .reservation__button-reservation
       +button(["big", "забронировать"])

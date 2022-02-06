@@ -2,13 +2,15 @@
   @include border-input-default;
 }
 
-.border-for-dropdown.border-for-dropdown_active {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
 .border-for-dropdown_default {
   @include border-input-default;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.border-for-dropdown_default.border-for-dropdown_active,
+.border-for-dropdown.border-for-dropdown_active {
+  border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
