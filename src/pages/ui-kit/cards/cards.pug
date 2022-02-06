@@ -24,10 +24,11 @@ block content
       +registration()
     .content-cards__second-column 
       +reservation()
-      +login()
+      .content-cards__block-login
+        +login()
     .content-cards__third-column
-      .dropdown-js__calendar_filtre
-        input#dropdown-js__calendar_filtre
+      .dropdown-js__calendar_filter
+        input#dropdown-js__calendar_filter
         
       .room-cards 
         +room-card(['888', '9 990₽', 'люкс', 5, '145 ', 'im1.jpg', 'im2.jpg', 'im3.jpg', 'im4.jpg'])

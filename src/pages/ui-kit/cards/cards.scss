@@ -19,8 +19,8 @@
 
 .content-cards__first-column {
   flex-basis: 32.5%;
-  margin-top: 0.4rem;
-  margin-left: 0.05rem
+  margin-top: 0.3875rem;
+  margin-left: 0.0625rem
 }
 
 .content-cards__second-column {
@@ -28,37 +28,40 @@
 }
 
 .rooms-search {
-    margin-bottom: 2.6rem;
+    margin-bottom: 2.5625rem;
 }
 
-.login {
-  margin-top: 2.6rem;
+.content-cards__block-login {
+  margin-top: 2.4375rem;
+
+  .login {
+    padding-top: 0.0625rem;
+  }
 }
 
 .content-cards__third-column {
   flex-basis: 28%;
 }
 
-.dropdown-js__calendar_filtre {
-  margin-top: 0.3rem;
-  margin-left: 0.15rem;
+.dropdown-js__calendar_filter {
+  margin-top: 0.25rem;
+  margin-left: 0.125rem;
 }
 
 .dropdown-js__month-calendar {
   position: relative;
 }
 
-
-#dropdown-js__calendar_filtre {
+#dropdown-js__calendar_filter {
   display: none;
 }
 
 .room-cards {
-  padding-left: 0.15rem;
+  padding-left: 0.125rem;
   width: 82.9%;
   margin-top: 2.5rem;
 }
 
 .room-card  {
-  margin-bottom: 3.4rem;
+  margin-bottom: 3.375rem;
 }

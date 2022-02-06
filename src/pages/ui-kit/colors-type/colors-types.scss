@@ -7,7 +7,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  margin: 2.5rem 8.9rem 0rem;
+  margin: 2.5rem 8.9375rem 0rem;
 }
 
 .content-ui-kit__left-block {
@@ -18,14 +18,14 @@
 .left-block-item {
   display: flex;
   flex-flow: row nowrap;
-  margin-bottom: 1.24rem;
+  margin-bottom: 1.25rem;
 }
 
 .left-block-item__filled-square {
   display: block;
-  width: 4.35rem;
-  height: 4.4rem;
-  border-radius: 0.4rem;
+  width: 4.3125rem;
+  height: 4.375rem;
+  border-radius: 0.375rem;
 }
 
 .content-ui-kit__left-block > :first-child .left-block-item__filled-square {
@@ -60,7 +60,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left:  2.46rem;
+  margin-left:  2.4375rem;
 }
 
 .left-block-item__color-name 
@@ -69,18 +69,18 @@ p {
   font-size: 19px;
   font-weight: $font-weight-bold;
   letter-spacing: 0.01rem;
-  margin: 0.55rem 0rem 0rem 0rem;
+  margin: 0.5rem 0rem 0rem 0rem;
 }
 
 .left-block-item__color-code 
 p {
   font-family: $mainFont;
   font-size: 19px;
-  margin: 0.3rem 0rem 0rem 0rem;
+  margin: 0.3125rem 0rem 0rem 0rem;
 }
 
 .content-ui-kit__right-block {
-  width: 36.6rem;
+  width: 36.5625rem;
 }
 
 .right-block-item {
@@ -88,18 +88,18 @@ p {
   flex-flow: row nowrap;
   justify-content: center;
   width: 30rem;
-  margin-right: 4.2rem;
+  margin-right: 4.25rem;
   margin-bottom: 3.25rem;
 }
 
 .content-ui-kit__right-block > :first-child .right-block-item__space{
-  width: 2.3rem;
+  width: 2.3125rem;
 }
 
 .content-ui-kit__right-block > :nth-child(2) {
   width: 25rem;
   .right-block-item__tag {
-    margin-left: 0.1rem;
+    margin-left: 0.125rem;
   }
 }
 
@@ -118,7 +118,7 @@ p {
 }
 
 .right-block-item__space {
-  width: 2.2rem;
+  width: 2.1875rem;
   height: 1rem;
 }
 
@@ -128,7 +128,7 @@ p {
 }
 
 .content-ui-kit__right-block > :nth-child(3) .right-block-item__tag {
-  margin-left: 0.7rem;
+  margin-left: 0.75rem;
 }
 
 .content-ui-kit__right-block > :nth-child(3) .right-block-item__text {
@@ -141,6 +141,6 @@ p {
     width: 3.5rem;
   }
   p {
-    margin-top: 0.7rem;
+    margin-top: 0.685rem;
   }
 }

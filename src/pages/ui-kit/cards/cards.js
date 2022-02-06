@@ -8,7 +8,7 @@ import '../../../components/room-card/room-card.js';
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
 
-let dateFilter = document.querySelector('#dropdown-js__calendar_filtre');
+let dateFilter = document.querySelector('#dropdown-js__calendar_filter');
 new AirDatepicker(dateFilter, {
     buttons: ['clear', 'today'],
     range: true,

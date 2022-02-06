@@ -30,74 +30,74 @@ block content
   +header-for-ui-kit()
   .content-form-elements 
     .content-form-elements__column
-      .form-element
-        .element-text-field__text
+      .container-text-field
+        .container-text-field__title
           h3 text field
           h3 default
         +text-field({class: 'text-field_default', placeholder:'Email'})
-      .form-element
-        .element-text-field__text
+      .container-text-field_hovered
+        .container-text-field__title
           h3 text field
           h3 hover /focus
         +text-field({class: 'text-field_focus', placeholder:'This is pretty awesome'})
-      .form-element 
-        .name-element
+      .container-dropdown 
+        .container-dropdown__title
           h3 dropdown 
         +list-of-options(['list-of-options_with-buttons', 0, 0, 0, 'Сколько гостей'])
-      .form-element 
-        .name-element
+      .container-masked-text-field
+        .container-masked-text-field__title
           h3 masked text field
         +text-field({type: "date", placeholder: 'ДД.ММ.ГГГГ'})
-      .form-element.form-element_two-dropdown
+      .container-date-range
         +date-range(['ДД.ММ.ГГГГ',  '19.08.2019', 'true'])
       .small-form-element 
-        .form-element 
-          .name-element
+        .container-date-dropdown
+          .container-date-dropdown__title
             h3 filter date dropdown
           +date-filter(['19 авг - 23 авг'])
-        .form-element 
-          .name-element 
+        .container-subscription-text-field
+          .container-subscription-text-field__title
             h3 subscription text field
           .element-text-field
             +text-field({class: 'text-field_subscription', placeholder:'Email'})
         .empty-space
     .content-form-elements__column
-      .form-element
-        .name-element
+      .container-checkbox-buttons
+        .container-checkbox-buttons__title
             h3 Checkbox Buttons
         .checkbox-buttons
           +checkbox({text: 'Можно курить', condition: 'unchecked', name:'smoking'})
           +checkbox({text: 'Можно с питомцами', condition: "checked", name: 'pet'})
           +checkbox({text: 'Можно пригласить гостей (до 10 человек)', condition: "checked", name: 'guests'})
-      .form-element
-        .name-element
+      .container-radio-buttons
+        .container-radio-buttons__title
           h3 radio Buttons
         .radio-buttons
           +radio-button({text: "Мужчина", name: "gender", checked: "checked"}) 
           +radio-button({text: "Женщина", name: "gender", checked: "unchecked"})  
-      .form-element
-        .name-element
+      .container-toggles
+        .container-toggles__title
           h3 Toggle
-        .toggles
+        .container-toggles__inner
           +toggle(['Получать спецпредложения', 'subscription', 'checked'])
           +toggle(['Получать спецпредложения', 'subscription'])
-      .form-element.form-element__like-buttons 
-        .name-element
+      .container-like-buttons 
+        .container-like-buttons__title
           h3 like button
-        .like-buttons 
-          +like-button([2])
-          +like-button([12, 'active'])
-      .form-element.form-element__rate-button
-        .name-element
-          h3 rate button
-        .rate-button
+        .container-like-buttons__inner
+          .container-like-buttons__left-buttons
+            +like-button([2, "noActive"])
+          +like-button([12, "active"])
+      .container-rate-button
+        h3.container-rate-button__title rate button
+        .container-rate-button__inner
           +rate-button(4)
           +rate-button(5)
     .content-form-elements__column
-      +range-slider()
-      .form-element 
-        .name-element 
-          h3 Buttons
+      .container-range-slider
+        +range-slider()
+      .container-buttons
+        h3.container-buttons__title Buttons
         .four-small-buttons 
           +button(['standard', 'CLICK ME'])
           +button(['standard', 'CLICK ME'])
@@ -107,51 +107,49 @@ block content
           +button(['without-border', 'CLICK ME'])
           +button(['without-border', 'CLICK ME'])
         +button(['big', 'перейти к оплате'])
-      .form-element 
-        .name-element 
+      .container-pagination 
+        .container-pagination__title
           h3 pagination
         +pagination()
     .content-form-elements__column      
       .small-form-element 
-        .form-element_dropdown-default 
-          .name-element
+        .container-dropdown-default 
+          .container-dropdown-default__title
             h3 dropdown 
             h3 default
           +list-of-options(['list-of-options', 2, 2, 0, '2 спальни, 2 кровати...'])
-        .form-element_dropdown-default-open 
-          .name-element
+        .container-dropdown-default-open 
+          .container-dropdown-default-open__title
             h3 dropdown 
             h3 expanded
           +list-of-options(['list-of-options', 2, 2, 0, '2 спальни, 2 кровати'])
-        .form-element_checkbox-list
+        .container-checkbox-list
           +checkbox-list({placeholder: 'expandable checkbox list'})
-        .form-element_checkbox-list-open
+        .container-checkbox-list-open
           +checkbox-list({placeholder: 'expandable checkbox list'})
-        .form-element_benefit-comfort
+        .container-benefit-comfort
           +benefit({image: "insert_emoticon.jpg", alt: "image smiile", title: "Комфорт", description: "Шумопоглощающие стены"})
-        .form-element 
+        .container-benefit-conveniences
           +benefit({modificator: "conveniences", image: "location_city.jpg", alt: "image city", title: "Удобство", description: "Окно в каждой из спален"})  
     .content-form-elements__two-columns
       .content-form-elements__column 
-        .two-columns__dropdown-first
-          .name-element
+        .container-dropdown-first
+          .container-dropdown-first__title
             h3 dropdown 
           +list-of-options(['list-of-options_with-buttons', 0, 0, 0, 'Сколько гостей'])
-        .form-element_checkbox_riches 
-          .name-element 
+        .container-checkbox_riches 
+          .container-checkbox_riches_title
             h3 rich Checkbox Buttons
           .checkbox_riches
             +checkbox_rich({title:'Широкий коридор', description:'Ширина коридоров в номере не менее 91 см.', condition:'unchecked', name:'max-width'})
             +checkbox_rich({title:'Помощник для инвалидов', description:'На 1 этаже вас встретит специалист  и проводит до номера.', condition:'unchecked', name:'support for invalids'})
 
       .content-form-elements__column 
-        .two-columns__dropdown-last
-          .name-element
-            h3 dropdown 
+        .container-dropdown-last
+          h3.container-dropdown-last__title dropdown 
           +list-of-options(['list-of-options_with-buttons', 0, 0, 0, '3 гостя'])
-        .form-element_bullet-list
-          .name-element 
-            h3 bullet list
+        .container-bullet-list
+          h3.container-bullet-list__title bullet list
           +bullet-list('Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00')
       .content-form-element__review
         +room-review(['avatar1.jpg', 12, 'active', 'Мурад Сарафанов', '5 дней назад', 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.']) 
