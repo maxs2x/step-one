@@ -6,7 +6,7 @@
   opacity: 0.5;  
 }
   
-button.button_header-white  {
+.button.button_header-white  {
   display: flex;
   justify-content: center;
   align-items: center;    
@@ -20,8 +20,9 @@ button.button_header-white  {
   height: 1.875rem;
   border-radius: 1.5rem;
   background: white;
-  line-height: 30px;
+  line-height: 1.875rem;
   color: $purple;
+  text-align: center;
 }
 
   

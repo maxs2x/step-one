@@ -15,7 +15,7 @@ mixin checkbox(options)
         input(type="checkbox" checked name=name)
       else 
         input(type="checkbox" name=name)
-      .checkbox-container__checkmark
-      .checkbox-container__checkmark-inner
+      span.checkbox-container__checkmark
+      span.checkbox-container__checkmark-inner
   else 
     +checkbox_rich(options)

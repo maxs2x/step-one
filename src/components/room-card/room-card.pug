@@ -4,7 +4,7 @@ mixin image-slider(...images)
   .image-slider.js-image-slider
     each image in images
       .image-slider__photo-room.js-image-slider__photo-room.image-slider__fade
-        img.image-slider__image-room(src=require("../../../images/slider/" + image))
+        img.image-slider__image-room(src=require("../../../images/slider/" + image) alt="photo room")
     a.image-slider__prev.js-image-slider__prev 
       span.image-slider__arrow-left navigate_before
     a.image-slider__next.js-image-slider__next

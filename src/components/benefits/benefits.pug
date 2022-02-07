@@ -15,7 +15,7 @@ mixin benefit(options)
   - };
 
   div(class=classMainBlock)
-    image.benefit__image(src=require("./images/" + options.image), alt=alt)
+    img.benefit__image(src=require("./images/" + options.image), alt=alt)
     div(class=classTextBlock)
       p.benefit__heading= title 
       p.benefit__description= description
