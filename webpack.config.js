@@ -26,7 +26,7 @@ module.exports = {
     entry: pages.reduce((config, page) => {
         config[page] = `./src/${page}.js`;
         return config;
-    }, {}),
+        }, {}),
     output: {
         filename: '[name].[contenthash].js',
         assetModuleFilename: "assets/[hash][ext][query]",
@@ -45,13 +45,13 @@ module.exports = {
                 new HtmlWebpackPlugin({
                     inject: true,
                     template: `./src/${page}.pug`,
-                    filename: `${page}.html`,
+                    filename: page.split('/')[page.split('/').length - 1] + '.html',
                     chunks: [page],
                 })
         ),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
-        })
+        }),
     ),
     module: {
         rules: [
