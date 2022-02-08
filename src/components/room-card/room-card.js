@@ -1,7 +1,6 @@
 class ImageSlider {
     constructor(container) {
         this.slider = container;
-        console.log(this.slider);
         this.slides = this.slider.querySelectorAll('.js-image-slider__photo-room');
         this.dots = this.slider.querySelectorAll('.js-image-slider__dot');
         this.nextButton = this.slider.querySelector('.js-image-slider__next')
@@ -28,8 +27,7 @@ class ImageSlider {
         for (let i = 0; i < this.dots.length; i++) {  
             this.dots[i].className = this.dots[i].className.replace(" js-image-slider__dot_active", "");
         }
-        console.log('FORE');
-        console.log(n);
+
         this.slides[this.slideIndex].style.display = "block";  
         this.dots[this.slideIndex].className += " js-image-slider__dot_active";
     }
@@ -45,9 +43,7 @@ class ImageSlider {
     }
 
     dotClick(event) {
-        console.log(event);
         let dotIndex = Number(event.currentTarget.getAttribute('data-index'));
-        console.log(dotIndex);
         this.showSlides(dotIndex - 1);
     }
 
@@ -59,7 +55,7 @@ class ImageSlider {
 }
 
 let allImageSliders = document.querySelectorAll('.js-image-slider');
-console.log(allImageSliders);
+
 for (let slider of allImageSliders) {
     new ImageSlider(slider);
 }
