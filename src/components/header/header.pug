@@ -21,8 +21,8 @@ mixin header(options)
     menu = options.menu || defaultMenu;
     valueLogin = options.login || "no-login";
     userLogin = (valueLogin !== "no-login") ? options.userLogin : "Константин Константинопольский";
-    buttonSingIn = options.singIn || {text: "войти", class:"header-white", href: "/pages/website/login/login.html"};
-    buttonSingUp = options.singUp || {text: "зарегистрироваться", class:"header-standard", href: "/pages/website/registration/registration.html"};
+    buttonSingIn = options.singIn || {text: "войти", class:"header-white", href: "login.html"};
+    buttonSingUp = options.singUp || {text: "зарегистрироваться", class:"header-standard", href: "registration.html"};
     
   .header
     .header__logo 
