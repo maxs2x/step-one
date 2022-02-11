@@ -12,11 +12,11 @@
 
 ### Плагины 
 В проекте были использованы следующие плагины:
-  - [Fancybox](https://fancyapps.com/docs/ui/fancybox/) плагин для отображения изображений на странице в фулскрин по табу
+  - [Fancybox ver.4.0.19](https://fancyapps.com/docs/ui/fancybox/) плагин для отображения изображений на странице в фулскрин по табу
 
-  - [Cleave.js](https://nosir.github.io/cleave.js/) плагин для задания маски текстой формы
+  - [Cleave.js ver.1.6.0](https://nosir.github.io/cleave.js/) плагин для задания маски текстой формы
 
-  - [AirDatepicker](https://air-datepicker.com/ru) календарь с гибкой настройкой под любые цели
+  - [AirDatepicker ver.3.1.0](https://air-datepicker.com/ru) календарь с гибкой настройкой под любые цели
 
 
 
