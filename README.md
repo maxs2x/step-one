@@ -26,11 +26,9 @@
   ```
     git clone https://github.com/maxs2x/step-one.git
   ```  
- - установить плагины 
+ - установить все необходимые пакеты
   ```
-     npm install --save-dev @fancyapps/ui
-     npm install --save-dev cleave.js 
-     npm install --save-dev air-datepicker 
+     npm install
   ```   
 - запустить проект 
     - в режиме разработки
@@ -40,4 +38,6 @@
     - собрать страницы сайта из исходников
       ```
         npm run build
-      ```   
+      ``` 
+      
+- после запуска в режиме разработки перейти по ссылке http://localhost:8080/navigations.html 
