@@ -173,7 +173,7 @@ article.room-impressions {
 }
 
 .room-impressions__title {
-  margin-left: 2.625rem;
+  margin-left: 0.9375rem;
 }
 
 @media (max-width: 750px) {
@@ -183,13 +183,18 @@ article.room-impressions {
 }
 
 .room-impressions__inner  {
+  max-width: 20rem;
   width: 99%;
-  margin: 1.375rem auto;
+  margin: 1.375rem auto 1.375rem 0.75rem;
 }
 
 @media (max-width: 750px) {
   .doughnut-diagram-wrapper {
     margin-left: 0rem;
+
+    figure {
+      display: block;
+    }
   }
 }
 
@@ -267,6 +272,8 @@ article.room-impressions {
 @media (max-width: 750px) {
   .cancel-room {
     margin-top: 2.5rem;
+    padding: 0rem 0.5rem;
+    text-align: center;
   }
 }
 
@@ -292,15 +299,17 @@ article.room-impressions {
 
 @media (max-width: 1000px) {
   .reservation {
+    box-sizing: border-box;
     margin-bottom: 2.5rem;
-    width: 100%;
+    width: 98%;
     order: -1;
   }
 }
 
 footer {
-    flex: 0 0 auto;
-    padding-top: 9.9375rem;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding-top: 9.9375rem;
 }
 
 @media (max-width: 1000px) {

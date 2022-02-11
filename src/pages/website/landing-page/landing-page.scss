@@ -96,13 +96,15 @@ main > .slide-third {
 
 @media (max-width: 1300px) {
   .container {
-    padding: 0rem 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 @media (max-width: 760px) {
   .container {
-    padding: 0rem ;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 
@@ -111,10 +113,6 @@ main > .slide-third {
   height: 100%;
   padding-top: 4.5rem;
   position: relative;
-}
-
-.rooms-search {
-  width: 20rem;
 }
 
 @media (max-width: 770px) {

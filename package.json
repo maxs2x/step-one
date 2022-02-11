@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set NODE_ENV=development&&webpack serve --open /navigation.html",
+    "start": "set NODE_ENV=development&&webpack serve --open /navigations.html",
     "dev": "set NODE_ENV=development&&webpack",
     "build": "set NODE_ENV=production&&webpack"
   },

@@ -1,11 +1,11 @@
 @import '../../styles/font.scss';
 @import '../../styles/variables.scss';
 
-//@import '../calendar/calendar.scss';
 @import '../list-of-options/list-of-options.scss';
 
 .rooms-search {
   padding: 2.45rem 1.875rem 1.875rem 1.8125rem;
+  max-width: 20rem;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.29);
   border-radius: 4px;
   background-color: white;

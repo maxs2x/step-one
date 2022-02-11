@@ -3,11 +3,21 @@
   justify-content: space-between;
   width: 100%;
 
+  @media (max-width: 370px) {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__last-date,
   &__first-date {
     width: 100%;
     max-width: 9.375rem;
     display: block;
+
+    @media (max-width: 370px) {
+      margin-top: 1.1875rem;
+    }
   }
 
   &__first-date-title,

@@ -108,9 +108,10 @@ export class CircleChart {
             styleContainer = `
                 display: flex;
                 justify-content: center;
-                flex-direction: row;
-                width: min-content;
+                flex-flow: row wrap;
+                width: 100%;
                 height: min-content;
+                margin: 0rem;
             `,
             
             styleDoughnutDiagram = `

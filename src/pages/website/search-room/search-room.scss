@@ -14,7 +14,6 @@ html {
   margin: 0.5rem 0rem 0rem 0rem;
 }
 
-
 body {
   display: flex;
   flex-direction: column;
@@ -108,6 +107,8 @@ main {
 }
 
 .container__checkbox:checked ~ section.search-filter {
+  display: flex;
+  position: absolute;
   right: 0;
 }
 
@@ -178,14 +179,13 @@ main {
   width: 100%;
 
   @media (max-width: 1000px) { 
-    display: block;
-    position: absolute;
+    display: none;
     top: 5.5rem;
     right: -200rem;
     max-width: none;
     width: 100%;
     background: white;
-    display: flex;
+    
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -298,6 +298,12 @@ main {
 }
 
 @media (max-width: 1000px) {
+  .rooms-list {
+    box-sizing: border-box;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
   .rooms-list__title {
     margin-top: 1rem;
     text-align: center;
@@ -341,6 +347,7 @@ main {
 }
 
 footer {
+  box-sizing: border-box;
   flex: 0 0 auto;
   padding-top: 10.9375rem;
 }

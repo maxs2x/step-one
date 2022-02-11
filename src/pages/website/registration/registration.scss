@@ -63,6 +63,10 @@ main .container::before {
   content: " ";
   width: 0.35rem;
   height: 0.5rem;
+
+  @media (max-width: 470px) {
+    display: none;
+  }
 }
 
 .registration__inner  {
@@ -71,6 +75,7 @@ main .container::before {
 }
 
 footer {
+  box-sizing: border-box;
   flex: 0 0 auto;
   padding-top: 6.6875rem;
 }
