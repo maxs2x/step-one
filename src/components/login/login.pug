@@ -1,8 +1,14 @@
 include ../button/button.pug
 include ../text-field/text-field.pug
 
-mixin login()
-  form.login 
+mixin login(options)
+  -
+    optionsForm = options || {};
+    methodForm = optionsForm.method || "get";
+    actionForm = optionsForm.action || "";
+    nameForm = optionsForm.name || "login";
+
+  form.login(method=methodForm action=actionForm name=nameForm) 
     h1.login__title Войти 
     .login__email 
       +text-field({id: "email", type: "email", placeholder: "Email"})
@@ -12,5 +18,5 @@ mixin login()
       +button(["big", "войти"])
     .login__button-registration 
       p Нет аккаунта на Toxin?
-      .login__button-sing-in
+      a.login__button-sing-in(href="registration.html")
         +button(["white", "создать"])

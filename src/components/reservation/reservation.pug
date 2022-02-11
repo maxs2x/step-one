@@ -3,7 +3,13 @@ include ../list-of-options/list-of-options.pug
 include ../button/button.pug
 
 mixin reservation()
-  form.reservation.js-reservation 
+  -
+    optionsForm = options || {};
+    methodForm = optionsForm.method || "get";
+    actionForm = optionsForm.action || "";
+    nameForm = optionsForm.name || "reservation";
+
+  form.reservation.js-reservation(method=methodForm action=actionForm name=nameForm)
     .reservation__header
       .reservation__room-number
         h3.reservation__symbol-number № 

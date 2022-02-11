@@ -3,8 +3,14 @@ include ../toggle/toggle.pug
 include ../radio-button/radio-button.pug
 include ../button/button.pug
 
-mixin registration()
-  form.registration 
+mixin registration(options)
+  -
+    optionsForm = options || {};
+    methodForm = optionsForm.method || "get";
+    actionForm = optionsForm.action || "";
+    nameForm = optionsForm.name || "registration";
+
+  form.registration(method=methodForm action=actionForm name=nameForm)  
     h1.registration__title Регистрация аккаунта
     .registration__input-name 
       +text-field({id: "name", placeholder: "Имя"})
@@ -26,4 +32,5 @@ mixin registration()
       +button(["big", "зарегистрироваться"])
     .registration__login 
       p Уже есть аккаунт на Toxin
-      +button(["white", "войти"])
+      a.registration__login-button(href="login.html")
+       +button(["white", "войти"])

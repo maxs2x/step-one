@@ -3,7 +3,13 @@ include ../list-of-options/list-of-options.pug
 include ../button/button.pug
 
 mixin rooms-search()
-  form.rooms-search 
+  -
+    optionsForm = options || {};
+    methodForm = optionsForm.method || "get";
+    actionForm = optionsForm.action || "";
+    nameForm = optionsForm.name || "room-search";
+
+  form.rooms-search(method=methodForm action=actionForm name=nameForm) 
     h1 Найдём номера под ваши пожелания
     .rooms-search__in-out 
       +date-range(["ДД.ММ.ГГГГ", "ДД.ММ.ГГГГ", ""])
