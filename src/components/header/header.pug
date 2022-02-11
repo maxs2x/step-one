@@ -25,7 +25,7 @@ mixin header(options)
     buttonSingUp = options.singUp || {text: "зарегистрироваться", class:"header-standard", href: "registration.html"};
     
   .header
-    .header__logo 
+    a.header__logo(href="landing-page.html") 
       .header__image-logo 
         img(src=require("../../../components/header/image/header-logo.jpg") alt="излбражение логотипа")
       .header__text-logo 
