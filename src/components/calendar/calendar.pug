@@ -20,7 +20,7 @@ mixin date-range([first_date, last_date, form_elements])
         h3.date-range__last-date-title date Dropdown  
         label.date-range__label
           input.date-range__date-out.js-date-range__date-out(type="text" placeholder=lastDate)
-      input.date-range__calendar.js-date-range__calendar
+      input.date-range__calendar.js-date-range__calendar(disabled="disabled")
   else 
     .date-range.js-date-range
       .date-range__first-date
@@ -31,6 +31,6 @@ mixin date-range([first_date, last_date, form_elements])
         h3.date-range__last-date-title выезд
         label.date-range__label
           input.date-range__date-out.js-date-range__date-out(type="text" placeholder=last_date)
-      input.date-range__calendar.js-date-range__calendar
+      input.date-range__calendar.js-date-range__calendar(disabled="disabled")
   
   
